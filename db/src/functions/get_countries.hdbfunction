@@ -1,0 +1,14 @@
+FUNCTION "get_countries" ( )
+	RETURNS table (NAME NVARCHAR(80), CODE NVARCHAR(2)) 
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+	Write your function logic 
+ *****************************/ 
+ 
+ return 
+   select NAME, ALPHA2 as CODE
+     from "ISO.COUNTRIES"; 
+ 
+END;

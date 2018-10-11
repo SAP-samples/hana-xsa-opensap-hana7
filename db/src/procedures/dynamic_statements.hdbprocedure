@@ -1,0 +1,21 @@
+PROCEDURE "dynamic_statements" ( 
+     IN im_field VARCHAR(5000),
+     IN im_category_filter_value VARCHAR(5000) DEFAULT 'Laser printers' )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+
+ DECLARE sqlstr NCLOB;
+ DECLARE mycond condition for sql_error_code 10001;
+           
+ IF is_sql_injection_safe(im_field) <> 1 then
+     SIGNAL mycond SET MESSAGE_TEXT = 'Invalid field: ' || :im_field;
+ END IF;
+
+ sqlstr = 'SELECT ' || :im_field ||
+         ' FROM "MD.Products"  WHERE CATEGORY = ''' ||
+          escape_single_quotes(:im_category_filter_value) || '''';
+ EXECUTE IMMEDIATE(:sqlstr);              
+
+END

@@ -1,0 +1,48 @@
+PROCEDURE "create_users_mass" ( 
+	IN IM_PREFIX VARCHAR(30), 
+    IN IM_PASSWORD VARCHAR(30), 
+    IN IM_NUMBER INTEGER,
+    IN ROLES "users.RolesT", 
+    OUT LOG "users.LogT" ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY DEFINER 
+	AS
+	
+	lv_user varchar(30) := null;
+	lv_counter integer := 0; 
+	CURSOR cur FOR select * from :ROLES;
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ 
+  -- log = select 'Begin User Createion' as MESSAGE from dummy;
+ 
+   WHILE :lv_counter < :im_number DO 
+
+   lv_counter := :lv_counter + 1;
+   if :im_number < 100 THEN
+   	  lv_user := :im_prefix || LPAD(:lv_counter, 2, '0'); 
+   ELSE
+   	  lv_user := :im_prefix || LPAD(:lv_counter, 3, '00');    
+   END IF;
+
+   EXEC 'CREATE USER ' || :lv_user || ' PASSWORD ' || :im_password  || ' SET PARAMETER CLIENT = ''001'''; 
+
+   EXEC 'ALTER USER ' || :lv_user || ' DISABLE PASSWORD LIFETIME';
+   --EXEC 'ALTER USER ' || :lv_user || ' SET PARAMETER XS_RC_XS_CONTROLLER_ADMIN = ''XS_CONTROLLER_ADMIN''';
+   --EXEC 'ALTER USER ' || :lv_user || ' SET PARAMETER XS_RC_XS_AUTHORIZATION_ADMIN = ''XS_AUTHORIZATION_ADMIN''';
+   EXEC 'ALTER USER ' || :lv_user || ' SET PARAMETER XS_RC_XS_CONTROLLER_USER = ''XS_CONTROLLER_USER''';
+   EXEC 'ALTER USER ' || :lv_user || ' SET PARAMETER XS_RC_XS_USER_PUBLIC = ''XS_USER_PUBLIC''';  
+   EXEC 'ALTER USER ' || :lv_user || ' SET PARAMETER XS_RC_WEBIDE_USER = ''WEBIDE_USER'''; 
+	
+--   FOR crow AS cur DO
+--     call "GRANT_ACTIVATED_ROLE"(crow.ROLE_NAME, :lv_user);
+--   END FOR;
+   log.MESSAGE[lv_counter] = 'User ' || lv_user || ' has been created';
+
+ -- log = select 'User ' || lv_user || ' has been created' as MESSAGE from dummy union 
+ --              select * from :log; 
+  END WHILE;
+  
+END

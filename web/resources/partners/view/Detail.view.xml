@@ -1,0 +1,38 @@
+<core:View controllerName="sap.shineNext.partners.controller.Detail" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:h="http://www.w3.org/1999/xhtml">
+	<Page
+		title="{name}"
+		navButtonText="Items"
+		navButtonPress="navButtonPress"
+		showNavButton="true"
+		icon="{img>/icon/ui5}">
+		<content>
+			<List>
+				<items>
+					<DisplayListItem
+						label="Partner Id"
+						value="{path:'Id'}" />
+					<DisplayListItem
+						label="Company"
+						value="{path:'CompanyName'}" />
+					<DisplayListItem
+						label="Email Address"
+						value="{path:'EmailAddress'}" />
+					<DisplayListItem
+						label="City"
+						value="{path:'City'}" />						
+					<DisplayListItem
+						label="Country"
+						value="{path:'Country'}" />							
+					<DisplayListItem
+						label="Region"
+						value="{path:'Region'}" />	
+				</items>
+			</List>			
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

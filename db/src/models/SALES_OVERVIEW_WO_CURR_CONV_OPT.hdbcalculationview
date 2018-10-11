@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALES_OVERVIEW_WO_CURR_CONV_OPT" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALES_OVERVIEW_WO_CURR_CONV_OPT"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SO.Header">
+    <resourceUri>SO.Header</resourceUri>
+  </DataSource>
+  <DataSource id="SO.Item">
+    <resourceUri>SO.Item</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="LIFECYCLESTATUS"><descriptions/>
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="BILLINGSTATUS"><descriptions/>
+        <descriptions defaultDescription="BILLINGSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERYSTATUS"><descriptions/>
+        <descriptions defaultDescription="DELIVERYSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDBY"><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="POSTING_DATE"><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="SALESORDERID"><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/>
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT"><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="TAXAMOUNT"><descriptions/>
+        <descriptions defaultDescription="TAXAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITY"><descriptions/>
+        <descriptions defaultDescription="QUANTITY"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SO.Header">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILLINGSTATUS" source="BILLINGSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYSTATUS" source="DELIVERYSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDBY" source="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTING_DATE" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+    </input>
+    <input node="SO.Item">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCT.PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="HEADER.SALESORDERID"/>
+    </input>
+    <joinAttribute name="SALESORDERID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="LIFECYCLESTATUS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="LIFECYCLESTATUS"/>
+    </attribute>
+    <attribute id="BILLINGSTATUS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BILLINGSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="BILLINGSTATUS"/>
+    </attribute>
+    <attribute id="DELIVERYSTATUS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERYSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="DELIVERYSTATUS"/>
+    </attribute>
+    <attribute id="HISTORY_CREATEDBY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CREATEDBY"/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CREATEDBY"/>
+    </attribute>
+    <attribute id="SALESORDERID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="PARTNERID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="PRODUCTID_1" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="QUANTITYUNIT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUANTITYUNIT"/>
+      <keyMapping columnObjectName="Join_1" columnName="QUANTITYUNIT"/>
+    </attribute>
+    <attribute id="PRODUCTID$local">
+      <descriptions/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCTID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="POSTING_DATE" order="5" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="POSTING_DATE"/>
+      <measureMapping columnObjectName="Join_1" columnName="POSTING_DATE"/>
+    </measure>
+    <measure id="NETAMOUNT" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="NETAMOUNT"/>
+    </measure>
+    <measure id="TAXAMOUNT" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAXAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="TAXAMOUNT"/>
+    </measure>
+    <measure id="QUANTITY" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="QUANTITY"/>
+      <measureMapping columnObjectName="Join_1" columnName="QUANTITY"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="RM_AMOUNT_NEW" hidden="false" order="14" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_NEW"/>
+      <formula>if(&quot;LIFECYCLESTATUS&quot; = 'N', &quot;NETAMOUNT&quot;, 0)
+</formula>
+      </measure>
+    <measure id="RM_AMOUNT_COMPLETED" hidden="false" order="15" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_COMPLETED"/>
+      <formula>if(&quot;LIFECYCLESTATUS&quot; = 'C', &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+    <measure id="RM_AMOUNT_INPROCESS" hidden="false" order="16" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_INPROCESS"/>
+      <formula>if(&quot;LIFECYCLESTATUS&quot; = 'P', &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+    <measure id="RM_AMOUNT_PAID" hidden="false" order="17" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_PAID"/>
+      <formula>if(&quot;BILLINGSTATUS&quot; = 'P', &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+    <measure id="RM_AMOUNT_UNPAID" hidden="false" order="18" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_UNPAID"/>
+      <formula>if(&quot;BILLINGSTATUS&quot; = 'N' OR isnull(&quot;BILLINGSTATUS&quot;), &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+    <measure id="RM_AMOUNT_DELIVERED" hidden="false" order="19" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_DELIVERED"/>
+      <formula>if(&quot;DELIVERYSTATUS&quot; = 'D', &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+    <measure id="RM_AMOUNT_UNDELIVERED" hidden="false" order="20" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="15" scale="2">
+      <descriptions defaultDescription="RM_AMOUNT_UNDELIVERED"/>
+      <formula>if(&quot;DELIVERYSTATUS&quot; = 'I' OR isnull(&quot;DELIVERYSTATUS&quot;), &quot;NETAMOUNT&quot;, 0)</formula>
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="core.models::PROD">
+      <attributes>
+        <attributeRef>PRODUCTID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>PRODUCTID</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="273"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="SO.Header" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="278.97265625"/>
+    </shape>
+    <shape modelObjectName="SO.Item" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::PROD" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

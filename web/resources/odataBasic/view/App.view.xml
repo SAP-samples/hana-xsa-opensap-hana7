@@ -1,0 +1,13 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable"
+	controllerName="opensap.odataBasic.controller.App" height="100%">
+	<Page title="{i18n>appTitle}">
+		<content>
+			<smartTable:SmartTable id="bpTable" header="{i18n>UList}" editable="false" showRowCount="true" enableAutoBinding="true"
+				showFullScreenButton="true" tableType="Table">
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+		</content>
+	</Page>
+</mvc:View>

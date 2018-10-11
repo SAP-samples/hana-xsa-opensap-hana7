@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="core.models::PO_BASIC" defaultClient="$$client$$" defaultLanguage="$$language$$" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection" applyPrivilegeType="NONE">
+<origin/>
+  <descriptions defaultDescription="PO_BASIC"/>
+  <metadata changedAt="2015-04-24 10:41:19.109"/>
+  <localVariables/>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="PO.Header">
+      <resourceUri>PO.Header</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews/>
+  <logicalModel id="PO.Header">
+    <attributes>
+      <attribute id="pold" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase Order ID"/>
+        <keyMapping columnObjectName="PO.Header" columnName="PURCHASEORDERID"/>
+      </attribute>
+      <attribute id="createdBy" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created By"/>
+        <keyMapping columnObjectName="PO.Header" columnName="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      </attribute>
+      <attribute id="createdAt" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Created At"/>
+        <keyMapping columnObjectName="PO.Header" columnName="HISTORY.CREATEDAT"/>
+      </attribute>
+      <attribute id="changedBy" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Changed By"/>
+        <keyMapping columnObjectName="PO.Header" columnName="HISTORY.CHANGEDBY.EMPLOYEEID"/>
+      </attribute>
+      <attribute id="changedAt" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Changed At"/>
+        <keyMapping columnObjectName="PO.Header" columnName="HISTORY.CHANGEDAT"/>
+      </attribute>
+      <attribute id="partnerId" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Partner ID"/>
+        <keyMapping columnObjectName="PO.Header" columnName="PARTNER.PARTNERID"/>
+      </attribute>
+      <attribute id="currency" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency"/>
+        <keyMapping columnObjectName="PO.Header" columnName="CURRENCY"/>
+      </attribute>
+      <attribute id="grossAmount" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Gross Amount"/>
+        <keyMapping columnObjectName="PO.Header" columnName="GROSSAMOUNT"/>
+      </attribute>
+      <attribute id="netAmount" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Net Amount"/>
+        <keyMapping columnObjectName="PO.Header" columnName="NETAMOUNT"/>
+      </attribute>
+      <attribute id="taxAmount" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Tax Amount"/>
+        <keyMapping columnObjectName="PO.Header" columnName="TAXAMOUNT"/>
+      </attribute>
+      <attribute id="lifecycleStatus" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+        <keyMapping columnObjectName="PO.Header" columnName="LIFECYCLESTATUS"/>
+      </attribute>
+      <attribute id="approvalStatus" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="APPROVALSTATUS"/>
+        <keyMapping columnObjectName="PO.Header" columnName="APPROVALSTATUS"/>
+      </attribute>
+      <attribute id="confirmStatus" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CONFIRMSTATUS"/>
+        <keyMapping columnObjectName="PO.Header" columnName="CONFIRMSTATUS"/>
+      </attribute>
+      <attribute id="orderingStatus" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ORDERINGSTATUS"/>
+        <keyMapping columnObjectName="PO.Header" columnName="ORDERINGSTATUS"/>
+      </attribute>
+      <attribute id="invoicingStatus" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="INVOICINGSTATUS"/>
+        <keyMapping columnObjectName="PO.Header" columnName="INVOICINGSTATUS"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/></shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

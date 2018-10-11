@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable">
+	<VBox fitContainer="true">
+		<smartTable:SmartTable id="tblBPHeader" tableType="Table" header="{i18n>BP}" showRowCount="true" enableAutoBinding="true"
+			showFullScreenButton="true"></smartTable:SmartTable>
+	</VBox>
+</core:FragmentDefinition>

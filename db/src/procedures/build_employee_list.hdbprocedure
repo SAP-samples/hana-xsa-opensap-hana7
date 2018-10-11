@@ -1,0 +1,20 @@
+PROCEDURE "build_employee_list" ( out ex_employees table ( EMPLOYEEID NVARCHAR(10), 
+                               "NAME.FIRST" NVARCHAR(40), 
+                               "NAME.LAST" NVARCHAR(40), 
+                               SALARYAMOUNT integer ) DEFAULT EMPTY  )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+ ex_employees.EMPLOYEEID[1] = '1000001';
+ ex_employees."NAME.FIRST"[1] = 'Mickey';
+ ex_employees."NAME.LAST"[1] = 'Mouse'; 
+ ex_employees.SALARYAMOUNT[1] = '185000';
+
+ ex_employees.EMPLOYEEID[2] = '1000002';
+ ex_employees."NAME.FIRST"[2] = 'Donald';
+ ex_employees."NAME.LAST"[2] = 'Duck';
+ ex_employees.SALARYAMOUNT[2] = '205000';
+
+END

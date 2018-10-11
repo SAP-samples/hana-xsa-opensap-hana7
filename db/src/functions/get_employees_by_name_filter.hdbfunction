@@ -1,0 +1,26 @@
+FUNCTION "get_employees_by_name_filter" 
+   (im_lastNameFilter nvarchar(40))  
+   RETURNS table ( EMPLOYEEID NVARCHAR(10), 
+                   "NAME.FIRST" NVARCHAR(40), 
+                   "NAME.LAST" NVARCHAR(40), 
+                   EMAILADDRESS NVARCHAR(255),
+                   ADDRESSID NVARCHAR(10), CITY NVARCHAR(40),  
+                   POSTALCODE NVARCHAR(10), STREET NVARCHAR(60))  
+
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+	Write your function logic 
+ *****************************/ 
+  RETURN  
+    select a.EMPLOYEEID, a."NAME.FIRST", 
+         a."NAME.LAST", a.EMAILADDRESS,   
+         a."ADDRESSES.ADDRESSID" as ADDRESSID, b.CITY, 
+         b.POSTALCODE, b.STREET  
+           from "MD.Employees"  as a  
+              inner join "MD.Addresses"  as b  
+                  on a."ADDRESSES.ADDRESSID" = b.ADDRESSID  
+                       where contains("NAME.LAST", :im_lastNameFilter, FUZZY(0.9));  
+ 
+END;

@@ -1,0 +1,7 @@
+using "MD.Employees" as Employees; 
+
+AccessPolicy dcl_aspect { 
+  aspect aspCountry as  
+    select from Employees { EMPLOYEEID }
+      where $user in LOGINNAME; 
+};  

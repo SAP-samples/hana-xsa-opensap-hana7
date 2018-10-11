@@ -1,0 +1,21 @@
+PROCEDURE "drop_users" ( IN IM_PREFIX VARCHAR(30), IN IM_NUMBER INTEGER ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY DEFINER 
+	AS
+	
+lv_user varchar(30) := null;
+lv_counter integer := 0;
+	
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+  WHILE :lv_counter < :im_number DO 
+
+   lv_counter := :lv_counter + 1;
+   lv_user := :im_prefix || LPAD(:lv_counter, 2, '0'); 
+  
+   EXEC 'DROP USER ' || :lv_user; 
+
+  END WHILE;
+END

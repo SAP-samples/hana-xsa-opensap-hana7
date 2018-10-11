@@ -1,0 +1,36 @@
+PROCEDURE "insert_product_data" ( 
+       in im_product nvarchar(10),
+        in im_category nvarchar(40),
+        in im_price decimal(15,2),
+        out ex_message nvarchar(200) ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+
+DECLARE lcon_10001 CONDITION FOR SQL_ERROR_CODE 10001;  
+
+DECLARE EXIT HANDLER FOR lcon_10001    -- RESIGNAL
+BEGIN
+  ex_message :=  'Error Code: ' || ::SQL_ERROR_CODE || ' ' || ::SQL_ERROR_MESSAGE; 
+END;
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION   -- SQL_ERROR_CODE 301
+BEGIN
+  ex_message := 'SQL Exception occurred!!';   
+END;
+
+if :im_product = ' ' or :im_category = ' ' or :im_price = 0 then
+SIGNAL lcon_10001 SET MESSAGE_TEXT = 'Input parameter can not be empty';  
+end if;
+
+INSERT into "Product.Products" 
+          values( :im_product, :im_category, :im_price);
+
+ex_message := 'Product ' || :im_product || ' inserted successfully';  
+ 
+END

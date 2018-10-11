@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::USER_DETAILS_EXT" applyPrivilegeType="SQL_ANALYTIC_PRIVILEGE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="USER_DETAILS_EXT"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="USER_DETAILS">
+    <resourceUri>USER_DETAILS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="USER_DETAILS">
+  <attributes>
+    <attribute id="EMAIL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Email"/>
+      <keyMapping columnObjectName="USER_DETAILS" columnName="EMAIL"/>
+    </attribute>
+    <attribute id="FIRSTNAME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FirstName"/>
+      <keyMapping columnObjectName="USER_DETAILS" columnName="FIRSTNAME"/>
+    </attribute>
+    <attribute id="LASTNAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LastName"/>
+      <keyMapping columnObjectName="USER_DETAILS" columnName="LASTNAME"/>
+    </attribute>
+    <attribute id="USERID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UserId"/>
+      <keyMapping columnObjectName="USER_DETAILS" columnName="USERID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

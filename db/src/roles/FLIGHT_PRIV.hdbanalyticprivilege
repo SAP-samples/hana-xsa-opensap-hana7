@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Privilege:analyticPrivilege xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="FLIGHT_PRIV" privilegeType="SQL_ANALYTIC_PRIVILEGE" schemaVersion="1.1">
+<descriptions defaultDescription="FLIGHT Privileges"/>
+<securedModels>
+  <modelUri>core.models::SFLIGHT_MODEL</modelUri>
+</securedModels>
+<whereSql>&quot;MANDT&quot; = JSON_VALUE((SELECT SESSION_CONTEXT('XS_CLIENT') FROM DUMMY), '$[0]')</whereSql>
+</Privilege:analyticPrivilege> 

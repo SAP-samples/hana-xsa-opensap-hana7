@@ -1,0 +1,3 @@
+entity BASE {
+  key ID : Integer;
+};

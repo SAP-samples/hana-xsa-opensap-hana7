@@ -1,0 +1,1 @@
+{"type":"sap.hdb","builders":{"default":"hdi-builder","configs":{}},"runners":{"default":"system:/sap.hdb/default","configs":{}},"attributes":{},"description":"","mixinTypes":["mtamodule","fullmtabuild"]}

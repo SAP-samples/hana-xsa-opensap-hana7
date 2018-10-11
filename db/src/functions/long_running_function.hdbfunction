@@ -1,0 +1,22 @@
+FUNCTION "long_running_function" (IN duration INT )
+	RETURNS  TABLE (COL INT )
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+	Write your function logic 
+ *****************************/  
+ DECLARE i, status INTEGER = 1; 
+ declare lt_res table ( COL integer );
+ 
+  while :i < 10000
+  do 
+		lt_res.COL[:i] = i;
+		i = :i+1;
+  end while;
+  
+  	status = "wait"(:duration);
+    lt_res.COL[:i+1] = :status;
+  return :lt_res; 
+  
+END;

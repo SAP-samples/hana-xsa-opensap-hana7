@@ -1,0 +1,57 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "shadow::POShadow.Header",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "purchaseOrder.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "PURCHASEORDERID",
+					"HISTORY.CREATEDBY.EMPLOYEEID",
+					"HISTORY.CREATEDAT",
+					"HISTORY.CHANGEDBY.EMPLOYEEID",
+					"HISTORY.CHANGEDAT",
+					"NOTEID",
+					"PARTNER.PARTNERID",
+					"CURRENCY",
+					"GROSSAMOUNT",
+					"NETAMOUNT",
+					"TAXAMOUNT",
+					"LIFECYCLESTATUS",
+					"APPROVALSTATUS",
+					"CONFIRMSTATUS",
+					"ORDERINGSTATUS",
+					"INVOICINGSTATUS"
+                ]
+            }
+        },
+        {
+            "target_table": "shadow::POShadow.Item",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "purchaseOrderItem.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "HEADER.PURCHASEORDERID",
+					"PRODUCT.PRODUCTID",
+					"NOTEID",
+					"CURRENCY",
+					"GROSSAMOUNT",
+					"NETAMOUNT",
+					"TAXAMOUNT",
+					"QUANTITY",
+					"QUANTITYUNIT",
+					"DELIVERYDATE"
+                ]
+            }
+        }
+    ]
+}

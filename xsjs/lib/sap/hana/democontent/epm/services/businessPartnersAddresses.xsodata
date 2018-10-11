@@ -1,0 +1,19 @@
+service  { 
+  
+ "MD.BusinessPartner"
+	as "BusinessPartners"
+	navigates ("ToAddresses" as "AddRef")
+   create events(before "sap.hana.democontent.epm.services:businessPartnersAddresses.xsjslib::bp_create_before_exit");
+	
+ "MD.Addresses"
+	as "Addresses"
+	without ("POINT")
+	create events(before "sap.hana.democontent.epm.services:businessPartnersAddresses.xsjslib::address_create_before_exit");
+	
+ association "ToAddresses" principal "BusinessPartners"("ADDRESSES.ADDRESSID")
+	  multiplicity "1" 
+	  dependent "Addresses"("ADDRESSID") multiplicity "1"
+		   over "MD.Addresses"
+           principal("ADDRESSID") dependent ("ADDRESSID")
+           update using "sap.hana.democontent.epm.services:businessPartnersAddresses.xsjslib::assocation_create_exit";	
+}

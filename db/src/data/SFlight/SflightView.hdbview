@@ -1,0 +1,28 @@
+VIEW "SflightView" ( 
+     "Client",
+	 "CarrierId",
+	 "ConnectionId",
+	 "FlightDate",
+	 "Price",
+	 "Currency",
+	 "PlaneType",
+	 "BookingId",
+	 "CustomerId",
+	 "CustomerType",
+	 "PassengerName" ) AS SELECT
+	 "FLIGHTTBL_$0"."MANDT" AS "Client" ,
+	 "FLIGHTTBL_$0"."CARRID" AS "CarrierId" ,
+	 "FLIGHTTBL_$0"."CONNID" AS "ConnectionId" ,
+	 "FLIGHTTBL_$0"."FLDATE" AS "FlightDate" ,
+	 "FLIGHTTBL_$0"."PRICE" AS "Price" ,
+	 "FLIGHTTBL_$0"."CURRENCY" AS "Currency" ,
+	 "FLIGHTTBL_$0"."PLANETYPE" AS "PlaneType" ,
+	 "SBOOK_$1"."BOOKID" AS "BookingId" ,
+	 "SBOOK_$1"."CUSTOMID" AS "CustomerId" ,
+	 "SBOOK_$1"."CUSTTYPE" AS "CustomerType" ,
+	 "SBOOK_$1"."PASSNAME" AS "PassengerName" 
+FROM ( "SFLIGHT" AS "FLIGHTTBL_$0" 
+	LEFT OUTER JOIN "SBOOK" AS "SBOOK_$1" ON ( ( "SBOOK_$1"."MANDT" = "FLIGHTTBL_$0"."MANDT" ) 
+		AND ( "SBOOK_$1"."CARRID" = "FLIGHTTBL_$0"."CARRID" ) 
+		AND ( "SBOOK_$1"."CONNID" = "FLIGHTTBL_$0"."CONNID" ) 
+		AND ( "SBOOK_$1"."FLDATE" = "FLIGHTTBL_$0"."FLDATE" ) ) ) WITH READ ONLY

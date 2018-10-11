@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::POExpanded" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="POExpanded"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PurchaseOrder.ItemView">
+    <resourceUri>PurchaseOrder.ItemView</resourceUri>
+  </DataSource>
+  <DataSource id="core.models::PRODUCTS">
+    <resourceUri>core.models::PRODUCTS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="PurchaseOrderItemId" aggregationType="sum">
+        <descriptions defaultDescription="PurchaseOrderItemId"/>
+      </viewAttribute>
+      <viewAttribute id="ProductID">
+        <descriptions defaultDescription="ProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Amount" aggregationType="sum">
+        <descriptions defaultDescription="Amount"/>
+      </viewAttribute>
+      <viewAttribute id="Quantity" aggregationType="sum">
+        <descriptions defaultDescription="Quantity"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Desciption">
+        <descriptions defaultDescription="TEXT"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Name">
+        <descriptions defaultDescription="TEXT"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Category">
+        <descriptions defaultDescription="CATEGORY"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="PurchaseOrder.ItemView">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PurchaseOrderItemId" source="PurchaseOrderItemId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductID" source="ProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Quantity" source="Quantity"/>
+    </input>
+  
+    <input node="core.models::PRODUCTS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Desciption" source="Product_Desciption"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Name" source="Product_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Category" source="Product_Category"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductID" source="Product_Id"/>
+    </input>
+    <joinAttribute name="ProductID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="PurchaseOrderItemId" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PurchaseOrderItemId"/>
+      <keyMapping columnObjectName="Join_1" columnName="PurchaseOrderItemId"/>
+    </attribute>
+    <attribute id="ProductID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ProductID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ProductID"/>
+    </attribute>
+    <attribute id="Product_Desciption" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEXT"/>
+      <keyMapping columnObjectName="Join_1" columnName="Product_Desciption"/>
+    </attribute>
+    <attribute id="Product_Name" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEXT"/>
+      <keyMapping columnObjectName="Join_1" columnName="Product_Name"/>
+    </attribute>
+    <attribute id="Product_Category" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CATEGORY"/>
+      <keyMapping columnObjectName="Join_1" columnName="Product_Category"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Amount" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Amount"/>
+      <measureMapping columnObjectName="Join_1" columnName="Amount"/>
+    </measure>
+    <measure id="Quantity" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Quantity"/>
+      <measureMapping columnObjectName="Join_1" columnName="Quantity"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="248"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="PurchaseOrder.ItemView" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::PRODUCTS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

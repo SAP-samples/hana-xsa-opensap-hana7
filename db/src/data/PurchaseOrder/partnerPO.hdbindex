@@ -1,0 +1,1 @@
+INDEX "PARTNER_IDX" ON "PurchaseOrder.Header" (PARTNER) 

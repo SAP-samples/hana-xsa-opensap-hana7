@@ -1,0 +1,38 @@
+service namespace "com.sap.openSAP.hana.example.services" { 
+
+	"core.models::PO_HEADER_EN" 
+	as "PurchaseOrderCollection"
+	keys ("PURCHASEORDERID")
+	navigates ("PO_Supplier" as "Supplier", "PO_Notes" as "Notes", 
+	           "PO_Attachments" as "Attachments", "PO_Item" as "PurchaseOrder_Items");
+	
+	"MDViews.BuyerView"
+	as "Supplier"
+	keys ("Id");
+
+	"Util.NotesView"
+	as "Notes"
+	keys ("NOTEID");
+	
+	"Util.AttachementsView"
+	as "Attachments"
+	keys ("NOTEID");
+	
+	"core.models::PO_ITEM"
+	as "PurchaseOrder_Items"
+	keys ("PURCHASEORDERID","PRODUCT_PRODUCTID")
+	navigates ("PO_Item" as "PurchaseOrder_Items");
+	
+	association "PO_Supplier" principal "PurchaseOrderCollection"("PARTNER_PARTNERID") 
+     multiplicity "1" dependent "Supplier"("Id") multiplicity "1";
+	
+	association "PO_Item" principal "PurchaseOrderCollection"("PURCHASEORDERID") 
+     multiplicity "1" dependent "PurchaseOrder_Items"("PURCHASEORDERID") multiplicity "*"; 
+     
+	association "PO_Notes" principal "PurchaseOrderCollection"("NOTEID") 
+     multiplicity "1" dependent "Notes"("LINKID") multiplicity "*"; 
+     
+	association "PO_Attachments" principal "PurchaseOrderCollection"("NOTEID") 
+     multiplicity "1" dependent "Attachments"("LINKID") multiplicity "*";      
+          
+}

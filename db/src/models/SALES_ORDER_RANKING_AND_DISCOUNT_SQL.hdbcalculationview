@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="core.models::SALES_ORDER_RANKING_AND_DISCOUNT_SQL" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALES_ORDER_RANKING_AND_DISCOUNT_SQL"/>
+<localVariables>
+  <variable id="IP_FR_DTE" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="DATE" length="0">
+      <valueDomain type="empty"/>
+      <selection/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_TO_DTE" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="DATE" length="0">
+      <valueDomain type="empty"/>
+      <selection/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_REGION" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="NVARCHAR" length="5">
+      <valueDomain type="empty"/>
+      <selection/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="sales_order_ranking_and_discount">
+    <targetVariable name="IP_FR_DTE" resourceUri="undefined::sales_order_ranking_and_discount"/>
+    <localVariable>IP_FR_DTE</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="sales_order_ranking_and_discount">
+    <targetVariable name="IP_TO_DTE" resourceUri="undefined::sales_order_ranking_and_discount"/>
+    <localVariable>IP_TO_DTE</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="sales_order_ranking_and_discount">
+    <targetVariable name="IP_REGION" resourceUri="undefined::sales_order_ranking_and_discount"/>
+    <localVariable>IP_REGION</localVariable>
+  </mapping>
+</variableMappings>
+<dataSources>
+  <DataSource id="sales_order_ranking_and_discount" type="TABLE_FUNCTION">
+    <resourceUri>sales_order_ranking_and_discount</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="COMPANY_NAME">
+        <descriptions defaultDescription="COMPANY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="REGION">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="SALES">
+        <descriptions defaultDescription="SALES"/>
+      </viewAttribute>
+      <viewAttribute id="ORDERS">
+        <descriptions defaultDescription="ORDERS"/>
+      </viewAttribute>
+      <viewAttribute id="SALES_RANK">
+        <descriptions defaultDescription="SALES_RANK"/>
+      </viewAttribute>
+      <viewAttribute id="ORDER_RANK">
+        <descriptions defaultDescription="ORDER_RANK"/>
+      </viewAttribute>
+      <viewAttribute id="DISCOUNT">
+        <descriptions defaultDescription="DISCOUNT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="sales_order_ranking_and_discount">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANY_NAME" source="COMPANY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES" source="SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDERS" source="ORDERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_RANK" source="SALES_RANK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDER_RANK" source="ORDER_RANK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISCOUNT" source="DISCOUNT"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="COMPANY_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANY_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="COMPANY_NAME"/>
+    </attribute>
+    <attribute id="REGION" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Projection_1" columnName="REGION"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SALES" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SALES"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SALES"/>
+    </measure>
+    <measure id="ORDERS" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ORDERS"/>
+      <measureMapping columnObjectName="Projection_1" columnName="ORDERS"/>
+    </measure>
+    <measure id="SALES_RANK" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SALES_RANK"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SALES_RANK"/>
+    </measure>
+    <measure id="ORDER_RANK" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ORDER_RANK"/>
+      <measureMapping columnObjectName="Projection_1" columnName="ORDER_RANK"/>
+    </measure>
+    <measure id="DISCOUNT" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DISCOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="DISCOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="30" y="248"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

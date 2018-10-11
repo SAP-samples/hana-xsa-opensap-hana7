@@ -1,0 +1,9 @@
+VIEW "MDViews.ProductViewSub" ( 
+     "Product_Id",
+	 "PO_SUM" ) AS SELECT
+	 "prod_$0"."PRODUCTID" AS "Product_Id" ,
+	 ( ( SELECT
+	 SUM ( "a_$1"."GROSSAMOUNT" ) AS "SUM" 
+		FROM "PO.Item" AS "a_$1" 
+		WHERE ( "a_$1"."PRODUCT"."PRODUCTID" = "prod_$0"."PRODUCTID" ) ) ) AS "PO_SUM" 
+FROM "MD.Products" AS "prod_$0"

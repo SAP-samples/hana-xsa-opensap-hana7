@@ -1,0 +1,9 @@
+PROCEDURE "insert_table_variable" ( out ex_products "MD.Products"  )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+    lt_products = select * from "MD.Products";
+    :ex_products.INSERT(:lt_products, 1);
+END

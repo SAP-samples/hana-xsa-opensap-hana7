@@ -1,0 +1,31 @@
+FUNCTION "product_sale_price" ( PRODUCT_ID NVARCHAR(10))
+	RETURNS table (PRODUCTID NVARCHAR(10), CATEGORY NVARCHAR(40), PRICE DECIMAL(15,2),SALEPRICE DECIMAL(15,2))
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+declare lv_category nvarchar(40) := null;
+declare lv_discount decimal(15,2) := 0; 
+ 
+lt_product = select PRODUCTID, CATEGORY, PRICE 
+                 from "MD.Products"
+                   	     where PRODUCTID = :PRODUCT_ID;  
+
+select CATEGORY into lv_category from :lt_product; 
+ 
+if :lv_category = 'Notebooks' then
+  	 lv_discount := .20;
+elseif :lv_category = 'Handhelds' then
+   	 lv_discount := .25;
+elseif :lv_category = 'Flat screens' then
+   	 lv_discount := .30;
+elseif :lv_category like '%printers%' then
+     lv_discount := .30;
+else
+     lv_discount := 0.00;  -- No discount
+end if;
+
+return
+        select PRODUCTID, CATEGORY, PRICE,
+           	 PRICE - cast((PRICE * :lv_discount) as decimal(15,2)) as "SALEPRICE"
+                         from :lt_product;    
+END;

@@ -1,0 +1,23 @@
+VIEW "MDViews.BuyerView" ( 
+     "Id",
+	 "EmailAddress",
+	 "CompanyName",
+	 "City",
+	 "PostalCode",
+	 "Street",
+	 "Building",
+	 "Country",
+	 "Region",
+	 "CreatedBy" ) AS SELECT
+	 "BusinessPartner_$0"."PARTNERID" AS "Id" ,
+	 "BusinessPartner_$0"."EMAILADDRESS" AS "EmailAddress" ,
+	 "BusinessPartner_$0"."COMPANYNAME" AS "CompanyName" ,
+	 "BusinessPartner_$0"."ADDRESSES"."CITY" AS "City" ,
+	 "BusinessPartner_$0"."ADDRESSES"."POSTALCODE" AS "PostalCode" ,
+	 "BusinessPartner_$0"."ADDRESSES"."STREET" AS "Street" ,
+	 "BusinessPartner_$0"."ADDRESSES"."BUILDING" AS "Building" ,
+	 "BusinessPartner_$0"."ADDRESSES"."COUNTRY" AS "Country" ,
+	 "BusinessPartner_$0"."ADDRESSES"."REGION" AS "Region" ,
+	 "BusinessPartner_$0"."HISTORY.CREATEDBY"."LOGINNAME" AS "CreatedBy" 
+FROM "MD.BusinessPartner" AS "BusinessPartner_$0" 
+WHERE ( "BusinessPartner_$0"."PARTNERROLE" = '1' ) WITH READ ONLY

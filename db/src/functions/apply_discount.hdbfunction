@@ -1,0 +1,12 @@
+FUNCTION "apply_discount" (
+                 im_price decimal(15,2), 
+                 im_discount decimal(15,2)) 
+      RETURNS ex_result decimal(15,2)
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+/***************************** 
+	Write your function logic
+ *****************************/
+    ex_result := :im_price - ( :im_price * :im_discount ); 
+END;

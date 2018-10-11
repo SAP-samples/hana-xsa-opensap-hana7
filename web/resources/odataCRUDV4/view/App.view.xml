@@ -1,0 +1,53 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:smartTable="sap.ui.comp.smarttable" controllerName="opensap.odataBasic.controller.App" height="100%">
+	<Page title="{i18n>appTitle}">
+		<content>
+			<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+				<Panel headerText="New User Record Details" expandable="true" expanded="true">
+					<List width="400px">
+						<InputListItem label="{i18n>FName}">
+							<Input id="fName" value="{/FirstName}"/>
+						</InputListItem>
+						<InputListItem label="{i18n>LName}">
+							<Input id="lName" value="{/LastName}"/>
+						</InputListItem>
+						<InputListItem label="{i18n>EMail}">
+							<Input id="email" value="{/Email}"/>
+						</InputListItem>
+					</List>
+					<Button text="{i18n>B3}" press="callUserService"/>
+					<Button text="{i18n>B4}" press="callUserUpdate"/>
+				</Panel>
+				<Panel headerText="User List" expandable="true" expanded="true">
+					<Table tableId="userTable" id="userTable" growingThreshold="10" growing="true"
+						items="{ path: 'userModel&gt;/User', sorter: [{ path: 'USERID', descending: false}], events : {dataReceived : '.onDataEvents' } }">
+						<columns>
+							<Column>
+								<header><Label text="User ID"/></header>
+							</Column>
+							<Column>
+								<header><Label text="First Name"/></header>
+							</Column>
+							<Column>
+								<header><Label text="Last Name"/></header>
+							</Column>
+							<Column>
+								<header><Label text="Email"/></header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input value="{path: 'userModel&gt;USERID'}" name="PERS_NO" editable="false"/>
+									<Input value="{path: 'userModel&gt;FIRSTNAME'}" name="FIRSTNAME"/>
+									<Input value="{path: 'userModel&gt;LASTNAME'}" name="LASTNAME"/>
+									<Input value="{path: 'userModel&gt;EMAIL'}" name="E_MAIL"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</Panel>
+			</ScrollContainer>
+		</content>
+	</Page>
+</mvc:View>

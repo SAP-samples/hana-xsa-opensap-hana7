@@ -1,0 +1,49 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartVariantManagement="sap.ui.comp.smartvariants" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sap.openSAP.smarttable.view.SmartTable"
+	height="100%">
+	<semantic:FullscreenPage title="Smart Table Example" showNavButton="true" navButtonPress="onNavButtonPress" id="page" floatingFooter="true">
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction press="onSemanticEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction press="onSemanticJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:content>
+			<!-- use this to make the table occupy the available screen height -->
+			<VBox fitContainer="true">
+				<html:style>
+					.exPageVariantPadding { padding-left: 2rem; }
+				</html:style>
+				<HBox class="exPageVariantPadding">
+					<smartVariantManagement:SmartVariantManagement id="pageVariantId" persistencyKey="PageVariantPKey"/>
+				</HBox>
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="BusinessPartners" persistencyKey="SmartFilter_BusinessPartner"
+					basicSearchFieldName="PARTNERROLE" enableBasicSearch="false" preventInitialDataFetchInValueHelpDialog="false" smartVariant="pageVariantId" assignedFiltersChanged="onFiltersChanged" >
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="PARTNERROLE" mandatory="mandatory" visibleInAdvancedArea="true">
+							<smartFilterBar:defaultFilterValues>
+								<smartFilterBar:SelectOption low="1"/>
+							</smartFilterBar:defaultFilterValues>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartFilterBar:layoutData>
+						<FlexItemData shrinkFactor="0"/>
+					</smartFilterBar:layoutData>
+				</smartFilterBar:SmartFilterBar>
+				<smartTable:SmartTable id="BusinessPartnersSmartTable" entitySet="BusinessPartners" smartVariant="pageVariantId" smartFilterId="smartFilterBar" tableType="Table"
+					useExportToExcel="true" useVariantManagement="true" useTablePersonalisation="true" header="Business Partners" showRowCount="true"
+					persistencyKey="SmartTableAnalytical_BusinessPartner" enableAutoBinding="true" app:useSmartField="true">
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartTable:layoutData>
+						<FlexItemData growFactor="1" baseSize="0%"/>
+					</smartTable:layoutData>
+				</smartTable:SmartTable>
+			</VBox>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</core:View>

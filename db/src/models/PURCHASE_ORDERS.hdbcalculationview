@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::PURCHASE_ORDERS" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="PURCHASE_ORDERS"/>
+<localVariables>
+  <variable id="IP_O_TARGET_CURRENCY" parameter="true">
+    <descriptions defaultDescription="Target Currency for Currency Conversion"/>
+    <variableProperties datatype="NVARCHAR" length="3" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+      <defaultRange lowValue="USD"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PO.Header">
+    <resourceUri>PO.Header</resourceUri>
+  </DataSource>
+  <DataSource id="PO.Item">
+    <resourceUri>PO.Item</resourceUri>
+  </DataSource>
+  <DataSource id="core.models::PRODUCTS">
+    <resourceUri>core.models::PRODUCTS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CURRENCY"><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PURCHASEORDERID" aggregationType="sum">
+        <descriptions defaultDescription="PURCHASEORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT">
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="PO.Header">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="PURCHASEORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+    </input>
+    <input node="PO.Item">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRODUCTID" source="PRODUCT.PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="HEADER.PURCHASEORDERID"/>
+    </input>
+    <joinAttribute name="PURCHASEORDERID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="HISTORY_CREATEDAT"><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="PURCHASEORDERID"><descriptions/>
+        <descriptions defaultDescription="PURCHASEORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Category"><descriptions/>
+        <descriptions defaultDescription="Product_Category"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Currency"><descriptions/>
+        <descriptions defaultDescription="Product_Currency"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Desciption"><descriptions/>
+        <descriptions defaultDescription="Product_Desciption"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Id"><descriptions/>
+        <descriptions defaultDescription="Product_Id"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Name"><descriptions/>
+        <descriptions defaultDescription="Product_Name"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Picture_URL"><descriptions/>
+        <descriptions defaultDescription="Product_Picture_URL"/>
+      </viewAttribute>
+      <viewAttribute id="Product_Price"><descriptions/>
+        <descriptions defaultDescription="Product_Price"/>
+      </viewAttribute>
+      <viewAttribute id="Product_TypeCode"><descriptions/>
+        <descriptions defaultDescription="Product_TypeCode"/>
+      </viewAttribute>
+      <viewAttribute id="Product_WeightMeasure"><descriptions/>
+        <descriptions defaultDescription="Product_WeightMeasure"/>
+      </viewAttribute>
+      <viewAttribute id="Product_WeightUnit"><descriptions/>
+        <descriptions defaultDescription="Product_WeightUnit"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_Building"><descriptions/>
+        <descriptions defaultDescription="Supplier_Building"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_City"><descriptions/>
+        <descriptions defaultDescription="Supplier_City"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_CompanyName"><descriptions/>
+        <descriptions defaultDescription="Supplier_CompanyName"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_Country"><descriptions/>
+        <descriptions defaultDescription="Supplier_Country"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_Id"><descriptions/>
+        <descriptions defaultDescription="Supplier_Id"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_PostalCode"><descriptions/>
+        <descriptions defaultDescription="Supplier_PostalCode"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_Region"><descriptions/>
+        <descriptions defaultDescription="Supplier_Region"/>
+      </viewAttribute>
+      <viewAttribute id="Supplier_Street"><descriptions/>
+        <descriptions defaultDescription="Supplier_Street"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ConvGrossAmount" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>&quot;GROSSAMOUNT&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY_CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="PURCHASEORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRODUCTID" source="PRODUCT_PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+    </input>
+    <input node="core.models::PRODUCTS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Category" source="Product_Category"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Currency" source="Product_Currency"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Desciption" source="Product_Desciption"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Id" source="Product_Id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Name" source="Product_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Picture_URL" source="Product_Picture_URL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_Price" source="Product_Price"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_TypeCode" source="Product_TypeCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_WeightMeasure" source="Product_WeightMeasure"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Product_WeightUnit" source="Product_WeightUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_Building" source="Supplier_Building"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_City" source="Supplier_City"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_CompanyName" source="Supplier_CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_Country" source="Supplier_Country"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_Id" source="Supplier_Id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_PostalCode" source="Supplier_PostalCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_Region" source="Supplier_Region"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Supplier_Street" source="Supplier_Street"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRODUCTID" source="Product_Id"/>
+    </input>
+    <joinAttribute name="PRODUCT_PRODUCTID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="HISTORY_CREATEDAT" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      <keyMapping columnObjectName="Join_2" columnName="HISTORY_CREATEDAT"/>
+    </attribute>
+    <attribute id="PURCHASEORDERID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PURCHASEORDERID"/>
+      <keyMapping columnObjectName="Join_2" columnName="PURCHASEORDERID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Join_2" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="PRODUCT_PRODUCTID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      <keyMapping columnObjectName="Join_2" columnName="PRODUCT_PRODUCTID"/>
+    </attribute>
+    <attribute id="Product_Category" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Category"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Category"/>
+    </attribute>
+    <attribute id="Product_Currency" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Currency"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Currency"/>
+    </attribute>
+    <attribute id="Product_Desciption" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Desciption"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Desciption"/>
+    </attribute>
+    <attribute id="Product_Id" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Id"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Id"/>
+    </attribute>
+    <attribute id="Product_Name" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Name"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Name"/>
+    </attribute>
+    <attribute id="Product_Picture_URL" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_Picture_URL"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_Picture_URL"/>
+    </attribute>
+    <attribute id="Product_TypeCode" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_TypeCode"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_TypeCode"/>
+    </attribute>
+    <attribute id="Product_WeightUnit" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Product_WeightUnit"/>
+      <keyMapping columnObjectName="Join_2" columnName="Product_WeightUnit"/>
+    </attribute>
+    <attribute id="Supplier_Building" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_Building"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_Building"/>
+    </attribute>
+    <attribute id="Supplier_City" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_City"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_City"/>
+    </attribute>
+    <attribute id="Supplier_CompanyName" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_CompanyName"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_CompanyName"/>
+    </attribute>
+    <attribute id="Supplier_Country" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_Country"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_Country"/>
+    </attribute>
+    <attribute id="Supplier_Id" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_Id"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_Id"/>
+    </attribute>
+    <attribute id="Supplier_PostalCode" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_PostalCode"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_PostalCode"/>
+    </attribute>
+    <attribute id="Supplier_Region" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_Region"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_Region"/>
+    </attribute>
+    <attribute id="Supplier_Street" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Supplier_Street"/>
+      <keyMapping columnObjectName="Join_2" columnName="Supplier_Street"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="GROSSAMOUNT" order="5" aggregationType="sum" measureType="amount" semanticType="amount">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <fixedCurrency>USD</fixedCurrency>
+      <currencyConversion errorHandling="keepUnconverted" generateOutputUnitCurrencyAttribute="true" outputUnitCurrencyAttributeName="GROSSAMOUNT_CURRENCY" convert="true">
+        <client>
+          <value>001</value>
+        </client>
+        <currencyConversionTables rates="Conversions.TCURR" configuration="Conversions.TCURV" prefactors="Conversions.TCURF" notations="Conversions.TCURN" precisions="Conversions.TCURX"/>
+        <sourceCurrency>
+          <attribute attributeName="CURRENCY"/>
+        </sourceCurrency>
+        <erpDecimalShift>true</erpDecimalShift>
+        <targetCurrency>
+          <value>USD</value>
+        </targetCurrency>
+        <referenceDate>
+          <value>20120101</value>
+        </referenceDate>
+        <exchangeRateType>1001</exchangeRateType>
+      </currencyConversion>
+      <measureMapping columnObjectName="Join_2" columnName="GROSSAMOUNT"/>
+    </measure>
+    <measure id="Product_Price" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Product_Price"/>
+      <measureMapping columnObjectName="Join_2" columnName="Product_Price"/>
+    </measure>
+    <measure id="Product_WeightMeasure" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Product_WeightMeasure"/>
+      <measureMapping columnObjectName="Join_2" columnName="Product_WeightMeasure"/>
+    </measure>
+    <measure id="ConvGrossAmount" order="24" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ConvGrossAmount"/>
+      <measureMapping columnObjectName="Join_2" columnName="ConvGrossAmount"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="53" y="309"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="PO.Header" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="278.97265625"/>
+    </shape>
+    <shape modelObjectName="PO.Item" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="72" y="209"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::PRODUCTS" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

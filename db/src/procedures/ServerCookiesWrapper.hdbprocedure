@@ -1,0 +1,43 @@
+PROCEDURE "ServerCookiesWrapper" (
+	IN im_operation NVARCHAR(30) DEFAULT 'GET_APP_VARS', 
+	IN im_sessionid NVARCHAR(32) DEFAULT NULL, 	
+	IN im_name NVARCHAR(30) DEFAULT NULL, 
+	IN im_application NVARCHAR(128) DEFAULT NULL,
+	IN im_expiry TIMESTAMP, 
+	IN im_data NCLOB DEFAULT NULL,	
+	OUT ex_svariable "Procedures.tt_variable"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN USING "ServerCookies" as SSCookies;
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+
+
+IF :im_operation = 'GET_APP_VAR'
+THEN 
+   CALL SSCookies:"get_application_variable"( im_name, im_application, :ex_svariable );
+ELSEIF :im_operation = 'GET_APP_VARS'
+THEN
+   CALL SSCookies:"get_application_variables"( im_application, :ex_svariable );
+ELSEIF :im_operation = 'GET_SESSION_VAR'
+THEN 
+   CALL SSCookies:"get_session_variable"( im_sessionid, im_name, im_application, :ex_svariable );
+ELSEIF :im_operation = 'GET_SESSION_VARS'
+THEN
+   CALL SSCookies:"get_session_variables"( im_sessionid, im_application, :ex_svariable );   
+ELSEIF :im_operation = 'SET_APP_VAR'
+THEN 
+   CALL SSCookies:"set_application_variable"( im_name, im_application, im_expiry, im_data );
+ELSEIF :im_operation = 'SET_SESSION_VAR'
+THEN
+   CALL SSCookies:"set_session_variable"( im_sessionid, im_name, im_application, im_expiry, im_data );   
+ELSEIF :im_operation = 'CLEAN_UP'
+THEN
+   CALL SSCookies:"clean_up_old_cookies"( );     
+END IF;
+
+END;

@@ -1,0 +1,33 @@
+PROCEDURE "get_products_cumulative"(    
+          IN im_category VARCHAR(40),
+          IN im_typecode VARCHAR(2),
+          IN im_start_date DATE DEFAULT '2011-10-02',
+          IN im_end_date DATE DEFAULT '2016-10-02',
+          OUT EX_PRODUCTS TABLE (
+                        PRODUCTID NVARCHAR(10),
+                        DELIVERYDATE DAYDATE,
+                        NUM_DELIVERED_PRODUCTS BIGINT,
+                        CUMULATIVE_SUM BIGINT ) )
+   LANGUAGE SQLSCRIPT
+   READS SQL DATA AS
+BEGIN
+  filtered_products = SELECT * FROM "MD.Products" 
+                           WHERE category = :im_category
+                             AND typecode = :im_typecode;
+  filtered_items  = 
+        select pi."PRODUCT.PRODUCTID" as PRODUCTID, pi.DELIVERYDATE from :filtered_products as p
+      inner join "PO.Item" as pi on p.productid = pi."PRODUCT.PRODUCTID" 
+       where pi.DELIVERYDATE >=:im_start_date
+         AND pi.DELIVERYDATE <= :im_end_date;
+
+   aggregated_filtered_items = 
+          SELECT  PRODUCTID, DELIVERYDATE, 
+                  COUNT(PRODUCTID) AS NUM_DELIVERED_PRODUCTS FROM :filtered_items
+                    GROUP BY PRODUCTID ,DELIVERYDATE;
+  
+   CALL "calculate_cumulative_sum_of_delivered_products"(
+       IM_PRODUCTS => :aggregated_filtered_items,
+       EX_PRODUCTS => :products ) ;
+       
+   ex_products = select * from :PRODUCTS order by PRODUCTID, DELIVERYDATE;
+END

@@ -1,0 +1,9 @@
+FULLTEXT INDEX "Util.Texts.FTI_TEXT" 
+      ON "Util.Texts" ("TEXT") 
+      ASYNC PHRASE INDEX RATIO 0.200000 
+      FUZZY SEARCH INDEX OFF SEARCH ONLY OFF 
+      FAST PREPROCESS ON 
+      TEXT MINING OFF 
+      TEXT ANALYSIS OFF 
+      TOKEN SEPARATORS '\/;,.:-_()[]<>!?*@+{}="&#$~|'
+

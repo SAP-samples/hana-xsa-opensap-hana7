@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="core.models::SALESORDER_RANKING_SQL" applyPrivilegeType="NONE" dataCategory="DEFAULT" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALESORDER_RANKING_SQL"/>
+<localVariables>
+  <variable id="IP_FR_DTE" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="DATE" length="0">
+      <valueDomain type="empty"/>
+      <selection multiLine="false"/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_TO_DTE" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="DATE" length="0">
+      <valueDomain type="empty"/>
+      <selection multiLine="false"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="sales_ranking" type="TABLE_FUNCTION">
+    <resourceUri>sales_ranking</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="sales_ranking">
+  <attributes>
+    <attribute id="COMPANY_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANY_NAME"/>
+      <keyMapping schemaName="" columnObjectName="sales_ranking" columnName="COMPANY_NAME"/>
+    </attribute>
+    <attribute id="SALES" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALES"/>
+      <keyMapping schemaName="" columnObjectName="sales_ranking" columnName="SALES"/>
+    </attribute>
+    <attribute id="ORDERS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDERS"/>
+      <keyMapping schemaName="" columnObjectName="sales_ranking" columnName="ORDERS"/>
+    </attribute>
+    <attribute id="SALES_RANK" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALES_RANK"/>
+      <keyMapping schemaName="" columnObjectName="sales_ranking" columnName="SALES_RANK"/>
+    </attribute>
+    <attribute id="ORDER_RANK" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDER_RANK"/>
+      <keyMapping schemaName="" columnObjectName="sales_ranking" columnName="ORDER_RANK"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

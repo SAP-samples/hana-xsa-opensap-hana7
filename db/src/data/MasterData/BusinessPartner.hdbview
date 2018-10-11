@@ -1,0 +1,3 @@
+VIEW "MDViews.BPView" ( "PARTNERID" ) AS SELECT
+	 "BusinessPartner_$0"."PARTNERID" 
+FROM "MD.BusinessPartner" AS "BusinessPartner_$0" WITH ASSOCIATIONS( JOIN "SO.Header" AS "ORDERS" ON "ORDERS"."PARTNER.PARTNERID" = "PARTNERID") 

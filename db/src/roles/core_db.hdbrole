@@ -1,0 +1,9 @@
+{
+	"role":{
+		"name": "core_db#",
+		"schema_privileges": [{
+			
+		   "privileges_with_grant_option": ["SELECT METADATA", "SELECT CDS METADATA", "SELECT", "INSERT", "UPDATE", "EXECUTE", "DELETE", "CREATE TEMPORARY TABLE" ]
+		}]
+	}
+}

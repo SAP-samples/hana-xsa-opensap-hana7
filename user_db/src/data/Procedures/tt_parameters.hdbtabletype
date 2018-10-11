@@ -1,0 +1,3 @@
+TYPE "Procedures.tt_parameters" AS TABLE (
+   KEY NVARCHAR(256),
+   VALUE NVARCHAR(256))

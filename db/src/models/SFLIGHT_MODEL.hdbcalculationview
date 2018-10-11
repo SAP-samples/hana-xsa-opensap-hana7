@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SFLIGHT_MODEL" applyPrivilegeType="SQL_ANALYTIC_PRIVILEGE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SFLIGHT_MODEL"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SFLIGHT">
+    <resourceUri>SFLIGHT</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="SFLIGHT">
+  <attributes>
+    <attribute id="CARRID" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="CARRID"/>
+    </attribute>
+    <attribute id="CONNID" key="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONNID"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="CONNID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="FLDATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="FLDATE"/>
+    </attribute>
+    <attribute id="MANDT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="MANDT"/>
+    </attribute>
+    <attribute id="PAYMENTSUM" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PAYMENTSUM"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="PAYMENTSUM"/>
+    </attribute>
+    <attribute id="PLANETYPE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="PLANETYPE"/>
+    </attribute>
+    <attribute id="PRICE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRICE"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="PRICE"/>
+    </attribute>
+    <attribute id="SEATSMAX" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSMAX"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSMAX"/>
+    </attribute>
+    <attribute id="SEATSMAX_B" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSMAX_B"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSMAX_B"/>
+    </attribute>
+    <attribute id="SEATSMAX_F" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSMAX_F"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSMAX_F"/>
+    </attribute>
+    <attribute id="SEATSOCC" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSOCC"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSOCC"/>
+    </attribute>
+    <attribute id="SEATSOCC_B" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSOCC_B"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSOCC_B"/>
+    </attribute>
+    <attribute id="SEATSOCC_F" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEATSOCC_F"/>
+      <keyMapping schemaName="SFLIGHT" columnObjectName="SFLIGHT" columnName="SEATSOCC_F"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

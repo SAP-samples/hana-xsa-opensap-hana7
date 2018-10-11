@@ -1,0 +1,89 @@
+{
+  "_version": "1.4.0",
+  "start_url": "index.html",
+  "sap.app": {
+  	"_version": "1.4.0",
+	"type": "application",
+	"resources": "resources.json",
+  	"i18n": "i18n/i18n.properties",
+  	"id": "exerciseChat",
+  	"title": "{{appTitle}}",
+  	"description": "{{appDescription}}",
+  	"applicationVersion": {
+			"version": "${project.version}"
+	}
+  },
+  "sap.fiori": {
+	"_version": "2.0.0",
+	"registrationIds": [],
+	"archeType": "transactional"
+  },
+  "sap.ui": {
+  	"_version": "1.40.0",
+	"technology": "UI5",
+  	 "icons":  {
+  	 	"icon": "/images/favicon.ico",
+  	 	"favIcon": "/images/favicon.ico"
+  	 },
+  	"deviceTypes": {
+		"desktop": true,
+		"tablet": true,
+		"phone": true
+	},
+	"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal",
+			"sap_belize"
+	]
+  },
+  "sap.ui5": {
+    "config": {
+      "sapFiori2Adaptation": true
+    },
+    "rootView": {
+    	"viewName": "sap.xs.chat.view.App",
+    	"type": "XML",
+    	"id": "app"
+    },
+    "dependencies": {
+			"minUI5Version": "1.40.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.40.0"
+				},
+				"sap.ui.comp": {
+					"minVersion": "1.40.0"					
+				},
+				"sap.m": {
+					"minVersion": "1.40.0"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.40.0"
+				}
+			}
+		},
+	"contentDensities": {
+		"compact": true,
+		"cozy": true
+	},
+    "handleValidation": true,
+    "models": {
+    	"chatModel": {
+    		"type": "sap.ui.model.json.JSONModel",
+    		"settings": {
+    			"defaultBindingMode": "TwoWay"
+    		}
+    	},   	
+    	"config": {
+    		"type": "sap.ui.model.json.JSONModel"	
+    	},
+    	"i18n": {
+    		"type": "sap.ui.model.resource.ResourceModel",
+    		"settings": {
+    			"bundleUrl": "./i18n/i18n.properties"
+    		}
+    	}
+    }
+    
+  }
+}

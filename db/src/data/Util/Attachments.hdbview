@@ -1,0 +1,17 @@
+VIEW "Util.AttachementsView" COMMENT 'Attachments View' ( 
+     "NOTEID",
+	 "Type",
+	 "Title",
+	 "CREATEDAT",
+	 "Description",
+	 "Size",
+	 "LINKID" ) AS SELECT
+	 "Attachments_$0"."NOTEID" ,
+	 "Attachments_$0"."TYPE" AS "Type" ,
+	 "Attachments_$0"."TITLE" AS "Title" ,
+	 "Attachments_$0"."CREATEDAT" ,
+	 "Attachments_$0"."DESCRIPTION" AS "Description" ,
+	 "Attachments_$0"."SIZE" AS "Size" ,
+	 "Attachments_$0"."LINKID" 
+FROM "Util.Attachments" AS "Attachments_$0" 
+

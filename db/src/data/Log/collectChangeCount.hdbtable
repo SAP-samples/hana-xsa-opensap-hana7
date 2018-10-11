@@ -1,0 +1,4 @@
+COLUMN TABLE "log.collectChangeCount" (
+     "no_changes" INTEGER CS_INT,
+	 "employee" NVARCHAR(5000)) 
+	 UNLOAD PRIORITY 5 AUTO MERGE 

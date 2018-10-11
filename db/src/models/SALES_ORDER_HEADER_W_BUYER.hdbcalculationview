@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALES_ORDER_HEADER_W_BUYER" applyPrivilegeType="NONE" dataCategory="DEFAULT" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALES_ORDER_"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SO.Header">
+    <resourceUri>SO.Header</resourceUri>
+  </DataSource>
+  <DataSource id="core.models::BUYER">
+    <resourceUri>core.models::BUYER</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="BILLINGSTATUS">
+        <descriptions defaultDescription="BILLINGSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY">
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERYSTATUS">
+        <descriptions defaultDescription="DELIVERYSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT">
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDAT">
+        <descriptions defaultDescription="HISTORY_CHANGEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDBY_EMPLOYEEID">
+        <descriptions defaultDescription="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT">
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDBY_EMPLOYEEID">
+        <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="LIFECYCLESTATUS">
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT">
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="NOTEID">
+        <descriptions defaultDescription="NOTEID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_PARTNERID">
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESORDERID">
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="TAXAMOUNT">
+        <descriptions defaultDescription="TAXAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="BUILDING">
+        <descriptions defaultDescription="BUILDING"/>
+      </viewAttribute>
+      <viewAttribute id="CITY">
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME">
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY">
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="EMAILADDRESS">
+        <descriptions defaultDescription="EMAILADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="LEGALFORM">
+        <descriptions defaultDescription="LEGALFORM"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID">
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERROLE">
+        <descriptions defaultDescription="PARTNERROLE"/>
+      </viewAttribute>
+      <viewAttribute id="POSTALCODE">
+        <descriptions defaultDescription="POSTALCODE"/>
+      </viewAttribute>
+      <viewAttribute id="REGION">
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="STREET">
+        <descriptions defaultDescription="STREET"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="SO.Header">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILLINGSTATUS" source="BILLINGSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYSTATUS" source="DELIVERYSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDAT" source="HISTORY.CHANGEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDBY_EMPLOYEEID" source="HISTORY.CHANGEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDBY_EMPLOYEEID" source="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTEID" source="NOTEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_PARTNERID" source="PARTNER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+    </input>
+    <input node="core.models::BUYER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUILDING" source="BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAILADDRESS" source="EMAILADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEGALFORM" source="LEGALFORM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERROLE" source="PARTNERROLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTALCODE" source="POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STREET" source="STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_PARTNERID" source="PARTNERID"/>
+    </input>
+    <joinAttribute name="PARTNER_PARTNERID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="BILLINGSTATUS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BILLINGSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="BILLINGSTATUS"/>
+    </attribute>
+    <attribute id="CURRENCY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="DELIVERYSTATUS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERYSTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="DELIVERYSTATUS"/>
+    </attribute>
+    <attribute id="GROSSAMOUNT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <keyMapping columnObjectName="Join_1" columnName="GROSSAMOUNT"/>
+    </attribute>
+    <attribute id="HISTORY_CHANGEDAT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CHANGEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CHANGEDAT"/>
+    </attribute>
+    <attribute id="HISTORY_CHANGEDBY_EMPLOYEEID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+    </attribute>
+    <attribute id="HISTORY_CREATEDAT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CREATEDAT"/>
+    </attribute>
+    <attribute id="HISTORY_CREATEDBY_EMPLOYEEID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CREATEDBY_EMPLOYEEID"/>
+    </attribute>
+    <attribute id="LIFECYCLESTATUS" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      <keyMapping columnObjectName="Join_1" columnName="LIFECYCLESTATUS"/>
+    </attribute>
+    <attribute id="NETAMOUNT" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <keyMapping columnObjectName="Join_1" columnName="NETAMOUNT"/>
+    </attribute>
+    <attribute id="NOTEID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOTEID"/>
+      <keyMapping columnObjectName="Join_1" columnName="NOTEID"/>
+    </attribute>
+    <attribute id="PARTNER_PARTNERID" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNER_PARTNERID"/>
+    </attribute>
+    <attribute id="SALESORDERID" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="TAXAMOUNT" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TAXAMOUNT"/>
+      <keyMapping columnObjectName="Join_1" columnName="TAXAMOUNT"/>
+    </attribute>
+    <attribute id="BUILDING" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUILDING"/>
+      <keyMapping columnObjectName="Join_1" columnName="BUILDING"/>
+    </attribute>
+    <attribute id="CITY" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CITY"/>
+    </attribute>
+    <attribute id="COMPANYNAME" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANYNAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="COMPANYNAME"/>
+    </attribute>
+    <attribute id="COUNTRY" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="EMAILADDRESS" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAILADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMAILADDRESS"/>
+    </attribute>
+    <attribute id="LEGALFORM" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEGALFORM"/>
+      <keyMapping columnObjectName="Join_1" columnName="LEGALFORM"/>
+    </attribute>
+    <attribute id="PARTNERID" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="PARTNERROLE" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERROLE"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERROLE"/>
+    </attribute>
+    <attribute id="POSTALCODE" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTALCODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTALCODE"/>
+    </attribute>
+    <attribute id="REGION" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="REGION"/>
+    </attribute>
+    <attribute id="STREET" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="Join_1" columnName="STREET"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="14" y="290"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="SO.Header" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::BUYER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

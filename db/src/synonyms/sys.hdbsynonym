@@ -1,0 +1,56 @@
+{
+  "DUMMY": {
+    "target": {
+      "object": "DUMMY",
+      "schema": "SYS"
+    }
+  },
+  "VIEWS": {
+    "target": {
+      "object": "VIEWS",
+      "schema": "SYS"
+    }
+  },
+  "TABLES": {
+    "target": {
+      "object": "TABLES",
+      "schema": "SYS"
+    }
+  },
+  "M_TABLES": {
+    "target": {
+      "object": "M_TABLES",
+      "schema": "SYS"
+    }
+  },
+  "SERIES_GENERATE_INTEGER": {
+    "target": {
+      "object": "SERIES_GENERATE_INTEGER",
+      "schema": "SYS"
+    }
+  },
+  "SERIES_GENERATE_TIMESTAMP": {
+    "target": {
+      "object": "SERIES_GENERATE_TIMESTAMP",
+      "schema": "SYS"
+    }
+  },
+  "SQLSCRIPT_SYNC": {
+    "target": {
+      "object": "SQLSCRIPT_SYNC",
+      "schema": "SYS"
+    }
+  },
+  "SQLSCRIPT_STRING": {
+    "target": {
+      "object": "SQLSCRIPT_STRING",
+      "schema": "SYS"
+    }
+  },
+  "M_SERVICE_THREADS": {
+    "target": {
+      "object": "M_SERVICE_THREADS",
+      "schema": "SYS"
+    }
+  }
+}

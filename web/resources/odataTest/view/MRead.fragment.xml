@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Panel expandable="true" expanded="true" headerText="{i18n>P1}">
+		<List width="100%">
+			<InputListItem label="{i18n>L1}">
+				<Input id="mPath" value="{/mPath}"/>
+			</InputListItem>
+			<InputListItem label="{i18n>L2}">
+				<Input id="mEntity1" value="{/mEntity1}"/>
+			</InputListItem>
+			<InputListItem label="{i18n>L3}">
+				<Input id="mEntity2" value="{/mEntity2}"/>
+			</InputListItem>
+		</List>
+		<Button press="callMultiService" text="{i18n>B1}"/>
+		<Button press="callExcel" text="{i18n>B2}"/>
+	</Panel>
+	<core:Fragment fragmentName="opensap.odataTest.view.MTableHead" type="XML"/>
+	<core:Fragment fragmentName="opensap.odataTest.view.MTableItem" type="XML"/>
+</core:FragmentDefinition>

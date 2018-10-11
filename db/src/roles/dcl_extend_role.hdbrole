@@ -1,0 +1,14 @@
+{  
+   "role":{  
+      "name":"dclExtendRole",
+      "object_privileges":[
+         {
+            "name":"dummytable",
+            "type":"TABLE",
+            "privileges":[
+               "SELECT"
+            ]
+         }
+      ]
+   }
+}

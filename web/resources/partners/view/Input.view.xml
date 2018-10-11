@@ -1,0 +1,20 @@
+<core:View controllerName="sap.shineNext.partners.controller.Input" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:h="http://www.w3.org/1999/xhtml">
+	<List>
+		<InputListItem label="Company Name">
+			<Input id="CompanyName" value="{/CompanyName}" />
+		</InputListItem>
+		<InputListItem label="City">
+			<Input id="City" value="{/City}" />
+		</InputListItem>
+		<InputListItem label="Country">
+			<Input id="Country" value="{/Country}" />
+		</InputListItem>
+		<InputListItem label="Region">
+			<Input id="Region" value="{/Region}" />
+		</InputListItem>
+		<InputListItem label="Email Address">
+			<Input id="EmailAddress" value="{/EmailAddress}" />
+		</InputListItem>
+	</List>
+</core:View>

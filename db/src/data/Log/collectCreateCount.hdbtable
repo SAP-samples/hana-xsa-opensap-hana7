@@ -1,0 +1,4 @@
+COLUMN TABLE "log.collectCreateCount" (
+     "no_create" INTEGER CS_INT,
+	 "employee" NVARCHAR(5000)) 
+	 UNLOAD PRIORITY 5 AUTO MERGE 

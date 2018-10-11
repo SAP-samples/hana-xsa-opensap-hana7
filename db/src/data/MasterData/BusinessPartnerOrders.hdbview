@@ -1,0 +1,6 @@
+VIEW "MDViews.BPOrdersView" ( 
+     "PARTNERID",
+	 "orderId" ) AS SELECT
+	 "BPView_$0"."PARTNERID" ,
+	 "BPView_$0"."ORDERS"[ ( "LIFECYCLESTATUS" = 'N' ) ]."SALESORDERID" AS "orderId" 
+FROM "MDViews.BPView" AS "BPView_$0" WITH READ ONLY

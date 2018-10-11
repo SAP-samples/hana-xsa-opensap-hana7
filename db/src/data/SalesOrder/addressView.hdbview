@@ -1,0 +1,12 @@
+VIEW "SO.addressView" 
+   ( "id",
+	 "city",
+	 "postalCode",
+	 "street",
+	 "country" ) AS SELECT
+	 "Addresses_$0"."ADDRESSID" AS "id" ,
+	 "Addresses_$0"."CITY" AS "city" ,
+	 "Addresses_$0"."POSTALCODE" AS "postalCode" ,
+	 "Addresses_$0"."STREET" AS "street" ,
+	 "Addresses_$0"."COUNTRY" AS "country" 
+FROM "MD.Addresses" AS "Addresses_$0"

@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable">
+	<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+		<Panel headerText="New Business Partner Details" expandable="true" expanded="true">
+			<List width="800px">
+				<InputListItem label="Company">
+					<Input id="company" value="{/company}"/>
+				</InputListItem>
+				<InputListItem label="City">
+					<Input id="city" value="{/city}"/>
+				</InputListItem>
+				<InputListItem label="Country">
+					<Select id = "ddlbCountry">
+						<core:ListItem id="country" key="{code}" text="{name}"/>
+					</Select>
+					</InputListItem>
+				<InputListItem label="Region">
+					<Select id = "ddlbRegion">
+						<core:ListItem id="region" key="{code}" text="{name}"/>
+					</Select>
+				</InputListItem>
+				<InputListItem label="Email">
+					<Input id="email" value="{/email}"/>
+				</InputListItem>				
+			</List>
+			<Button text="{i18n>B3}" press="callBPCreate"/>
+		</Panel>
+		<smartTable:SmartTable id="tblBPCreate" tableType="Table" header="{i18n>BP}" showRowCount="true" enableAutoBinding="true"
+			showFullScreenButton="true"></smartTable:SmartTable>
+	</ScrollContainer>
+</core:FragmentDefinition>

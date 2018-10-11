@@ -1,0 +1,13 @@
+service  { 
+  "MDViews.BuyerView"
+	as "Buyer"
+	keys("Id")
+   create using "sap.hana.democontent.epm.services:businessPartners.xsjslib::bpCreateBuyer";
+
+  "MDViews.SupplierView"
+	as "Supplier"
+	keys("Id")
+   create using "sap.hana.democontent.epm.services:businessPartners.xsjslib::bpCreateSupplier";
+   
+
+}

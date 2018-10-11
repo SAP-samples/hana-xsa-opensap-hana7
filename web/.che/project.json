@@ -1,0 +1,16 @@
+{
+	"type": "sap.html5",
+	"builders": {
+		"default": "ui5-builder",
+		"configs": {}
+	},
+	"runners": {
+		"configs": {}
+	},
+	"attributes": {
+		"sap.watt.common.setting": [
+			"{\"generation\":[{\"templateId\":\"hanatemplates.ui5project\",\"templateVersion\":\"1.0.0\",\"dateTimeStamp\":\"Mon, 01 Oct 2018 15:05:09 GMT\"}],\"basevalidator\":{\"services\":{\"js\":\"jsValidator\",\"xml\":\"xmlValidator\"}}}"
+		]
+	},
+	"mixinTypes": ["mtamodule", "fullmtabuild"]
+}

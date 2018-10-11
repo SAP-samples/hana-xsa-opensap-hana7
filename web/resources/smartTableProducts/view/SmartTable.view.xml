@@ -1,0 +1,36 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartVariantManagement="sap.ui.comp.smartvariants" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sap.openSAP.smarttableProducts.view.SmartTable" height="100%">
+	<semantic:FullscreenPage title="Products Smart Table Example" showNavButton="true" navButtonPress="onNavButtonPress" id="page" floatingFooter="true">
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction press="onSemanticEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction press="onSemanticJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+		<semantic:content>
+			<!-- use this to make the table occupy the available screen height -->
+			<VBox fitContainer="true">
+				<html:style>
+					.exPageVariantPadding { padding-left: 2rem; }
+				</html:style>
+				<HBox class="exPageVariantPadding">
+					<smartVariantManagement:SmartVariantManagement id="pageVariantId" persistencyKey="PageVariantPKey"/>
+				</HBox>
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Products" persistencyKey="SmartFilter_Products" enableBasicSearch="false" preventInitialDataFetchInValueHelpDialog="false" smartVariant="pageVariantId">
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartFilterBar:layoutData>
+						<FlexItemData shrinkFactor="0"/>
+					</smartFilterBar:layoutData>
+				</smartFilterBar:SmartFilterBar>
+				<smartTable:SmartTable id="ProductsSmartTable" entitySet="Products" smartVariant="pageVariantId" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" useVariantManagement="true" useTablePersonalisation="true" header="Products" showRowCount="true" persistencyKey="SmartTableAnalytical_Products" enableAutoBinding="true" app:useSmartField="true">
+					<!-- layout data used to make the table growing but the filter bar fixed -->
+					<smartTable:layoutData>
+						<FlexItemData growFactor="1" baseSize="0%"/>
+					</smartTable:layoutData>
+				</smartTable:SmartTable>
+			</VBox>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</core:View>

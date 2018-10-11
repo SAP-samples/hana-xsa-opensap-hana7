@@ -1,0 +1,71 @@
+DOMAIN,FIXEDVALUE,LANGUAGE,DESCRIPTION
+D_AD_TYPE,01,D,Privat
+D_AD_TYPE,02,D,Business
+D_AD_TYPE,01,E,Private
+D_AD_TYPE,02,E,Business
+D_BP_ROLE,01,D,Kunde
+D_BP_ROLE,02,D,Lieferant
+D_BP_ROLE,01,E,Customer
+D_BP_ROLE,02,E,Supplier
+D_PO_AP,I,D,Initial
+D_PO_AP,A,D,Genehmigt
+D_PO_AP,R,D,Abgelehnt
+D_PO_AP,I,E,Initial
+D_PO_AP,A,E,Approved
+D_PO_AP,R,E,Rejected
+D_PO_CF,I,D,Initial
+D_PO_CF,C,D,Bestätigt
+D_PO_CF,S,D,Versendet
+D_PO_CF,X,D,Abgebrochen
+D_PO_CF,I,E,Initial
+D_PO_CF,C,E,Confirmed
+D_PO_CF,S,E,Sent
+D_PO_CF,X,E,Cancelled
+D_PO_IN,I,D,Initial
+D_PO_IN,I,E,Initial
+D_PO_LC,N,D,Neu
+D_PO_LC,P,D,In Bearbeitung
+D_PO_LC,C,D,Abgeschlossen
+D_PO_LC,R,D,Abgelehnt
+D_PO_LC,X,D,Abgebrochen
+D_PO_LC,N,E,New
+D_PO_LC,P,E,In Progress
+D_PO_LC,C,E,Closed
+D_PO_LC,R,E,Rejected
+D_PO_LC,X,E,Cancelled
+D_PO_OR,I,D,Initial
+D_PO_OR,D,D,Geliefert
+D_PO_OR,I,E,Initial
+D_PO_OR,D,E,Delivered
+D_PR_TAX,1,D,Gesetzliche Umsatzsteuer
+D_PR_TAX,2,D,Ermäßigte Umsatzsteuer
+D_PR_TAX,3,D,Keine Umsatzsteuer
+D_PR_TAX,1,E,Regular VAT
+D_PR_TAX,2,E,Reduced VAT
+D_PR_TAX,3,E,No VAT
+D_PR_TYPE,PR,D,Produkt
+D_PR_TYPE,AD,D,Werbung
+D_PR_TYPE,PR,E,Product
+D_PR_TYPE,AD,E,Advertisement
+D_SO_CF,I,D,Initial
+D_SO_CF,P,D,Bezahlt
+D_SO_CF,I,E,Initial
+D_SO_CF,P,E,Paid
+D_SO_I_ATP,I,D,Initial
+D_SO_I_ATP,A,D,Verfügbar
+D_SO_I_ATP,N,D,Nicht verfügbar
+D_SO_I_ATP,I,E,Initial
+D_SO_I_ATP,A,E,Available
+D_SO_I_ATP,N,E,Not Available
+D_SO_LC,N,D,Neu
+D_SO_LC,P,D,In Bearbeitung
+D_SO_LC,C,D,Geschlossen
+D_SO_LC,X,D,Abgebrochen
+D_SO_LC,N,E,New
+D_SO_LC,P,E,In Progress
+D_SO_LC,C,E,Closed
+D_SO_LC,X,E,Cancelled
+D_SO_OR,I,D,Initial
+D_SO_OR,D,D,Geliefert
+D_SO_OR,I,E,Initial
+D_SO_OR,D,E,Delivered

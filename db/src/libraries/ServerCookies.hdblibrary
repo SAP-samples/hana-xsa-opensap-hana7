@@ -1,0 +1,140 @@
+LIBRARY "ServerCookies"
+  LANGUAGE SQLSCRIPT AS
+ BEGIN 
+ 
+  PUBLIC PROCEDURE "get_application_variable" ( 
+    IN im_name NVARCHAR(30), 
+	IN im_application NVARCHAR(128),
+	OUT ex_svariable "Procedures.tt_variable" ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	READS SQL DATA AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ ex_svariable = 
+      SELECT SESSIONID, NAME, APPLICATION, EXPIRY, DATA 
+ 	    FROM "Util.SSCOOKIE"
+	   WHERE NAME        = :im_name
+	     AND APPLICATION = :im_application
+	     and SESSIONID = ''; 
+END;
+
+PUBLIC PROCEDURE "get_application_variables" ( 
+	IN im_application NVARCHAR(128), 
+	OUT ex_svariable "Procedures.tt_variable")
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	READS SQL DATA AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+    ex_svariable = 
+      SELECT SESSIONID, NAME, APPLICATION, EXPIRY, DATA 
+ 	    FROM "Util.SSCOOKIE"
+	   WHERE APPLICATION = :im_application
+	     and SESSIONID = ''; 
+END;
+
+PUBLIC PROCEDURE "get_session_variable" ( 
+	IN im_sessionid NVARCHAR(32), 
+	IN im_name NVARCHAR(30), 
+	IN im_application NVARCHAR(128), 
+	OUT ex_svariable "Procedures.tt_variable") 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	READS SQL DATA AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+  ex_svariable = 
+      SELECT SESSIONID, NAME, APPLICATION, EXPIRY, DATA 
+ 	    FROM "Util.SSCOOKIE"
+	   WHERE SESSIONID   = :im_sessionid
+	     AND NAME        = :im_name
+	     AND APPLICATION = :im_application; 
+END;
+
+PUBLIC PROCEDURE "get_session_variables" ( 
+    IN im_sessionid NVARCHAR(32),
+	IN im_application NVARCHAR(128),
+	OUT ex_svariables "Procedures.tt_variable") 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	READS SQL DATA AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ ex_svariables = 
+      SELECT SESSIONID, NAME, APPLICATION, EXPIRY, DATA 
+ 	    FROM "Util.SSCOOKIE"
+	   WHERE SESSIONID   = :im_sessionid
+	     AND APPLICATION = :im_application; 
+END;
+
+PUBLIC PROCEDURE "set_application_variable" ( 
+	IN im_name NVARCHAR(30), 
+	IN im_application NVARCHAR(128), 
+	IN im_expiry TIMESTAMP, 
+	IN im_data NCLOB) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY DEFINER AS
+
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ UPSERT "Util.SSCOOKIE"
+      (SESSIONID, NAME, APPLICATION, EXPIRY, DATA)
+	  VALUES(null, :im_name, :im_application, :im_expiry, :im_data)
+	   WHERE SESSIONID   = ''
+	     AND NAME        = :im_name
+	     AND APPLICATION = :im_application; 
+	     
+	DELETE FROM "Util.SSCOOKIE"
+	 WHERE EXPIRY <= now();  
+END;
+
+PUBLIC PROCEDURE "set_session_variable" ( 
+	IN im_sessionid NVARCHAR(32), 
+	IN im_name NVARCHAR(30), 
+	IN im_application NVARCHAR(128), 
+	IN im_expiry TIMESTAMP, 
+	IN im_data NCLOB) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY DEFINER AS
+
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+ UPSERT "Util.SSCOOKIE"
+	  (SESSIONID, NAME, APPLICATION, EXPIRY, DATA)
+	  VALUES(:im_sessionid, :IM_NAME, :im_application, :im_expiry, :im_data)
+	   WHERE SESSIONID   = :im_sessionid
+	     AND NAME        = :im_name
+	     AND APPLICATION = :im_application; 
+	     
+	DELETE FROM "Util.SSCOOKIE"
+	 WHERE EXPIRY <= now();  
+END;
+
+PUBLIC PROCEDURE "clean_up_old_cookies" ( )
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY DEFINER AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+  	DELETE FROM "Util.SSCOOKIE"
+	 WHERE EXPIRY <= now(); 
+END;
+
+END;

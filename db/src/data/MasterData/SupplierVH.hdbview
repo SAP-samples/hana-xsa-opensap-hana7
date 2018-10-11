@@ -1,0 +1,6 @@
+VIEW "MDViews.SupplierViewVH" ( 
+     "Supplier_Id",
+	 "Supplier_CompanyName" ) AS SELECT
+	 "SupplierView_$0"."Id" AS "Supplier_Id" ,
+	 "SupplierView_$0"."CompanyName" AS "Supplier_CompanyName" 
+FROM "MDViews.SupplierView" AS "SupplierView_$0" WITH READ ONLY

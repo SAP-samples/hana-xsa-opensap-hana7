@@ -1,0 +1,19 @@
+PROCEDURE "get_po_avg_by_partnerid" (
+	    out ex_po_avg_by_bp table( partnerid nvarchar(10), 
+	                         avgitemprice decimal(15,2), 
+	                         avgorderquantity decimal(15,2), 
+	                         currency nvarchar(5) ) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+	lt_bp = select partnerid from "MD.BusinessPartner";
+	
+	ex_po_avg_by_bp = MAP_REDUCE(:lt_bp, 
+	                     "get_po_by_partnerid_tf"(:lt_bp.partnerid)
+	                               group by partnerid as items, 
+						 "get_po_avg_by_partnerid_tf"( items.partnerid, items) );
+
+	ex_po_avg_by_bp = select * from :ex_po_avg_by_bp order by partnerid;
+END

@@ -1,0 +1,1 @@
+xs cups CROSS_SCHEMA_SFLIGHT -p "{\"host\":\"<hostname>\",\"port\":\"3##<15|13>\",\"user\":\"CUPS_SFLIGHT\",\"password\":\"<Password>\",\"driver\":\"com.sap.db.jdbc.Driver\",\"tags\":[\"hana\"] , \"schema\" : \"SFLIGHT\" }"

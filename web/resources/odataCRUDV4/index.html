@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+        .mobile-list-item {
+            padding: 0.5em;
+        }
+        .paddingAll {
+            padding: 5px;
+        }
+        .alignText {
+            line-height: 2.5;
+            margin-right: 1em;
+            margin-left: 1em;            
+        }
+        .iconPadding {
+            margin-left: 2.5rem;
+            line-height: 2 !important;
+        }
+    </style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   		<link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon">
+        <link type="image/x-icon" href="/images/favicon.ico" rel="icon"> 
+	    <!-- <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" -->
+	<script id="sap-ui-bootstrap" src="{{{sapui5_sb.url}}}/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_belize_plus"
+		data-sap-ui-xx-bindingSyntax="complex"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-preload="async"
+		data-sap-ui-language="en"
+		data-sap-ui-resourceroots='{
+				"opensap.odataBasic": "./" }'		
+		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified">
+	</script>
+	<script type="text/javascript" src="../common/startup.js"></script>
+	<script>
+		localShellStartup("opensap.odataBasic");
+	</script>	
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

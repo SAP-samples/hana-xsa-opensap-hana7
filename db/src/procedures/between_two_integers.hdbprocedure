@@ -1,0 +1,17 @@
+PROCEDURE "between_two_integers" (  
+	                       in im_int int,
+	                       in im_low int,
+	                       in im_high int,
+                           out ex_valid boolean)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+  IF :im_int BETWEEN im_low AND im_high THEN
+    ex_valid = true;
+  ELSE
+    ex_valid = false;
+  END IF;
+
+END

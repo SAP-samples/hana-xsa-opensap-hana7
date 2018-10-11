@@ -1,0 +1,55 @@
+{
+  "_version": "1.1.0",
+  "start_url": "index.html",
+  "sap.app": {
+    "dataSources": {
+      "mainServiceAnnotation": {
+        "uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductsType/MDViews.ProductsConsumption/",
+        "type": "ODataAnnotation"
+      },
+      "countriesAnnotation": {
+        "uri": "/node/annotations/com.sap.openSAP.hana.example.services.CountriesType/MDViews.counties/",
+        "type": "ODataAnnotation"
+      },
+      "productsVHAnnotation": {
+        "uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductsVHType/MDViews.ProductsValueHelp/",
+        "type": "ODataAnnotation"
+      }, 
+      "productCatVHAnnotation": {
+        "uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductCatVhType/MDViews.productCategoryVH/",
+        "type": "ODataAnnotation"
+      }, 
+      "supplierVHAnnotation": {
+        "uri": "/node/annotations/com.sap.openSAP.hana.example.services.SupplierVhType/MDViews.SupplierViewVH/",
+        "type": "ODataAnnotation"
+      },       
+      "mainService": {
+        "uri": "/xsodata/products.xsodata/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+          	"countriesAnnotation",
+          	"productsVHAnnotation",
+          	"productCatVHAnnotation",
+          	"supplierVHAnnotation",
+            "mainServiceAnnotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "type": "sap.ui.model.odata.v2.ODataModel"
+      }
+    },
+    "config": {
+      "sapFiori2Adaptation": true
+    },
+    "rootView": "sap.openSAP.smarttableProducts.view.SmartTable",
+    "handleValidation": true
+  }
+}

@@ -1,0 +1,19 @@
+service {
+	scopes (
+		create ( "Create" ),
+		read ( "Display" ),
+		update ( "Edit" ),
+		delete ( "Delete" ),
+		debug ( "Display" )
+	);
+	
+    "PurchaseOrder.Header" 
+	  as "POHeader" navigates ("Items" as "POItem")
+	  create using "xsjs:poExits.xsjslib::po_create";
+	  
+	"PurchaseOrder.Item" 
+	  as "POItem";
+	  
+	association "Items" principal  "POHeader"("PURCHASEORDERID")
+	multiplicity "1" dependent "POItem"("POHeader.PURCHASEORDERID") multiplicity "*";
+}

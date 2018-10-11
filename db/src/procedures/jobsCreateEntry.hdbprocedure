@@ -1,0 +1,15 @@
+PROCEDURE "jobsCreateEntry" ( IN DESCRIPTION NVARCHAR(30)) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	AS
+BEGIN 
+
+declare DESCNAME string;
+DESCNAME := DESCRIPTION;
+
+/*This Procedure inserts a record with the current timestamp into the "JobsDemo" table*/
+
+   insert into "JobsDemo.Details" 
+             values (now(), DESCNAME);
+
+END;

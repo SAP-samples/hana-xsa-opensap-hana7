@@ -1,0 +1,12 @@
+service namespace "com.sap.openSAP.hana.example.services"  { 
+    "core.models::CUSTOMER_DISCOUNT_BY_RANKING_AND_REGION"
+    as "salesDiscount"  
+	keys generate local "ID"
+    aggregates always
+    parameters via entity "InputParams"; 
+}
+
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

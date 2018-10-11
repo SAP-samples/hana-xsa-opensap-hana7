@@ -1,0 +1,7 @@
+TYPE "Procedures.tt_customer_discount_calculation" AS TABLE ( 
+     "COMPANY_NAME" NVARCHAR(50) CS_STRING,
+	 "REGION" NVARCHAR(50) CS_STRING,
+	 "SALES" DECIMAL(15,2) CS_FIXED,
+	 "ORDERS" INT CS_INT,
+	 "SALES_RANK" INT CS_INT,
+	 "ORDER_RANK" INT CS_INT ) 

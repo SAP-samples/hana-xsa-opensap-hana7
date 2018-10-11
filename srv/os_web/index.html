@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang='en' class=''>
+<head>
+<!-- <script src='//static.codepen.io/assets/editor/live/console_runner-ce3034e6bde3912cc25f83cccb7caa2b0f976196f2f2d52303a462c826d54a73.js'></script>
+<script src='//static.codepen.io/assets/editor/live/css_live_reload_init-890dc39bb89183d4642d58b1ae5376a0193342f9aed88ea04330dc14c8d52f55.js'></script> -->
+<meta charset='UTF-8'><meta name="robots" content="noindex">
+<!-- <link rel="shortcut icon" type="image/x-icon" href="//static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type="" href="//static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+<link rel="canonical" href="https://codepen.io/anon/pen/LdPWbE" />
+-->
+<link rel='stylesheet prefetch' href='https://unpkg.com/shell.js@1.0.5/dist/css/shell.min.css'>
+<link rel='stylesheet prefetch' href='https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css'>
+<link rel='stylesheet prefetch' href='https://rawgit.com/jcubic/jquery.terminal/devel/css/jquery.terminal.css'>
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+<style class="cp-pen-styles">form {
+    margin: 10px;
+}
+body .shell {
+    width: 400px;
+    height: 200px;
+}
+.shell .typed-cursor, .shell .cursor {
+    background: transparent;
+}
+.shell > .status-bar .title {
+    cursor: move;
+}
+/*
+ * fix to shell.js to center title to free space
+ */
+.shell.windows .status-bar .title {
+    right: 106px;
+}
+@supports (--css: variables) {
+    .shell.ubuntu .terminal {
+        --background: #300924;
+    }
+    .shell.osx .content.terminal {
+        --background: #222;
+    }
+    .shell.light .content.terminal {
+        --background: white;
+        --color: black;
+    }
+    /*
+    * windows and custom are the last ones so
+    * they don't get overwritten by light
+    */
+    .shell.windows .content.terminal {
+        --background: black;
+        --color: white;
+        --animation: terminal-underline;
+    }   
+    .shell.custom .content.terminal {
+        --background: #292929;
+        --color: #aaa;
+    }
+}
+/*
+ * overwrite shell.js style because shell.js   
+ * selectors are stronger then terminal ones
+ */
+.cmd span.cursor {
+    animation: none;
+    width: auto;
+    background-color: var(--background, #000);
+}
+.shell terminal.content,
+.shell.osx.dark .content,
+.shell.ubuntu .content {
+    background-color: var(--background, #222) !important;
+}
+.shell .terminal.content {
+    font-size: 12px;
+}
+.cmd {
+    background-color: inherit;
+}
+@supports (--css: variables) {
+    .shell .terminal.content {
+        font-size: calc(var(--size, 1) * 12px);
+    }
+}</style></head><body>
+<form>
+    <label for="type">Window Type:</label>
+    <select id="type">
+        <option value="osx">osx</option>
+        <option value="ubuntu" selected>ubuntu</option>
+        <option value="windows">windows</option>
+        <option value="custom">custom</option>
+    </select>
+    <label for="dark">dark</label>
+    <input type="checkbox" id="dark" checked/>
+    <label for="password">Password:</label>
+    <input type="password" id="password" />    
+</form>
+<!-- shell.js terminal window -->
+<div class="shell ubuntu dark shadow">
+    <div class="status-bar">
+        <div class="buttons">
+            <a href="javascript:;" class="close" title="Close">
+                <i class="fa fa-times"></i>
+            </a>
+            <a href="javascript:;" class="minimize" title="Minimize">
+                <i class="fa fa-minus"></i>
+                    
+            </a>
+            <a href="javascript:;" class="enlarge" title="Enlarge">
+                <i class="fa fa-plus"></i>
+                    
+            </a>
+                    
+        </div>
+        <div class="title">user@host: ~</div>
+    </div>
+    <div class="content"></div>
+</div>
+
+<!-- <script src='//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script> -->
+<script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+<script src='https://rawgit.com/jcubic/leash/master/lib/wcwidth.js'></script>
+<script src='https://rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal.min.js'></script>
+<script src='https://rawgit.com/jcubic/jquery.terminal/master/js/jquery.mousewheel-min.js'></script>
+<script src='https://rawgit.com/inexorabletash/polyfill/master/keyboard.js'></script>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function() {
+  function link(url) {
+    var link = document.createElement('link');
+    link.href = url;
+    link.rel = 'stylesheet';
+    head.appendChild(link);
+  }
+  var head = document.querySelector('head');
+  link('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+  link('https://codepen.io/jcubic/pen/WZjbgq.css?v=2');
+  var div = document.createElement('div');
+  div.setAttribute('class', 'twitter social-icon');
+  div.innerHTML = '<a href="https://twitter' +
+    '.com/jcubic" target="_top"></a>' +
+    '<i class="fa fa-twitter fa-lg"></i>';
+  document.body.appendChild(div);
+});
+var github = function(repo) {
+  var a = document.createElement('a');
+  a.target = '_top';
+  a.setAttribute('class', 'github');
+  a.href = 'https://github.com/' + repo;
+  a.innerHTML = '<img style="position: fixed; top: 0; right: 0; border: 0; cursor: pointer;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/>';
+  document.addEventListener("DOMContentLoaded",
+                            function() {
+    document.body.appendChild(a);
+  });
+};
+</script> -->
+<script >var shell = $('.shell').resizable({
+    minHeight: 108,
+    minWidth: 250
+}).draggable({
+    handle: '> .status-bar .title'
+});
+var term = $('.content').terminal(function(command, term) {
+        return $.get('/node/os/xs-cmd/'+$('#password').val()+'/'+command, {command: command});
+    }, {
+    prompt: 'user@host:~ '
+});
+$('#type').on('change', function() {
+    shell.removeClass('osx windows ubuntu default custom').addClass(this.value);
+    var prompt;
+    if (this.value == 'windows') {
+        prompt = 'C:\\Windows\\>';
+    } else {
+        prompt = 'user@host:~ ';
+    }
+    term.toggleClass('underline-animation', this.value == 'windows');
+    term.set_prompt(prompt);
+    $('.title').html(prompt);
+});
+$('#dark').on('change', function() {
+    shell.removeClass('dark light');
+    if (this.checked) {
+        shell.addClass('dark');
+    } else {
+        shell.addClass('light');
+    }
+});
+$('#type, #dark').on('change', function() {
+    setTimeout(function() {
+        term.focus();
+    }, 400)
+});
+//github('jcubic/jquery.terminal');
+//# sourceURL=pen.js
+</script>
+
+</body></html>

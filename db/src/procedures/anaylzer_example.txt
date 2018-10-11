@@ -1,0 +1,19 @@
+DO BEGIN
+tab = select rule_namespace, rule_name, category from sqlscript_analyzer_rules; -- selects all rules
+call analyze_sqlscript_definition('
+Create procedure UNCHECKED_DYNAMIC_SQL(in query nvarchar(500)) AS
+BEGIN
+declare query2 nvarchar(500) = ''SELECT '' || query || '' from tab'';
+EXEC :query2;
+query2 = :query2; --unused variable value
+END', :tab, res);
+select * from :res;
+end;
+
+
+do begin
+tab = select rule_namespace, rule_name, category from sqlscript_analyzer_rules;
+to_scan = select schema_name, procedure_name object_name, definition from sys.procedures where procedure_type = 'SQLSCRIPT2' and schema_name in ('OPENSAP_HANA5_EXAMPLE_1') order by procedure_name;
+call analyze_sqlscript_objects(:to_scan, :tab, objects, findings);
+select t1.schema_name, t1.object_name, t2.*, t1.object_definition from :findings t2 join :objects t1 on t1.object_definition_id = t2.object_definition_id;
+end;

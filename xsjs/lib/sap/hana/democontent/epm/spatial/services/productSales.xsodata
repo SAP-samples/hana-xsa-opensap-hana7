@@ -1,0 +1,19 @@
+service namespace "com.sap.openSAP.hana.example.services" {
+
+    "core.models::PROD" as "ProductDetails" 
+    keys ("PRODUCTID");
+
+	"spatial.models::REGION_PRODUCT" as "ProductRegionQuantity" 
+	with ("SALESORDERID", "LATITUDE", "LONGITUDE", "QUANTITY", "PRODUCT_PRODUCTID")
+	keys ("SALESORDERID", "PRODUCT_PRODUCTID"); 
+	
+//	"sap.hana.democontent.epm.spatial.models::PRODUCT_SALES" as "ProductSales"
+//	with ("PRODUCT_PRODUCTID", "YEAR_OF_SALE", "GROSSAMOUNT_1")
+//	keys generate local "ID"
+//	aggregates always;
+
+}
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

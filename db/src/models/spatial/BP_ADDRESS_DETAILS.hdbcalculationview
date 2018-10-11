@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="spatial.models::BP_ADDRESS_DETAILS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="BP_ADDRESS_DETAILS"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MD.BusinessPartner">
+    <resourceUri>MD.BusinessPartner</resourceUri>
+  </DataSource>
+  <DataSource id="MD.Addresses">
+    <resourceUri>MD.Addresses</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ADDRESSID"><descriptions/>
+        <descriptions defaultDescription="ADDRESSID"/>
+      </viewAttribute>
+      <viewAttribute id="CITY"><descriptions/>
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="POSTALCODE"><descriptions/>
+        <descriptions defaultDescription="POSTALCODE"/>
+      </viewAttribute>
+      <viewAttribute id="STREET"><descriptions/>
+        <descriptions defaultDescription="STREET"/>
+      </viewAttribute>
+      <viewAttribute id="BUILDING"><descriptions/>
+        <descriptions defaultDescription="BUILDING"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY"><descriptions/>
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="REGION"><descriptions/>
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="LATITUDE"><descriptions/>
+        <descriptions defaultDescription="LATITUDE"/>
+      </viewAttribute>
+      <viewAttribute id="LONGITUDE"><descriptions/>
+        <descriptions defaultDescription="LONGITUDE"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/>
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="EMAILADDRESS"><descriptions/>
+        <descriptions defaultDescription="EMAILADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="PHONENUMBER"><descriptions/>
+        <descriptions defaultDescription="PHONENUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="FAXNUMBER"><descriptions/>
+        <descriptions defaultDescription="FAXNUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="WEBADDRESS"><descriptions/>
+        <descriptions defaultDescription="WEBADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="LEGALFORM"><descriptions/>
+        <descriptions defaultDescription="LEGALFORM"/>
+      </viewAttribute>
+      <viewAttribute id="JOIN$ADDRESSES.ADDRESSID$ADDRESSID" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MD.BusinessPartner">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAILADDRESS" source="EMAILADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PHONENUMBER" source="PHONENUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FAXNUMBER" source="FAXNUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEBADDRESS" source="WEBADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEGALFORM" source="LEGALFORM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESSES.ADDRESSID$ADDRESSID" source="ADDRESSES.ADDRESSID"/>
+    </input>
+    <input node="MD.Addresses">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESSID" source="ADDRESSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTALCODE" source="POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STREET" source="STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUILDING" source="BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LATITUDE" source="LATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LONGITUDE" source="LONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESSES.ADDRESSID$ADDRESSID" source="ADDRESSID"/>
+    </input>
+    <joinAttribute name="JOIN$ADDRESSES.ADDRESSID$ADDRESSID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ADDRESSID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESSID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ADDRESSID"/>
+    </attribute>
+    <attribute id="CITY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CITY"/>
+    </attribute>
+    <attribute id="POSTALCODE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTALCODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTALCODE"/>
+    </attribute>
+    <attribute id="STREET" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="Join_1" columnName="STREET"/>
+    </attribute>
+    <attribute id="BUILDING" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUILDING"/>
+      <keyMapping columnObjectName="Join_1" columnName="BUILDING"/>
+    </attribute>
+    <attribute id="COUNTRY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="REGION" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="REGION"/>
+    </attribute>
+    <attribute id="LATITUDE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LATITUDE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LATITUDE"/>
+    </attribute>
+    <attribute id="LONGITUDE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LONGITUDE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LONGITUDE"/>
+    </attribute>
+    <attribute id="PARTNERID" key="true" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="EMAILADDRESS" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAILADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMAILADDRESS"/>
+    </attribute>
+    <attribute id="PHONENUMBER" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PHONENUMBER"/>
+      <keyMapping columnObjectName="Join_1" columnName="PHONENUMBER"/>
+    </attribute>
+    <attribute id="FAXNUMBER" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FAXNUMBER"/>
+      <keyMapping columnObjectName="Join_1" columnName="FAXNUMBER"/>
+    </attribute>
+    <attribute id="WEBADDRESS" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEBADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="WEBADDRESS"/>
+    </attribute>
+    <attribute id="COMPANYNAME" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANYNAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="COMPANYNAME"/>
+    </attribute>
+    <attribute id="LEGALFORM" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LEGALFORM"/>
+      <keyMapping columnObjectName="Join_1" columnName="LEGALFORM"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="213"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="MD.BusinessPartner" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="MD.Addresses" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

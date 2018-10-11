@@ -1,0 +1,156 @@
+PROCEDURE "load_data_SO"  (
+	IN start_date NVARCHAR(30),
+	IN end_date NVARCHAR(30),
+	IN aNoRec INTEGER,
+	OUT Res VARCHAR(20)
+) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	 AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+
+
+
+declare timediff Integer;	     
+declare aStartDate Date;
+declare aEndDate Date;
+
+DECLARE ERROR_MESS VARCHAR(5000);
+Declare BP_COUNT Integer;
+Declare PROD_COUNT Integer;
+Declare MaxSO Integer;
+
+
+
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION   
+BEGIN
+  SELECT ::SQL_ERROR_MESSAGE AS ErrorMessage into ERROR_MESS FROM DUMMY; 
+  Res:= ERROR_MESS;
+
+  
+END;
+
+
+
+SELECT Count(*) into BP_COUNT  from "MD.BusinessPartner";
+SELECT Count(*) into PROD_COUNT  from "MD.Products";
+SELECT MAX(SALESORDERID) into MaxSO FROM "SO.Header";
+    
+
+
+
+
+
+aStartDate := TO_DATE(:start_date);
+aEndDate := TO_DATE(:end_date);
+timediff := DAYS_BETWEEN(aStartDate,aEndDate)+1;
+
+/*if :aNorec = 0 then
+exit;
+end if; */
+/* Check max poid  */
+
+Header_Generated= SELECT  GENERATED_PERIOD_END as Header_Id,
+                    ADD_DAYS(:start_date,floor(RAND()*:timediff)+1) as CreatedAt,
+                    floor(RAND()*BP_COUNT)+1 as BP,
+                    floor(RAND()*5)+1 as NOOFITEMS
+                FROM SERIES_GENERATE_INTEGER(1, 0, :aNoRec ) ;
+
+Dummy_Items= SELECT  GENERATED_PERIOD_END as ItemNum FROM SERIES_GENERATE_INTEGER(1, 0, 5 );
+
+Item_Generated= SELECT  :Header_Generated.Header_Id, 
+                        :Dummy_Items.ItemNum,
+                        floor(RAND()*PROD_COUNT)+1 as ProdNum,
+                        floor(RAND()*10)+1 as Quantity,
+                        CreatedAt
+                    FROM :Header_Generated inner join :Dummy_Items
+                    ON :Dummy_Items.ItemNum <=:Header_Generated.NOOFITEMS;
+
+Products= SELECT ROW_NUMBER() OVER (ORDER BY PRODUCTID ASC) as RowNum, 
+                    PRODUCTID,
+                    PRICE 
+            FROM "MD.Products";
+
+
+
+Item_Prod_Details= SELECT Header_Id,
+                            ItemNum,
+                            PRODUCTID,
+                            PRICE,
+                            Quantity * Price as NetAmt,
+                            Quantity * Price * 0.19 as TaxAmt,
+                            Quantity * Price * 1.19 as GrossAmt,
+                            Quantity,
+                            CreatedAt
+                        FROM :Item_Generated as IG inner join :Products 
+                        on IG.ProdNum= :Products.RowNum;
+                        
+    Header_Prod_Details = Select Header_Id, 
+                                Sum(NetAmt) as NetAmt,
+                                Sum(TaxAmt) as TaxAmt,
+                                Sum(GrossAmt) as GrossAmt
+                        FROM :Item_Prod_Details
+                        GROUP BY Header_Id;
+    
+    BP =  SELECT ROW_NUMBER() OVER (ORDER BY PartnerId ASC) as RowNum, 
+                    PartnerId
+            FROM "MD.BusinessPartner";
+    
+    Header_BP_Details = SELECT  Header_Id,
+                                CreatedAt,
+                                PartnerId
+                        FROM :Header_Generated inner join :BP
+                        ON :Header_Generated.BP= :BP.RowNum;
+                    
+    
+    Header_Final = SELECT TO_NVARCHAR(MaxSO+ :Header_BP_Details.Header_Id) as "SALESORDERID",
+                              '0000000033' as "HISTORY.CREATEDBY.EMPLOYEEID",
+                              CreatedAt as "HISTORY.CREATEDAT",
+                              '0000000033'as "HISTORY.CHANGEDBY.EMPLOYEEID",
+                              CreatedAt as "HISTORY.CHANGEDAT",
+                              'NoteId' as "NOTEID",
+                              PartnerId as "PARTNER.PARTNERID",
+                              'EUR' as "CURRENCY",
+                              GrossAmt as "GROSSAMOUNT",
+                              NetAmt as "NETAMOUNT",
+                              TaxAmt as "TAXAMOUNT",
+                              'N' as "LIFECYCLESTATUS",
+                              'I' as "APPROVALSTATUS",
+                              'I' as "CONFIRMSTATUS"
+                              
+                    FROM :Header_BP_Details inner join :Header_Prod_Details  
+                    on :Header_BP_Details.Header_Id = :Header_Prod_Details.Header_Id;
+    
+    
+    
+    Items_Final = Select TO_NVARCHAR(MaxSO+ Header_Id) as "SALESORDERID",
+    --                          CONCAT(  '00000000' , TO_NVARCHAR(ItemNum * 10)) as "SALESORDERITEM",
+                              PRODUCTID as "PRODUCT.PRODUCTID",
+                              'NoteId' as "NOTEID",
+                              'EUR' as "CURRENCY",
+                              GrossAmt as "GROSSAMOUNT",
+                              NetAmt as "NETAMOUNT",
+                              TaxAmt as "TAXAMOUNT",
+                              'I',
+                              '?',
+                              Quantity as "QUANTITY",
+                              'EA' as "QUANTITYUNIT",
+                              CreatedAt as "DELIVERYDATE"
+                    FROM :Item_Prod_Details; 
+                    
+                    
+    Insert into "SO.Header" (SELECT * FROM :Header_Final);
+    Insert into "SO.Item" (SELECT * FROM :Items_Final);
+
+    
+
+Res:= 'Success';
+
+
+
+END;

@@ -1,0 +1,11 @@
+PROCEDURE "get_session_var_value" ( 
+	        in im_var nvarchar(50))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+
+declare lv_value nvarchar(50);
+lv_value = session_context(:im_var);
+
+END

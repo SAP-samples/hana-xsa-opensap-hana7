@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALES_ORDER_WORKLIST" applyPrivilegeType="NONE" dataCategory="DEFAULT" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALES_ORDER_WORKLIST"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SO.Header">
+    <resourceUri>SO.Header</resourceUri>
+  </DataSource>
+  <DataSource id="SO.Item">
+    <resourceUri>SO.Item</resourceUri>
+  </DataSource>
+  <DataSource id="core.models::PROD">
+    <resourceUri>core.models::PROD</resourceUri>
+  </DataSource>
+  <DataSource id="core.models::BUYER">
+    <resourceUri>core.models::BUYER</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Sales" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="LIFECYCLESTATUS"><descriptions/><descriptions/>
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITY"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SO.Header">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+    </input>
+    <input node="SO.Item">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCT.PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="HEADER.SALESORDERID"/>
+    </input>
+    <joinAttribute name="SALESORDERID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Product" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="LIFECYCLESTATUS"><descriptions/><descriptions/>
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITY"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="TYPECODE"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="CATEGORY"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTNAME"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTDESC"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_DESCRIPTION"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Sales">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+    </input>
+    <input node="core.models::PROD">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPECODE" source="PRODUCT_TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CATEGORY" source="PRODUCT_CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTNAME" source="PRODUCT_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTDESC" source="PRODUCT_DESCRIPTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+    </input>
+    <joinAttribute name="PRODUCTID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Partner" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID"><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/>
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="LIFECYCLESTATUS"><descriptions/>
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITY"><descriptions/>
+        <descriptions defaultDescription="QUANTITY"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="TYPECODE"><descriptions/>
+        <descriptions defaultDescription="TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="CATEGORY"><descriptions/>
+        <descriptions defaultDescription="CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTNAME"><descriptions/>
+        <descriptions defaultDescription="PRODUCTNAME"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTDESC"><descriptions/>
+        <descriptions defaultDescription="PRODUCTDESC"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="CITY"><descriptions/>
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="POSTALCODE"><descriptions/>
+        <descriptions defaultDescription="POSTALCODE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Product">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPECODE" source="TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CATEGORY" source="CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTNAME" source="PRODUCTNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTDESC" source="PRODUCTDESC"/>
+    </input>
+    <input node="core.models::BUYER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTALCODE" source="POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+    </input>
+    <joinAttribute name="PARTNERID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Partner">
+  <attributes>
+    <attribute id="SALESORDERID" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Partner" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="PARTNERID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="Partner" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="LIFECYCLESTATUS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      <keyMapping columnObjectName="Partner" columnName="LIFECYCLESTATUS"/>
+    </attribute>
+    <attribute id="CURRENCY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Partner" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="GROSSAMOUNT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <keyMapping columnObjectName="Partner" columnName="GROSSAMOUNT"/>
+    </attribute>
+    <attribute id="PRODUCTID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID"/>
+      <keyMapping columnObjectName="Partner" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="QUANTITY" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUANTITY"/>
+      <keyMapping columnObjectName="Partner" columnName="QUANTITY"/>
+    </attribute>
+    <attribute id="QUANTITYUNIT" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUANTITYUNIT"/>
+      <keyMapping columnObjectName="Partner" columnName="QUANTITYUNIT"/>
+    </attribute>
+    <attribute id="TYPECODE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TYPECODE"/>
+      <keyMapping columnObjectName="Partner" columnName="TYPECODE"/>
+    </attribute>
+    <attribute id="CATEGORY" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CATEGORY"/>
+      <keyMapping columnObjectName="Partner" columnName="CATEGORY"/>
+    </attribute>
+    <attribute id="PRODUCTNAME" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTNAME"/>
+      <keyMapping columnObjectName="Partner" columnName="PRODUCTNAME"/>
+    </attribute>
+    <attribute id="PRODUCTDESC" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTDESC"/>
+      <keyMapping columnObjectName="Partner" columnName="PRODUCTDESC"/>
+    </attribute>
+    <attribute id="COMPANYNAME" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANYNAME"/>
+      <keyMapping columnObjectName="Partner" columnName="COMPANYNAME"/>
+    </attribute>
+    <attribute id="CITY" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Partner" columnName="CITY"/>
+    </attribute>
+    <attribute id="POSTALCODE" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTALCODE"/>
+      <keyMapping columnObjectName="Partner" columnName="POSTALCODE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Sales" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="48" y="443"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="SO.Header" modelObjectNameSpace="Sales" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="38"/>
+      <rectangleSize width="278.97265625"/>
+    </shape>
+    <shape modelObjectName="SO.Item" modelObjectNameSpace="Sales" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Product" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="78" y="299"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Sales" modelObjectNameSpace="Product" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::PROD" modelObjectNameSpace="Product" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Partner" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="78" y="201"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Product" modelObjectNameSpace="Partner" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::BUYER" modelObjectNameSpace="Partner" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,27 @@
+PROCEDURE "jsonNestedColumn" (
+out JSONOUT table ( STREET NVARCHAR(50),
+                    CITY NVARCHAR(50)
+	)
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   JSONOUT = SELECT *
+	FROM JSON_TABLE("jsonExamples.jsonTbl1"."data", '$.ShippingInstructions'
+	COLUMNS
+    (
+        NESTED PATH '$.Address'
+        COLUMNS
+        (
+            STREET NVARCHAR(50) PATH '$.street',
+            CITY NVARCHAR(50) PATH '$.city'
+        )
+    )
+	) AS JT;
+END

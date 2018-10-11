@@ -1,0 +1,84 @@
+000,D,100*,Referenzwert = Kreiswert
+000,D,1001,Stichtagskurs
+000,D,1002,Durchschnittskurs
+000,D,1003,Historischer Kurs
+000,D,1004,Stichtagskurs des Vorjahres
+000,D,200*,Referenzwert = Kreiswert
+000,D,2001,Stichtagskurs
+000,D,2002,Durchschnittskurs
+000,D,2003,Historischer Kurs
+000,D,2004,Stichtagskurs des Vorjahres
+000,D,B,Standardumrechnung zum Briefkurs
+000,D,EURO,EWU-Vorschrift\ fixe Kurse
+000,D,EURX,EWU-Vorschrift\ variable Kurse
+000,D,G,Standardumrechnung zum Geldkurs
+000,D,I,Kurstyp IntraStat
+000,D,M,Standardumrechnung zum Mittelkurs
+000,D,P,Standardumrechnung für die Kostenplanung
+000,E,100*,Reference value = group value
+000,E,1001,Current exchange rate
+000,E,1002,Average exchange rate
+000,E,1003,Historical exchange rate
+000,E,1004,Current exch. rate prior year
+000,E,200*,Reference value = group value
+000,E,2001,Current exchange rate
+000,E,2002,Average exchange rate
+000,E,2003,Historical exchange rate
+000,E,2004,Current exch. rate prior year
+000,E,B,Standard translation at bk.selling rate
+000,E,EURO,EMU regulation\ fixed exchange rates
+000,E,EURX,EMU regulation\ variable exchange rates
+000,E,G,Standard translation at bank buying rate
+000,E,I,Intrastat exchange rate type
+000,E,M,Standard translation at average rate
+000,E,P,Standard translation for cost planning
+000,F,B,Conversion standard cours courrier
+000,F,G,Conversion standard cours trés.
+000,F,M,Conversion standard cours moyen
+000,F,P,Cours planifiés
+000,N,B,Standaardomrekening met girale koers xx
+000,N,G,Standaardomrekening met chartale koers
+000,N,M,Standaardomrekening met middenkoers
+000,N,P,plankoersen
+001,D,100*,Referenzwert = Kreiswert
+001,D,1001,Stichtagskurs
+001,D,1002,Durchschnittskurs
+001,D,1003,Historischer Kurs
+001,D,1004,Stichtagskurs des Vorjahres
+001,D,200*,Referenzwert = Kreiswert
+001,D,2001,Stichtagskurs
+001,D,2002,Durchschnittskurs
+001,D,2003,Historischer Kurs
+001,D,2004,Stichtagskurs des Vorjahres
+001,D,B,Standardumrechnung zum Briefkurs
+001,D,EURO,EWU-Vorschrift\ fixe Kurse
+001,D,EURX,EWU-Vorschrift\ variable Kurse
+001,D,G,Standardumrechnung zum Geldkurs
+001,D,I,Kurstyp IntraStat
+001,D,M,Standardumrechnung zum Mittelkurs
+001,D,P,Standardumrechnung für die Kostenplanung
+001,E,100*,Reference value = group value
+001,E,1001,Current exchange rate
+001,E,1002,Average exchange rate
+001,E,1003,Historical exchange rate
+001,E,1004,Current exch. rate prior year
+001,E,200*,Reference value = group value
+001,E,2001,Current exchange rate
+001,E,2002,Average exchange rate
+001,E,2003,Historical exchange rate
+001,E,2004,Current exch. rate prior year
+001,E,B,Standard translation at bk.selling rate
+001,E,EURO,EMU regulation\ fixed exchange rates
+001,E,EURX,EMU regulation\ variable exchange rates
+001,E,G,Standard translation at bank buying rate
+001,E,I,Intrastat exchange rate type
+001,E,M,Standard translation at average rate
+001,E,P,Standard translation for cost planning
+001,F,B,Conversion standard cours courrier
+001,F,G,Conversion standard cours trés.
+001,F,M,Conversion standard cours moyen
+001,F,P,Cours planifiés
+001,N,B,Standaardomrekening met girale koers xx
+001,N,G,Standaardomrekening met chartale koers
+001,N,M,Standaardomrekening met middenkoers
+001,N,P,plankoersen

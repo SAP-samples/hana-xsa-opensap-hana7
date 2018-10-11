@@ -1,0 +1,18 @@
+TRIGGER "add_update_price_to_log"
+    AFTER UPDATE ON "Product.Products" 
+    REFERENCING NEW ROW newrow, OLD ROW oldrow FOR EACH ROW
+ BEGIN
+
+   declare lv_price_difference decimal(15,2) := 0;
+   if :oldrow.price <> :newrow.price then
+    
+      lv_price_difference := :newrow.price - :oldrow.price;
+ 
+      INSERT INTO "Product.ProductLog" 
+    VALUES(:newrow.PRODUCTID,  (select IFNULL(MAX(logid), 0) + 1 from
+           "Product.ProductLog" where productid = :newrow.PRODUCTID), 
+           now(), CURRENT_USER,  :newrow.PRODUCTID || 
+           ' has been updated with price difference of ' || to_decimal(lv_price_difference, 15, 2));
+   end if;
+
+ END

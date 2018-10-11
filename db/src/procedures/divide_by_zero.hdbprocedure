@@ -1,0 +1,12 @@
+PROCEDURE "divide_by_zero" ( out test_out table ( test DECIMAL(8,6) ) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+     test_out = select ndiv0(10, 0) as test from dummy;
+END

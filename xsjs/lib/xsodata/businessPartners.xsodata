@@ -1,0 +1,3 @@
+service {
+	"MD.BusinessPartner" as "BusinessPartners";
+}

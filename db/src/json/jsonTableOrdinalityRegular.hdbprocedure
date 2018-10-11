@@ -1,0 +1,25 @@
+PROCEDURE "jsonTableOrdinalityRegular" ( 
+	out JSONOUT table ( RN BIGINT,
+	                    ITEM_NUMBER INTEGER,
+	                    UPC_CODE BIGINT
+	))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   JSONOUT = SELECT JT.*
+	FROM JSON_TABLE("jsonExamples.jsonTbl1"."data", '$.LineItems[*]'
+	COLUMNS
+    (
+        RN FOR ORDINALITY,
+        ITEM_NUMBER INT PATH '$.ItemNumber',
+        UPC_CODE BIGINT PATH '$.Part.UPCCode'
+    )
+	) AS JT;
+	
+END

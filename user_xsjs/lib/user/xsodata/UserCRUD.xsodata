@@ -1,0 +1,9 @@
+service namespace "com.sap.openSAP.hana5.example.servicesa" {
+    "UserData.User"
+	as "UserDetails" concurrencytoken create using 
+	"user.xsjs:usersCreateMethod.xsjslib::usersCreate";
+}
+settings {  
+ support null;
+ metadata cache-control "max-age= 604800";
+ } 

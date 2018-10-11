@@ -1,0 +1,20 @@
+VIEW "PO.ItemView" COMMENT 'Purchase Order Item View'
+   ( "PurchaseOrderItemId",
+	 "ProductID",
+	 "CurrencyCode",
+	 "Amount",
+	 "NetAmount",
+	 "TaxAmount",
+	 "Quantity",
+	 "QuantityUnit",
+	 "DeliveryDate1" ) AS SELECT
+	 "Item_$0"."HEADER"."PURCHASEORDERID" AS "PurchaseOrderItemId" ,
+	 "Item_$0"."PRODUCT"."PRODUCTID" AS "ProductID" ,
+	 "Item_$0"."CURRENCY" AS "CurrencyCode" ,
+	 "Item_$0"."GROSSAMOUNT" AS "Amount" ,
+	 "Item_$0"."NETAMOUNT" AS "NetAmount" ,
+	 "Item_$0"."TAXAMOUNT" AS "TaxAmount" ,
+	 "Item_$0"."QUANTITY" AS "Quantity" ,
+	 "Item_$0"."QUANTITYUNIT" AS "QuantityUnit" ,
+	 "Item_$0"."DELIVERYDATE" AS "DeliveryDate1" 
+FROM "PO.Item" AS "Item_$0" WITH READ ONLY 

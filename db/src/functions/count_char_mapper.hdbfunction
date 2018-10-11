@@ -1,0 +1,14 @@
+FUNCTION "count_char_mapper" ( in im_id int, in im_strdata varchar(5000) )
+           returns table ( id int, 
+                           val varchar, 
+                           freq int ) 
+ LANGUAGE SQLSCRIPT 
+ READS SQL DATA AS 
+ begin using sqlscript_string as lib;
+    
+    declare lt_split_result table(result varchar);
+    lt_split_result = lib:split_to_table(:im_strdata, ',');
+    return select :im_id as id, result as val, count(result) as freq 
+                   from :lt_split_result group by result;
+ 
+ end;

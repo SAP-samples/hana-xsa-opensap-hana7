@@ -1,0 +1,13 @@
+service namespace "opensap.hana7" {
+	"PO.Header"
+	as "POHeader" navigates ("Items" as "POItem");
+	
+	"PO.Item"
+	as "POItem";
+	
+	association "Items" 
+	principal "POHeader"("PURCHASEORDERID")
+	multiplicity "1"
+	dependent "POItem"("HEADER.PURCHASEORDERID")
+	multiplicity "*";
+}

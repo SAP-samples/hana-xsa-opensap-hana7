@@ -1,0 +1,9 @@
+service namespace "com.sap.openSAP.hana.example.service" {
+   "SO.Item" as "salesDetails"
+    create using "soCreate";
+}
+
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

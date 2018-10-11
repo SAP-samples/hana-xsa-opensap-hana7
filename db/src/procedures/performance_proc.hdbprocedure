@@ -1,0 +1,34 @@
+PROCEDURE "performance_proc" (  IN im_product_filter_string varchar(5000) DEFAULT '', 
+                                OUT t1  TABLE (COL INT ), 
+                                OUT t2  TABLE (COL INT ))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY DEFINER
+   AS
+BEGIN
+	DECLARE i int = 0;
+	DECLARE tmp table ( A nvarchar(20));
+    tmp.A[1] = 'dummy '||:i;
+    if length(:im_product_filter_string) = 0 then
+	    EXECUTE IMMEDIATE 'SELECT count(*) FROM "MD.Products" where CATEGORY NOT IN (''Laser printers'')' ;
+	else 
+	    EXECUTE IMMEDIATE 'SELECT count(*) FROM "MD.Products" where CATEGORY NOT IN (''Laser printers'') AND ' 
+	      || :im_product_filter_string ;
+	end if;
+	
+    CALL "log_proc" (::CURRENT_OBJECT_NAME, ::CURRENT_OBJECT_SCHEMA);
+    
+    FOR i in 1 .. 5 DO
+    	tmp.A[:i] = 'dummy '||:i;
+    END FOR; 
+    
+    t1 = select * from "long_running_function"(5);
+	t2 = select * from "long_running_function"(5);
+	
+	CALL "calculate_products" (im_product_filter_string => :im_product_filter_string,
+								EX_PRODUCTS => :EX_PRODUCTS) ;
+	
+	t3 = select CUMULATIVE_SUM from :ex_products ;
+		
+	select * from :tmp;
+	insert into "log.collectdata" (select * from :t3);
+END

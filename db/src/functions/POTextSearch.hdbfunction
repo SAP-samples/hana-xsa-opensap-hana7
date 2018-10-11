@@ -1,0 +1,23 @@
+FUNCTION "POTextSearch" (terms NVARCHAR(40), attribute NVARCHAR(20))
+       RETURNS table (RESULTS NVARCHAR(40),ATTRIBUTE NVARCHAR(20) )  
+       LANGUAGE SQLSCRIPT 
+       SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+       Write your function logic 
+ *****************************/ 
+	if :attribute = 'OTHERS' then
+		return 
+			SELECT TOP 50 DISTINCT TO_NVARCHAR("COMPANYNAME") as RESULTS,'COMPANYNAME' as ATTRIBUTE  FROM "MD.BusinessPartner" WHERE CONTAINS("COMPANYNAME",:terms)
+			union
+		    SELECT TOP 50 TO_NVARCHAR("CITY") AS RESULTS,'CITY' as ATTRIBUTE from "MD.BusinessPartner"as a inner join "MD.Addresses" as b on a."ADDRESSES.ADDRESSID" = b.ADDRESSID where contains("CITY", :terms)
+			union
+		    SELECT TOP 50 DISTINCT TO_NVARCHAR("CATEGORY") as RESULTS,'CATEGORY' as ATTRIBUTE FROM "MD.Products" WHERE CONTAINS("CATEGORY",:terms)
+			union
+		    SELECT TOP 50 DISTINCT TO_NVARCHAR("PRODUCTID") as RESULTS,'PRODUCTID' as ATTRIBUTE FROM "MD.Products" WHERE CONTAINS("PRODUCTID",:terms);
+	else
+		return 
+			SELECT TOP 50 DISTINCT TO_NVARCHAR("PURCHASEORDERID") as RESULTS,'PURCHASEORDERID' as ATTRIBUTE FROM "PO.Header" WHERE CONTAINS("PURCHASEORDERID",:terms);
+	end if;
+
+END;

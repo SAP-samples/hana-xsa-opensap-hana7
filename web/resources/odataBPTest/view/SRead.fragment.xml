@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Panel expandable="true" expanded="true" headerText="{i18n>P1}">
+		<List width="100%">
+			<InputListItem label="{i18n>L1}">
+				<Input id="sPath" value="{/sPath}"/>
+			</InputListItem>
+			<InputListItem label="{i18n>L4}">
+				<Input id="sEntity1" value="{/sEntity1}"/>
+			</InputListItem>
+		</List>
+		<Button press="callSingleService" text="{i18n>B1}"/>
+	</Panel>
+	<core:Fragment fragmentName="opensap.odataTest.view.STable" type="XML"/>
+</core:FragmentDefinition>

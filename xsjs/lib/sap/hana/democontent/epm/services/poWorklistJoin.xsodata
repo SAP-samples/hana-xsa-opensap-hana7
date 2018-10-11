@@ -1,0 +1,14 @@
+service namespace "com.sap.openSAP.hana.example.service" { 
+
+   "PO.HeaderView" as "PurchaseOrderHeader" keys ("PurchaseOrderId") 
+   navigates ("PO_Item" as "PurchaseOrderItem");
+   
+   "core.models::PO_ITEM" as "PurchaseOrderItem" keys ("PURCHASEORDERID","PRODUCT_PRODUCTID");
+   
+   association "PO_Item" principal "PurchaseOrderHeader"("PurchaseOrderId") 
+     multiplicity "1" dependent "PurchaseOrderItem"("PURCHASEORDERID") multiplicity "*";
+}
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

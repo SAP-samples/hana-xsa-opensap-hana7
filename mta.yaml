@@ -1,0 +1,171 @@
+ID: openSAPHANA
+_schema-version: '2.0'
+version: 0.0.2
+modules:
+  - name: db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: openSAPHANA-hdi-container
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+      - name: cross-container-service-1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_1
+          service: '~{the-service-name}'
+      - name: hdi_user_db
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: hdi-user-service
+          service: '~{user-container-name}'
+      - name: cross-container-service-2
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_2
+          service: '~{the-service-name}'
+  - name: srv
+    type: nodejs
+    path: srv
+    parameters:
+      host: openSAP-srv
+      register-service-url: true
+      service-name: openSAP-srv
+      service-url: '${default-url}'
+      memory: 512M
+      disk-quota: 256M      
+    properties:
+      UAA_SERVICE_NAME: openSAP-ex-uaa
+    requires:
+      - name: openSAPHANA-hdi-container
+      - name: openSAP-ex-uaa
+      - name: db
+      - name: openSAP-ex-log
+      - name: sap.hana.democontent.epm.services.images
+      - name: cross-container-service-1     
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+  - name: web
+    type: html5
+    path: web
+    parameters:
+      host: openSAP-web
+      register-service-url: true
+      service-name: openSAP-web
+      service-url: '${default-url}'    
+    requires:
+      - name: openSAP-ex-uaa
+      - name: xsjs_api
+        group: destinations
+        properties:
+          name: xsjs_api
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv_api
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: user_xsjs_api
+        group: destinations
+        properties:
+          name: user_xsjs_api
+          url: '~{url}'
+          forwardAuthToken: true          
+      - name: openSAP-ui5
+  - name: user_db
+    type: hdb
+    path: user_db
+    requires:
+      - name: hdi_user_db
+        properties:
+          TARGET_CONTAINER: '~{user-container-name}'
+  - name: xsjs
+    type: nodejs
+    path: xsjs
+    parameters:
+      host: openSAP-xsjs
+      register-service-url: true
+      service-name: openSAP-xsjs
+      service-url: '${default-url}'    
+    provides:
+      - name: xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: openSAPHANA-hdi-container
+      - name: openSAP-ex-uaa
+      - name: db
+      - name: sap.hana.democontent.epm.services.images
+      - name: cross-container-service-1       
+
+  - name: user_xsjs
+    type: nodejs
+    path: user_xsjs
+    provides:
+     - name: user_xsjs_api
+       properties:
+          url: ${default-url}
+    parameters:
+      host: openSAP-user-xsjs
+      register-service-url: true
+      service-name: openSAP-user-xsjs
+      service-url: '${default-url}'
+    requires:
+      - name: openSAP-ex-uaa
+      - name: user_db
+      - name: hdi_user_db
+      
+
+  
+
+resources:
+  - name: openSAPHANA-hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: openSAP-ex-uaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      config_path: ./xs-security.json
+  - name: cross-container-service-1
+    parameters:
+      service-name: CROSS_SCHEMA_SFLIGHT
+    properties:
+      the-service-name: '${service-name}'
+    type: org.cloudfoundry.existing-service
+  - name: hdi_user_db
+    parameters:
+      config:
+        schema: OPENSAP_HANA_USER_00
+    properties:
+      user-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: cross-container-service-2
+    parameters:
+      service-name: openSAP.CentralDB.opensap-central-container
+    properties:
+      the-service-name: '${service-name}'
+    type: org.cloudfoundry.existing-service
+  - name: openSAP-ui5
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: sapui5_sb
+      service-plan: sapui5-1.52
+  - name: openSAP-ex-log
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: auditlog
+      service-plan: free
+  - name: sap.hana.democontent.epm.services.images
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: sap.hana.democontent.epm.services.images
+    properties:
+      xshttpdest-images-service-name: '${service-name}'      

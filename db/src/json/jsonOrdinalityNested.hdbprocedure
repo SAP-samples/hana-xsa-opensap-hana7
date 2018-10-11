@@ -1,0 +1,32 @@
+PROCEDURE "jsonOrdinalityNested" (
+out JSONOUT table ( RN BIGINT,
+                    USER_NAME NVARCHAR(20),
+					ORDER_NUMBER INTEGER,
+                    ITEM_NUMBER INTEGER,
+                    QUANTITY INTEGER
+	)
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+	JSONOUT = SELECT *
+	FROM JSON_TABLE("jsonExamples.jsonTbl1"."data", '$'
+    COLUMNS
+    (
+        RN FOR ORDINALITY,
+        USER_NAME NVARCHAR(20) PATH '$.User',
+        NESTED PATH '$.LineItems[1,2]'
+        COLUMNS
+        (
+            ORDER_NUMBER FOR ORDINALITY,
+            ITEM_NUMBER INT PATH '$.ItemNumber',
+            QUANTITY INT PATH '$.Quantity'
+        )
+    )
+	) AS JT;
+END

@@ -1,0 +1,3 @@
+entity CATALOGSERVICE_MYENTITY {
+  key ID : Integer;
+};

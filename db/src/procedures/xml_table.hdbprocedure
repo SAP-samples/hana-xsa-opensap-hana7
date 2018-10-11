@@ -1,0 +1,31 @@
+PROCEDURE "xml_table" (
+   out XMLOUT1 table ( 
+      ID INT,
+      NAME NVARCHAR(40) )
+    )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   XMLOUT1 = select * FROM 
+   XMLTABLE(
+   XMLNAMESPACE('http://www.namespace.com/name' as 'myns2'
+                DEFAULT 'http://www.sap.com/xmltable'),
+   '/doc/item' PASSING
+   '<sap:doc xmlns:sap="http://www.sap.com/xmltable"
+             xmlns:ns="http://www.namespace.com/name">
+      <sap:item><sap:id>1</sap:id><ns:name>Box</ns:name></sap:item>
+      <sap:item><sap:id>2</sap:id><ns:name>Jar</ns:name></sap:item> 
+    </sap:doc>'
+    COLUMNS
+    ID INT PATH 'id',
+    NAME NVARCHAR(40) PATH 'myns2:name'
+    ) as XTABLE;
+
+
+END

@@ -1,0 +1,1166 @@
+000,D,%,%,%,%,Prozent
+000,D,%O,%O,%O,%0,Promille
+000,D,1,ONE,one,Eins,Eins
+000,D,10,T,d,Tage,Tage
+000,D,22S,22S,mm2/s,mm2/s,Quadratmillimeter/Sekunde
+000,D,2M,CMS,cm/s,cm/s,Zentimeter/Sekunde
+000,D,2X,000,m/min,m/min,Meter/Minute
+000,D,4G,µL,µl,µl,Mikroliter
+000,D,4O,µF,µF,µF,Mikrofarad
+000,D,4T,PF,pF,pF,Pikofarad
+000,D,A,A,A,A,Ampere
+000,D,A87,GOH,GOhm,GOhm,Gigaohm
+000,D,A93,GM3,g/m3,g/m3,Gramm/Kubikmeter
+000,D,ACR,ACR,acre,Acre,Acre
+000,D,B34,KD3,kg/dm3,kg/dm3,Kilogramm/Kubikdezimeter
+000,D,B45,KML,kmol,kmol,Kilomol
+000,D,B47,KN,kN,kN,Kilonewton
+000,D,B73,MN,MN,MN,Meganewton
+000,D,B75,MGO,MOhm,MOhm,Megaohm
+000,D,B78,MAV,MV,MV,Megavolt
+000,D,B84,µA,µA,µA,Mikroampere
+000,D,BAG,TTE,Tüte,Tüte,Tüte
+000,D,BAR,BAR,bar,bar,bar
+000,D,BOT,FL,Fl,Flasche,Flasche
+000,D,BQK,BQK,Bq/kg,Bq/kg,Becquerel/Kilogramm
+000,D,C10,MF,mF,mF,Millifarad
+000,D,C36,M/M,mol/m3,Mo/m3,Mol pro Kubikmeter
+000,D,C38,M/L,Mol/l,Mol/Liter,Mol pro Liter
+000,D,C39,NA,nA,nA,Nanoampere
+000,D,C3S,C3S,cm3/s,cm3/s,Kubikzentimeter/Sekunde
+000,D,C41,NF,nF,nF,Nanofarad
+000,D,C56,NMM,N/mm2,N/mm2,Newton/Quadratmillimeter
+000,D,CCM,CM3,cm3,cm3,Kubikzentimeter
+000,D,CD,CD,Cd,Cd,Candela
+000,D,CDM,CD3,dm3,Kubikdezim,Kubikdezimeter
+000,D,CM,CM,cm,cm,Zentimeter
+000,D,CM2,CM2,cm2,cm2,Quadratzentimeter
+000,D,CMH,CMH,cm/h,cm/h,Zentimeter/Stunde
+000,D,CS,KS,KS,Kasten,Kasten
+000,D,CTL,CL,cl,Zentiliter,Zentiliter
+000,D,D10,S/M,S/m,Siemens/m,Siemens pro Meter
+000,D,D41,TOM,t/m3,t/m3,Tonne/Kubikmeter
+000,D,D46,VA,VA,VA,Voltampere
+000,D,DEG,DEG,deg,Grad,Grad
+000,D,DM,DM,dm,dm,Dezimeter
+000,D,DR,TR,tr,Trommel,Trommel
+000,D,DZ,DZ,dz,Dutzend,Dutzend
+000,D,EA,EA,EA,each,each
+000,D,EE,EE,EE,Einh. Enzy,Einheiten Enzyme
+000,D,EML,EML,EE/ml,Enzyme/ml,Einheiten Enzyme / Milliliter
+000,D,F,F,F,F,Farad
+000,D,FA,°F,°F,°F,Fahrenheit
+000,D,FT,FT,Fuß,Fuß,Fuß
+000,D,FT2,FT2,ft2,Quadr.Fuß,Quadratfuß
+000,D,FT3,FT3,ft3,Kubikfuß,Kubikfuß
+000,D,G,G,g,g,Gramm
+000,D,G/L,G/L,gw/l,gw/Liter,Gramm Wirkstoff / Liter
+000,D,GAU,GAU,GAU,Gramm Gold,Gramm Gold
+000,D,GC,°C,°C,°C,Grad Celsius
+000,D,GHG,GHG,g/hg,g/hg,Gramm/Hektogramm
+000,D,GJ,GJ,GJ,GJ,Gigajoule
+000,D,GKG,GKG,g/kg,g/kg,Gramm/Kilogramm
+000,D,GLI,GLI,g/l,g/l,Gramm/Liter
+000,D,GLL,GAL,gal us,US-Gallone,US-Gallone
+000,D,GLM,GPM,GPM US,Gal/Mi(US),Gallonen pro Meile (US)
+000,D,GM,GM,g/mol,g/mol,Gramm/Mol
+000,D,GM2,GM2,g/m2,g/m2,Gramm/Quadratmeter
+000,D,GPH,GPH,GPH US,Gal/Std US,Gallonen pro Stunde (US)
+000,D,GQ,µGQ,µg/m3,µg/m3,Mikrogramm/Kubikmeter
+000,D,GRO,GRO,gro,Gross,Gross
+000,D,GW,GW,gw,g Wirkst.,Gramm Wirkstoff
+000,D,H,H,h,Stunde,Stunde
+000,D,HAR,HA,Hektar,Hektar,Hektar
+000,D,HL,HL,hl,hl,Hektoliter
+000,D,HPA,HPA,hPa,hPa,Hektopascal
+000,D,HZ,HZ,Hz,Hz,Hertz (1/Sekunde)
+000,D,IN,\\,\\,Zoll,Zoll (inch)
+000,D,IN2,\\2,Zoll2,Quadr.zoll,Quadratzoll
+000,D,IN3,\\3,Zoll3,Kubikzoll,Kubikzoll
+000,D,J,J,J,J,Joule
+000,D,JHR,JHR,a,Jahr,Jahre (annum)
+000,D,JKG,JKG,J/kg,J/kg,Joule/Kilogramm
+000,D,JKK,JKK,J/kgK,J/(kg*K),Spez. Wärmekapazität
+000,D,JMO,JMO,J/mol,J/mol,Joule/Mol
+000,D,K,K,K,K,Kelvin
+000,D,KA,KA,kA,kA,Kiloampere
+000,D,KAN,KAN,Kan,Kanister,Kanister
+000,D,KAR,KAR,Kar,Karton,Karton
+000,D,KBK,KBK,kBq/kg,kBq/kg,Kilobecquerel/Kilogramm
+000,D,KG,KG,kg,kg,Kilogramm
+000,D,KGF,KGF,kg/m2,kg/m2,Kilogramm/Quadratmeter
+000,D,KGK,KGK,kg/kg,kg/kg,Kilogramm/Kilogramm
+000,D,KGM,KGM,kg/mol,kg/mol,Kilogramm/Mol
+000,D,KGS,KGS,kg/s,kg/s,Kilogramm/Sekunde
+000,D,KGV,KGV,kg/m3,kg/m3,Kilogramm/Kubikmeter
+000,D,KGW,KGW,kgw,kg Wirkst.,Kilogramm Wirkstoff
+000,D,KHZ,KHZ,kHz,kHz,Kilohertz
+000,D,KI,KI,Kiste,Kiste,Kiste
+000,D,KJ,KJ,kJ,kJ,Kilojoule
+000,D,KJK,KJK,kJ/kg,kJ/kg,Kilojoule/Kilogramm
+000,D,KJM,KJM,kJ/mol,kJ/mol,Kilojoule/Mol
+000,D,KM,KM,km,km,Kilometer
+000,D,KM2,KM2,km2,km2,Quadratkilometer
+000,D,KMH,KMH,km/h,km/h,Kilometer/Stunde
+000,D,KMK,KMK,m3/m3,m3/m3,Kubikmeter/Kubikmeter
+000,D,KMN,KMN,K/min,K/min,Kelvin/Minute
+000,D,KMS,KMS,K/s,K/s,Kelvin/Sekunde
+000,D,KOH,KOH,kOhm,kOhm,Kiloohm
+000,D,KPA,KPA,kPa,kPa,Kilopascal
+000,D,KT,KT,kt,kt,Kilotonne
+000,D,KV,KV,kV,kV,Kilovolt
+000,D,KVA,KVA,kVA,kVA,Kilovoltampere
+000,D,KW,KW,kW,kW,Kilowatt
+000,D,KWH,KWH,kW.h,kW.h,Kilowattstunde
+000,D,KWK,KWK,kgw/kg,kgw/kg,kg Wirkstoff / kg
+000,D,L,L,l,l,Liter
+000,D,L2,LMI,l/min,l/min,Liter/Minute
+000,D,LB,LB,lb,Pound,Pfund (Pound)
+000,D,LE,LE,LE,LeistEinh.,Leistungseinheit
+000,D,LHK,LHK,l/hkm,l/100 km,Liter pro 100 km
+000,D,LMS,LMS,l/m_.s,l/mol.s,Liter/Molsekunde
+000,D,LPH,LPH,L/Std,Liter/Std,Liter pro Stunde
+000,D,M,M,m,m,Meter
+000,D,M%,M%,%(m),%(m),Massenprozent
+000,D,M%O,M%O,%O(m),%O(Masse),Massenpromille
+000,D,M/S,M/S,m/s,m/s,Meter/Sekunde
+000,D,M2,M2,m2,m2,Quadratmeter
+000,D,M2I,M-2,1/M2,1/M2,1 / Quadratmeter
+000,D,M2S,M2S,m2/s,m2/s,Quadratmeter/Sekunde
+000,D,M3,M3,m3,m3,Kubikmeter
+000,D,M3D,M3D,m3/d,m3/Tag,Kubikmeter/Tag
+000,D,M3S,M3S,m3/s,m3/s,Kubikmeter/Sekunde
+000,D,MA,MA,mA,mA,Milliampere
+000,D,MBA,MBA,mbar,mbar,Millibar
+000,D,MBZ,MBZ,m.b_/s,m.bar/s,Meterbar/Sekunde
+000,D,MEJ,MEJ,MJ,MJ,Megajoule
+000,D,MG,MG,mg,mg,Milligramm
+000,D,MGF,MGF,mg/cm2,mg/cm2,Milligramm/Quadratzentimeter
+000,D,MGG,MGG,mg/g,mg/g,Milligramm/Gramm
+000,D,MGK,MGK,mg/kg,mg/kg,Milligramm/Kilogramm
+000,D,MGL,MGL,mg/l,mg/l,Milligramm/Liter
+000,D,MGQ,MGQ,mg/m3,mg/m3,Milligramm/Kubikmeter
+000,D,MGW,MGW,MW,MW,Megawatt
+000,D,MHZ,MHZ,MHz,MHz,Megahertz
+000,D,MI,MI,meile,Meile,Meile
+000,D,MI2,MI2,Meile2,Qudr.Meile,Quadratmeile
+000,D,MIM,µM,µm,µm,Mikrometer
+000,D,MIN,MIN,min,min,Minute
+000,D,MIS,MIS,µs,µs,Mikrosekunde
+000,D,MJ,MIJ,mJ,mJ,Millijoule
+000,D,ML,ML,ml,ml,Milliliter
+000,D,MLK,MLK,ml/m3,ml/m3,Milliliter/Kubikmeter
+000,D,MLW,MLW,mlw,ml Stoff,Milliliter Wirkstoff
+000,D,MM,MM,mm,mm,Millimeter
+000,D,MM2,MM2,mm2,mm2,Quadratmillimeter
+000,D,MMA,MMA,mm/a,mm/a,Millimeter/Jahr
+000,D,MMG,MMG,mmol/g,mmol/g,Millimol/Gramm
+000,D,MMH,MMH,mm/h,mm/h,Millimeter/Stunde
+000,D,MMK,MMK,m_/kg,mmol/kg,Millimol/Kilogramm
+000,D,MMO,MMO,mmol,mmol,Millimol
+000,D,MMQ,MM3,mm3,mm3,Kubikmillimeter
+000,D,MMS,MMS,mm/s,mm/s,Millimeter/Sekunde
+000,D,MNM,MNM,mN/m,mN/m,Millinewton/Meter
+000,D,MOK,MOK,mol/kg,mol/kg,Mol/Kilogramm
+000,D,MOL,MOL,mol,mol,Mol
+000,D,MON,MON,Monate,Monate,Monate
+000,D,MPA,MPA,MPa,MPa,Megapascal
+000,D,MPB,MPB,ppb(m),ppb(m),Massen-parts per billion
+000,D,MPG,MPG,MPG US,Mi/Gal(US),Meilen pro Gallone (US)
+000,D,MPM,MPM,ppm(m),ppm(m),Massen-parts per million
+000,D,MPS,MPS,mPa.s,mPa.s,Millipascalsekunde
+000,D,MPT,MPT,ppt(m),ppt(m),Massen-parts per trillion
+000,D,MPZ,MPZ,m.Pa/s,m.Pa/s,Meterpascal/Sekunde
+000,D,MQH,M3H,m3/h,m3/h,Kubikmeter/Stunde
+000,D,MS,MS,ms,ms,Millisekunde
+000,D,MS2,MS2,m/s2,m/s2,Meter/Quadratsekunde
+000,D,MTE,MTE,mT,mT,Millitesla
+000,D,MTS,M/H,m/h,m/h,Meter/Stunde
+000,D,MV,MV,mV,mV,Millivolt
+000,D,MVA,MVA,MVA,MVA,Megavoltampere
+000,D,MW,MW,mW,mW,Milliwatt
+000,D,MWH,MWH,MW.h,MW.h,Megawattstunde
+000,D,N,N,N,N,Newton
+000,D,NAM,NAM,nm,nm,Nanometer
+000,D,NM,NM,N/m,N/m,Newton/Meter
+000,D,NS,NS,ns,ns,Nanosekunde
+000,D,OCM,OCM,Ohcm,Ohm*cm,Spez. elek. Widerstand
+000,D,OHM,OHM,Ohm,Ohm,Ohm
+000,D,OM,OM,Ohmm,Ohm*m,Spez. elek. Widerstand
+000,D,OZ,OZ,oz,Unze,Unze
+000,D,OZA,FOZ,foz us,Fld Oz US,Fluid Ounce US
+000,D,P,P,P,Punkte,Punkte
+000,D,PA,PA,Pa,Pa,Pascal
+000,D,PAA,PAA,PAAR,Paar,Paar
+000,D,PAK,PAK,PAK,Pack,Pack
+000,D,PAL,PAL,PAL,Palette,Palette
+000,D,PAS,PAS,Pa.s,Pa.s,Pascalsekunde
+000,D,PMI,PMI,1/min,1/min,1/Minute
+000,D,PMR,PMR,kg/m2s,kg/m2*s,Permeationsrate SI
+000,D,PPB,PPB,ppb,ppb,Parts per billion
+000,D,PPM,PPM,ppm,ppm,Parts per million
+000,D,PPT,PPT,ppt,ppt,Parts per trillion
+000,D,PRM,PRM,µg/c2m,µg/cm2*min,Permeationsrate
+000,D,PRS,PRS,PRS,Personen,Anzahl Personen
+000,D,PS,PS,ps,ps,Pikosekunde
+000,D,PT,PT,pt us,Pint US l,Pint\ U.S. liquid
+000,D,QT,QT,qt us,Quart US l,Quart\ U.S. liquid
+000,D,RHO,RHO,g/cm3,g/cm3,Gramm/Kubikzentimeter
+000,D,ROL,ROL,rol,Rolle,Rolle
+000,D,S,S,s,s,Sekunde
+000,D,ST,ST,ST,Stück,Stück
+000,D,STD,STD,std,Stunden,Stunden
+000,D,TAG,TAG,Tage,Tage,Tage
+000,D,TC3,TC3,1/cm3,1/cm3,1/Kubikzentimeter
+000,D,TES,TES,T,T,Tesla
+000,D,TH,TS,tausnd,Tausend,Tausend
+000,D,TM3,TM3,1/m3,1/m3,1/Kubikmeter
+000,D,TO,TO,t,t,Tonne
+000,D,TON,TON,ton,US-Tonne,US-Tonne
+000,D,UGL,µGL,µg/l,µg/l,Mikrogramm/Liter
+000,D,V,V,V,V,Volt
+000,D,V%,V%,%(V),%(V),Volumenprozent
+000,D,V%O,V%O,%O(V),%O(V),Volumenpromille
+000,D,V01,MSC,µS/cm,µS/cm,Microsiemens pro Zentimeter
+000,D,V02,MPL,mMol/l,Millimol/l,Millimol pro Liter
+000,D,VAL,VAL,val,Value/Wert,Wertartikel
+000,D,VPB,VPB,ppb(V),ppb(V),Volumen-parts per billion
+000,D,VPM,VPM,ppm(V),ppm(V),Volumen-parts per million
+000,D,VPT,VPT,ppt(V),ppt(V),Volumen-parts per trillion
+000,D,W,W,W,W,Watt
+000,D,WCH,WCH,Wochen,Wochen,Wochen
+000,D,WMK,WMK,W/mk,W/(m*K),Wärmeleitfähigkeit
+000,D,WTL,WTL,kg/sm2,kg/s*m2,Verdampfungsgeschwindigkeit
+000,D,YD,YD,yd,Yard,Yard
+000,D,YD2,YD2,yd2,Qudr.Yard,Quadrat Yard
+000,D,YD3,YD3,yd3,Kubik Yard,Kubik Yard
+000,D,bbl,bbl,Bt/bbl,Btu/bbl,British Thermal Unit/US Barrel
+000,D,bft,bft,Bt/ft3,Btu/ft3,British Thermal Unit/Kubikfuß
+000,D,bgl,bgl,Bt/gal,Btu/gal,British Thermal Unit/US Gallon
+000,D,btl,btl,Btu/lb,Btu/lb,British Thermal Unit/US Pfund
+000,D,gj3,gj3,GJ/tm3,GJ/1000m3,Gigajoule/1000 Kubikmeter
+000,D,gjm,gjm,GJ/m3,GJ/m3,Gigajoule/Kubikmeter
+000,D,gjt,gjt,GJ/ton,GJ/ton,Gigajoule/US Tonne
+000,D,jm3,jm3,J/m3,J/m3,Joule/Kubikmeter
+000,D,kgb,kgb,kg/bbl,kg/bbl,Kilogramm/US Barrel
+000,D,kgj,kgj,kg/J,kg/J,Kilogramm/Joule
+000,D,kgm,kgm,kg/MB,kg/MMBtu,Kilogramm/Millionen BTU
+000,D,kgs,kgs,kg/scf,kg/scf,Kilogramm/Standard Kubikfuß
+000,D,kgt,kgt,kg/ton,kg/ton,Kilogramm/US Tonne
+000,D,kml,kml,kg/kgm,kg/kg mole,Kilogramm/Kilogramm Mol
+000,D,lbb,lbb,lb/Btu,lb/Btu,US Pfund/British Thermal Unit
+000,D,lbg,lbg,lb/gal,lb/gal,US Pfund/US Gallone
+000,D,lbl,lbl,lb/lbm,lb/lb mol,US Pfund/US Pfund Mol
+000,D,lbm,lbm,lb/MB,lb/MMBtu,US Pfund/Millionen BTU
+000,D,lbs,lbs,lb/scf,lb/scf,US Pfund/Standard Kubikfuß
+000,D,lbt,lbt,lb/ton,lb/ton,US Pfund/US Tonne
+000,D,mbb,mbb,MB/bbl,MMBtu/bbl,Millionen BTU/US Barrel
+000,D,mbt,mbt,MB/ton,MMBtu/ton,Millionen BTU/US Tonne
+000,D,tbl,tbl,t/bbl,t/bbl,Tonne/US Barrel
+000,D,tbt,tbt,t/Btu,t/Btu,Tonne/British Thermal Unit
+000,D,tgl,tgl,ton/gl,ton/gal,US Tonne/US Gallone
+000,D,tjl,tjl,t/Joul,t/Joule,Tonne/Joule
+000,D,tm3,tm3,t/tm3,t/1000m3,Tonne/1000 Kubikmeter
+000,D,tt,tt,t/t,t/t,Tonne/Tonne
+000,D,ttj,ttj,t/TJ,t/TJ,Tonne/Terajoule
+000,E,%,%,%,%,Percentage
+000,E,%O,%O,%O,%0,Per mille
+000,E,1,ONE,One,One,One
+000,E,10,D,d,Days,Days
+000,E,22S,22S,mm2/s,mm2/s,Square millimeter/second
+000,E,2M,CMS,cm/s,cm/s,Centimeter/second
+000,E,2X,000,m/min,m/min,Meter/Minute
+000,E,4G,µL,µl,µl,Microliter
+000,E,4O,µF,µF,µF,Microfarad
+000,E,4T,IB,pF,pF,Pikofarad
+000,E,A,A,A,A,Ampere
+000,E,A87,GOH,GOhm,GOhm,Gigaohm
+000,E,A93,GM3,g/m3,g/m3,Gram/Cubic meter
+000,E,ACR,ACR,acre,Acre,Acre
+000,E,B34,KD3,kg/dm3,kg/dm3,Kilogram/cubic decimeter
+000,E,B45,QML,kmol,kmol,Kilomol
+000,E,B47,NI,ND,ND,Kilonewton
+000,E,B73,MN,MN,MN,Meganewton
+000,E,B75,MGO,MOhm,MOhm,Megohm
+000,E,B78,MHV,MV,MV,Megavolt
+000,E,B84,µA,µA,µA,Microampere
+000,E,BAG,BAG,Bag,Bag,Bag
+000,E,BAR,BAR,bar,bar,bar
+000,E,BOT,BT,Bt.,Bottle,Bottle
+000,E,BQK,BQK,Bq/kg,Bq/kg,Becquerel/kilogram
+000,E,C10,RF,mF,mF,Millifarad
+000,E,C36,M/M,mol/m3,Mol/m3,Mol per cubic meter
+000,E,C38,M/L,Mol/l,Mol/Liter,Mol per liter
+000,E,C39,NA,nA,nA,Nanoampere
+000,E,C3S,C3S,cm3/s,cm3/s,Cubic centimeter/second
+000,E,C41,R-U,nF,nF,Nanofarad
+000,E,C56,NMM,N/mm2,N/mm2,Newton/Square millimeter
+000,E,CCM,CCM,cm3,cm3,Cubic centimeter
+000,E,CD,CD,cd,cd,Candela
+000,E,CDM,CD3,dm3,Cubic dec.,Cubic decimeter
+000,E,CM,CM,cm,cm,Centimeter
+000,E,CM2,CM2,cm2,cm2,Square centimeter
+000,E,CMH,CMH,cm/h,cm/h,Centimeter/hour
+000,E,CS,CV,Case,Case,Case
+000,E,CTL,CL,Cl,Centiliter,Centiliter
+000,E,D10,S/M,S/m,Siemens/m,Siemens per meter
+000,E,D41,TOM,t/m3,t/m3,Ton/Cubic meter
+000,E,D46,VAM,VAM,VA,Voltampere
+000,E,DEG,DEG,deg,Degree,Degree
+000,E,DM,DM,dm,dm,Decimeter
+000,E,DR,DR,Dr,Drum,Drum
+000,E,DZ,DZ,dz,Dozen,Dozen
+000,E,EA,EA,EA,each,each
+000,E,EE,EU,EU,Enzy.Units,Enzyme Units
+000,E,EML,EML,EU/ml,Enzyme/ml,Enzyme Units / Milliliter
+000,E,F,F,F,F,Farad
+000,E,FA,°F,°F,°F,Fahrenheit
+000,E,FT,FT,Foot,Foot,Foot
+000,E,FT2,FT2,ft2,Square ft,Square foot
+000,E,FT3,FT3,ft3,Cubic ft,Cubic foot
+000,E,G,G,g,g,Gram
+000,E,G/L,G/L,gai/l,gai/liter,gram act.ingrd / liter
+000,E,GAU,GAU,GAU,Gram Gold,Gram Gold
+000,E,GC,°C,°C,°C,Degrees Celsius
+000,E,GHG,GHG,g/hg,g/hg,Gram/hectogram
+000,E,GJ,GJ,GJ,Gigajoule,Gigajoule
+000,E,GKG,GKG,g/kg,g/kg,Gram/kilogram
+000,E,GLI,GLI,g/l,g/l,Gram/liter
+000,E,GLL,GAL,gal US,US gallon,US gallon
+000,E,GLM,GPM,GPM US,Gal/Mi(US),Gallons per mile (US)
+000,E,GM,GM,g/mol,g/mol,Gram/Mol
+000,E,GM2,GM2,g/m2,g/m2,Gram/square meter
+000,E,GPH,GPH,GPH US,Gal/hr US,Gallons per hour (US)
+000,E,GQ,µGQ,µg/m3,µg/m3,Microgram/cubic meter
+000,E,GRO,GRO,gro,Gross,Gross
+000,E,GW,GAI,gai,g act.ing.,Gram act. ingrd.
+000,E,H,H,h,Hour,Hour
+000,E,HAR,HA,Hectar,Hectare,Hectare
+000,E,HL,HL,hl,hl,Hectoliter
+000,E,HPA,HPA,hPa,hPa,Hectopascal
+000,E,HZ,HZ,Hz,Hz,Hertz (1/second)
+000,E,IN,\\,\\,Inches,Inch
+000,E,IN2,\\2,Inch2,Squar.inch,Square inch
+000,E,IN3,\\3,Inch3,Cubic inch,Cubic inch
+000,E,J,J,J,J,Joule
+000,E,JHR,YR,yr,Year,Years
+000,E,JKG,JKG,J/kg,J/kg,Joule/Kilogram
+000,E,JKK,JKK,J/kgK,J/(kg*K),Spec. Heat Capacity
+000,E,JMO,JMO,J/mol,J/mol,Joule/Mol
+000,E,K,K,K,K,Kelvin
+000,E,KA,KA,kA,kA,Kiloampere
+000,E,KAN,CAN,Can,Canister,Canister
+000,E,KAR,CAR,Car,Carton,Carton
+000,E,KBK,KBK,kBq/kg,kBq/kg,Kilobecquerel/kilogram
+000,E,KG,KG,kg,kg,Kilogram
+000,E,KGF,KGF,kg/m2,kg/m2,Kilogram/Square meter
+000,E,KGK,KGK,kg/kg,kg/kg,Kilogram/Kilogram
+000,E,KGM,KGM,kg/mol,kg/mol,Kilogram/Mol
+000,E,KGS,KGS,kg/s,kg/s,Kilogram/second
+000,E,KGV,KGV,kg/m3,kg/m3,Kilogram/cubic meter
+000,E,KGW,KAI,kgai,kg ac.ing.,Kilogram act. ingrd.
+000,E,KHZ,KHZ,kHz,kHz,Kilohertz
+000,E,KI,CRT,Crate,Crate,Crate
+000,E,KJ,KJ,kJ,kJ,Kilojoule
+000,E,KJK,KJK,KJ/kg,KJ/kg,Kilojoule/kilogram
+000,E,KJM,KJM,KJ/mol,KJ/mol,Kilojoule/Mol
+000,E,KM,KM,km,km,Kilometer
+000,E,KM2,KM2,km2,km2,Square kilometer
+000,E,KMH,KMH,km/h,km/h,Kilometer/hour
+000,E,KMK,KMK,m3/m3,m3/m3,Cubic meter/Cubic meter
+000,E,KMN,KMN,K/min,K/min,Kelvin/Minute
+000,E,KMS,KMS,K/s,K/s,Kelvin/Second
+000,E,KOH,KOH,kOhm,kOhm,Kiloohm
+000,E,KPA,KPA,kPa,kPa,Kilopascal
+000,E,KT,KT,kt,kt,Kilotonne
+000,E,KV,KV,kV,kV,Kilovolt
+000,E,KVA,KVA,kVA,kVA,Kilovoltampere
+000,E,KW,KW,KW,KW,Kilowatt
+000,E,KWH,KWH,kwh,kwh,Kilowatt hours
+000,E,KWK,KIK,kai/kg,kai/kg,kg act.ingrd. / kg
+000,E,L,L,l,l,Liter
+000,E,L2,LMI,l/min,l/min,Liter/Minute
+000,E,LB,LB,lb,US pound,US pound
+000,E,LE,AU,AU,Activ.unit,Activity unit
+000,E,LHK,LHK,l/hkm,l/100 km,Liter per 100 km
+000,E,LMS,LMS,l/m_.s,l/mol.s,Liter/Molsecond
+000,E,LPH,LPH,L/hr,Liter/hr,Liter per hour
+000,E,M,M,m,m,Meter
+000,E,M%,M%,%(m),%(m),Percent mass
+000,E,M%O,M%O,%O(m),%0(mass),Permille mass
+000,E,M/S,M/S,m/s,m/s,Meter/second
+000,E,M2,M2,m2,m2,Square meter
+000,E,M2I,M-2,1/M2,1/M2,1 / square meter
+000,E,M2S,M2S,m2/s,m2/s,Square meter/second
+000,E,M3,M3,m3,m3,Cubic meter
+000,E,M3D,M3D,m3/d,m3/day,Cubic meter/day
+000,E,M3S,M3S,m3/s,m3/s,Cubic meter/second
+000,E,MA,MA,mA,mA,Milliampere
+000,E,MBA,MBA,mbar,mbar,Millibar
+000,E,MBZ,MBZ,m.b_/s,m.bar/s,Meterbar/second
+000,E,MEJ,MEJ,MJ,MJ,Megajoule
+000,E,MG,MG,mg,mg,Milligram
+000,E,MGF,MGE,mg/cm2,mg/cm2,Milligram/Square centimeter
+000,E,MGG,MGG,mg/g,mg/g,Milligram/gram
+000,E,MGK,MGK,mg/kg,mg/kg,Milligram/kilogram
+000,E,MGL,MGL,mg/l,mg/l,Milligram/liter
+000,E,MGQ,MGQ,mg/m3,mg/m3,Milligram/cubic meter
+000,E,MGW,MGW,VA,VA,Megawatt
+000,E,MHZ,MHZ,MHz,MHz,Megahertz
+000,E,MI,MI,mile,Mile,Mile
+000,E,MI2,MI2,Mile2,Sq. mile,Square mile
+000,E,MIM,µM,µm,µm,Micrometer
+000,E,MIN,MIN,min,min.,Minute
+000,E,MIS,MIS,µs,µs,Microsecond
+000,E,MJ,MIJ,mJ,mJ,Millijoule
+000,E,ML,ML,ml,ml,Milliliter
+000,E,MLK,MLK,ml/m3,ml/m3,Milliliter/cubic meter
+000,E,MLW,MLI,mlai,ml act.in.,Milliliter act. ingr.
+000,E,MM,MM,mm,mm,Millimeter
+000,E,MM2,MM2,mm2,mm2,Square millimeter
+000,E,MMA,MMA,mm/a,mm/a,Millimeter/year
+000,E,MMG,MMG,mmol/g,mmol/g,Millimol/gram
+000,E,MMH,MMH,mm/h,mm/h,Millimeter/hour
+000,E,MMK,MMK,m_/kg,mmol/kg,Millimol/kilogram
+000,E,MMO,MMO,mmol,mmol,Millimol
+000,E,MMQ,MM3,mm3,mm3,Cubic millimeter
+000,E,MMS,MMS,mm/s,mm/s,Millimeter/second
+000,E,MNM,MNM,mN/m,mN/m,Millinewton/meter
+000,E,MOK,MOK,mol/kg,mol/kg,Mol/kilogram
+000,E,MOL,MOL,mol,mol,Mol
+000,E,MON,MON,Months,Months,Months
+000,E,MPA,MPA,MPa,MPa,Megapascal
+000,E,MPB,MPB,ppb(m),ppb(m),Mass parts per billion
+000,E,MPG,MPG,MPG US,Mi/Gal(US),Miles per gallon (US)
+000,E,MPM,MPM,ppm(m),ppm(m),Mass parts per million
+000,E,MPS,MPS,mPa.s,mPa.s,Millipascal seconds
+000,E,MPT,MPT,ppt(m),ppt(m),Mass parts per trillion
+000,E,MPZ,MPZ,m.Pa/s,m.Pa/s,Meterpascal/second
+000,E,MQH,M3H,m3/h,m3/h,Cubic meter/Hour
+000,E,MS,MSE,ms,ms,Millisecond
+000,E,MS2,MS2,m/s2,m/s2,Meter/second squared
+000,E,MTE,MTE,mT,mT,Millitesla
+000,E,MTS,M/H,m/h,m/h,Meter/Hour
+000,E,MV,MV,mV,mV,Millivolt
+000,E,MVA,MVA,MVA,MVA,Megavoltampere
+000,E,MW,MW,mW,mW,Milliwatt
+000,E,MWH,MWH,MWh,MWh,Megawatt hour
+000,E,N,N,N,N,Newton
+000,E,NAM,NAM,nm,nm,Nanometer
+000,E,NM,NM,N/m,N/m,Newton/meter
+000,E,NS,NS,ns,ns,Nanosecond
+000,E,OCM,OCM,Ohcm,Ohm*cm,Spec. Elec. Resistance
+000,E,OHM,OHM,Ohm,Ohm,Ohm
+000,E,OM,OM,Ohmm,Ohm*m,Spec. Elec. Resistance
+000,E,OZ,OZ,oz,Ounce,Ounce
+000,E,OZA,FOZ,foz US,Fld.oz US,Fluid Ounce US
+000,E,P,P,P,Points,Points
+000,E,PA,PA,Pa,Pa,Pascal
+000,E,PAA,PAA,PAIR,Pair,Pair
+000,E,PAK,PAC,PAC,Pack,Pack
+000,E,PAL,PAL,PAL,Pallet,Pallet
+000,E,PAS,PAS,Pas,Pascal sec,Pascal second
+000,E,PMI,PMI,1/min,1/min,1/minute
+000,E,PMR,PMR,kg/m2s,kg/m2*s,Permeation Rate SI
+000,E,PPB,PPB,ppb,ppb,Parts per billion
+000,E,PPM,PPM,ppm,ppm,Parts per million
+000,E,PPT,PPT,ppt,ppt,Parts per trillion
+000,E,PRM,PRM,ug/c2m,ug/cm2*min,Permeation Rate
+000,E,PRS,PRS,PRS,Persons,Number of Persons
+000,E,PS,PS,ps,ps,Picosecond
+000,E,PT,PT,pt US,Pint US l,Pint\ US liquid
+000,E,QT,QT,qt US,Quart US l,Quart\ US liquid
+000,E,RHO,RHO,g/cm3,g/cm3,Gram/cubic centimeter
+000,E,ROL,ROL,ROL,Role,Role
+000,E,S,S,s,s,Second
+000,E,ST,PC,PC,Piece,Piece
+000,E,STD,HR,hrs,Hours,Hours
+000,E,TAG,DAY,Days,Days,Days
+000,E,TC3,TC3,1/cm3,1/cm3,1/cubic centimeter
+000,E,TES,TES,D,D,Tesla
+000,E,TH,TS,thou,Thousands,Thousands
+000,E,TM3,TM3,1/m3,1/m3,1/cubic meter
+000,E,TO,TO,t,t,Tonne
+000,E,TON,TON,ton,US ton,US ton
+000,E,TST,001,000001,,
+000,E,UGL,µGL,µg/l,µg/l,Microgram/liter
+000,E,V,V,V,V,Volt
+000,E,V%,V%,%(V),%(V),Percent volume
+000,E,V%O,V%O,%O(V),%O(V),Permille volume
+000,E,V01,MSC,µS/cm,µS/cm,Microsiemens per centimeter
+000,E,V02,MPL,mMol/l,Millimol/l,Millimol per liter
+000,E,VAL,VAL,val,Value,Value-only material
+000,E,VPB,VPB,ppb(V),ppb(V),Volume parts per billion
+000,E,VPM,VPM,ppm(V),ppm(V),Volume parts per million
+000,E,VPT,VPT,ppt(V),ppt(V),Volume parts per trillion
+000,E,W,W,W,W,Watt
+000,E,WCH,WK,Weeks,Weeks,Weeks
+000,E,WMK,WMK,W/mk,W/(m*K),Heat Conductivity
+000,E,WTL,WKY,kg/sm2,kg/s*m2,Vaporization Speed
+000,E,YD,YD,yd,Yards,Yards
+000,E,YD2,YD2,yd2,Squar.yard,Square Yard
+000,E,YD3,YD3,yd3,Cubic yard,Cubic yard
+000,E,bbl,bbl,Bt/bbl,Btu/bbl,British Thermal Unit/US Barrel
+000,E,bft,bft,Bt/ft3,Btu/ft3,British Thermal Unit/Cubic Ft
+000,E,bgl,bgl,Bt/gal,Btu/gal,British Thermal Unit/US Gallon
+000,E,btl,btl,Btu/lb,Btu/lb,British Thermal Unit/US Pound
+000,E,gj3,gj3,GJ/tm3,GJ/1000m3,Gigajoule/1000 Cubic Meters
+000,E,gjm,gjm,GJ/m3,GJ/m3,Gigajoule/Cubic Meter
+000,E,gjt,gjt,GJ/ton,GJ/ton,Gigajoule/US Tonne
+000,E,jm3,jm3,J/m3,J/m3,Joule/Cubic Meter
+000,E,kgb,kgb,kg/bbl,kg/bbl,Kilogram/US Barrel
+000,E,kgj,kgj,kg/J,kg/J,Kilogram/Joule
+000,E,kgm,kgm,kg/MB,kg/MMBtu,Kilogram/Million BTU
+000,E,kgs,kgs,kg/scf,kg/scf,Kilogram/Standard Cubic Foot
+000,E,kgt,kgt,kg/ton,kg/ton,Kilogram/US Tonne
+000,E,kml,kml,kg/kgm,kg/kg mole,Kilogram/Kilogram Mole
+000,E,lbb,lbb,lb/Btu,lb/Btu,US Pound/British Thermal Unit
+000,E,lbg,lbg,lb/gal,lb/gal,US Pound/US Gallon
+000,E,lbl,lbl,lb/lbm,lb/lb mol,US Pound/US Pound Mole
+000,E,lbm,lbm,lb/MB,lb/MMBtu,US Pound/Million BTU
+000,E,lbs,lbs,lb/scf,lb/scf,US Pound/Standard Cubic Foot
+000,E,lbt,lbt,lb/ton,lb/ton,US Pound/US Tonne
+000,E,mbb,mbb,MB/bbl,MMBtu/bbl,Million BTU/US Barrel
+000,E,mbt,mbt,MB/ton,MMBtu/ton,Million BTU/US Tonne
+000,E,tbl,tbl,t/bbl,t/bbl,Tonne/US Barrel
+000,E,tbt,tbt,t/Btu,t/Btu,Tonne/British Thermal Unit
+000,E,tgl,tgl,ton/gl,ton/gal,US Tonne/US Gallon
+000,E,tjl,tjl,t/Joul,t/Joule,Tonne/Joule
+000,E,tm3,tm3,t/tm3,t/1000m3,Tonne/1000 Cubic Meters
+000,E,tt,tt,t/t,t/t,Tonne/Tonne
+000,E,ttj,ttj,t/TJ,t/TJ,Tonne/Terajoule
+000,F,10,JR,JR,Jour,Jour
+000,F,A,A,A,Ampère,Ampère
+000,F,CD,Bg,Bg,Bougie,Bougie
+000,F,CM,CM,CM,Centimèt.,Centimètre
+000,F,DM,DM,DM,Décimètre,Décimètre
+000,F,F,F,F,Dg Fahrenh,eit  Fahrenheit
+000,F,FA,FÛT,FÛT,Fût,Fût
+000,F,G,G,G,Gramme,Gramme
+000,F,HL,HL,HL,Hectolitre,Hectolitre
+000,F,HZ,HZ,HZ,Hertz,Hertz
+000,F,J,J,J,Joule,Joule
+000,F,K,K,K,Kelvin,Kelvin
+000,F,KA,BD,BD,Bidon,Bidon
+000,F,KG,KG,KG,Kilogram.,Kilogramme
+000,F,KGS,KGS,KG/S,kg/s,kilogramme/seconde
+000,F,KGV,KGV,KG/m3,kg/m3,Kilogramme/mètre cube
+000,F,KI,CA,CA,Caisse,Caisse
+000,F,KMH,KMH,KM/H,Km/h,Kilomètre/heure
+000,F,L,L,L,Litre,Litre
+000,F,LE,UP,UP,Unt Prod.,Unité de production
+000,F,M,M,M,Mètre,Mètre
+000,F,M/S,M/S,M/S,M/seconde,Mètre/seconde
+000,F,M2,M2,M2,M2,Mètre carré
+000,F,M2S,M2S,M2/S,M2/S,Mètre carré/seconde
+000,F,M3,M3,M3,Mèt. cube,Mètre cube
+000,F,M3S,M3S,M3/S,M3/S,Mètre cube/seconde
+000,F,MIN,MIN,MIN,Minute,Minute
+000,F,MM,MM,MM,Millimètre,Millimètre
+000,F,MOL,MOL,MOL,Mol,Mol
+000,F,MS2,MS2,M/S2,M/s2,Mètre/seconde au carré
+000,F,N,N,N,Newton,Newton
+000,F,OHM,OHM,OHM,Ohm,Ohm
+000,F,PA,PA,PA,Pascal,Pascal
+000,F,PAL,PAL,PAL,Palette,Palette
+000,F,PAS,PAS,PA/S,Pascal/s,Pascal/seconde
+000,F,ROL,ROU,ROUL,Rouleau,Rouleau
+000,F,S,S,S,Seconde,Seconde
+000,F,ST,PC,PC,Pièce,Pièce
+000,F,TO,TON,TON,Tonne,Tonne
+000,F,V,V,V,Volt,Volt
+000,F,W,W,W,Watt,Watt
+000,I,FA,FA,BOTTE,Botte,
+000,I,KA,CA,CA,Canestro,
+000,I,KG,KG,KG,Chilo,
+000,I,KI,KI,KI,Cassa,
+000,I,L,L,L,Litro,
+000,I,M,M,M,Metro,
+000,I,PA,PA,PA,Pascal,
+000,I,ST,PZ,PEZZO,,
+000,N,ST,ST,STUKS,Stuks,Stuks
+000,S,KG,KG,KG,Kilogramo,Kilogramo
+000,S,ST,ST,ST,Unidad,Unidad
+001,D,%,%,%,%,Prozent
+001,D,%O,%O,%O,%0,Promille
+001,D,1,ONE,one,Eins,Eins
+001,D,10,T,d,Tage,Tage
+001,D,22S,22S,mm2/s,mm2/s,Quadratmillimeter/Sekunde
+001,D,2M,CMS,cm/s,cm/s,Zentimeter/Sekunde
+001,D,2X,000,m/min,m/min,Meter/Minute
+001,D,4G,µL,µl,µl,Mikroliter
+001,D,4O,µF,µF,µF,Mikrofarad
+001,D,4T,PF,pF,pF,Pikofarad
+001,D,A,A,A,A,Ampere
+001,D,A87,GOH,GOhm,GOhm,Gigaohm
+001,D,A93,GM3,g/m3,g/m3,Gramm/Kubikmeter
+001,D,ACR,ACR,acre,Acre,Acre
+001,D,B34,KD3,kg/dm3,kg/dm3,Kilogramm/Kubikdezimeter
+001,D,B45,KML,kmol,kmol,Kilomol
+001,D,B47,KN,kN,kN,Kilonewton
+001,D,B73,MN,MN,MN,Meganewton
+001,D,B75,MGO,MOhm,MOhm,Megaohm
+001,D,B78,MAV,MV,MV,Megavolt
+001,D,B84,µA,µA,µA,Mikroampere
+001,D,BAG,TTE,Tüte,Tüte,Tüte
+001,D,BAR,BAR,bar,bar,bar
+001,D,BOT,FL,Fl,Flasche,Flasche
+001,D,BQK,BQK,Bq/kg,Bq/kg,Becquerel/Kilogramm
+001,D,C10,MF,mF,mF,Millifarad
+001,D,C36,M/M,mol/m3,Mo/m3,Mol pro Kubikmeter
+001,D,C38,M/L,Mol/l,Mol/Liter,Mol pro Liter
+001,D,C39,NA,nA,nA,Nanoampere
+001,D,C3S,C3S,cm3/s,cm3/s,Kubikzentimeter/Sekunde
+001,D,C41,NF,nF,nF,Nanofarad
+001,D,C56,NMM,N/mm2,N/mm2,Newton/Quadratmillimeter
+001,D,CCM,CM3,cm3,cm3,Kubikzentimeter
+001,D,CD,CD,Cd,Cd,Candela
+001,D,CDM,CD3,dm3,Kubikdezim,Kubikdezimeter
+001,D,CM,CM,cm,cm,Zentimeter
+001,D,CM2,CM2,cm2,cm2,Quadratzentimeter
+001,D,CMH,CMH,cm/h,cm/h,Zentimeter/Stunde
+001,D,CS,KS,KS,Kasten,Kasten
+001,D,CTL,CL,cl,Zentiliter,Zentiliter
+001,D,D10,S/M,S/m,Siemens/m,Siemens pro Meter
+001,D,D41,TOM,t/m3,t/m3,Tonne/Kubikmeter
+001,D,D46,VA,VA,VA,Voltampere
+001,D,DEG,DEG,deg,Grad,Grad
+001,D,DM,DM,dm,dm,Dezimeter
+001,D,DR,TR,tr,Trommel,Trommel
+001,D,DZ,DZ,dz,Dutzend,Dutzend
+001,D,EA,EA,EA,each,each
+001,D,EE,EE,EE,Einh. Enzy,Einheiten Enzyme
+001,D,EML,EML,EE/ml,Enzyme/ml,Einheiten Enzyme / Milliliter
+001,D,F,F,F,F,Farad
+001,D,FA,°F,°F,°F,Fahrenheit
+001,D,FT,FT,Fuß,Fuß,Fuß
+001,D,FT2,FT2,ft2,Quadr.Fuß,Quadratfuß
+001,D,FT3,FT3,ft3,Kubikfuß,Kubikfuß
+001,D,G,G,g,g,Gramm
+001,D,G/L,G/L,gw/l,gw/Liter,Gramm Wirkstoff / Liter
+001,D,GAU,GAU,GAU,Gramm Gold,Gramm Gold
+001,D,GC,°C,°C,°C,Grad Celsius
+001,D,GHG,GHG,g/hg,g/hg,Gramm/Hektogramm
+001,D,GJ,GJ,GJ,GJ,Gigajoule
+001,D,GKG,GKG,g/kg,g/kg,Gramm/Kilogramm
+001,D,GLI,GLI,g/l,g/l,Gramm/Liter
+001,D,GLL,GAL,gal us,US-Gallone,US-Gallone
+001,D,GLM,GPM,GPM US,Gal/Mi(US),Gallonen pro Meile (US)
+001,D,GM,GM,g/mol,g/mol,Gramm/Mol
+001,D,GM2,GM2,g/m2,g/m2,Gramm/Quadratmeter
+001,D,GPH,GPH,GPH US,Gal/Std US,Gallonen pro Stunde (US)
+001,D,GQ,µGQ,µg/m3,µg/m3,Mikrogramm/Kubikmeter
+001,D,GRO,GRO,gro,Gross,Gross
+001,D,GW,GW,gw,g Wirkst.,Gramm Wirkstoff
+001,D,H,H,h,Stunde,Stunde
+001,D,HAR,HA,Hektar,Hektar,Hektar
+001,D,HL,HL,hl,hl,Hektoliter
+001,D,HPA,HPA,hPa,hPa,Hektopascal
+001,D,HZ,HZ,Hz,Hz,Hertz (1/Sekunde)
+001,D,IN,\\,\\,Zoll,Zoll (inch)
+001,D,IN2,\\2,Zoll2,Quadr.zoll,Quadratzoll
+001,D,IN3,\\3,Zoll3,Kubikzoll,Kubikzoll
+001,D,J,J,J,J,Joule
+001,D,JHR,JHR,a,Jahr,Jahre (annum)
+001,D,JKG,JKG,J/kg,J/kg,Joule/Kilogramm
+001,D,JKK,JKK,J/kgK,J/(kg*K),Spez. Wärmekapazität
+001,D,JMO,JMO,J/mol,J/mol,Joule/Mol
+001,D,K,K,K,K,Kelvin
+001,D,KA,KA,kA,kA,Kiloampere
+001,D,KAN,KAN,Kan,Kanister,Kanister
+001,D,KAR,KAR,Kar,Karton,Karton
+001,D,KBK,KBK,kBq/kg,kBq/kg,Kilobecquerel/Kilogramm
+001,D,KG,KG,kg,kg,Kilogramm
+001,D,KGF,KGF,kg/m2,kg/m2,Kilogramm/Quadratmeter
+001,D,KGK,KGK,kg/kg,kg/kg,Kilogramm/Kilogramm
+001,D,KGM,KGM,kg/mol,kg/mol,Kilogramm/Mol
+001,D,KGS,KGS,kg/s,kg/s,Kilogramm/Sekunde
+001,D,KGV,KGV,kg/m3,kg/m3,Kilogramm/Kubikmeter
+001,D,KGW,KGW,kgw,kg Wirkst.,Kilogramm Wirkstoff
+001,D,KHZ,KHZ,kHz,kHz,Kilohertz
+001,D,KI,KI,Kiste,Kiste,Kiste
+001,D,KJ,KJ,kJ,kJ,Kilojoule
+001,D,KJK,KJK,kJ/kg,kJ/kg,Kilojoule/Kilogramm
+001,D,KJM,KJM,kJ/mol,kJ/mol,Kilojoule/Mol
+001,D,KM,KM,km,km,Kilometer
+001,D,KM2,KM2,km2,km2,Quadratkilometer
+001,D,KMH,KMH,km/h,km/h,Kilometer/Stunde
+001,D,KMK,KMK,m3/m3,m3/m3,Kubikmeter/Kubikmeter
+001,D,KMN,KMN,K/min,K/min,Kelvin/Minute
+001,D,KMS,KMS,K/s,K/s,Kelvin/Sekunde
+001,D,KOH,KOH,kOhm,kOhm,Kiloohm
+001,D,KPA,KPA,kPa,kPa,Kilopascal
+001,D,KT,KT,kt,kt,Kilotonne
+001,D,KV,KV,kV,kV,Kilovolt
+001,D,KVA,KVA,kVA,kVA,Kilovoltampere
+001,D,KW,KW,kW,kW,Kilowatt
+001,D,KWH,KWH,kW.h,kW.h,Kilowattstunde
+001,D,KWK,KWK,kgw/kg,kgw/kg,kg Wirkstoff / kg
+001,D,L,L,l,l,Liter
+001,D,L2,LMI,l/min,l/min,Liter/Minute
+001,D,LB,LB,lb,Pound,Pfund (Pound)
+001,D,LE,LE,LE,LeistEinh.,Leistungseinheit
+001,D,LHK,LHK,l/hkm,l/100 km,Liter pro 100 km
+001,D,LMS,LMS,l/m_.s,l/mol.s,Liter/Molsekunde
+001,D,LPH,LPH,L/Std,Liter/Std,Liter pro Stunde
+001,D,M,M,m,m,Meter
+001,D,M%,M%,%(m),%(m),Massenprozent
+001,D,M%O,M%O,%O(m),%O(Masse),Massenpromille
+001,D,M/S,M/S,m/s,m/s,Meter/Sekunde
+001,D,M2,M2,m2,m2,Quadratmeter
+001,D,M2I,M-2,1/M2,1/M2,1 / Quadratmeter
+001,D,M2S,M2S,m2/s,m2/s,Quadratmeter/Sekunde
+001,D,M3,M3,m3,m3,Kubikmeter
+001,D,M3D,M3D,m3/d,m3/Tag,Kubikmeter/Tag
+001,D,M3S,M3S,m3/s,m3/s,Kubikmeter/Sekunde
+001,D,MA,MA,mA,mA,Milliampere
+001,D,MBA,MBA,mbar,mbar,Millibar
+001,D,MBZ,MBZ,m.b_/s,m.bar/s,Meterbar/Sekunde
+001,D,MEJ,MEJ,MJ,MJ,Megajoule
+001,D,MG,MG,mg,mg,Milligramm
+001,D,MGF,MGF,mg/cm2,mg/cm2,Milligramm/Quadratzentimeter
+001,D,MGG,MGG,mg/g,mg/g,Milligramm/Gramm
+001,D,MGK,MGK,mg/kg,mg/kg,Milligramm/Kilogramm
+001,D,MGL,MGL,mg/l,mg/l,Milligramm/Liter
+001,D,MGQ,MGQ,mg/m3,mg/m3,Milligramm/Kubikmeter
+001,D,MGW,MGW,MW,MW,Megawatt
+001,D,MHZ,MHZ,MHz,MHz,Megahertz
+001,D,MI,MI,meile,Meile,Meile
+001,D,MI2,MI2,Meile2,Qudr.Meile,Quadratmeile
+001,D,MIM,µM,µm,µm,Mikrometer
+001,D,MIN,MIN,min,min,Minute
+001,D,MIS,MIS,µs,µs,Mikrosekunde
+001,D,MJ,MIJ,mJ,mJ,Millijoule
+001,D,ML,ML,ml,ml,Milliliter
+001,D,MLK,MLK,ml/m3,ml/m3,Milliliter/Kubikmeter
+001,D,MLW,MLW,mlw,ml Stoff,Milliliter Wirkstoff
+001,D,MM,MM,mm,mm,Millimeter
+001,D,MM2,MM2,mm2,mm2,Quadratmillimeter
+001,D,MMA,MMA,mm/a,mm/a,Millimeter/Jahr
+001,D,MMG,MMG,mmol/g,mmol/g,Millimol/Gramm
+001,D,MMH,MMH,mm/h,mm/h,Millimeter/Stunde
+001,D,MMK,MMK,m_/kg,mmol/kg,Millimol/Kilogramm
+001,D,MMO,MMO,mmol,mmol,Millimol
+001,D,MMQ,MM3,mm3,mm3,Kubikmillimeter
+001,D,MMS,MMS,mm/s,mm/s,Millimeter/Sekunde
+001,D,MNM,MNM,mN/m,mN/m,Millinewton/Meter
+001,D,MOK,MOK,mol/kg,mol/kg,Mol/Kilogramm
+001,D,MOL,MOL,mol,mol,Mol
+001,D,MON,MON,Monate,Monate,Monate
+001,D,MPA,MPA,MPa,MPa,Megapascal
+001,D,MPB,MPB,ppb(m),ppb(m),Massen-parts per billion
+001,D,MPG,MPG,MPG US,Mi/Gal(US),Meilen pro Gallone (US)
+001,D,MPM,MPM,ppm(m),ppm(m),Massen-parts per million
+001,D,MPS,MPS,mPa.s,mPa.s,Millipascalsekunde
+001,D,MPT,MPT,ppt(m),ppt(m),Massen-parts per trillion
+001,D,MPZ,MPZ,m.Pa/s,m.Pa/s,Meterpascal/Sekunde
+001,D,MQH,M3H,m3/h,m3/h,Kubikmeter/Stunde
+001,D,MS,MS,ms,ms,Millisekunde
+001,D,MS2,MS2,m/s2,m/s2,Meter/Quadratsekunde
+001,D,MTE,MTE,mT,mT,Millitesla
+001,D,MTS,M/H,m/h,m/h,Meter/Stunde
+001,D,MV,MV,mV,mV,Millivolt
+001,D,MVA,MVA,MVA,MVA,Megavoltampere
+001,D,MW,MW,mW,mW,Milliwatt
+001,D,MWH,MWH,MW.h,MW.h,Megawattstunde
+001,D,N,N,N,N,Newton
+001,D,NAM,NAM,nm,nm,Nanometer
+001,D,NM,NM,N/m,N/m,Newton/Meter
+001,D,NS,NS,ns,ns,Nanosekunde
+001,D,OCM,OCM,Ohcm,Ohm*cm,Spez. elek. Widerstand
+001,D,OHM,OHM,Ohm,Ohm,Ohm
+001,D,OM,OM,Ohmm,Ohm*m,Spez. elek. Widerstand
+001,D,OZ,OZ,oz,Unze,Unze
+001,D,OZA,FOZ,foz us,Fld Oz US,Fluid Ounce US
+001,D,P,P,P,Punkte,Punkte
+001,D,PA,PA,Pa,Pa,Pascal
+001,D,PAA,PAA,PAAR,Paar,Paar
+001,D,PAK,PAK,PAK,Pack,Pack
+001,D,PAL,PAL,PAL,Palette,Palette
+001,D,PAS,PAS,Pa.s,Pa.s,Pascalsekunde
+001,D,PMI,PMI,1/min,1/min,1/Minute
+001,D,PMR,PMR,kg/m2s,kg/m2*s,Permeationsrate SI
+001,D,PPB,PPB,ppb,ppb,Parts per billion
+001,D,PPM,PPM,ppm,ppm,Parts per million
+001,D,PPT,PPT,ppt,ppt,Parts per trillion
+001,D,PRM,PRM,µg/c2m,µg/cm2*min,Permeationsrate
+001,D,PRS,PRS,PRS,Personen,Anzahl Personen
+001,D,PS,PS,ps,ps,Pikosekunde
+001,D,PT,PT,pt us,Pint US l,Pint\ U.S. liquid
+001,D,QT,QT,qt us,Quart US l,Quart\ U.S. liquid
+001,D,RHO,RHO,g/cm3,g/cm3,Gramm/Kubikzentimeter
+001,D,ROL,ROL,rol,Rolle,Rolle
+001,D,S,S,s,s,Sekunde
+001,D,ST,ST,ST,Stück,Stück
+001,D,STD,STD,std,Stunden,Stunden
+001,D,TAG,TAG,Tage,Tage,Tage
+001,D,TC3,TC3,1/cm3,1/cm3,1/Kubikzentimeter
+001,D,TES,TES,T,T,Tesla
+001,D,TH,TS,tausnd,Tausend,Tausend
+001,D,TM3,TM3,1/m3,1/m3,1/Kubikmeter
+001,D,TO,TO,t,t,Tonne
+001,D,TON,TON,ton,US-Tonne,US-Tonne
+001,D,UGL,µGL,µg/l,µg/l,Mikrogramm/Liter
+001,D,V,V,V,V,Volt
+001,D,V%,V%,%(V),%(V),Volumenprozent
+001,D,V%O,V%O,%O(V),%O(V),Volumenpromille
+001,D,V01,MSC,µS/cm,µS/cm,Microsiemens pro Zentimeter
+001,D,V02,MPL,mMol/l,Millimol/l,Millimol pro Liter
+001,D,VAL,VAL,val,Value/Wert,Wertartikel
+001,D,VPB,VPB,ppb(V),ppb(V),Volumen-parts per billion
+001,D,VPM,VPM,ppm(V),ppm(V),Volumen-parts per million
+001,D,VPT,VPT,ppt(V),ppt(V),Volumen-parts per trillion
+001,D,W,W,W,W,Watt
+001,D,WCH,WCH,Wochen,Wochen,Wochen
+001,D,WMK,WMK,W/mk,W/(m*K),Wärmeleitfähigkeit
+001,D,WTL,WTL,kg/sm2,kg/s*m2,Verdampfungsgeschwindigkeit
+001,D,YD,YD,yd,Yard,Yard
+001,D,YD2,YD2,yd2,Qudr.Yard,Quadrat Yard
+001,D,YD3,YD3,yd3,Kubik Yard,Kubik Yard
+001,D,bbl,bbl,Bt/bbl,Btu/bbl,British Thermal Unit/US Barrel
+001,D,bft,bft,Bt/ft3,Btu/ft3,British Thermal Unit/Kubikfuß
+001,D,bgl,bgl,Bt/gal,Btu/gal,British Thermal Unit/US Gallon
+001,D,btl,btl,Btu/lb,Btu/lb,British Thermal Unit/US Pfund
+001,D,gj3,gj3,GJ/tm3,GJ/1000m3,Gigajoule/1000 Kubikmeter
+001,D,gjm,gjm,GJ/m3,GJ/m3,Gigajoule/Kubikmeter
+001,D,gjt,gjt,GJ/ton,GJ/ton,Gigajoule/US Tonne
+001,D,jm3,jm3,J/m3,J/m3,Joule/Kubikmeter
+001,D,kgb,kgb,kg/bbl,kg/bbl,Kilogramm/US Barrel
+001,D,kgj,kgj,kg/J,kg/J,Kilogramm/Joule
+001,D,kgm,kgm,kg/MB,kg/MMBtu,Kilogramm/Millionen BTU
+001,D,kgs,kgs,kg/scf,kg/scf,Kilogramm/Standard Kubikfuß
+001,D,kgt,kgt,kg/ton,kg/ton,Kilogramm/US Tonne
+001,D,kml,kml,kg/kgm,kg/kg mole,Kilogramm/Kilogramm Mol
+001,D,lbb,lbb,lb/Btu,lb/Btu,US Pfund/British Thermal Unit
+001,D,lbg,lbg,lb/gal,lb/gal,US Pfund/US Gallone
+001,D,lbl,lbl,lb/lbm,lb/lb mol,US Pfund/US Pfund Mol
+001,D,lbm,lbm,lb/MB,lb/MMBtu,US Pfund/Millionen BTU
+001,D,lbs,lbs,lb/scf,lb/scf,US Pfund/Standard Kubikfuß
+001,D,lbt,lbt,lb/ton,lb/ton,US Pfund/US Tonne
+001,D,mbb,mbb,MB/bbl,MMBtu/bbl,Millionen BTU/US Barrel
+001,D,mbt,mbt,MB/ton,MMBtu/ton,Millionen BTU/US Tonne
+001,D,tbl,tbl,t/bbl,t/bbl,Tonne/US Barrel
+001,D,tbt,tbt,t/Btu,t/Btu,Tonne/British Thermal Unit
+001,D,tgl,tgl,ton/gl,ton/gal,US Tonne/US Gallone
+001,D,tjl,tjl,t/Joul,t/Joule,Tonne/Joule
+001,D,tm3,tm3,t/tm3,t/1000m3,Tonne/1000 Kubikmeter
+001,D,tt,tt,t/t,t/t,Tonne/Tonne
+001,D,ttj,ttj,t/TJ,t/TJ,Tonne/Terajoule
+001,E,%,%,%,%,Percentage
+001,E,%O,%O,%O,%0,Per mille
+001,E,1,ONE,One,One,One
+001,E,10,D,d,Days,Days
+001,E,22S,22S,mm2/s,mm2/s,Square millimeter/second
+001,E,2M,CMS,cm/s,cm/s,Centimeter/second
+001,E,2X,000,m/min,m/min,Meter/Minute
+001,E,4G,µL,µl,µl,Microliter
+001,E,4O,µF,µF,µF,Microfarad
+001,E,4T,IB,pF,pF,Pikofarad
+001,E,A,A,A,A,Ampere
+001,E,A87,GOH,GOhm,GOhm,Gigaohm
+001,E,A93,GM3,g/m3,g/m3,Gram/Cubic meter
+001,E,ACR,ACR,acre,Acre,Acre
+001,E,B34,KD3,kg/dm3,kg/dm3,Kilogram/cubic decimeter
+001,E,B45,QML,kmol,kmol,Kilomol
+001,E,B47,NI,ND,ND,Kilonewton
+001,E,B73,MN,MN,MN,Meganewton
+001,E,B75,MGO,MOhm,MOhm,Megohm
+001,E,B78,MHV,MV,MV,Megavolt
+001,E,B84,µA,µA,µA,Microampere
+001,E,BAG,BAG,Bag,Bag,Bag
+001,E,BAR,BAR,bar,bar,bar
+001,E,BOT,BT,Bt.,Bottle,Bottle
+001,E,BQK,BQK,Bq/kg,Bq/kg,Becquerel/kilogram
+001,E,C10,RF,mF,mF,Millifarad
+001,E,C36,M/M,mol/m3,Mol/m3,Mol per cubic meter
+001,E,C38,M/L,Mol/l,Mol/Liter,Mol per liter
+001,E,C39,NA,nA,nA,Nanoampere
+001,E,C3S,C3S,cm3/s,cm3/s,Cubic centimeter/second
+001,E,C41,R-U,nF,nF,Nanofarad
+001,E,C56,NMM,N/mm2,N/mm2,Newton/Square millimeter
+001,E,CCM,CCM,cm3,cm3,Cubic centimeter
+001,E,CD,CD,cd,cd,Candela
+001,E,CDM,CD3,dm3,Cubic dec.,Cubic decimeter
+001,E,CM,CM,cm,cm,Centimeter
+001,E,CM2,CM2,cm2,cm2,Square centimeter
+001,E,CMH,CMH,cm/h,cm/h,Centimeter/hour
+001,E,CS,CV,Case,Case,Case
+001,E,CTL,CL,Cl,Centiliter,Centiliter
+001,E,D10,S/M,S/m,Siemens/m,Siemens per meter
+001,E,D41,TOM,t/m3,t/m3,Ton/Cubic meter
+001,E,D46,VAM,VAM,VA,Voltampere
+001,E,DEG,DEG,deg,Degree,Degree
+001,E,DM,DM,dm,dm,Decimeter
+001,E,DR,DR,Dr,Drum,Drum
+001,E,DZ,DZ,dz,Dozen,Dozen
+001,E,EA,EA,EA,each,each
+001,E,EE,EU,EU,Enzy.Units,Enzyme Units
+001,E,EML,EML,EU/ml,Enzyme/ml,Enzyme Units / Milliliter
+001,E,F,F,F,F,Farad
+001,E,FA,°F,°F,°F,Fahrenheit
+001,E,FT,FT,Foot,Foot,Foot
+001,E,FT2,FT2,ft2,Square ft,Square foot
+001,E,FT3,FT3,ft3,Cubic ft,Cubic foot
+001,E,G,G,g,g,Gram
+001,E,G/L,G/L,gai/l,gai/liter,gram act.ingrd / liter
+001,E,GAU,GAU,GAU,Gram Gold,Gram Gold
+001,E,GC,°C,°C,°C,Degrees Celsius
+001,E,GHG,GHG,g/hg,g/hg,Gram/hectogram
+001,E,GJ,GJ,GJ,Gigajoule,Gigajoule
+001,E,GKG,GKG,g/kg,g/kg,Gram/kilogram
+001,E,GLI,GLI,g/l,g/l,Gram/liter
+001,E,GLL,GAL,gal US,US gallon,US gallon
+001,E,GLM,GPM,GPM US,Gal/Mi(US),Gallons per mile (US)
+001,E,GM,GM,g/mol,g/mol,Gram/Mol
+001,E,GM2,GM2,g/m2,g/m2,Gram/square meter
+001,E,GPH,GPH,GPH US,Gal/hr US,Gallons per hour (US)
+001,E,GQ,µGQ,µg/m3,µg/m3,Microgram/cubic meter
+001,E,GRO,GRO,gro,Gross,Gross
+001,E,GW,GAI,gai,g act.ing.,Gram act. ingrd.
+001,E,H,H,h,Hour,Hour
+001,E,HAR,HA,Hectar,Hectare,Hectare
+001,E,HL,HL,hl,hl,Hectoliter
+001,E,HPA,HPA,hPa,hPa,Hectopascal
+001,E,HZ,HZ,Hz,Hz,Hertz (1/second)
+001,E,IN,\\,\\,Inches,Inch
+001,E,IN2,\\2,Inch2,Squar.inch,Square inch
+001,E,IN3,\\3,Inch3,Cubic inch,Cubic inch
+001,E,J,J,J,J,Joule
+001,E,JHR,YR,yr,Year,Years
+001,E,JKG,JKG,J/kg,J/kg,Joule/Kilogram
+001,E,JKK,JKK,J/kgK,J/(kg*K),Spec. Heat Capacity
+001,E,JMO,JMO,J/mol,J/mol,Joule/Mol
+001,E,K,K,K,K,Kelvin
+001,E,KA,KA,kA,kA,Kiloampere
+001,E,KAN,CAN,Can,Canister,Canister
+001,E,KAR,CAR,Car,Carton,Carton
+001,E,KBK,KBK,kBq/kg,kBq/kg,Kilobecquerel/kilogram
+001,E,KG,KG,kg,kg,Kilogram
+001,E,KGF,KGF,kg/m2,kg/m2,Kilogram/Square meter
+001,E,KGK,KGK,kg/kg,kg/kg,Kilogram/Kilogram
+001,E,KGM,KGM,kg/mol,kg/mol,Kilogram/Mol
+001,E,KGS,KGS,kg/s,kg/s,Kilogram/second
+001,E,KGV,KGV,kg/m3,kg/m3,Kilogram/cubic meter
+001,E,KGW,KAI,kgai,kg ac.ing.,Kilogram act. ingrd.
+001,E,KHZ,KHZ,kHz,kHz,Kilohertz
+001,E,KI,CRT,Crate,Crate,Crate
+001,E,KJ,KJ,kJ,kJ,Kilojoule
+001,E,KJK,KJK,KJ/kg,KJ/kg,Kilojoule/kilogram
+001,E,KJM,KJM,KJ/mol,KJ/mol,Kilojoule/Mol
+001,E,KM,KM,km,km,Kilometer
+001,E,KM2,KM2,km2,km2,Square kilometer
+001,E,KMH,KMH,km/h,km/h,Kilometer/hour
+001,E,KMK,KMK,m3/m3,m3/m3,Cubic meter/Cubic meter
+001,E,KMN,KMN,K/min,K/min,Kelvin/Minute
+001,E,KMS,KMS,K/s,K/s,Kelvin/Second
+001,E,KOH,KOH,kOhm,kOhm,Kiloohm
+001,E,KPA,KPA,kPa,kPa,Kilopascal
+001,E,KT,KT,kt,kt,Kilotonne
+001,E,KV,KV,kV,kV,Kilovolt
+001,E,KVA,KVA,kVA,kVA,Kilovoltampere
+001,E,KW,KW,KW,KW,Kilowatt
+001,E,KWH,KWH,kwh,kwh,Kilowatt hours
+001,E,KWK,KIK,kai/kg,kai/kg,kg act.ingrd. / kg
+001,E,L,L,l,l,Liter
+001,E,L2,LMI,l/min,l/min,Liter/Minute
+001,E,LB,LB,lb,US pound,US pound
+001,E,LE,AU,AU,Activ.unit,Activity unit
+001,E,LHK,LHK,l/hkm,l/100 km,Liter per 100 km
+001,E,LMS,LMS,l/m_.s,l/mol.s,Liter/Molsecond
+001,E,LPH,LPH,L/hr,Liter/hr,Liter per hour
+001,E,M,M,m,m,Meter
+001,E,M%,M%,%(m),%(m),Percent mass
+001,E,M%O,M%O,%O(m),%0(mass),Permille mass
+001,E,M/S,M/S,m/s,m/s,Meter/second
+001,E,M2,M2,m2,m2,Square meter
+001,E,M2I,M-2,1/M2,1/M2,1 / square meter
+001,E,M2S,M2S,m2/s,m2/s,Square meter/second
+001,E,M3,M3,m3,m3,Cubic meter
+001,E,M3D,M3D,m3/d,m3/day,Cubic meter/day
+001,E,M3S,M3S,m3/s,m3/s,Cubic meter/second
+001,E,MA,MA,mA,mA,Milliampere
+001,E,MBA,MBA,mbar,mbar,Millibar
+001,E,MBZ,MBZ,m.b_/s,m.bar/s,Meterbar/second
+001,E,MEJ,MEJ,MJ,MJ,Megajoule
+001,E,MG,MG,mg,mg,Milligram
+001,E,MGF,MGE,mg/cm2,mg/cm2,Milligram/Square centimeter
+001,E,MGG,MGG,mg/g,mg/g,Milligram/gram
+001,E,MGK,MGK,mg/kg,mg/kg,Milligram/kilogram
+001,E,MGL,MGL,mg/l,mg/l,Milligram/liter
+001,E,MGQ,MGQ,mg/m3,mg/m3,Milligram/cubic meter
+001,E,MGW,MGW,VA,VA,Megawatt
+001,E,MHZ,MHZ,MHz,MHz,Megahertz
+001,E,MI,MI,mile,Mile,Mile
+001,E,MI2,MI2,Mile2,Sq. mile,Square mile
+001,E,MIM,µM,µm,µm,Micrometer
+001,E,MIN,MIN,min,min.,Minute
+001,E,MIS,MIS,µs,µs,Microsecond
+001,E,MJ,MIJ,mJ,mJ,Millijoule
+001,E,ML,ML,ml,ml,Milliliter
+001,E,MLK,MLK,ml/m3,ml/m3,Milliliter/cubic meter
+001,E,MLW,MLI,mlai,ml act.in.,Milliliter act. ingr.
+001,E,MM,MM,mm,mm,Millimeter
+001,E,MM2,MM2,mm2,mm2,Square millimeter
+001,E,MMA,MMA,mm/a,mm/a,Millimeter/year
+001,E,MMG,MMG,mmol/g,mmol/g,Millimol/gram
+001,E,MMH,MMH,mm/h,mm/h,Millimeter/hour
+001,E,MMK,MMK,m_/kg,mmol/kg,Millimol/kilogram
+001,E,MMO,MMO,mmol,mmol,Millimol
+001,E,MMQ,MM3,mm3,mm3,Cubic millimeter
+001,E,MMS,MMS,mm/s,mm/s,Millimeter/second
+001,E,MNM,MNM,mN/m,mN/m,Millinewton/meter
+001,E,MOK,MOK,mol/kg,mol/kg,Mol/kilogram
+001,E,MOL,MOL,mol,mol,Mol
+001,E,MON,MON,Months,Months,Months
+001,E,MPA,MPA,MPa,MPa,Megapascal
+001,E,MPB,MPB,ppb(m),ppb(m),Mass parts per billion
+001,E,MPG,MPG,MPG US,Mi/Gal(US),Miles per gallon (US)
+001,E,MPM,MPM,ppm(m),ppm(m),Mass parts per million
+001,E,MPS,MPS,mPa.s,mPa.s,Millipascal seconds
+001,E,MPT,MPT,ppt(m),ppt(m),Mass parts per trillion
+001,E,MPZ,MPZ,m.Pa/s,m.Pa/s,Meterpascal/second
+001,E,MQH,M3H,m3/h,m3/h,Cubic meter/Hour
+001,E,MS,MSE,ms,ms,Millisecond
+001,E,MS2,MS2,m/s2,m/s2,Meter/second squared
+001,E,MTE,MTE,mT,mT,Millitesla
+001,E,MTS,M/H,m/h,m/h,Meter/Hour
+001,E,MV,MV,mV,mV,Millivolt
+001,E,MVA,MVA,MVA,MVA,Megavoltampere
+001,E,MW,MW,mW,mW,Milliwatt
+001,E,MWH,MWH,MWh,MWh,Megawatt hour
+001,E,N,N,N,N,Newton
+001,E,NAM,NAM,nm,nm,Nanometer
+001,E,NM,NM,N/m,N/m,Newton/meter
+001,E,NS,NS,ns,ns,Nanosecond
+001,E,OCM,OCM,Ohcm,Ohm*cm,Spec. Elec. Resistance
+001,E,OHM,OHM,Ohm,Ohm,Ohm
+001,E,OM,OM,Ohmm,Ohm*m,Spec. Elec. Resistance
+001,E,OZ,OZ,oz,Ounce,Ounce
+001,E,OZA,FOZ,foz US,Fld.oz US,Fluid Ounce US
+001,E,P,P,P,Points,Points
+001,E,PA,PA,Pa,Pa,Pascal
+001,E,PAA,PAA,PAIR,Pair,Pair
+001,E,PAK,PAC,PAC,Pack,Pack
+001,E,PAL,PAL,PAL,Pallet,Pallet
+001,E,PAS,PAS,Pas,Pascal sec,Pascal second
+001,E,PMI,PMI,1/min,1/min,1/minute
+001,E,PMR,PMR,kg/m2s,kg/m2*s,Permeation Rate SI
+001,E,PPB,PPB,ppb,ppb,Parts per billion
+001,E,PPM,PPM,ppm,ppm,Parts per million
+001,E,PPT,PPT,ppt,ppt,Parts per trillion
+001,E,PRM,PRM,ug/c2m,ug/cm2*min,Permeation Rate
+001,E,PRS,PRS,PRS,Persons,Number of Persons
+001,E,PS,PS,ps,ps,Picosecond
+001,E,PT,PT,pt US,Pint US l,Pint\ US liquid
+001,E,QT,QT,qt US,Quart US l,Quart\ US liquid
+001,E,RHO,RHO,g/cm3,g/cm3,Gram/cubic centimeter
+001,E,ROL,ROL,ROL,Role,Role
+001,E,S,S,s,s,Second
+001,E,ST,PC,PC,Piece,Piece
+001,E,STD,HR,hrs,Hours,Hours
+001,E,TAG,DAY,Days,Days,Days
+001,E,TC3,TC3,1/cm3,1/cm3,1/cubic centimeter
+001,E,TES,TES,D,D,Tesla
+001,E,TH,TS,thou,Thousands,Thousands
+001,E,TM3,TM3,1/m3,1/m3,1/cubic meter
+001,E,TO,TO,t,t,Tonne
+001,E,TON,TON,ton,US ton,US ton
+001,E,TST,001,000001,,
+001,E,UGL,µGL,µg/l,µg/l,Microgram/liter
+001,E,V,V,V,V,Volt
+001,E,V%,V%,%(V),%(V),Percent volume
+001,E,V%O,V%O,%O(V),%O(V),Permille volume
+001,E,V01,MSC,µS/cm,µS/cm,Microsiemens per centimeter
+001,E,V02,MPL,mMol/l,Millimol/l,Millimol per liter
+001,E,VAL,VAL,val,Value,Value-only material
+001,E,VPB,VPB,ppb(V),ppb(V),Volume parts per billion
+001,E,VPM,VPM,ppm(V),ppm(V),Volume parts per million
+001,E,VPT,VPT,ppt(V),ppt(V),Volume parts per trillion
+001,E,W,W,W,W,Watt
+001,E,WCH,WK,Weeks,Weeks,Weeks
+001,E,WMK,WMK,W/mk,W/(m*K),Heat Conductivity
+001,E,WTL,WKY,kg/sm2,kg/s*m2,Vaporization Speed
+001,E,YD,YD,yd,Yards,Yards
+001,E,YD2,YD2,yd2,Squar.yard,Square Yard
+001,E,YD3,YD3,yd3,Cubic yard,Cubic yard
+001,E,bbl,bbl,Bt/bbl,Btu/bbl,British Thermal Unit/US Barrel
+001,E,bft,bft,Bt/ft3,Btu/ft3,British Thermal Unit/Cubic Ft
+001,E,bgl,bgl,Bt/gal,Btu/gal,British Thermal Unit/US Gallon
+001,E,btl,btl,Btu/lb,Btu/lb,British Thermal Unit/US Pound
+001,E,gj3,gj3,GJ/tm3,GJ/1000m3,Gigajoule/1000 Cubic Meters
+001,E,gjm,gjm,GJ/m3,GJ/m3,Gigajoule/Cubic Meter
+001,E,gjt,gjt,GJ/ton,GJ/ton,Gigajoule/US Tonne
+001,E,jm3,jm3,J/m3,J/m3,Joule/Cubic Meter
+001,E,kgb,kgb,kg/bbl,kg/bbl,Kilogram/US Barrel
+001,E,kgj,kgj,kg/J,kg/J,Kilogram/Joule
+001,E,kgm,kgm,kg/MB,kg/MMBtu,Kilogram/Million BTU
+001,E,kgs,kgs,kg/scf,kg/scf,Kilogram/Standard Cubic Foot
+001,E,kgt,kgt,kg/ton,kg/ton,Kilogram/US Tonne
+001,E,kml,kml,kg/kgm,kg/kg mole,Kilogram/Kilogram Mole
+001,E,lbb,lbb,lb/Btu,lb/Btu,US Pound/British Thermal Unit
+001,E,lbg,lbg,lb/gal,lb/gal,US Pound/US Gallon
+001,E,lbl,lbl,lb/lbm,lb/lb mol,US Pound/US Pound Mole
+001,E,lbm,lbm,lb/MB,lb/MMBtu,US Pound/Million BTU
+001,E,lbs,lbs,lb/scf,lb/scf,US Pound/Standard Cubic Foot
+001,E,lbt,lbt,lb/ton,lb/ton,US Pound/US Tonne
+001,E,mbb,mbb,MB/bbl,MMBtu/bbl,Million BTU/US Barrel
+001,E,mbt,mbt,MB/ton,MMBtu/ton,Million BTU/US Tonne
+001,E,tbl,tbl,t/bbl,t/bbl,Tonne/US Barrel
+001,E,tbt,tbt,t/Btu,t/Btu,Tonne/British Thermal Unit
+001,E,tgl,tgl,ton/gl,ton/gal,US Tonne/US Gallon
+001,E,tjl,tjl,t/Joul,t/Joule,Tonne/Joule
+001,E,tm3,tm3,t/tm3,t/1000m3,Tonne/1000 Cubic Meters
+001,E,tt,tt,t/t,t/t,Tonne/Tonne
+001,E,ttj,ttj,t/TJ,t/TJ,Tonne/Terajoule
+001,F,10,JR,JR,Jour,Jour
+001,F,A,A,A,Ampère,Ampère
+001,F,CD,Bg,Bg,Bougie,Bougie
+001,F,CM,CM,CM,Centimèt.,Centimètre
+001,F,DM,DM,DM,Décimètre,Décimètre
+001,F,F,F,F,Dg Fahrenh,eit  Fahrenheit
+001,F,FA,FÛT,FÛT,Fût,Fût
+001,F,G,G,G,Gramme,Gramme
+001,F,HL,HL,HL,Hectolitre,Hectolitre
+001,F,HZ,HZ,HZ,Hertz,Hertz
+001,F,J,J,J,Joule,Joule
+001,F,K,K,K,Kelvin,Kelvin
+001,F,KA,BD,BD,Bidon,Bidon
+001,F,KG,KG,KG,Kilogram.,Kilogramme
+001,F,KGS,KGS,KG/S,kg/s,kilogramme/seconde
+001,F,KGV,KGV,KG/m3,kg/m3,Kilogramme/mètre cube
+001,F,KI,CA,CA,Caisse,Caisse
+001,F,KMH,KMH,KM/H,Km/h,Kilomètre/heure
+001,F,L,L,L,Litre,Litre
+001,F,LE,UP,UP,Unt Prod.,Unité de production
+001,F,M,M,M,Mètre,Mètre
+001,F,M/S,M/S,M/S,M/seconde,Mètre/seconde
+001,F,M2,M2,M2,M2,Mètre carré
+001,F,M2S,M2S,M2/S,M2/S,Mètre carré/seconde
+001,F,M3,M3,M3,Mèt. cube,Mètre cube
+001,F,M3S,M3S,M3/S,M3/S,Mètre cube/seconde
+001,F,MIN,MIN,MIN,Minute,Minute
+001,F,MM,MM,MM,Millimètre,Millimètre
+001,F,MOL,MOL,MOL,Mol,Mol
+001,F,MS2,MS2,M/S2,M/s2,Mètre/seconde au carré
+001,F,N,N,N,Newton,Newton
+001,F,OHM,OHM,OHM,Ohm,Ohm
+001,F,PA,PA,PA,Pascal,Pascal
+001,F,PAL,PAL,PAL,Palette,Palette
+001,F,PAS,PAS,PA/S,Pascal/s,Pascal/seconde
+001,F,ROL,ROU,ROUL,Rouleau,Rouleau
+001,F,S,S,S,Seconde,Seconde
+001,F,ST,PC,PC,Pièce,Pièce
+001,F,TO,TON,TON,Tonne,Tonne
+001,F,V,V,V,Volt,Volt
+001,F,W,W,W,Watt,Watt
+001,I,FA,FA,BOTTE,Botte,
+001,I,KA,CA,CA,Canestro,
+001,I,KG,KG,KG,Chilo,
+001,I,KI,KI,KI,Cassa,
+001,I,L,L,L,Litro,
+001,I,M,M,M,Metro,
+001,I,PA,PA,PA,Pascal,
+001,I,ST,PZ,PEZZO,,
+001,N,ST,ST,STUKS,Stuks,Stuks
+001,S,KG,KG,KG,Kilogramo,Kilogramo
+001,S,ST,ST,ST,Unidad,Unidad

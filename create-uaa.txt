@@ -1,0 +1,1 @@
+xs create-service xsuaa space openSAP-ex-uaa -c xs-security.json   

@@ -1,0 +1,5 @@
+service namespace "opensap.hana7" {
+   "PO.POView" as "purchaseDetails" key ("PURCHASEORDERID")
+	create using "xsjs:poExits.xsjslib::po_create"
+    events(before "xsjs:poExits.xsjslib::po_create_before_exit");
+}

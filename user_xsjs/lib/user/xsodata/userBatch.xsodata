@@ -1,0 +1,8 @@
+service namespace "com.sap.openSAP.hana.example.services" {
+   "UserData.User" as "Users" 
+     create using "usersCreateMethod" ;
+}
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

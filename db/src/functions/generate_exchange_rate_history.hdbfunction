@@ -1,0 +1,36 @@
+FUNCTION "generate_exchange_rate_history" ( )
+RETURNS TABLE( 
+    FCURR NVARCHAR(5),
+    TCURR NVARCHAR(5),
+    TS TIMESTAMP,
+    FACTOR DECIMAL(9,6)
+)
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER 
+AS
+BEGIN
+    DECLARE start_date, end_date DAYDATE;
+
+    SELECT MIN(SOH."HISTORY.CREATEDAT"), ADD_DAYS( MAX(SOH."HISTORY.CREATEDAT"), 1 )
+    INTO start_date, end_date
+    FROM "SO.Header" SOH;
+
+    RETURN  SELECT FCURR, TCURR, TS, CASE WHEN DAYNAME(ts)='SUNDAY' AND HOUR(TS)=0 AND MINUTE(TS)=0 THEN 1000 ELSE 0 END+FACTOR AS FACTOR
+    FROM (
+    SELECT 'EUR' AS FCURR, 'USD' AS TCURR, G.GENERATED_PERIOD_START AS TS
+        , (1.+   0.05 * COS( (G.ELEMENT_NUMBER-1)/(24.0*60.0/5) * ACOS(-1)) -- daily variation
+            + 0.075 * COS( (G.ELEMENT_NUMBER-1)/(7*24.0*60.0/5) * ACOS(-1)) -- weekly variation 
+            + 0.1 * COS( (G.ELEMENT_NUMBER-1)/(14*24.0*60.0/5) * ACOS(-1)) -- biweekly variation 
+            + 0.5 * (RAND() - 0.5)
+        ) AS FACTOR
+    FROM SERIES_GENERATE_TIMESTAMP('INTERVAL 5 MINUTE','2012-01-01','2013-01-01') G
+    UNION ALL
+    SELECT 'EUR' AS FCURR, 'JPY' AS TCURR, G.GENERATED_PERIOD_START AS TS
+        , (1.+   0.05 * COS( (G.ELEMENT_NUMBER-13)/(24.0*60.0/5) * ACOS(-1)) -- daily variation
+            + 0.075 * COS( (G.ELEMENT_NUMBER-13)/(7*24.0*60.0/5) * ACOS(-1)) -- weekly variation 
+            + 0.1 * COS( (G.ELEMENT_NUMBER-13)/(14*24.0*60.0/5) * ACOS(-1)) -- biweekly variation 
+            + 0.5 * (RAND() - 0.5)
+        ) AS FACTOR
+    FROM SERIES_GENERATE_TIMESTAMP('INTERVAL 5 MINUTE',:start_date,:end_date) G
+    ) D;
+END;

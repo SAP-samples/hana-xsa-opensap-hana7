@@ -1,0 +1,16 @@
+PROCEDURE "dynamic_sql_scalar_var" ( out ex_value decimal(15,2))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN 
+
+declare lv_multiplier decimal(15,2) = 1.25;
+declare lv_tabName nvarchar(32) = '"MD.Products"';
+declare lv_colName nvarchar(32) = 'PRICE';
+
+execute immediate 'select max('  || :lv_colName ||
+                  ') * ? as a from ' || :lv_tabName
+                  into ex_value
+                  using :lv_multiplier;
+
+END

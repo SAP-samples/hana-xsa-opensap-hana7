@@ -1,0 +1,17 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	controllerName="opensap.odataTest.controller.App" class="sapUiSizeCompact" height="100%">
+	<Page title="{i18n>appTitle}">
+		<content>
+			<IconTabBar class="iconTabBarPaddingTop" upperCase="true" expanded="true">
+				<items>
+					<IconTabFilter text="{i18n>H1}">
+						<core:Fragment fragmentName="opensap.odataTest.view.SRead" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="{i18n>H2}">
+						<core:Fragment fragmentName="opensap.odataTest.view.Cud" type="XML"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

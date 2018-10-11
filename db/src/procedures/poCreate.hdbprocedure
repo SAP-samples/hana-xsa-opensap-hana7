@@ -1,0 +1,56 @@
+PROCEDURE "poCreate" ( 
+    IN im_po_details "PO.POView",
+	OUT ex_error  "Procedures.tt_errors" ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+declare lv_purchaseorderid string;
+declare lv_partnerid string;
+declare lv_grossamount DECIMAL(5,2);
+declare lv_netamount DECIMAL(5,2);
+declare lv_taxamount DECIMAL(5,2);
+declare lv_currency string;
+declare lv_productid string;
+declare lv_quantity integer;
+declare lv_date string;
+declare lv_price DECIMAL(15,2);
+declare lv_val string;
+
+select PURCHASEORDERID, PRODUCTID, PARTNERID, CURRENCY, QUANTITY, DELIVERYDATE
+     into lv_purchaseorderid, lv_productid, lv_partnerid,  
+          lv_currency, lv_quantity, lv_date
+                      from :im_po_details;
+                      
+/*select "purchaseOrderSeqId".NEXTVAL into lv_purchaseorderid FROM ":DUMMY";  */                  
+select price into lv_price from "MD.Products" where PRODUCTID = :lv_productid;
+
+
+lv_netamount := :lv_price * :lv_quantity;
+lv_taxamount := :lv_netamount * 0.19;
+lv_grossamount := :lv_netamount + :lv_taxamount;
+
+ if :lv_productid = '' then
+ 
+  ex_error = select 500 as http_status_code, 
+               'Invalid Product ' || lv_productid as error_message, 
+                     'No Way! Product field can not be empty' as detail from "DUMMY";
+else
+
+    insert into "PO.Header" 
+             ("HISTORY.CREATEDBY.EMPLOYEEID", "HISTORY.CREATEDAT", "HISTORY.CHANGEDBY.EMPLOYEEID", "HISTORY.CHANGEDAT",
+              "PARTNER.PARTNERID", CURRENCY, GROSSAMOUNT, NETAMOUNT, TAXAMOUNT, 
+              LIFECYCLESTATUS, APPROVALSTATUS, CONFIRMSTATUS, ORDERINGSTATUS, INVOICINGSTATUS)
+             values(33, CURRENT_DATE, 33, CURRENT_DATE, lv_partnerid, lv_currency, lv_grossamount, lv_netamount,
+             		lv_taxamount, 'N', 'I', 'I', 'I', 'I');
+
+	insert into "PO.Item"
+	         ("HEADER.PURCHASEORDERID", "PRODUCT.PRODUCTID", CURRENCY, GROSSAMOUNT, NETAMOUNT, TAXAMOUNT, 
+	          QUANTITY, QUANTITYUNIT, DELIVERYDATE)
+             values (CURRENT_IDENTITY_VALUE(), lv_productid, lv_currency, lv_grossamount, lv_netamount, lv_taxamount,
+        			lv_quantity,'EA', lv_date);  
+        			
+ end if;
+ END;
