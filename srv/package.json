@@ -2,11 +2,11 @@
 	"name": "serve",
 	"dependencies": {
 		"@sap/cds": "2.x",
-		"express": "4.16.3",
+		"express": "4.16.4",
 		"@sap/xssec": "2.1.15",
 		"@sap/xsenv": "1.2.9",
 		"hdb": "0.16.0",
-		"@sap/hdbext": "4.7.4",
+		"@sap/hdbext": "4.7.5",
 		"@sap/hana-client": "~2.3",
 		"@sap/textbundle": "latest",
 		"@sap/logging": "~4.0",

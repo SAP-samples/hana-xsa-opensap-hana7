@@ -3,7 +3,7 @@
 	"description": "Reference application built according to the CAP model",
 	"version": "1.0.0",
 	"dependencies": {
-		"@sap/cds": ">=2.9"
+		"@sap/cds": ">=2.10"
 	},
 	"scripts": {
 		"build": "cds build/all --clean"
