@@ -133,7 +133,7 @@ resources:
   - name: openSAP-ex-uaa
     type: com.sap.xs.uaa-space
     parameters:
-      config_path: ./xs-security.json
+      path: ./xs-security.json
   - name: cross-container-service-1
     parameters:
       service-name: CROSS_SCHEMA_SFLIGHT
