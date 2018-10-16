@@ -2,7 +2,7 @@ ID: openSAPHANA
 _schema-version: '2.1'
 version: 0.0.1
 modules:
-  - name: openSAPHANA-db
+  - name: db
     type: hdb
     path: db
     parameters:
@@ -10,7 +10,7 @@ modules:
       disk-quota: 256M
     requires:
       - name: openSAPHANA-hdi-container
-  - name: openSAPHANA-srv
+  - name: srv
     type: nodejs
     path: srv
     parameters:
