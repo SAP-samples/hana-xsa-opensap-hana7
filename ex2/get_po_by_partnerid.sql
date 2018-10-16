@@ -1,4 +1,4 @@
-ROCEDURE "get_po_by_partnerid" ( in im_partnerid nvarchar(10),
+PROCEDURE "get_po_by_partnerid" ( in im_partnerid nvarchar(10),
                       out ex_po table ( partnerid nvarchar(10), 
                                         purchaseorderid nvarchar(10),
                                         productid nvarchar(20),
