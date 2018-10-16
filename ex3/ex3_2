@@ -1,12 +1,11 @@
-  - name: core_xsjs
+  - name: xsjs
     type: nodejs
-    path: core_xsjs
+    path: xsjs
     provides:
-      - name: core_xsjs_api
+      - name: xsjs_api
         properties:
           url: '${default-url}'
     requires:
-      - name: hdi_core_db
+      - name: openSAPHANA-hdi-container
       - name: openSAPHANA6_<group number>-uaa
-      - name: core_db
-
+      - name: db
