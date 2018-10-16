@@ -30,8 +30,11 @@ Course language: English
 
 ## Course Content
 Week 1: What’s New in SAP HANA 2.0 SPS 03
+
 Week 2: New Programming Model
+
 Week 3: Open Technologies and Concepts
+
 Week 4: Final Exam
 
 ## Target Audience
