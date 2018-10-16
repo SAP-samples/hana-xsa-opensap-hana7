@@ -1,0 +1,22 @@
+<core:View
+	controllerName="sap.shineNext.xsjsMultiply.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" >
+    <Panel 
+	   headerText="XS Service Test - Multiplication"
+	   expandable="true"
+	   expanded="true">
+	   <List width = "400px">
+	       <InputListItem label="Value #1">
+	           <Input id="val1" value="{/val1}" liveChange="onLiveChange" />
+	       </InputListItem>
+	       <InputListItem label="Value #2">
+	           <Input id="val2" value="{/val2}" liveChange="onLiveChange" />
+	       </InputListItem>
+	       <InputListItem label="=">
+	           <Text id="result" value="{/result}" />
+	       </InputListItem>	  
+	   </List>
+	</Panel>   
+</core:View>

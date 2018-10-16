@@ -1,0 +1,5 @@
+      - name: CROSS_SCHEMA_SFLIGHT_00
+        properties:
+          key: hdi-sflight-service
+          service: '~{sflight-service-name}'
+        group: SERVICE_REPLACEMENTS

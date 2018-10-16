@@ -1,0 +1,7 @@
+{ "host": "<hostname>",
+"port": "3<Instance Number><15|13>",
+"user": "<user>",
+"password": "<Password>",
+"driver": "com.sap.db.jdbc.Driver",
+"tags": ["hana"] ,
+"schema" : "SFLIGHT" }

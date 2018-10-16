@@ -1,0 +1,20 @@
+FUNCTION "get_po_by_partnerid_tf" ( in im_partnerid nvarchar(10) )
+                 returns table ( partnerid nvarchar(10), 
+                                 purchaseorderid nvarchar(10),
+                                 productid nvarchar(20),
+                                 currency nvarchar(5), 
+                                 grossamount decimal(15,2), 
+                                 quantity decimal(13,3) )  
+       LANGUAGE SQLSCRIPT 
+       SQL SECURITY INVOKER AS 
+BEGIN 
+
+ return select header."PARTNER.PARTNERID" as partnerid, 
+                     item."HEADER.PURCHASEORDERID" as purchaseorderid,
+                     item."PRODUCT.PRODUCTID" as productid, item.currency,  
+                     item.grossamount, item.quantity
+                   from "PO.Header" as header inner join "PO.Item" as item
+                        on header.PURCHASEORDERID = item."HEADER.PURCHASEORDERID" 
+                                  where header."PARTNER.PARTNERID" = :im_partnerid;
+
+END;

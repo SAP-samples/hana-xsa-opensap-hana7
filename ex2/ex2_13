@@ -1,0 +1,46 @@
+using SFLIGHT as FLIGHTTBL;
+using SBOOK as BOOKINGS;
+
+context FLIGHT {
+   define view SflightView as
+      select from FLIGHTTBL
+      mixin
+      {
+         SBOOKLink : association [ * ] to BOOKINGS on
+            SBOOKLink.MANDT      = FLIGHTTBL.MANDT 
+            and SBOOKLink.CARRID = FLIGHTTBL.CARRID 
+            and SBOOKLink.CONNID = FLIGHTTBL.CONNID 
+            and SBOOKLink.FLDATE = FLIGHTTBL.FLDATE; 
+      }
+      into
+      {
+         MANDT     as "Client",
+         CARRID    as "CarrierId",
+         CONNID    as "ConnectionId",
+         FLDATE    as "FlightDate",
+         PRICE            as "Price",
+         CURRENCY         as "Currency",
+         PLANETYPE        as "PlaneType",
+         SBOOKLink.BOOKID as "BookingId",
+         SBOOKLink.CUSTOMID as "CustomerId",
+         SBOOKLink.CUSTTYPE as "CustomerType",
+         SBOOKLink.PASSNAME as "PassengerName"
+      };
+
+   define view SflightExt as
+      select from SflightView
+      {
+         "Client",
+         "CarrierId",
+         "ConnectionId",
+         "FlightDate",
+         "BookingId",
+         "Price",
+         "Currency",
+         "PlaneType",
+         "CustomerId",
+         "CustomerType",
+         "PassengerName"
+      } with structured privilege check;
+
+};

@@ -1,1 +1,0 @@
-view "dummyview" as select key, value from "dummytable" with structured privilege check;

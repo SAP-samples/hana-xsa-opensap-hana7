@@ -1,0 +1,6 @@
+  - name: CROSS_SCHEMA_SFLIGHT_00
+    parameters:
+      service-name: CROSS_SCHEMA_SFLIGHT_00
+    type: org.cloudfoundry.existing-service
+    properties:
+      sflight-service-name: '${service-name}'

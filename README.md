@@ -1,5 +1,5 @@
 # hana-xsa-opensap-hana7
-openSAP HANA7 Course Exercise Materials
+openSAP HANA7 Course Exercise Materials Code Snippets for HANA 2.0 SPS 03 October Revision (or later)
 
 ## Support
 This project is provided "as-is": there is no guarantee that raised issues will be answered or addressed in future releases.

@@ -1,1 +1,0 @@
-INDEX "CUSTOMER_NAME_IDX" ON "Customers" (NAME) 

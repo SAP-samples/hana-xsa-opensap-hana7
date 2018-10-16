@@ -1,0 +1,17 @@
+<core:View xmlns="sap.m" xmlns:u="sap.ui.unified"  xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" controllerName="opensap.odataTest.controller.App" class="sapUiSizeCompact">
+	<u:Shell id="myShell" icon="/images/sap_18.png">
+		<u:user>
+			<u:ShellHeadUserItem image="sap-icon://person-placeholder" username="{config>/UserName}"/>
+		</u:user>
+		<u:content>
+			<IconTabBar class="iconTabBarPaddingTop" upperCase="true" expanded="true">
+				<items>
+					<IconTabFilter text="{i18n>H1}">
+						<core:Fragment fragmentName="opensap.odataTest.view.MRead" type="XML"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</u:content>
+	</u:Shell>
+</core:View>

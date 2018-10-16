@@ -1,0 +1,40 @@
+ID: openSAPHANA
+_schema-version: '3.1'
+version: 0.0.1
+modules:
+  - name: db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: openSAPHANA-hdi-container
+  - name: srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 256M
+    requires:
+      - name: openSAPHANA-hdi-container
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+  - name: web
+    type: html5
+    path: web
+    requires:
+      - name: openSAPHANA_<group number>-uaa
+resources:
+  - name: openSAPHANA-hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: openSAPHANA_<group number>-uaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      config_path: ./xs-security.json
+
+

@@ -1,0 +1,16 @@
+		callUserUpdate: function() {
+			var oModel = this.getOwnerComponent().getModel("userModel");
+			oModel.setHeaders({
+				"content-type": "application/json;charset=utf-8"
+			});
+
+			var mParams = {};
+			mParams.error = function() {
+				sap.m.MessageToast.show("Update failed");
+			};
+			mParams.success = function() {
+				sap.m.MessageToast.show("Update successful");
+			};
+
+			oModel.submitChanges(mParams);
+		},

@@ -1,3 +1,0 @@
-service {
-   "PURCHASE_ORDER_ITEM_VIEW" as "CatalogService.POItemsView" key ("PO_ITEM_ID", "PRODUCT_ID");
-}

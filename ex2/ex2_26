@@ -1,0 +1,15 @@
+PROCEDURE "dynamic_statements" ( 
+     IN im_field VARCHAR(5000),
+     IN im_category_filter_value VARCHAR(5000) DEFAULT 'Laser printers' )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+
+ DECLARE sqlstr NCLOB;
+ sqlstr = 'SELECT ' || :im_field ||
+         ' FROM "MD.Products"  WHERE CATEGORY = ''' ||
+         :im_category_filter_value || '''';
+ EXEC(:sqlstr);              
+
+END

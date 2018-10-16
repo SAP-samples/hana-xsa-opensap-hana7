@@ -1,1 +1,0 @@
-xs cups sap.hana.democontent.epm.services.images -p "{\"host\":\"www.loc.gov\",\"port\":\"80\",\"tags\":[\"xshttpdest\"] }"

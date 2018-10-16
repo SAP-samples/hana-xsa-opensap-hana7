@@ -1,0 +1,24 @@
+		onLiveChange: function(oEvent) {
+			var view = this.getView();
+			var result = view.getModel().getData();
+			var controller = this.getView().getController();
+			var valSend;
+			if (oEvent.getParameters().id === "comp---app--val1") {
+				valSend = result.val2;
+			} else {
+				valSend = result.val1;
+			}
+			if (valSend === undefined) {
+				valSend = 0;
+			}
+			var aUrl = "/sap/hana/democontent/epm/services/multiply.xsjs?cmd=multiply" +
+				"&num1=" + escape(oEvent.getParameters().newValue) +
+				"&num2=" + escape(valSend);
+			jQuery.ajax({
+				url: aUrl,
+				method: "GET",
+				dataType: "json",
+				success: controller.onCompleteMultiply,
+				error: controller.onErrorCall
+			});
+		}, 

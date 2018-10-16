@@ -1,0 +1,39 @@
+PROCEDURE "get_product_by_filter" (
+      IN im_product_filter_string varchar(5000),
+      OUT EX_PRODUCTS TABLE (
+                   PRODUCTID NVARCHAR(10),
+                   DELIVERYDATE DAYDATE,
+                   NUM_DELIVERED_PRODUCTS BIGINT,
+                   CUMULATIVE_SUM BIGINT )   )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+pre_filtered_products = SELECT * FROM "MD.Products"
+                              WHERE CATEGORY NOT IN ('Laser printers');
+       
+user_filtered_products = APPLY_FILTER(:pre_filtered_products, 
+                                         :im_product_filter_string ) ;
+
+filtered_items  = 
+        select pi."PRODUCT.PRODUCTID" as PRODUCTID, 
+               pi.DELIVERYDATE 
+                  from :user_filtered_products as p
+                      inner join "PO.Item" as pi
+                           on p.productid = pi."PRODUCT.PRODUCTID" ;
+
+aggregated_filtered_items = 
+          SELECT  PRODUCTID, DELIVERYDATE, 
+                  COUNT(PRODUCTID) AS NUM_DELIVERED_PRODUCTS
+                     FROM :filtered_items
+                        GROUP BY PRODUCTID, DELIVERYDATE
+                        ORDER BY PRODUCTID, DELIVERYDATE;
+
+CALL "calculate_cumulative_sum_of_delivered_products"(
+       IM_PRODUCTS => :aggregated_filtered_items,
+       EX_PRODUCTS => :products ) ;
+
+ex_products = select * from :PRODUCTS order by PRODUCTID, DELIVERYDATE;
+
+END

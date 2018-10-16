@@ -1,0 +1,80 @@
+{ 
+	"format_version": 1,
+	"imports": [{
+		"target_table": "OPENSAP_PURCHASEORDER_HEADERS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "headerCDS.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": ["PURCHASEORDERID",
+			"NOTEID",
+			"PARTNER",
+			"CURRENCY",
+			"GROSSAMOUNT",
+			"NETAMOUNT",
+			"TAXAMOUNT",
+			"LIFECYCLESTATUS",
+			"APPROVALSTATUS",
+			"CONFIRMSTATUS",
+			"ORDERINGSTATUS",
+			"INVOICINGSTATUS"]
+		},
+		"column_mappings": {
+			"PURCHASEORDERID": 1,
+			"NOTEID": 6,
+			"PARTNER": 7,
+			"CURRENCY": 8,
+			"GROSSAMOUNT": 9,
+			"NETAMOUNT": 10,
+			"TAXAMOUNT": 11,
+			"LIFECYCLESTATUS": 12,
+			"APPROVALSTATUS": 13,
+			"CONFIRMSTATUS": 14,
+			"ORDERINGSTATUS": 15,
+			"INVOICINGSTATUS": 16
+		}
+	},
+	{
+		"target_table": "OPENSAP_PURCHASEORDER_ITEMS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "itemCDS.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+        	"include_filter" : [ ],			
+			"import_columns": ["POHEADER_PURCHASEORDERID",
+			"PRODUCT",
+			"NOTEID",
+			"CURRENCY",
+			"GROSSAMOUNT",
+			"NETAMOUNT",
+			"TAXAMOUNT",
+			"QUANTITY",
+			"QUANTITYUNIT" ]
+		},
+		"column_mappings": {
+			"POHEADER_PURCHASEORDERID": 1,
+			"PRODUCT": 3,
+			"NOTEID": 4,
+			"CURRENCY": 5,
+			"GROSSAMOUNT": 6,
+			"NETAMOUNT": 7,
+			"TAXAMOUNT": 8,
+			"QUANTITY": 9,
+			"QUANTITYUNIT": 10
+
+		}
+	}]
+}

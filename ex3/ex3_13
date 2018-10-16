@@ -1,0 +1,17 @@
+ - name: web
+   type: html5
+   path: web
+   requires:
+      - name: openSAPHANA6_<group number>-uaa
+      - name: core_xsjs_api
+        group: destinations
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: user_xsjs_api
+        group: destinations
+        properties:
+          name: user-backend
+          url: '~{url}'
+          forwardAuthToken: truee 

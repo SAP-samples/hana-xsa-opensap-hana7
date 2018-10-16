@@ -1,0 +1,14 @@
+		onCompleteMultiply: function(myTxt) {
+			var oResult = sap.ui.getCore().byId("comp---app--result");
+			if (myTxt === undefined) {
+				oResult.setText(0);
+			} else {
+				jQuery.sap.require("sap.ui.core.format.NumberFormat");
+				var oNumberFormat = sap.ui.core.format.NumberFormat.getIntegerInstance({
+					maxFractionDigits: 12,
+					minFractionDigits: 0,
+					groupingEnabled: true
+				});
+				oResult.setText(oNumberFormat.format(myTxt));
+			}
+		},

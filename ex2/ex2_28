@@ -1,0 +1,12 @@
+PROCEDURE "get_product_by_filter" ( 
+      IN im_product_filter_string VARCHAR(5000) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+  
+ EXECUTE IMMEDIATE 'SELECT count(*) FROM "MD.Products" where CATEGORY NOT IN (''Laser printers'')' 
+      || :im_product_filter_string  ;
+ 
+END

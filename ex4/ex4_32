@@ -1,0 +1,23 @@
+<core:View
+	controllerName="sap.shineNext.odataDeep.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" >
+    <Panel 
+	   headerText="New Business Partner Details"
+	   expandable="true"
+	   expanded="true">
+	   <List width = "600px">
+	       <InputListItem label="Company Name">
+	           <Input id="cName" value="{/CompanyName}" />
+	       </InputListItem>
+	       <InputListItem label="City">
+	           <Input id="city" value="{/City}" />
+	       </InputListItem>
+	       <InputListItem label="Email">
+	           <Input id="email" value="{/Email}" />
+	       </InputListItem>	  
+	   </List>
+	   <Button text="Create Record" press="callCreateService" />
+	</Panel>   
+</core:View>

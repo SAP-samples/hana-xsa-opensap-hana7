@@ -1,3 +1,0 @@
-COLUMN TABLE "log.collectdata" (
-     "val" INTEGER CS_INT) 
-     UNLOAD PRIORITY 5 AUTO MERGE 
