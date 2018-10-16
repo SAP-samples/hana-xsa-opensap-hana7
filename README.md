@@ -19,9 +19,13 @@ We’ll also focus on real-world problems and opportunities such as:
 
 ## Course Characteristics
 Starting from: January, 23, 2019, 09:00 UTC. [https://open.sap.com/pages/faq#what-does-starting-from-9-00-utc-mean](What does this mean?)
+
 Duration: 3 weeks (4-5 hours per week)
+
 Final exam: February 13, 2019, 09:00 UTC - February 21, 2019, 09:00 UTC
+
 Course language: English
+
 [https://open.sap.com/pages/faq#how-is-an-opensap-course-structured](How is an openSAP course structured?)
 
 ## Course Content
