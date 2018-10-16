@@ -33,5 +33,10 @@
     "target": {
       "object": "ISO.US_STATES_AND_TERRITORIES"
     }
+  },
+  "CURRENCY": {
+    "target": {
+      "object": "ISO.CURRNECY_CODES"
+    }
   }
 }
