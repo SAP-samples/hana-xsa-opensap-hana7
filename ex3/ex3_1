@@ -4,9 +4,9 @@ modules:
     path: web
     requires:
       - name: openSAPHANA6_<group number>-uaa
-      - name: core_xsjs_api
+      - name: xsjs_api
         group: destinations
         properties:
-          name: core-xsjs-backend
+          name: xsjs_api
           url: '~{url}'
           forwardAuthToken: true 
