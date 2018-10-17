@@ -1,43 +1,45 @@
 {
-	"engines": {
-		"node": " ^8 "
-	},
+	"name": "serve",
 	"dependencies": {
-		"@sap/xssec": "2.1.12",
+		"@sap/cds": "2.x",
+		"express": "4.16.4",
+		"@sap/xssec": "2.1.15",
 		"@sap/xsenv": "1.2.9",
-		"@sap/hdbext": "4.7.2",
+		"hdb": "0.16.0",
+		"@sap/hdbext": "4.7.5",
+		"@sap/hana-client": "~2.3",
 		"@sap/textbundle": "latest",
-		"@sap/logging": "~3.4",
-		"@sap/audit-logging": "2.2.1",
-		"@sap/jobs-client": "~1.3",
-		"express": "~4.16",
-		"express-ws": "3.0",
+		"@sap/logging": "~4.0",
+		"@sap/audit-logging": "2.2.4",
+		"nodemailer": "~4.6",
 		"passport": "~0.4.0",
 		"async": "latest",
 		"ws": "1.1.1",
 		"accept-language-parser": "latest",
-		"node-xlsx": "~0.11",
+		"node-xlsx": "~0.12",
 		"node-zip": "~1.1.1",
-		"xmldoc": "~1.1.0",
+		"xmldoc": "~1.1.2",
 		"winston": "~2.3",
 		"body-parser": "~1.17",
 		"elementtree": "latest"
 	},
-	"devDependencies": {
-		"gulp": "3.9.1",
-		"gulp-replace": "0.5.4",
-		"jasmine-reporters": "2.1.1",
-		"gulp-jasmine": "2.4.1",
-		"gulp-istanbul": "1.1.1"
-	},
-	"description": "",
-	"files": [],
-	"main": "server.js",
-	"name": "core_node",
 	"scripts": {
-		"start": "node server.js",
-		"test": "node ./node_modules/gulp/bin/gulp test",
-		"test-coverage": "node ./node_modules/gulp/bin/gulp test-coverage"
+		"postinstall": "cds build/all --project .. --clean",
+		"start": "node server.js"
 	},
-	"version": "1.0.0"
+	"engines": {
+		"node": "8.x",
+		"npm": "6.x"
+	},
+	"i18n": {
+		"folders": [
+			"_i18n"
+		]
+	},
+	"cds": {
+		"data": {
+			"driver": "hana"
+		}
+	}
+
 }
