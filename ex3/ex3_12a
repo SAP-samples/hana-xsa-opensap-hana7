@@ -1,0 +1,6 @@
+VIEW "UserView" ( "UserId", "FirstName", "LastName", "Email" ) AS SELECT
+	 "User_$0"."UserId",
+	 "User_$0"."FirstName",
+	 "User_$0"."LastName",
+	 "User_$0"."Email" 	 
+FROM "UserData.User" AS "User_$0" 
