@@ -1,8 +1,8 @@
 /*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0*/
 "use strict";
 
-$.import("user.xsjs", "session");
-var SESSIONINFO = $.user.xsjs.session;
+$.import("sap.hana.democontent.epm.services", "session");
+var SESSIONINFO = $.sap.hana.democontent.epm.services.session;
 
 function validateEmail(email) {
 	var re =
