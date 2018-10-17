@@ -71,3 +71,5 @@ function arrayBasic() {
 	$.response.setBody(body);
 
 }
+
+arrayBasic();
