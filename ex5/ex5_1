@@ -11,6 +11,7 @@ const passport = require("passport");
 const xssec = require("@sap/xssec");
 const xsHDBConn = require("@sap/hdbext");
 const express = require("express");
+global.__base = __dirname + "/";
 
 //logging
 var logging = require("@sap/logging");
