@@ -3,10 +3,10 @@
 			const dbClass = require(global.__base + "utils/dbPromises");
 			let dbConn = new dbClass(req.db);
 			const statement = await dbConn.preparePromisified(
-				`SELECT FROM PurchaseOrder.Item { 
-			                 POHeader.PURCHASEORDERID as "PurchaseOrderId", 
-			                 PRODUCT as "ProductID", 
-			                 GROSSAMOUNT as "Amount" } `
+				`SELECT FROM OPENSAP_PURCHASEORDER_ITEMVIEW { 
+			                 PURCHASEORDERID as "PurchaseOrderId", 
+            				 PRODUCT as "ProductID", 
+            				 GROSSAMOUNT as "Amount"  } `
 			);
 			const results = await dbConn.statementExecPromisified(statement, []);
 			let result = JSON.stringify({
