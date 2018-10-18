@@ -18,7 +18,7 @@
             data-sap-ui-resourceroots='{
 				"sap.shineNext.xsjsMultiply": "./",
 				"view": "./view" }'	
-            data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout">
+            data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified">
     </script>
 	<script type="text/javascript" src="../common/startup.js"></script>
 	<script>
