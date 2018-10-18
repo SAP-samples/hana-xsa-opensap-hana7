@@ -15,31 +15,13 @@
 		data-sap-ui-language="en"
 		data-sap-ui-resourceroots='{
 				"opensap.odataTest": "./"}'		
-		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout"
+		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified"
 		data-sap-ui-frameOptions="trusted">
 	</script>
 	<script type="text/javascript" src="/common/error.js" ></script>  
-
+	<script type="text/javascript" src="../common/startup.js"></script>
 	<script>
-		sap.ui.getCore().attachInit(function () {
-				var ComponentContainer = new sap.ui.core.ComponentContainer({
-            		height : "100%"
-            	});
-            	
-            	new sap.m.Shell({
-            		app: ComponentContainer,
-            		showLogout: true
-            	}).placeAt("content");
-            	
-            	var oComponent = sap.ui.component({
-            		id: "comp",
-            		name: "opensap.odataTest",
-            		manifestFirst: true,
-            		async: true
-            	}).then(function(oComponent){
-            		ComponentContainer.setComponent(oComponent);
-            	});
-		});
+		localShellStartup("opensap.odataTest");
 	</script>
 </head>
 
