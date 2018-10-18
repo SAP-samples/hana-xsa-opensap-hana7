@@ -26,7 +26,7 @@ function getLocale(req) {
 module.exports = function() {
 
 	app.get("/", (req, res) => {
-		var bundle = new TextBundle(global.__base + "i18n/messages", getLocale(req));
+		var bundle = new TextBundle(global.__base + "_i18n/messages", getLocale(req));
 		res.writeHead(200, {
 			"Content-Type": "text/plain; charset=utf-8"
 		});
