@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="core.models::BUYER" defaultClient="crossClient" defaultLanguage="$$language$$" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection" applyPrivilegeType="NONE">
-  <descriptions defaultDescription="Buyer Join"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="core.models::BUYER" defaultClient="crossClient" defaultLanguage="$$language$$" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection" applyPrivilegeType="NONE">
+  <descriptions defaultDescription="Buyer Join "/>
   <localVariables/>
   <variableMappings/>
   <dataSources>
@@ -25,7 +25,7 @@
         <viewAttribute id="EMAILADDRESS" measureType="simple"/>
         <viewAttribute id="COMPANYNAME" measureType="simple"/>
         <viewAttribute id="LEGALFORM" measureType="simple"/>
-        <viewAttribute id="JOIN$ADDRESSID$ADDRESSES.ADDRESSID" hidden="true" measureType="simple"/>
+        <viewAttribute hidden="true" id="JOIN$ADDRESSID$ADDRESSES.ADDRESSID"/>
       </viewAttributes>
       <calculatedViewAttributes/>
       <restrictedViewAttributes/>
@@ -57,8 +57,6 @@
       </attribute>
       <attribute id="PARTNERROLE" order="2" attributeHierarchyActive="false" displayAttribute="false" semanticType="empty">
         <descriptions defaultDescription="Partner Role"/>
-        <externalLikeStructureName>core.models::GET_PARTNER_ROLES</externalLikeStructureName>
-        <externalLikeElementName>PARTNERROLE</externalLikeElementName>
         <keyMapping columnObjectName="Join_1" columnName="PARTNERROLE"/>
       </attribute>
       <attribute id="EMAILADDRESS" order="3" attributeHierarchyActive="false" displayAttribute="false">
@@ -119,7 +117,6 @@
         <upperLeftCorner x="40" y="210"/>
         <rectangleSize height="-1" width="-1"/>
       </shape>
-    
       <shape modelObjectName="MD.Addresses" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
         <upperLeftCorner x="20" y="30"/>
         <rectangleSize width="250"/>
