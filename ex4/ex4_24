@@ -14,7 +14,7 @@
 	},
     "dataSources": {
       "userService": {
-        "uri": "/user/xsodata/user2.xsodata/",
+        "uri": "/xsodata/user.xsodata/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
@@ -84,7 +84,7 @@
     			"defaultBindingMode": "TwoWay"
     		}
     	},
-		"userModel": {
+	"userModel": {
         	"dataSource": "userService",
         	"type": "sap.ui.model.odata.v2.ODataModel",
         	"preload": true,
@@ -94,7 +94,7 @@
 				"defaultBindingMode": "TwoWay",
 				"defaultUpdateMethod": "PUT"
         	}
-    	},    	
+    	},    	    	
     	"config": {
     		"type": "sap.ui.model.json.JSONModel"	
     	},
