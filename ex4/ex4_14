@@ -22,7 +22,7 @@
     </script>
 	<script type="text/javascript" src="../common/startup.js"></script>
 	<script>
-		localShellStartup("opensap.odataTest");
+		localShellStartup("sap.shineNext.xsjsMultiply");
 	</script>
 </head>
 <body class="sapUiBody" role="application">
