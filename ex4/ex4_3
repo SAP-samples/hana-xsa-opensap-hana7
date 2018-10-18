@@ -1,17 +1,36 @@
 {
 	"welcomeFile": "index.html",
+	"logout": {
+		"logoutPage": "/logout.html",
+		"logoutEndpoint": "/my/logout"
+	},
+	"websockets": {
+		"enabled": true
+	},
 	"authenticationMethod": "route",
 	"routes": [{
-		"source": "/user/(.*)",
-		"destination": "user-backend"
+		"source": "/catalog/(.*)",
+		"destination": "srv_api",
+		"csrfProtection": true,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "/odata/v4/(.*)",
+		"destination": "srv_api",
+		"csrfProtection": true,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "/node(.*)",
+		"destination": "srv_api",
+		"csrfProtection": true,
+		"authenticationType": "xsuaa"
 	}, {
 		"source": "(.*)(.xsjs)",
-		"destination": "core-xsjs-backend",
+		"destination": "xsjs_api",
 		"csrfProtection": false,
 		"authenticationType": "xsuaa"
 	}, {
 		"source": "(.*)(.xsodata)",
-		"destination": "core-xsjs-backend",
+		"destination": "xsjs_api",
 		"authenticationType": "xsuaa"
 	},
 	{
@@ -29,6 +48,5 @@
 				}
 			}
 		}
-	}
-	]
+	}]
 }
