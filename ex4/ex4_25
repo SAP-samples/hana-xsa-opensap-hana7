@@ -1,10 +1,7 @@
-<core:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" xmlns:smartTable="sap.ui.comp.smarttable"
-	controllerName="opensap.odataBasic.controller.App">
-	<u:Shell id="myShell" icon="/images/sap_18.png">
-		<u:user>
-			<u:ShellHeadUserItem image="sap-icon://person-placeholder" username="{config>/UserName}"/>
-		</u:user>
-		<u:content>
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:smartTable="sap.ui.comp.smarttable" controllerName="opensap.odataBasic.controller.App" height="100%">
+	<Page title="{i18n>appTitle}">
+		<content>
 			<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
 				<Panel headerText="New User Record Details" expandable="true" expanded="true">
 					<List width="400px">
@@ -20,7 +17,7 @@
 					</List>
 					<Button text="{i18n>B3}" press="callUserService"/>
 					<Button text="{i18n>B4}" press="callUserUpdate"/>
-				</Panel>				
+				</Panel>
 				<VBox fitContainer="true">
 					<smartTable:SmartTable id="userTable" header="{i18n>UList}" editable="false" entitySet="Users" showRowCount="true" enableAutoBinding="true"
 						showFullScreenButton="true" tableType="Table">
@@ -54,7 +51,7 @@
 							<items>
 								<ColumnListItem>
 									<cells>
-										<Input value="{UserId}" name="PERS_NO" />
+										<Input value="{UserId}" name="PERS_NO"/>
 										<Input value="{FirstName}" name="FIRSTNAME"/>
 										<Input value="{LastName}" name="LASTNAME"/>
 										<Input value="{Email}" name="E_MAIL"/>
@@ -65,6 +62,6 @@
 					</smartTable:SmartTable>
 				</VBox>
 			</ScrollContainer>
-		</u:content>
-	</u:Shell>
-</core:View>
+		</content>
+	</Page>
+</mvc:View>
