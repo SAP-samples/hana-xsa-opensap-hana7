@@ -9,6 +9,11 @@
 		"enabled": true
 	},
 	"routes": [{
+		"source": "/catalog/(.*)",
+		"destination": "srv_api",
+		"csrfProtection": true,
+		"authenticationType": "xsuaa"
+	},{
 		"source": "/odata/v4/(.*)",
 		"destination": "srv_api",
 		"csrfProtection": true,
@@ -70,10 +75,6 @@
 			],
 			"default": "$XSAPPNAME.Display"
 		}
-	}, {
-		"source": "/user(.*)",
-		"destination": "user_xsjs_api",
-		"authenticationType": "xsuaa"
 	}, {
 		"source": "(.*)(.xsjs)",
 		"destination": "xsjs_api",

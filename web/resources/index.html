@@ -11,11 +11,18 @@
 		</script>
 <!-- 2.) Create a UI5 button and place it onto the page -->
 <script>
+	/*************** Language Resource Loader *************/
+	jQuery.sap.require("jquery.sap.resources");
+	var sLocale =       
+		sap.ui.getCore().getConfiguration().getLanguage();
+	var oBundle = jQuery.sap.resources({url :   
+		"./i18n/messagebundle.properties", locale: sLocale});
+
 	// create the button instance
 	var myButton = new sap.m.Button("btn");
 
 	// set properties, e.g. the text (there is also a shorter way of setting several properties)
-	myButton.setText("Hello World!");
+	myButton.setText(oBundle.getText("helloworld"));
 
 	// attach an action to the button's "press" event (use jQuery to fade out the button)
 	myButton.attachPress(function(){$("#btn").fadeOut()});

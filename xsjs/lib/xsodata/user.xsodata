@@ -1,0 +1,9 @@
+service {
+    "UserView" as "Users" key("UserId")
+     create using 
+	"xsjs:usersCreateMethod.xsjslib::usersCreate";
+}
+settings {  
+ support null;
+ metadata cache-control "max-age= 604800";
+ } 

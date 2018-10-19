@@ -2,6 +2,34 @@
 /*eslint-env node, es6 */
 "use strict";
 
+function po_create_before_exit(param) {
+    $.trace.error("Start of Exit");
+    var after = param.afterTableName;
+    var pStmt = null;
+    var poid = "";
+   
+    try {
+        pStmt = param.connection
+        		 .prepareStatement("select \"purchaseOrderSeqId\".NEXTVAL from \"DUMMY\"");
+                 //  .prepareStatement('SELECT max(PURCHASEORDERID + 1) from "PO.Header"');
+        var rs = pStmt.executeQuery();
+        while (rs.next()) {
+           	poid = rs.getString(1);
+        }
+        $.trace.error(poid);
+        pStmt.close();
+
+        pStmt = param.connection.prepareStatement("update\"" + after + "\"set PURCHASEORDERID = ?");
+        pStmt.setString(1, poid.toString());
+        pStmt.execute();
+        pStmt.close();
+    } catch (e) {
+    	$.trace.error(e.message);
+        pStmt.close();
+    }
+
+}
+
 function po_create(param) {
 
 	try {
@@ -16,8 +44,8 @@ function po_create(param) {
 		var currency = "";
 		$.trace.error("Before Read Partner");
 		while (rs.next()) {
-			grossAmt = rs.getDecimal(9);
-			currency = rs.getString(8);
+			grossAmt = rs.getDecimal(5);
+			currency = rs.getString(4);
 			let cur = new Intl.NumberFormat($.session.language, {
 				style: "currency",
 				currency: currency

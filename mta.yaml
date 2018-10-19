@@ -60,6 +60,7 @@ modules:
       service-url: '${default-url}'    
     requires:
       - name: openSAP-ex-uaa
+      - name: openSAP-ui5      
       - name: xsjs_api
         group: destinations
         properties:
@@ -72,13 +73,6 @@ modules:
           name: srv_api
           url: '~{url}'
           forwardAuthToken: true
-      - name: user_xsjs_api
-        group: destinations
-        properties:
-          name: user_xsjs_api
-          url: '~{url}'
-          forwardAuthToken: true          
-      - name: openSAP-ui5
   - name: user_db
     type: hdb
     path: user_db
@@ -104,26 +98,6 @@ modules:
       - name: db
       - name: sap.hana.democontent.epm.services.images
       - name: cross-container-service-1       
-
-  - name: user_xsjs
-    type: nodejs
-    path: user_xsjs
-    provides:
-     - name: user_xsjs_api
-       properties:
-          url: ${default-url}
-    parameters:
-      host: openSAP-user-xsjs
-      register-service-url: true
-      service-name: openSAP-user-xsjs
-      service-url: '${default-url}'
-    requires:
-      - name: openSAP-ex-uaa
-      - name: user_db
-      - name: hdi_user_db
-      
-
-  
 
 resources:
   - name: openSAPHANA-hdi-container
