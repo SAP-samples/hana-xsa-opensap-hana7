@@ -18,31 +18,13 @@
     		data-sap-ui-resourceroots='{
 				"sap.shineNext.odataDeep": "./",
 				"view": "./view" }'	
-    		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout">
+    		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified">
     </script>
-		<script type="text/javascript" src="/common/csrf.js" ></script> 
+	<script type="text/javascript" src="/common/csrf.js" ></script> 
+	<script type="text/javascript" src="../common/startup.js"></script>
 	<script>
-		sap.ui.getCore().attachInit(function () {
-				var ComponentContainer = new sap.ui.core.ComponentContainer({
-            		height : "100%"
-            	});
-            	
-            	new sap.m.Shell({
-            		app: ComponentContainer,
-            		showLogout: true
-            	}).placeAt("content");
-            	
-            	var oComponent = sap.ui.component({
-            		id: "comp",
-            		name: "sap.shineNext.odataDeep",
-            		manifestFirst: true,
-            		async: true
-            	}).then(function(oComponent){
-            		ComponentContainer.setComponent(oComponent);
-            	});
-		});
-
-	</script>
+		localShellStartup("sap.shineNext.odataDeep");
+	</script>		
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>
