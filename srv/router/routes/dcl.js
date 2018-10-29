@@ -45,7 +45,7 @@ module.exports = function () {
 			let dbPromises = require(global.__base + "utils/dbPromises");
 			let db = new dbPromises(req.db);
 			const statement = await db.preparePromisified(
-				`SELECT TOP 1 CURRENT_USER, SESSION_USER, SESSION_CONTEXT('XS_APPLICATIONUSER') as APPLICATION_USER 
+				`SELECT TOP 1 CURRENT_USER, SESSION_USER, SESSION_CONTEXT('XS_APPLICATIONUSER') as APPLICATION_USER,  SESSION_CONTEXT('APPLICATION') as APPLICATION
 				   FROM DUMMY`);
 			const results = await db.statementExecPromisified(statement, []);
 			let result = JSON.stringify({
