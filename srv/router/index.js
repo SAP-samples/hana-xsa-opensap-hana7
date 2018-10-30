@@ -31,5 +31,6 @@ module.exports = (app, server) => {
 	app.use("/node/await", require("./routes/await")());	
 	app.use("/node/es6", require("./routes/es6")());
 	app.use("/node/dcl", require("./routes/dcl")());
+	app.use("/node/codeCoverage", require("./routes/codeCoverage")());
 
 };
