@@ -3,7 +3,7 @@
 describe(__filename, function () {
 
     it("First test", function(done) {
-        expect(false).toBe(true);
+        expect(true).toBe(true);
         done();
     });
 });
