@@ -9,6 +9,7 @@
 		    			  "EXECUTE", 
 		    			  "DELETE", 
 		    			  "UPDATE", 
+		    			  "DEBUG",
 		    			  "CREATE TEMPORARY TABLE"
 		   ]
 		}],

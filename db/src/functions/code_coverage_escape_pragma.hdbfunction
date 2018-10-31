@@ -1,0 +1,24 @@
+FUNCTION "code_coverage_escape_pragma"(inputstring NCLOB) RETURNS resultstring NCLOB
+       LANGUAGE SQLSCRIPT 
+       AS 
+BEGIN 
+    /*****************************
+        Write your function logic
+    ****************************/
+SELECT REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(inputstring, '/***starthitpre*/', '/** starthitpre*/')
+, '/***starthit*/', '/** starthit*/')
+, '/***starthitsuf*/', '/** starthitsuf*/')
+, '/***stophit*/', '/** stophit*/')
+, '/***startmisspre*/', '/** startmisspre*/')
+, '/***startmiss*/', '/** startmiss*/')
+, '/***startmisssuf*/', '/** startmisssuf*/')
+, '/***stopmiss*/', '/** stopmiss*/') INTO resultstring FROM DUMMY;
+
+END;

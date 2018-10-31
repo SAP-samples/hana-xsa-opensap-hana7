@@ -1,0 +1,70 @@
+PROCEDURE "code_coverage_pretty"(objectDefinitionId BIGINT, OUT resultstring NCLOB)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+
+DECLARE procedurestring NCLOB;
+DECLARE I INT = 0;
+DECLARE last_pos BIGINT = NULL;
+DECLARE first_pos BIGINT = NULL;
+DECLARE length_pos BIGINT = NULL;
+DECLARE tempstring NCLOB;
+DECLARE tempstring2 NCLOB;
+DECLARE tempstring3 NCLOB;
+SELECT OBJECT_DEFINITION INTO procedurestring FROM M_SQLSCRIPT_CODE_COVERAGE_OBJECT_DEFINITIONS WHERE OBJECT_DEFINITION_ID = objectDefinitionId  LIMIT 1;
+procedurestring = "code_coverage_escape_pragma"(:procedurestring); -- avoid sneaky hackers without changing numbers of lines
+allresults = SELECT DISTINCT START_POSITION, END_POSITION, SUM(HIT_COUNT) AS HIT_COUNT FROM M_SQLSCRIPT_CODE_COVERAGE_RESULTS
+    WHERE OBJECT_DEFINITION_ID = objectDefinitionId
+    GROUP BY START_POSITION, END_POSITION
+    ORDER BY START_POSITION DESC, END_POSITION DESC;
+ 
+ 
+resultstring = '';
+last_pos = LENGTH(procedurestring);
+--SELECT * FROM :allresults;
+FOR i IN 1..record_count(:allresults) DO
+    IF :i <> 1 THEN
+        --ASSERT ENDPOSITION IS ALWAYS > STARTPOS
+    END IF;
+    first_pos = :allresults.END_POSITION[:i];
+    length_pos = :last_pos - :first_pos;
+    if :length_pos > 0 THEN
+        SELECT SUBSTR(:procedurestring, :first_pos + 1, :length_pos ) INTO tempstring FROM DUMMY;
+        resultstring = :tempstring || :resultstring;
+        last_pos = :first_pos;
+    END IF;
+    first_pos = :allresults.START_POSITION[:i];
+    length_pos = :last_pos - :first_pos;
+    if :length_pos > 0 THEN
+        SELECT SUBSTR(:procedurestring, :first_pos + 1, 1) INTO tempstring FROM DUMMY;
+        SELECT SUBSTR(:procedurestring, :first_pos + 2, :length_pos-2 ) INTO tempstring2 FROM DUMMY;
+        SELECT SUBSTR(:procedurestring, :last_pos, 1) INTO tempstring3 FROM DUMMY;
+        if :allresults.HIT_COUNT[:i] > 0 THEN
+            resultstring = 'starthitpre' || :tempstring ||
+            'starthit' || :tempstring2 ||
+            'starthisuf' || :tempstring3 ||
+            'stophit' || :resultstring;
+        ELSE
+            resultstring = 'startmisspre' || :tempstring ||
+            'startmiss' || :tempstring2 ||
+            'startmiuf' || :tempstring3 ||
+            'stopmiss' || :resultstring;
+        END IF;
+        last_pos = :first_pos;
+    END IF;
+END FOR;
+first_pos = 0;
+length_pos = :last_pos - :first_pos;
+if :length_pos > 1 THEN
+    SELECT SUBSTR(:procedurestring, :first_pos + 1, :length_pos ) INTO tempstring FROM DUMMY;
+    resultstring = :tempstring || :resultstring;
+END IF;
+ 
+--resultstring = ADDHTMLBODY(ESCAPEPRAGMA_HTML(ESCAPENEWLINE(ESCAPEWHITESPACE(ESCAPEHTML(:resultstring)))));   
+   
+END

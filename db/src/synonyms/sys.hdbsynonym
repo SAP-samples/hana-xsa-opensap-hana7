@@ -52,5 +52,17 @@
       "object": "M_SERVICE_THREADS",
       "schema": "SYS"
     }
+  },
+  "M_SQLSCRIPT_CODE_COVERAGE_OBJECT_DEFINITIONS": {
+    "target": {
+      "object": "M_SQLSCRIPT_CODE_COVERAGE_OBJECT_DEFINITIONS",
+      "schema": "SYS"
+    }
+  },
+  "M_SQLSCRIPT_CODE_COVERAGE_RESULTS": {
+    "target": {
+      "object": "M_SQLSCRIPT_CODE_COVERAGE_RESULTS",
+      "schema": "SYS"
+    }
   }
 }
