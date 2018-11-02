@@ -1,6 +1,6 @@
 ID: openSAPHANA
 _schema-version: '2.0'
-version: 0.0.2
+version: 0.0.3
 modules:
   - name: db
     type: hdb
@@ -36,7 +36,7 @@ modules:
       service-name: openSAP-srv
       service-url: '${default-url}'
       memory: 512M
-      disk-quota: 256M      
+      disk-quota: 256M
     properties:
       UAA_SERVICE_NAME: openSAP-ex-uaa
     requires:
@@ -45,7 +45,7 @@ modules:
       - name: db
       - name: openSAP-ex-log
       - name: sap.hana.democontent.epm.services.images
-      - name: cross-container-service-1     
+      - name: cross-container-service-1
     provides:
       - name: srv_api
         properties:
@@ -57,10 +57,10 @@ modules:
       host: openSAP-web
       register-service-url: true
       service-name: openSAP-web
-      service-url: '${default-url}'    
+      service-url: '${default-url}'
     requires:
       - name: openSAP-ex-uaa
-      - name: openSAP-ui5      
+      - name: openSAP-ui5
       - name: xsjs_api
         group: destinations
         properties:
@@ -87,7 +87,7 @@ modules:
       host: openSAP-xsjs
       register-service-url: true
       service-name: openSAP-xsjs
-      service-url: '${default-url}'    
+      service-url: '${default-url}'
     provides:
       - name: xsjs_api
         properties:
@@ -97,8 +97,7 @@ modules:
       - name: openSAP-ex-uaa
       - name: db
       - name: sap.hana.democontent.epm.services.images
-      - name: cross-container-service-1       
-
+      - name: cross-container-service-1
 resources:
   - name: openSAPHANA-hdi-container
     properties:
@@ -142,4 +141,4 @@ resources:
     parameters:
       service-name: sap.hana.democontent.epm.services.images
     properties:
-      xshttpdest-images-service-name: '${service-name}'      
+      xshttpdest-images-service-name: '${service-name}'

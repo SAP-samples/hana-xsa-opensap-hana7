@@ -6,7 +6,8 @@
 		"@sap/cds": ">=2.10"
 	},
 	"scripts": {
-		"build": "cds build/all --clean"
+		"build": "cds build/all --clean",
+		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
 	},
 	"cds": {
 		"service": {

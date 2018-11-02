@@ -1,10 +1,10 @@
 {
   "name": "deploy",
   "dependencies": {
-    "@sap/hdi-deploy": "3.7.0"
+    "@sap/hdi-deploy": "3.8.2"
   },
   "scripts": {
-    "postinstall": "node conditionalBuild.js",
+    "postinstall": "node .build.js",
     "start": "node node_modules/@sap/hdi-deploy/deploy.js"
   }
 }
