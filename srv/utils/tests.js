@@ -81,8 +81,8 @@ module.exports = {
 	getExpress: () => {
 		global.__base = __dirname;
 		global.__base = global.__base.slice(0, -5); 
-		const port = process.env.PORT || 3000;
-		const server = require("http").createServer();
+	//	const port = process.env.PORT || 3000;
+	//	const server = require("http").createServer();
 
 		const cds = require("@sap/cds");
 		//Initialize Express App for XSA UAA and HDBEXT Middleware
@@ -146,7 +146,7 @@ module.exports = {
 		});
 
 		//Setup Additonal Node.js Routes
-		require("../router")(app, server);
+		require("../router")(app, null);
 
 		return (app);
 	}
