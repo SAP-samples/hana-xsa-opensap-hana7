@@ -8,20 +8,18 @@ describe(__filename, () => {
 
 	beforeEach(async(done) => {
 		this.db = await this.test.getDBClass(await this.test.getClient());
-		this.sp = await this.test.getStoredProc(this.db, "build_products");
+		this.sp = await this.test.getStoredProc(this.db, "addresses_from_employees");
 		done();
 	});
 
 	it("Value Test", async(done) => {
 		try {
 			let results = await this.db.callProcedurePromisified(this.sp, {});
-			expect(results.results.length).not.toBeLessThan(8);
-			expect(results.outputScalar.EX_PC_PRODUCTID).toBe("HT-1210");
-			expect(results.results[0].PRODUCTID).toBe("ProductB");
+			expect(results.results.length).not.toBeLessThan(33);
 			done();
-
 		} catch (err) {
 			done.fail(err);
 		}
 	});
+
 });
