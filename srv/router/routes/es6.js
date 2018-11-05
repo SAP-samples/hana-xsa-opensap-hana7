@@ -103,7 +103,7 @@ module.exports = function() {
 		try {
 			class1.myFirstMethod(20);
 		} catch (e) {
-			res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+			res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 		}
 	});
 
@@ -113,7 +113,7 @@ module.exports = function() {
 					`Call Static Method: ${JSON.stringify(results)}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 
 	});
@@ -124,7 +124,7 @@ module.exports = function() {
 					`Call Static Method - Calc Price: ${results.toString()}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 	});
 
@@ -135,7 +135,7 @@ module.exports = function() {
 					`Call Instance Method: ${JSON.stringify(results)}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 
 	});
@@ -147,7 +147,7 @@ module.exports = function() {
 					`Call Instance Method - Calc Price: ${results.toString()}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 	});
 
@@ -158,7 +158,7 @@ module.exports = function() {
 					`Call Inherited Method: ${JSON.stringify(results)}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 
 	});
@@ -170,7 +170,7 @@ module.exports = function() {
 					`Call Overridden Method - Calc Price: ${results.toString()}`);
 			})
 			.catch(e => {
-				res.type("application/json").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
+				res.type("text/html").status(200).send(`Call and catch errors: ${JSON.stringify(e)}`);
 			});
 	});
 
