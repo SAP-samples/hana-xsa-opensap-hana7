@@ -24,6 +24,7 @@
 	},
 	"devDependencies": {
 		"gulp": "3.9.1",
+		"supertest": "latest",
 		"gulp-replace": "0.5.4",
 		"jasmine-reporters": "2.1.1",
 		"gulp-jasmine": "2.4.1",
