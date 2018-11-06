@@ -14,7 +14,7 @@ We’ll also focus on real-world problems and opportunities such as:
 - Realistic yet easier-to-maintain security setup
 - The power of modern programming models
 - SQL DDL-based database object creation
-- New CDS concepts for service enablement and UI annotations
+- New Core Data & Servces concepts for service enablement and UI annotations
 - More open source components and techniques
 
 ## Course Characteristics

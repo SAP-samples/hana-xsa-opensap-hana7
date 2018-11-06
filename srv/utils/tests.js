@@ -3,6 +3,49 @@
 
 "use strict";
 module.exports = {
+	getAuthToken: () => {
+		return new Promise((resolve, reject) => {
+			let user;
+			let password;
+			process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+			process.argv.forEach(function (val, index, array) {
+				if (index === 3) {
+					//-user=
+					user = val.substring(6);
+				}
+				if (index === 4) {
+					//-pass=
+					password = val.substring(6);
+				}
+			});
+			let VCAP = JSON.parse(process.env.VCAP_SERVICES);
+			let xsuaa = VCAP.xsuaa;
+			var request = require('then-request');
+			var auth = 'Basic ' + Buffer.from(xsuaa[0].credentials.clientid + ':' + xsuaa[0].credentials.clientsecret).toString('base64');
+			let defaultHeaders = {
+				'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
+				'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+				'Accept-Language': 'en-us,en;q=0.5',
+				'Accept-Encoding': 'gzip, deflate',
+				'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
+				'Authorization': auth,
+				'Content-Type': 'application/x-www-form-urlencoded',
+				'Cache-Control': 'max-age=0'
+			};
+			request('POST', xsuaa[0].credentials.url + '/oauth/token', {
+					headers: defaultHeaders,
+					body: `grant_type=password` +
+						`&username=${user}` +
+						`&password=${password}` +
+						`&client_id=${xsuaa[0].credentials.clientid}` +
+						`&client_secret=${ xsuaa[0].credentials.clientsecret}`
+				})
+				.done(function (res) {
+					var body = JSON.parse(res.getBody());
+					resolve(body.access_token);
+				});
+		});
+	},
 
 	getClient: () => {
 		return new Promise((resolve, reject) => {
@@ -78,11 +121,12 @@ module.exports = {
 		});
 	},
 
-	getExpress: () => {
+	getExpress: (secure = false) => {
+		process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 		global.__base = __dirname;
-		global.__base = global.__base.slice(0, -5); 
-	//	const port = process.env.PORT || 3000;
-	//	const server = require("http").createServer();
+		global.__base = global.__base.slice(0, -5);
+		//	const port = process.env.PORT || 3000;
+		//	const server = require("http").createServer();
 
 		const cds = require("@sap/cds");
 		//Initialize Express App for XSA UAA and HDBEXT Middleware
@@ -91,28 +135,40 @@ module.exports = {
 		const xssec = require("@sap/xssec");
 		const xsHDBConn = require("@sap/hdbext");
 		const express = require("express");
+		xsenv.loadCertificates();
 		//logging
 		var logging = require("@sap/logging");
 		var appContext = logging.createAppContext();
 
 		//Initialize Express App for XS UAA and HDBEXT Middleware
 		var app = express();
+		passport.use("JWT", new xssec.JWTStrategy(xsenv.getServices({
+			uaa: {
+				tag: "xsuaa"
+			}
+		}).uaa));
 		app.use(logging.middleware({
 			appContext: appContext,
 			logNetwork: true
 		}));
-		//		app.use(passport.initialize());
+		app.use(passport.initialize());
 		var hanaOptions = xsenv.getServices({
 			hana: {
 				tag: "hana"
 			}
 		});
-		app.use(
-			// passport.authenticate("JWT", {
-			// 	session: false
-			// }),
-			xsHDBConn.middleware(hanaOptions.hana)
-		);
+		if (secure) {
+			app.use(
+				passport.authenticate("JWT", {
+					session: false
+				}),
+				xsHDBConn.middleware(hanaOptions.hana)
+			);
+		} else {
+			app.use(
+				xsHDBConn.middleware(hanaOptions.hana)
+			);
+		}
 
 		//CDS OData V4 Handler
 		var options = {
@@ -134,7 +190,7 @@ module.exports = {
 			.in(app)
 			.catch((err) => {
 				console.log(err);
-	//			process.exit(1);
+				//			process.exit(1);
 			});
 
 		// Redirect any to service root
@@ -150,5 +206,4 @@ module.exports = {
 
 		return (app);
 	}
-
 };

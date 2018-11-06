@@ -6,9 +6,10 @@ describe(__filename, () => {
 	const request = require("supertest");
 	this.test = require("../../utils/tests");
 	this.app = this.test.getExpress();
+
 	describe("/node/ex2", () => {
 
-		it("/node/ex2/", (done) => {
+		it("/node/ex2/", async(done) => {
 			request(this.app)
 				.get("/node/ex2")
 				.expect(200)
@@ -32,7 +33,6 @@ describe(__filename, () => {
 				.end((error) => (error) ? done.fail(error) : done());
 		});
 
-
 		it("/node/ex2/waterfall", (done) => {
 			request(this.app)
 				.get("/node/ex2/waterfall")
@@ -44,7 +44,6 @@ describe(__filename, () => {
 				})
 				.end((error) => (error) ? done.fail(error) : done());
 		});
-
 
 		it("/node/ex2/promises", (done) => {
 			request(this.app)
@@ -68,7 +67,7 @@ describe(__filename, () => {
 					expect(res.body.Objects[0].CURRENT_SCHEMA.indexOf("OPENSAPHANA_HDI_CONTAINER") !== -1).toBe(true);
 				})
 				.end((error) => (error) ? done.fail(error) : done());
-		});		
+		});
 
 		it("/node/ex2/procedures", (done) => {
 			request(this.app)
@@ -114,7 +113,7 @@ describe(__filename, () => {
 				.expect((res) => {
 					expect(res.body.EX_TOP_3_EMP_PO_COMBINED_CNT.length).not.toBeLessThan(2);
 					expect(res.body.EX_TOP_3_EMP_PO_COMBINED_CNT[0].FULLNAME).toBe("Fisher, Richard Andrew");
-					expect(res.body.EX_BP_ADDRESSES.length).not.toBeLessThan(1);					
+					expect(res.body.EX_BP_ADDRESSES.length).not.toBeLessThan(1);
 				})
 				.end((error) => (error) ? done.fail(error) : done());
 		});
@@ -142,7 +141,7 @@ describe(__filename, () => {
 				.expect("Content-Type", "application/json; charset=utf-8")
 				.end((error) => (error) ? done.fail(error) : done());
 		});
-		
+
 		it("/node/ex2/hdb", (done) => {
 			request(this.app)
 				.get("/node/ex2/hdb")
@@ -151,7 +150,7 @@ describe(__filename, () => {
 				.expect((res) => {
 					expect(res.body.PurchaseOrders.length).not.toBeLessThan(1);
 					expect(res.body.PurchaseOrders[0].PurchaseOrderId).toBe(500000000);
-				})				
+				})
 				.end((error) => (error) ? done.fail(error) : done());
 		});
 
@@ -170,6 +169,6 @@ describe(__filename, () => {
 				.expect("Content-Type", "text/plain; charset=utf-8")
 				.end((error) => (error) ? done.fail(error) : done());
 		});
-		
+
 	});
 });

@@ -20,7 +20,8 @@
 		"xmldoc": "~1.1.2",
 		"winston": "~2.3",
 		"body-parser": "~1.17",
-		"elementtree": "latest"
+		"elementtree": "latest",
+		"then-request": "latest"
 	},
 	"devDependencies": {
 		"gulp": "3.9.1",
