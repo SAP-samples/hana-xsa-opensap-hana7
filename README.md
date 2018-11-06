@@ -49,7 +49,7 @@ Baseline SAP HANA development knowledge from one of the previous SAP HANA course
 ## Development Systems
 If your primary interest in taking this course is getting an overview of software development on SAP HANA, you do not need access to a training system. However, we realize that many of you will be interested in completing the hands-on exercises based on the instructions in the course. We’ll therefore provide the necessary instructions and installation procedures in the respective units.
 
-The exercises in this course are primarily designed so that you can execute them on an SAP HANA 2.0 SPS 03-based SAP HANA, express edition system (of a patch level from October 2018 or newer).
+The exercises in this course are primarily designed so that you can execute them on an SAP HANA 2.0 SPS 03-based SAP HANA, express edition system (of a patch level from October 2018 or newer - minimum: XSA Runtime (1.0.97) and SAP Web IDE for SAP HANA (4.3.57)).
 
 ## Support
 This project is provided "as-is": there is no guarantee that raised issues will be answered or addressed in future releases.
