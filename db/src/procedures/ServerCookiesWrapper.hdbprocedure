@@ -1,9 +1,9 @@
 PROCEDURE "ServerCookiesWrapper" (
 	IN im_operation NVARCHAR(30) DEFAULT 'GET_APP_VARS', 
-	IN im_sessionid NVARCHAR(32) DEFAULT NULL, 	
-	IN im_name NVARCHAR(30) DEFAULT NULL, 
-	IN im_application NVARCHAR(128) DEFAULT NULL,
-	IN im_expiry TIMESTAMP, 
+	IN im_sessionid INTEGER DEFAULT 1, 	
+	IN im_name NVARCHAR(30) DEFAULT 'DUMMY', 
+	IN im_application NVARCHAR(128) DEFAULT 'DUMMY',
+	IN im_expiry TIMESTAMP DEFAULT NULL, 
 	IN im_data NCLOB DEFAULT NULL,	
 	OUT ex_svariable "Procedures.tt_variable"
 )

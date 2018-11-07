@@ -18,7 +18,7 @@ BEGIN
  	    FROM "Util.SSCOOKIE"
 	   WHERE NAME        = :im_name
 	     AND APPLICATION = :im_application
-	     and SESSIONID = ''; 
+	     and SESSIONID = 1; 
 END;
 
 PUBLIC PROCEDURE "get_application_variables" ( 
@@ -36,11 +36,11 @@ BEGIN
       SELECT SESSIONID, NAME, APPLICATION, EXPIRY, DATA 
  	    FROM "Util.SSCOOKIE"
 	   WHERE APPLICATION = :im_application
-	     and SESSIONID = ''; 
+	     and SESSIONID = 1; 
 END;
 
 PUBLIC PROCEDURE "get_session_variable" ( 
-	IN im_sessionid NVARCHAR(32), 
+	IN im_sessionid INTEGER, 
 	IN im_name NVARCHAR(30), 
 	IN im_application NVARCHAR(128), 
 	OUT ex_svariable "Procedures.tt_variable") 
@@ -61,7 +61,7 @@ BEGIN
 END;
 
 PUBLIC PROCEDURE "get_session_variables" ( 
-    IN im_sessionid NVARCHAR(32),
+    IN im_sessionid INTEGER,
 	IN im_application NVARCHAR(128),
 	OUT ex_svariables "Procedures.tt_variable") 
 	LANGUAGE SQLSCRIPT
@@ -93,8 +93,8 @@ BEGIN
  *****************************/
  UPSERT "Util.SSCOOKIE"
       (SESSIONID, NAME, APPLICATION, EXPIRY, DATA)
-	  VALUES(null, :im_name, :im_application, :im_expiry, :im_data)
-	   WHERE SESSIONID   = ''
+	  VALUES(1, :im_name, :im_application, :im_expiry, :im_data)
+	   WHERE SESSIONID   = 1
 	     AND NAME        = :im_name
 	     AND APPLICATION = :im_application; 
 	     
@@ -103,7 +103,7 @@ BEGIN
 END;
 
 PUBLIC PROCEDURE "set_session_variable" ( 
-	IN im_sessionid NVARCHAR(32), 
+	IN im_sessionid INTEGER, 
 	IN im_name NVARCHAR(30), 
 	IN im_application NVARCHAR(128), 
 	IN im_expiry TIMESTAMP, 
