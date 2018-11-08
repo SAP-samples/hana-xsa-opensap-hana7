@@ -26,7 +26,7 @@ Final exam: February 13, 2019, 09:00 UTC - February 21, 2019, 09:00 UTC
 
 Course language: English
 
-[https://open.sap.com/pages/faq#how-is-an-opensap-course-structured] (How is an openSAP course structured?)
+[How is an openSAP course structured?](https://open.sap.com/pages/faq#how-is-an-opensap-course-structured) 
 
 ## Course Content
 Week 1: What’s New in SAP HANA 2.0 SPS 03
@@ -56,4 +56,4 @@ This project is provided "as-is": there is no guarantee that raised issues will 
 
 ## License
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
-This project is licensed under the Apache Software License, Version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+This project is licensed under the SAP SAMPLE CODE LICENSE AGREEMENT except as noted otherwise in the [LICENSE](LICENSE) file.
