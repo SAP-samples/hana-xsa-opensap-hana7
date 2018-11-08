@@ -25,22 +25,49 @@ var appContext = logging.createAppContext();
 //Initialize Express App for XS UAA and HDBEXT Middleware
 var app = express();
 
+//Compression
+app.use(require("compression")({
+  threshold: "1b"
+}));
+
+//Helmet for Security Policy Headers
+const helmet = require("helmet");
+// ...
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'self'", "sapui5.hana.ondemand.com"],
+    scriptSrc: ["'self'", "sapui5.hana.ondemand.com"]
+  }
+}));
+// Sets "Referrer-Policy: no-referrer".
+app.use(helmet.referrerPolicy({ policy: "no-referrer" }));
+
+//Build a JWT Strategy from the bound UAA resource
 passport.use("JWT", new xssec.JWTStrategy(xsenv.getServices({
 	uaa: {
 		tag: "xsuaa"
 	}
 }).uaa));
+
+//Add XS Logging to Express
 app.use(logging.middleware({
 	appContext: appContext,
 	logNetwork: true
 }));
+
+//Add Passport JWT processing
 app.use(passport.initialize());
+
 var hanaOptions = xsenv.getServices({
 	hana: {
 		tag: "hana"
 	}
 });
 //hanaOptions.hana.rowsWithMetadata = true;
+
+//Add Passport for Authentication via JWT + HANA DB connection as Middleware in Expess
 app.use(
 	passport.authenticate("JWT", {
 		session: false
@@ -50,7 +77,8 @@ app.use(
 
 //CDS OData V4 Handler
 var options = {
-	driver: "hana"
+	driver: "hana",
+	logLevel: "error"
 };
 Object.assign(options, hanaOptions.hana, {
 	driver: options.driver

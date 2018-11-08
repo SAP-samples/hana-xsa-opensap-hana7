@@ -123,7 +123,7 @@ module.exports = {
 
 	getExpress: (secure = false) => {
 		process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-		process.setMaxListeners(0);		
+		process.setMaxListeners(0);
 		global.__base = __dirname;
 		global.__base = global.__base.slice(0, -5);
 		//	const port = process.env.PORT || 3000;
@@ -136,13 +136,36 @@ module.exports = {
 		const xssec = require("@sap/xssec");
 		const xsHDBConn = require("@sap/hdbext");
 		const express = require("express");
-	//	xsenv.loadCertificates();
+		//	xsenv.loadCertificates();
 		//logging
 		var logging = require("@sap/logging");
 		var appContext = logging.createAppContext();
 
 		//Initialize Express App for XS UAA and HDBEXT Middleware
 		var app = express();
+
+		//Compression
+		app.use(require("compression")({
+			threshold: "1b"
+		}));
+
+		//Helmet for Security Policy Headers
+		const helmet = require("helmet");
+		// ...
+		app.use(helmet());
+		app.use(helmet.contentSecurityPolicy({
+			directives: {
+				defaultSrc: ["'self'"],
+				styleSrc: ["'self'", "sapui5.hana.ondemand.com"],
+				scriptSrc: ["'self'", "sapui5.hana.ondemand.com"]
+			}
+		}));
+		// Sets "Referrer-Policy: no-referrer".
+		app.use(helmet.referrerPolicy({
+			policy: "no-referrer"
+		}));
+
+		//Build a JWT Strategy from the bound UAA resource
 		passport.use("JWT", new xssec.JWTStrategy(xsenv.getServices({
 			uaa: {
 				tag: "xsuaa"
@@ -173,8 +196,10 @@ module.exports = {
 
 		//CDS OData V4 Handler
 		var options = {
-			driver: "hana"
+			driver: "hana",
+			logLevel: "error"
 		};
+
 		Object.assign(options, hanaOptions.hana, {
 			driver: options.driver
 		});
