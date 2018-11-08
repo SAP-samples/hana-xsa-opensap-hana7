@@ -323,6 +323,38 @@ module.exports = () => {
 		}
 	});
 
+	app.get("/tables", async(req, res) => {
+		try {
+			const dbClass = require(global.__base + "utils/dbPromises");
+			let dbConn = new dbClass(req.db);
+			const statement = await dbConn.preparePromisified(
+				`SELECT TABLE_NAME FROM M_TABLES 
+				  WHERE SCHEMA_NAME = CURRENT_SCHEMA 
+				    AND RECORD_COUNT > 0 `
+			);
+			const results = await dbConn.statementExecPromisified(statement, []);
+			return res.type("application/json").status(200).send(JSON.stringify(results));
+		} catch (err) {
+			return res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
+		}
+	});
+	
+	app.get("/views", async(req, res) => {
+		try {
+			const dbClass = require(global.__base + "utils/dbPromises");
+			let dbConn = new dbClass(req.db);
+			const statement = await dbConn.preparePromisified(
+				`SELECT VIEW_NAME FROM VIEWS 
+				  WHERE SCHEMA_NAME = CURRENT_SCHEMA 
+				    AND (VIEW_TYPE = 'ROW' or VIEW_TYPE = 'CALC')`
+			);
+			const results = await dbConn.statementExecPromisified(statement, []);
+			return res.type("application/json").status(200).send(JSON.stringify(results));
+		} catch (err) {
+			return res.type("text/plain").status(500).send(`ERROR: ${err.toString()}`);
+		}
+	});
+	
 	app.get("/os", (req, res) => {
 		var os = require("os");
 		var output = {};

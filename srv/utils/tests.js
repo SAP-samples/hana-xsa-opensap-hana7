@@ -123,6 +123,7 @@ module.exports = {
 
 	getExpress: (secure = false) => {
 		process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+		process.setMaxListeners(0);		
 		global.__base = __dirname;
 		global.__base = global.__base.slice(0, -5);
 		//	const port = process.env.PORT || 3000;
@@ -135,7 +136,7 @@ module.exports = {
 		const xssec = require("@sap/xssec");
 		const xsHDBConn = require("@sap/hdbext");
 		const express = require("express");
-		xsenv.loadCertificates();
+	//	xsenv.loadCertificates();
 		//logging
 		var logging = require("@sap/logging");
 		var appContext = logging.createAppContext();
