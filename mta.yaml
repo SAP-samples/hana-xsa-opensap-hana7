@@ -1,6 +1,6 @@
 ID: openSAPHANA
 _schema-version: '2.0'
-version: 0.0.3
+version: 1.0.0
 modules:
   - name: db
     type: hdb
