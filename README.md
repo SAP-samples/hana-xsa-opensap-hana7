@@ -18,7 +18,7 @@ We’ll also focus on real-world problems and opportunities such as:
 - More open source components and techniques
 
 ## Course Characteristics
-Starting from: January, 23, 2019, 09:00 UTC. [https://open.sap.com/pages/faq#what-does-starting-from-9-00-utc-mean] (What does this mean?)
+Starting from: January, 23, 2019, 09:00 UTC. [What does this mean?](https://open.sap.com/pages/faq#what-does-starting-from-9-00-utc-mean) 
 
 Duration: 3 weeks (4-5 hours per week)
 
