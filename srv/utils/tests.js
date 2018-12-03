@@ -200,9 +200,10 @@ module.exports = {
 			logLevel: "error"
 		};
 
-		Object.assign(options, hanaOptions.hana, {
-			driver: options.driver
-		});
+//Use Auto Lookup in CDS 2.10.3 and higher
+//Object.assign(options, hanaOptions.hana, {
+//	driver: options.driver
+//});
 
 		cds.connect(options);
 

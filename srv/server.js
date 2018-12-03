@@ -65,7 +65,6 @@ var hanaOptions = xsenv.getServices({
 		tag: "hana"
 	}
 });
-//hanaOptions.hana.rowsWithMetadata = true;
 
 //Add Passport for Authentication via JWT + HANA DB connection as Middleware in Expess
 app.use(
@@ -80,9 +79,11 @@ var options = {
 	driver: "hana",
 	logLevel: "error"
 };
-Object.assign(options, hanaOptions.hana, {
-	driver: options.driver
-});
+
+//Use Auto Lookup in CDS 2.10.3 and higher
+//Object.assign(options, hanaOptions.hana, {
+//	driver: options.driver
+//});
 
 cds.connect(options);
 

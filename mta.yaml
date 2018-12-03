@@ -98,6 +98,7 @@ modules:
       - name: db
       - name: sap.hana.democontent.epm.services.images
       - name: cross-container-service-1
+      - name: openSAP-ex-log
 resources:
   - name: openSAPHANA-hdi-container
     properties:
