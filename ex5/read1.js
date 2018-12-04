@@ -12,7 +12,7 @@ module.exports = function (entities) {
 		catalog
 	} = entities;
 
-	this.after("READ", entities.POItems, (entity) => {
+	this.after("READ", "POItems", (entity) => {
 		if (entity.length > 0) {
 			let now = new Date();
 			let nextMonth = new Date();
