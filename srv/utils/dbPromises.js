@@ -13,6 +13,7 @@ module.exports = class {
 				}
 			});
 			var hdbext = require("@sap/hdbext");
+			options.hana.pooling = true;
 			hdbext.createConnection(options.hana, (error, client) => {
 				if (error) {
 					reject(error);

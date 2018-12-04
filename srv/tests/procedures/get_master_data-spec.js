@@ -18,7 +18,7 @@ describe(__filename, () => {
 			expect(results.results0.length).toBe(results.outputScalar.EX_EMP_COUNT);
 			expect(results.results1.length).toBe(results.outputScalar.EX_PROD_COUNT);
 			expect(results.results2.length).toBe(results.outputScalar.EX_BP_COUNT);	
-			expect(results.outputScalar.EX_EMP_EXISTS).toBe(0);		
+			expect(results.outputScalar.EX_EMP_EXISTS).toBe(false);		
 			done();
 
 		} catch (err) {

@@ -19,7 +19,7 @@ describe(__filename, () => {
 				IM_LOW: 3,
 				IM_HIGH: 9
 			});
-			expect(results.outputScalar.EX_VALID).toBe(1);
+			expect(results.outputScalar.EX_VALID).toBe(true);
 			done();
 		} catch (err) {
 			done.fail(err);
@@ -33,7 +33,7 @@ describe(__filename, () => {
 				IM_LOW: 3,
 				IM_HIGH: 9
 			});
-			expect(results.outputScalar.EX_VALID).toBe(0);
+			expect(results.outputScalar.EX_VALID).toBe(false);
 			done();
 		} catch (err) {
 			done.fail(err);

@@ -64,9 +64,7 @@ describe(__filename, () => {
 		"TABLE_NAME": "Util.SSCOOKIE"
 	}, {
 		"TABLE_NAME": "Util.Texts"
-	}, {
-		"TABLE_NAME": "log.messages"
-	}, {
+	},  {
 		"TABLE_NAME": "shadow::MDShadow.Addresses"
 	}, {
 		"TABLE_NAME": "shadow::MDShadow.BusinessPartner"

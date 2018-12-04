@@ -57,6 +57,7 @@ module.exports = {
 				}
 			});
 			//	let pool = hdb.getPool(hanaOptions.hana);
+			hanaOptions.hana.pooling = true;
 			hdb.createConnection(hanaOptions.hana, (error, client) => {
 				if (error) {
 					reject(console.error(error));
@@ -65,15 +66,6 @@ module.exports = {
 					resolve(client);
 				}
 			});
-			/*		pool.acquire(null, (error, client) => {
-						if (error) {
-							reject(console.error(error));
-						}
-						if (client) {
-							console.log("Client Created");
-							resolve(client);
-						}
-					});*/
 		});
 	},
 
@@ -181,6 +173,7 @@ module.exports = {
 				tag: "hana"
 			}
 		});
+		hanaOptions.hana.pooling = true;
 		if (secure) {
 			app.use(
 				passport.authenticate("JWT", {

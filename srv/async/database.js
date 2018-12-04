@@ -8,18 +8,18 @@ var hanaOptions = xsenv.getServices({
 		tag: "hana"
 	}
 });
-var pool = hdb.getPool(hanaOptions.hana);
+hanaOptions.hana.pooling = true;
 
 module.exports = {
-	callHANA: function(wss) {
-		pool.acquire(null, function(error, client) {
+	callHANA: function (wss) {
+		hdb.createConnection(hanaOptions.hana, function (error, client) {
 			if (error) {
 				console.error(error);
 			}
 			if (client) {
 				wss.broadcast("Database Connected");
 				client.exec("select TOP 25 * from \"PO.Header\"",
-					function(err, res, cb) {
+					function (err, res, cb) {
 						if (err) {
 							return ("ERROR: " + err);
 						}
@@ -27,19 +27,19 @@ module.exports = {
 						for (var i = 0; i < res.length; i++) {
 							wss.broadcast(res[i].PURCHASEORDERID + ": " + res[i].GROSSAMOUNT + "\n");
 						}
-						client.disconnect(function(cb) {
+						client.disconnect(function (cb) {
 							wss.broadcast("Database Disconnected");
-							pool.release(client);
+						//	pool.release(client);
 						});
+						return null;
 					});
 			} //End if client
 		}); //end create connection      
 		cb();
 	}, //end callHANA
 
-	callHANA1: function(cb, wss) {
-		//hdb.createConnection(hanaService, function(error, client) {
-		pool.acquire(null, function(error, client) {
+	callHANA1: function (cb, wss) {
+		hdb.createConnection(hanaOptions.hana, function (error, client) {
 			if (error) {
 				console.error(error);
 			}
@@ -50,13 +50,14 @@ module.exports = {
 					function execute(callback) {
 						wss.broadcast("Database Connected #1");
 						client.exec("select TOP 25 * from \"PO.Header\"",
-							function(err, res) {
+							function (err, res) {
 								if (err) {
 									return ("ERROR: " + err);
 								}
 								callback(null, err, res);
+								return null;
 							});
-
+						return null;
 					},
 
 					function processResults(err, res, callback) {
@@ -72,21 +73,22 @@ module.exports = {
 						client.disconnect();
 						wss.broadcast("Database Disconnected #1");
 						wss.broadcast("End Waterfall #1");
-						pool.release(client);
+						//pool.release(client);
 						cb();
+						return null;
 					},
 
 					function disconnectDone(callback) {
 						wss.broadcast("Database Disconnected #1");
 						wss.broadcast("End Waterfall #1");
-						pool.release(client);
+					//	pool.release(client);
 						cb();
 					}
 
-				], function(err, result) {
+				], function (err, result) {
 					wss.broadcast(err || "done");
 					wss.broadcast("Error Occured disrupting flow of Waterfall for #1");
-					pool.release(client);
+				//	pool.release(client);
 					cb();
 				}); //end Waterfall
 
@@ -95,10 +97,9 @@ module.exports = {
 
 	}, //end callHANA1
 
-	callHANA2: function(cb, wss) {
+	callHANA2: function (cb, wss) {
 
-			//hdb.createConnection(hanaService, function(error, client) {
-			pool.acquire(null, function(error, client) {
+				hdb.createConnection(hanaOptions.hana, function (error, client) {
 				if (error) {
 					console.error(error);
 				}
@@ -109,11 +110,12 @@ module.exports = {
 						function execute(callback) {
 							wss.broadcast("Database Connected #2");
 							client.exec("select TOP 25 * from \"PO.Item\"",
-								function(err, res) {
+								function (err, res) {
 									if (err) {
 										return ("ERROR: " + err);
 									}
 									callback(null, err, res);
+									return null;
 								});
 
 						},
@@ -131,21 +133,22 @@ module.exports = {
 							client.disconnect();
 							wss.broadcast("Database Disconnected #2");
 							wss.broadcast("End Waterfall #2");
-							pool.release(client);
+						//	pool.release(client);
 							cb();
+							return null;
 						},
 
 						function disconnectDone(callback) {
 							wss.broadcast("Database Disconnected #2");
 							wss.broadcast("End Waterfall #2");
-							pool.release(client);
+						//	pool.release(client);
 							cb();
 						}
 
-					], function(err, result) {
+					], function (err, result) {
 						wss.broadcast(err || "done");
 						wss.broadcast("Error Occured disrupting flow of Waterfall for #2");
-						pool.release(client);
+					//	pool.release(client);
 						cb();
 					}); //end Waterfall
 				} //end if client

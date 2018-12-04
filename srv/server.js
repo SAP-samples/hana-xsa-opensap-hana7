@@ -66,6 +66,7 @@ var hanaOptions = xsenv.getServices({
 	}
 });
 
+hanaOptions.hana.pooling = true;
 //Add Passport for Authentication via JWT + HANA DB connection as Middleware in Expess
 app.use(
 	passport.authenticate("JWT", {
