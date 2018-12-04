@@ -12,7 +12,7 @@ module.exports = function (entities) {
 		catalog
 	} = entities;
 
-	this.after("READ", entities.POItems, (entity) => {
+	this.after("READ", "POItems", (entity) => {
 		if (entity.length > 0) {
 			let now = new Date();
 			let nextMonth = new Date();
@@ -21,7 +21,7 @@ module.exports = function (entities) {
 		}
 	});
 
-	this.after("READ", entities.CURRENCY, (entity) => {
+	this.after("READ", "CURRENCY", (entity) => {
 		if (entity.length > 0) {
 			for (let item of entity) {
 				if (item.CODE === null) {
@@ -31,7 +31,7 @@ module.exports = function (entities) {
 		}
 	});
 
-	this.before("CREATE", entities.POs, (Orders) => {
+	this.before("CREATE", "POs", (Orders) => {
 		console.log("Before Create");
 		const {
 			data,
@@ -42,7 +42,7 @@ module.exports = function (entities) {
 		data.HISTORY_CREATEDAT = now.toJSON();
 	});
 
-	this.after("CREATE", entities.POs, (Orders) => {
+	this.after("CREATE", "POs", (Orders) => {
 		console.log("After Create");
 	});
 
