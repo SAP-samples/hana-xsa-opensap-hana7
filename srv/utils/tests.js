@@ -200,13 +200,14 @@ module.exports = {
 			logLevel: "error"
 		};
 
-//Use Auto Lookup in CDS 2.10.3 and higher
-//Object.assign(options, hanaOptions.hana, {
-//	driver: options.driver
-//});
+		//Use Auto Lookup in CDS 2.10.3 and higher
+		//Object.assign(options, hanaOptions.hana, {
+		//	driver: options.driver
+		//});
 
-		cds.connect(options);
-
+		if (!cds.session) {
+			cds.connect(options);
+		}
 		var odataURL = "/odata/v4/opensap.hana.CatalogService/";
 		// Main app
 		cds.serve("gen/csn.json", {
