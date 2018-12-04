@@ -4,7 +4,7 @@
 var express = require("express");
 var WebSocketServer = require("ws").Server;
 
-module.exports = function(server) {
+module.exports = function (server) {
 	var app = express.Router();
 	const asyncLib = require(global.__base + "async/async.js");
 	const dbAsync = require(global.__base + "async/databaseAsync.js");
@@ -21,9 +21,19 @@ module.exports = function(server) {
 	});
 	try {
 		var wss = new WebSocketServer({
-			server: server,
-			path: "/node/excAsync",
-			perMessageDeflate: false
+			//server: server
+			noServer: true
+		});
+
+		server.on("upgrade", function upgrade(request, socket, head) {
+			const url = require("url");
+			const pathname = url.parse(request.url).pathname;
+
+			if (pathname === "/node/excAsync") {
+				wss.handleUpgrade(request, socket, head, function done(ws) {
+					wss.emit("connection", ws, request);
+				});
+			}
 		});
 
 		wss.broadcast = (data) => {
@@ -55,27 +65,27 @@ module.exports = function(server) {
 				console.log(`Received: ${message}`);
 				var data = JSON.parse(message);
 				switch (data.action) {
-					case "async":
-						asyncLib.asyncDemo(wss);
-						break;
-					case "fileSync":
-						fileSync.fileDemo(wss);
-						break;
-					case "fileAsync":
-						fileAsync.fileDemo(wss);
-						break;
-					case "httpClient":
-						httpClient.callService(wss);
-						break;
-					case "dbAsync":
-						dbAsync.dbCall(wss);
-						break;
-					case "dbAsync2":
-						dbAsync2.dbCall(wss);
-						break;
-					default:
-						wss.broadcast(`Error: Undefined Action: ${data.action}`);
-						break;
+				case "async":
+					asyncLib.asyncDemo(wss);
+					break;
+				case "fileSync":
+					fileSync.fileDemo(wss);
+					break;
+				case "fileAsync":
+					fileAsync.fileDemo(wss);
+					break;
+				case "httpClient":
+					httpClient.callService(wss);
+					break;
+				case "dbAsync":
+					dbAsync.dbCall(wss);
+					break;
+				case "dbAsync2":
+					dbAsync2.dbCall(wss);
+					break;
+				default:
+					wss.broadcast(`Error: Undefined Action: ${data.action}`);
+					break;
 				}
 			});
 			ws.on("close", () => {

@@ -13,7 +13,7 @@
 		"@sap/audit-logging": "2.2.4",
 		"passport": "~0.4.0",
 		"async": "latest",
-		"ws": "1.1.1",
+		"ws": "~6.1",
 		"accept-language-parser": "latest",
 		"node-xlsx": "~0.12",
 		"node-zip": "~1.1.1",
