@@ -6,7 +6,7 @@ PROCEDURE "get_master_data" (
 	             out ex_bp_count int)
    LANGUAGE SQLSCRIPT
    SQL SECURITY INVOKER
-   READS SQL DATA AS
+   AS
 BEGIN USING "MasterData" as MData; 
 
  ex_emp_exists  = MData:"employee_exists"('199999');   
