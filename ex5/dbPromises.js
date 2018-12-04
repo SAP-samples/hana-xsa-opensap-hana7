@@ -13,6 +13,7 @@ module.exports = class {
 				}
 			});
 			var hdbext = require("@sap/hdbext");
+			options.hana.pooling = true;
 			hdbext.createConnection(options.hana, (error, client) => {
 				if (error) {
 					reject(error);
@@ -45,14 +46,23 @@ module.exports = class {
 
 	callProcedurePromisified(storedProc, inputParams) {
 		return new Promise((resolve, reject) => {
-			storedProc(inputParams, (error, outputScalar, results) => {
+			storedProc(inputParams, (error, outputScalar, ...results) => {
 				if (error) {
 					reject(error);
 				} else {
-					resolve({
-						outputScalar: outputScalar,
-						results: results
-					});
+					if (results.length < 2) {
+						resolve({
+							outputScalar: outputScalar,
+							results: results[0]
+						});
+					} else {
+						let output = {};
+						output.outputScalar = outputScalar;
+						for (let i = 0; i < results.length; i++) { 
+							output[`results${i}`] = results[i];
+						}
+						resolve(output);
+					}
 				}
 			});
 		});
