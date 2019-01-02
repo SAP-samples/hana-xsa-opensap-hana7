@@ -24,6 +24,7 @@
 	}, {
 		"source": "(.*)(.xsodata)",
 		"destination": "xsjs_api",
+		"csrfProtection": true,		
 		"authenticationType": "xsuaa"
 	}]
 }
