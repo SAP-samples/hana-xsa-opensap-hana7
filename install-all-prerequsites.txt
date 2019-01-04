@@ -1,3 +1,23 @@
+Install SFLIGHT (Needed for Exercise 2.6):
+This exercise requires that you have the SFLIGHT catalog schema installed in your system and a database user who has access to this schema. 
+You can find more information on loading SFLIGHT into your system, if it doesn’t exist already, here:
+https://blogs.sap.com/2018/12/18/howto-import-sflight-sample-data-into-sap-hana-from-a-local-computer/
+
+Install CentralDB MTAR (Needed for Exercise 2.8):
+In this exercise, we will configure access and synonyms between our local project container and an already existing container deployed on this system.  
+In order to perform this exercise in your own system, you will have to first download and deploy (with the –use-namespaces option) this MTA into your development space from:
+https://github.com/SAP/hana-xsa-opensap-hana7/raw/snippets_2.3.2/ex2/openSAP.CentralDB_1.1.2019.mtar
+xs deploy help: https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/2.0.03/en-US/308f2041995c41a88bbb197cf2a984f7.html#loio308f2041995c41a88bbb197cf2a984f7__section_irt_3dc_zs
+
+xs deploy openSAP.CentralDB_1.0.2019.mtar --use-namespaces
+
+SQL Commands in Tenant (Needed for Exercise 2.6):
+CREATE USER CUPS_SFLIGHT PASSWORD "<Password>" SET PARAMETER CLIENT = '001';
+ALTER USER CUPS_SFLIGHT DISABLE PASSWORD LIFETIME;
+GRANT SELECT ON SCHEMA SFLIGHT TO CUPS_SFLIGHT WITH GRANT OPTION;
+GRANT SELECT METADATA ON SCHEMA SFLIGHT to CUPS_SFLIGHT WITH GRANT OPTION;
+
+XSA Commands:
 xs cups CROSS_SCHEMA_SFLIGHT -p "{\"host\":\"<hostname>\",\"port\":\"3##<15|13>\",\"user\":\"CUPS_SFLIGHT\",\"password\":\"<Password>\",\"driver\":\"com.sap.db.jdbc.Driver\",\"tags\":[\"hana\"] , \"schema\" : \"SFLIGHT\" }"
 
 xs cups sap.hana.democontent.epm.services.images -p "{\"host\":\"www.loc.gov\",\"port\":\"80\",\"tags\":[\"xshttpdest\"] }"
@@ -7,8 +27,6 @@ xs create-service xsuaa space openSAP-ex-uaa -c xs-security.json
 xs create-service auditlog free openSAP-ex-log
 
 xs create-service sapui5_sb sapui5-1.52 openSAP-ui5
-
-xs deploy openSAP.CentralDB_1.0.2019.mtar --use-namespaces
 
 xs create-role openSAPHANA-ex Viewer Viewer_300 -a "{\"client\":{\"value\":\"300\",\"source\":\"static\"},\"country\":{\"value\":\"US\",\"source\":\"static\"}}"
 
