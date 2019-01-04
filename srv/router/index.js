@@ -35,5 +35,6 @@ module.exports = (app, server) => {
 	app.use("/node/es6", require("./routes/es6")());
 	app.use("/node/dcl", require("./routes/dcl")());
 	app.use("/node/codeCoverage", require("./routes/codeCoverage")());
+	app.use("/node/secureStore", require("./routes/secureStore")());
 
 };
