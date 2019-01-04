@@ -34,13 +34,15 @@ app.use(require("compression")({
 const helmet = require("helmet");
 // ...
 app.use(helmet());
-app.use(helmet.contentSecurityPolicy({
+/*app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    styleSrc: ["'self'", "sapui5.hana.ondemand.com"],
-    scriptSrc: ["'self'", "sapui5.hana.ondemand.com"]
+    scriptSrc: ["'self'", "https://sapui5.hana.ondemand.com", "code.jquery.com", "rawgit.com"],
+    fontSrc: ["'self'", "https://*"],
+    prefetchSrc: ["'self'", "https://*"],    
+    styleSrc: ["'self'", "https://*"] 
   }
-}));
+}));*/
 // Sets "Referrer-Policy: no-referrer".
 app.use(helmet.referrerPolicy({ policy: "no-referrer" }));
 
