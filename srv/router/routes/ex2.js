@@ -12,7 +12,7 @@ module.exports = () => {
 		const xsenv = require("@sap/xsenv");
 		let hanaOptions = xsenv.getServices({
 			hana: {
-				tag: "hana"
+				plan: "hdi-shared"
 			}
 		});
 		//Create DB connection with options from the bound service

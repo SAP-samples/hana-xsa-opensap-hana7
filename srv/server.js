@@ -27,7 +27,7 @@ var app = express();
 
 //Compression
 app.use(require("compression")({
-  threshold: "1b"
+	threshold: "1b"
 }));
 
 //Helmet for Security Policy Headers
@@ -44,7 +44,9 @@ app.use(helmet());
   }
 }));*/
 // Sets "Referrer-Policy: no-referrer".
-app.use(helmet.referrerPolicy({ policy: "no-referrer" }));
+app.use(helmet.referrerPolicy({
+	policy: "no-referrer"
+}));
 
 //Build a JWT Strategy from the bound UAA resource
 passport.use("JWT", new xssec.JWTStrategy(xsenv.getServices({
@@ -79,17 +81,16 @@ app.use(
 
 //CDS OData V4 Handler
 var options = {
-	driver: "hana",
+	kind: "hana",
 	logLevel: "error"
 };
 
 //Use Auto Lookup in CDS 2.10.3 and higher
-//Object.assign(options, hanaOptions.hana, {
-//	driver: options.driver
-//});
+/*Object.assign(options, hanaOptions.hana, {
+	driver: options.driver
+});*/
 
 cds.connect(options);
-
 var odataURL = "/odata/v4/opensap.hana.CatalogService/";
 // Main app
 cds.serve("gen/csn.json", {

@@ -12,7 +12,7 @@ module.exports = function() {
 		const xsenv = require("@sap/xsenv");
 		let hanaOptions = xsenv.getServices({
 			hana: {
-				tag: "hana"
+				plan: "hdi-shared"
 			}
 		});
 		let conn = client.createConnection();

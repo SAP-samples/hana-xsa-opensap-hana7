@@ -53,7 +53,7 @@ module.exports = {
 			let xsenv = require("@sap/xsenv");
 			let hanaOptions = xsenv.getServices({
 				hana: {
-					tag: "hana"
+					plan: "hdi-shared"
 				}
 			});
 			//	let pool = hdb.getPool(hanaOptions.hana);
