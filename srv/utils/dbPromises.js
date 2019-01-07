@@ -9,7 +9,7 @@ module.exports = class {
 			const xsenv = require("@sap/xsenv");
 			let options = xsenv.getServices({
 				hana: {
-					tag: "hana"
+					plan: "hdi-shared"
 				}
 			});
 			var hdbext = require("@sap/hdbext");

@@ -170,7 +170,7 @@ module.exports = {
 		app.use(passport.initialize());
 		var hanaOptions = xsenv.getServices({
 			hana: {
-				tag: "hana"
+				plan: "hdi-shared"
 			}
 		});
 		hanaOptions.hana.pooling = true;

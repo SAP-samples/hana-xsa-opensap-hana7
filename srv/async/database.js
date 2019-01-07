@@ -5,7 +5,7 @@ var xsenv = require("@sap/xsenv");
 var async = require("async");
 var hanaOptions = xsenv.getServices({
 	hana: {
-		tag: "hana"
+		plan: "hdi-shared"
 	}
 });
 hanaOptions.hana.pooling = true;

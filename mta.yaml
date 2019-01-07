@@ -46,6 +46,7 @@ modules:
       - name: openSAP-ex-log
       - name: sap.hana.democontent.epm.services.images
       - name: cross-container-service-1
+      - name: openSAP-secure
     provides:
       - name: srv_api
         properties:
@@ -143,3 +144,5 @@ resources:
       service-name: sap.hana.democontent.epm.services.images
     properties:
       xshttpdest-images-service-name: '${service-name}'
+  - name: openSAP-secure
+    type: com.sap.xs.hana-securestore
