@@ -1,6 +1,6 @@
 ID: openSAPHANA
 _schema-version: '2.0'
-version: 1.0.0
+version: 1.4.0
 modules:
   - name: db
     type: hdb
@@ -131,7 +131,7 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: sapui5_sb
-      service-plan: sapui5-1.52
+      service-plan: sapui5-1.60
   - name: openSAP-ex-log
     type: org.cloudfoundry.managed-service
     parameters:

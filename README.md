@@ -1,5 +1,5 @@
 # hana-xsa-opensap-hana7
-Software Development on SAP HANA (Update Q1/2019)
+Software Development on SAP HANA (Update Q1/2019) - Updated for HANA 2.0 SPS 04
 openSAP HANA7 Course Exercise Materials
 
 ## Course Summary
