@@ -15,15 +15,13 @@
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-preload="async"
 		data-sap-ui-language="en"
-            data-sap-ui-resourceroots='{
-				"sap.shineNext.xsjsMultiply": "./",
-				"view": "./view" }'	
-            data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified">
+		data-sap-ui-oninit="module:common/index"
+        data-sap-ui-resourceroots='{
+        		"common": "../common",
+				"root": "./",        		
+				"sap.openSAP.Multiply": "./",
+				"view": "./view" }'	>
     </script>
-	<script type="text/javascript" src="../common/startup.js"></script>
-	<script>
-		localShellStartup("sap.shineNext.xsjsMultiply");
-	</script>
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>

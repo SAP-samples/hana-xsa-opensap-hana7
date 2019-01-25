@@ -1,4 +1,5 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-shadow:0*/
+/*eslint-env es6 */
 function onLoadSession(myJSON) {
 	try {
 		var result = JSON.parse(myJSON);
@@ -26,6 +27,7 @@ function getSessionInfo() {
 			async: false
 		}).responseText);
 }
+
 
 function localShellStartup(name) {
 
