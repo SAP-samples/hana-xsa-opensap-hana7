@@ -1,6 +1,6 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-shadow:0*/
 /*eslint-env es6 */
-sap.ui.require(["sap/ui/core/Core", "sap/base/Log"], (oCore, oLog) => {
+sap.ui.require(["sap/ui/core/Core", "sap/ui/core/Component"], (oCore, Component) => {
 
 	function onLoadSession(myJSON) {
 		try {
@@ -29,48 +29,41 @@ sap.ui.require(["sap/ui/core/Core", "sap/base/Log"], (oCore, oLog) => {
 				async: false
 			}).responseText);
 	}
+	
+	Component.create({
+		id: "comp",
+		name: "root",
+		manifestFirst: true,
+		async: true
+	}).then((oComp) => {
+		sap.ui.require(["sap/ui/core/ComponentContainer"], (ComponentContainer) => {
+			let oCont = new ComponentContainer({
+				component: oComp,
+				height: "100%"
+			});
 
-	oCore.attachInit(() => {
-		sap.ui.require(["sap/ui/core/Component"], (Component) => {
-			Component.create({
-				id: "comp",
-				name: "root",
-				manifestFirst: true,
+			let username = getSessionInfo();
+			oCore.loadLibrary("sap.ui.unified", {
 				async: true
-			}).then((oComp) => {
-				sap.ui.require(["sap/ui/core/ComponentContainer"], (ComponentContainer) => {
-					let oCont = new ComponentContainer({
-						component: oComp,
-						height: "100%",
-						componentCreated: (oEvent) => {
-							oLog.info("Component Created");
-							console.log(oEvent.getParameters.component.id);
+			}).then(() => {
+				let oShell = new sap.ui.unified.Shell({
+					id: "myShell",
+					icon: "/images/sap_18.png",
+					headEndItems: new sap.ui.unified.ShellHeadItem({
+						icon: "sap-icon://log",
+						tooltip: "Logoff",
+						press: () => {
+							window.location.href = "/my/logout";
 						}
-					});
-
-					let username = getSessionInfo();
-					oCore.loadLibrary("sap.ui.unified", {
-						async: true
-					}).then(() => {
-						let oShell = new sap.ui.unified.Shell({
-							id: "myShell",
-							icon: "/images/sap_18.png",
-							headEndItems: new sap.ui.unified.ShellHeadItem({
-								icon: "sap-icon://log",
-								tooltip: "Logoff",
-								press: () => {
-									window.location.href = "/my/logout";
-								}
-							}),
-							user: new sap.ui.unified.ShellHeadUserItem({
-								image: "sap-icon://person-placeholder",
-								username: username
-							}),
-							content: oCont
-						}).placeAt("content");
-					});
-				});
+					}),
+					user: new sap.ui.unified.ShellHeadUserItem({
+						image: "sap-icon://person-placeholder",
+						username: username
+					}),
+					content: oCont
+				}).placeAt("content");
 			});
 		});
 	});
+
 });
