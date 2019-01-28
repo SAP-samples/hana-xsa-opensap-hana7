@@ -1,14 +1,15 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-undef: 0*/
+/*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
 sap.ui.define([
 	"opensap/odataTest/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+], function (BaseController, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("opensap.odataTest.controller.App", {
 
-		onInit: function() {
+		onInit: function () {
 
 			var oConfig = this.getOwnerComponent().getModel("config");
 			var userName = oConfig.getProperty("/UserName");
@@ -17,11 +18,11 @@ sap.ui.define([
 			this.getOwnerComponent().getModel().setProperty("/mPath", urlMulti);
 			this.getOwnerComponent().getModel().setProperty("/mEntity1", "POHeader");
 			this.getOwnerComponent().getModel().setProperty("/mEntity2", "POItem");
-			
+
 		},
-		callMultiService: function() {
-			var oTable = this.getView().byId("tblPOHeader");
-			var oTableItem = this.getView().byId("tblPOItem");
+		callMultiService: function () {
+			var oTable = this.getView().byId("frg1--tblPOHeader");
+			var oTableItem = this.getView().byId("frg2--tblPOItem");
 
 			var mPath = this.getOwnerComponent().getModel().getProperty("/mPath");
 			var mEntity1 = this.getOwnerComponent().getModel().getProperty("/mEntity1");
@@ -37,37 +38,40 @@ sap.ui.define([
 				oTable.setModel(oModel);
 				oTable.setEntitySet(mEntity1);
 				oTableItem.setModel(oModel);
-				oTableItem.setEntitySet(mEntity2);				
+				oTableItem.setEntitySet(mEntity2);
 				var oMeta = oModel.getServiceMetadata();
 				var headerFields = "";
 				var itemFields = "";
 				for (var i = 0; i < oMeta.dataServices.schema[0].entityType[0].property.length; i++) {
 					var property = oMeta.dataServices.schema[0].entityType[0].property[i];
-					headerFields +=  property.name + ",";
+					headerFields += property.name + ",";
 				}
-				
+
 				for (var i = 0; i < oMeta.dataServices.schema[0].entityType[1].property.length; i++) {
-						var property = oMeta.dataServices.schema[0].entityType[1].property[i];
-						itemFields +=  property.name + ",";
+					var property = oMeta.dataServices.schema[0].entityType[1].property[i];
+					itemFields += property.name + ",";
 				}
 				oTable.setInitiallyVisibleFields(headerFields);
 				oTableItem.setInitiallyVisibleFields(itemFields);
 			}
-			
-			oModel.attachMetadataLoaded(oModel, function() {
+
+			oModel.attachMetadataLoaded(oModel, function () {
 				fnLoadMetadata();
 			});
-			
-			oModel.attachMetadataFailed(oModel, function() {
-				sap.m.MessageBox.show("Bad Service Definition", {
-					icon: sap.m.MessageBox.Icon.ERROR,
-					title: "Service Call Error",
-					actions: [sap.m.MessageBox.Action.OK],
-					styleClass: "sapUiSizeCompact"
+
+			oModel.attachMetadataFailed(oModel, function () {
+				sap.ui.require(["sap/m/MessageBox"], (MessageBox) => {
+					MessageBox.show("Bad Service Definition", {
+						icon: MessageBox.Icon.ERROR,
+						title: "Service Call Error",
+						actions: [MessageBox.Action.OK],
+						styleClass: "sapUiSizeCompact"
+					});
 				});
+
 			});
 		},
-		callExcel: function(oEvent) {
+		callExcel: function (oEvent) {
 			//Excel Download
 			window.open("/node/excel/download/");
 			return;
