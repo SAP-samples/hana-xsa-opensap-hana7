@@ -30,14 +30,13 @@
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-preload="async"
 		data-sap-ui-language="en"
+		data-sap-ui-oninit="module:common/index"		
 		data-sap-ui-resourceroots='{
-				"opensap.odataBasic": "./" }'		
-		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified">
+        		"common": "../common",
+				"root": "./",	
+				"opensap.odataBasic": "./" }'>
 	</script>
-	<script type="text/javascript" src="../common/startup.js"></script>
-	<script>
-		localShellStartup("opensap.odataBasic");
-	</script>
+	<script type="text/javascript" src="/common/error.js" ></script>  
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>

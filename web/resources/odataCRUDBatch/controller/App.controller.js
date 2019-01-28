@@ -1,14 +1,15 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-undef: 0*/
+/*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
 sap.ui.define([
 	"opensap/odataBasic/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+], function (BaseController, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("opensap.odataBasic.controller.App", {
 
-		onInit: function() {
+		onInit: function () {
 			this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode
 			var oConfig = this.getOwnerComponent().getModel("config");
 			var userName = oConfig.getProperty("/UserName");
@@ -17,7 +18,7 @@ sap.ui.define([
 			oTable.setModel(userModel);
 		},
 
-		callUserService: function() {
+		callUserService: function () {
 			var oModel = this.getOwnerComponent().getModel("userModel");
 			var result = this.getView().getModel().getData();
 			var oEntry = {};
@@ -30,51 +31,31 @@ sap.ui.define([
 				"content-type": "application/json;charset=utf-8"
 			});
 			var mParams = {};
-			mParams.success = function() {
-				sap.m.MessageToast.show("Create successful");
+			mParams.success = function () {
+				sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+					MessageToast.show("Create successful");
+				});
 			};
-			mParams.error = this.onErrorCall;
+			mParams.error = onODataError;
 			oModel.create("/Users", oEntry, mParams);
 		},
 
-		callUserUpdate: function() {
+		callUserUpdate: function () {
 			var oModel = this.getOwnerComponent().getModel("userModel");
 			oModel.setHeaders({
 				"content-type": "application/json;charset=utf-8"
 			});
 
 			var mParams = {};
-			mParams.error = function() {
-				sap.m.MessageToast.show("Update failed");
-			};
-			mParams.success = function() {
-				sap.m.MessageToast.show("Update successful");
-			};
+			mParams.error = onODataError;
+			sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+				MessageToast.show("Update successful");
+			});
 
 			oModel.submitChanges(mParams);
 		},
 
-		onErrorCall: function(oError) {
-			if (oError.statusCode === 500 || oError.statusCode === 400 || oError.statusCode === "500" || oError.statusCode === "400" ) {
-				var errorRes = JSON.parse(oError.responseText);
-				if (!errorRes.error.innererror) {
-					sap.m.MessageBox.alert(errorRes.error.message.value);
-				} else {
-					if (!errorRes.error.innererror.message) {
-						sap.m.MessageBox.alert(errorRes.error.innererror.toString());
-					} else {
-						sap.m.MessageBox.alert(errorRes.error.innererror.message);
-					}
-				}
-				return;
-			} else {
-				sap.m.MessageBox.alert(oError.response.statusText);
-				return;
-			}
-
-		},
-
-		onBatchDialogPress: function() {
+		onBatchDialogPress: function () {
 			var view = this.getView();
 			view._bDialog = sap.ui.xmlfragment(
 				"opensap.odataBasic.view.batchDialog", this // associate controller with the fragment
@@ -85,17 +66,17 @@ sap.ui.define([
 			view._bDialog.open();
 		},
 
-		onDialogCloseButton: function() {
+		onDialogCloseButton: function () {
 			this.getView()._bDialog.close();
 		},
 
-		getItem: function(isFirstRow) {
+		getItem: function (isFirstRow) {
 			var view = this.getView();
 			var addIcon = new sap.ui.core.Icon({
 				src: "sap-icon://add",
 				color: "#006400",
 				size: "1.5rem",
-				press: function() {
+				press: function () {
 					view._bDialog.addContent(view.getController().getItem(false));
 				}
 			});
@@ -104,7 +85,7 @@ sap.ui.define([
 				src: "sap-icon://delete",
 				color: "#49311c",
 				size: "1.5rem",
-				press: function(oEvent) {
+				press: function (oEvent) {
 					view._bDialog.removeContent(oEvent.oSource.oParent.sId);
 				}
 			});
@@ -150,7 +131,7 @@ sap.ui.define([
 			});
 		},
 
-		onSubmitBatch: function() {
+		onSubmitBatch: function () {
 			var view = this.getView();
 			var content = view._bDialog.getContent();
 			var newUserList = [];
@@ -160,7 +141,7 @@ sap.ui.define([
 				user.FirstName = content[i].getItems()[1].getValue();
 				user.LastName = content[i].getItems()[3].getValue();
 				user.Email = content[i].getItems()[5].getValue();
-			//	user.ZMYNEW1 = "";
+				//	user.ZMYNEW1 = "";
 				newUserList.push(user);
 			}
 
@@ -174,10 +155,12 @@ sap.ui.define([
 			//var batchChanges = [];
 			var mParams = {};
 			mParams.groupId = "1001";
-			mParams.success = function() {
-				sap.m.MessageToast.show("Create successful");
+			mParams.success = function () {
+				sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+					MessageToast.show("Create successful");
+				});
 			};
-			mParams.error = this.onErrorCall;
+			mParams.error = onODataError;
 
 			for (var k = 0; k < newUserList.length; k++) {
 				batchModel.create("/Users", newUserList[k], mParams);

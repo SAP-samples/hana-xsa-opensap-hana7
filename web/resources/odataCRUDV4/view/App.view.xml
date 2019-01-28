@@ -1,52 +1,66 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
-	xmlns:smartTable="sap.ui.comp.smarttable" controllerName="opensap.odataBasic.controller.App" height="100%">
-	<Page title="{i18n>appTitle}">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:smartTable="sap.ui.comp.smarttable"
+	controllerName="opensap.odataBasic.controller.App" height="100%">
+	<Page id="mPage" title="{i18n>appTitle}" titleLevel="H1">
 		<content>
 			<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
-				<Panel headerText="New User Record Details" expandable="true" expanded="true">
-					<List width="400px">
-						<InputListItem label="{i18n>FName}">
+				<Panel id="panel1" headerText="New User Record Details" expandable="true" expanded="true">
+					<List id="list" width="400px">
+						<InputListItem id="itmFName" label="{i18n>FName}">
 							<Input id="fName" value="{/FirstName}"/>
 						</InputListItem>
-						<InputListItem label="{i18n>LName}">
+						<InputListItem id="itmLName" label="{i18n>LName}">
 							<Input id="lName" value="{/LastName}"/>
 						</InputListItem>
-						<InputListItem label="{i18n>EMail}">
+						<InputListItem id="itmEmail" label="{i18n>EMail}">
 							<Input id="email" value="{/Email}"/>
 						</InputListItem>
 					</List>
-					<Button text="{i18n>B3}" press="callUserService"/>
-					<Button text="{i18n>B4}" press="callUserUpdate"/>
+					<Button id="btnCall" text="{i18n>B3}" press="callUserService"/>
+					<Button id="btnUpdate" text="{i18n>B4}" press="callUserUpdate"/>
 				</Panel>
-				<Panel headerText="User List" expandable="true" expanded="true">
-					<Table tableId="userTable" id="userTable" growingThreshold="10" growing="true"
-						items="{ path: 'userModel&gt;/User', sorter: [{ path: 'USERID', descending: false}], events : {dataReceived : '.onDataEvents' } }">
-						<columns>
-							<Column>
-								<header><Label text="User ID"/></header>
-							</Column>
-							<Column>
-								<header><Label text="First Name"/></header>
-							</Column>
-							<Column>
-								<header><Label text="Last Name"/></header>
-							</Column>
-							<Column>
-								<header><Label text="Email"/></header>
-							</Column>
-						</columns>
-						<items>
-							<ColumnListItem>
-								<cells>
-									<Input value="{path: 'userModel&gt;USERID'}" name="PERS_NO" editable="false"/>
-									<Input value="{path: 'userModel&gt;FIRSTNAME'}" name="FIRSTNAME"/>
-									<Input value="{path: 'userModel&gt;LASTNAME'}" name="LASTNAME"/>
-									<Input value="{path: 'userModel&gt;EMAIL'}" name="E_MAIL"/>
-								</cells>
-							</ColumnListItem>
-						</items>
-					</Table>
-				</Panel>
+				<VBox fitContainer="true">
+					<smartTable:SmartTable id="userTable" header="{i18n>UList}" editable="false" entitySet="User" showRowCount="true" enableAutoBinding="true"
+						showFullScreenButton="true" tableType="Table">
+						<Table>
+							<columns>
+								<Column id="USERID">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "USERID", "leadingProperty": "USERID", "sortProperty": "USERID", "columnIndex":"1"}'/>
+									</customData>
+									<Text text="{i18n>UserId}"/>
+								</Column>
+								<Column id="FIRSTNAME">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "FIRSTNAME", "leadingProperty": "FIRSTNAME", "maxLength": "40","columnIndex":"2"}'/>
+									</customData>
+									<Text text="{i18n>FName}"/>
+								</Column>
+								<Column id="LASTNAME">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "LASTNAME", "leadingProperty": "LASTNAME", "maxLength": "40","columnIndex":"3"}'/>
+									</customData>
+									<Text text="{i18n>LName}"/>
+								</Column>
+								<Column id="EMAIL">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "EMAIL", "leadingProperty": "EMAIL", "maxLength": "40","columnIndex":"4"}'/>
+									</customData>
+									<Text text="{i18n>EMail}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Input value="{USERID}" name="PERS_NO"/>
+										<Input value="{FIRSTNAME}" name="FIRSTNAME"/>
+										<Input value="{LASTNAME}" name="LASTNAME"/>
+										<Input value="{EMAIL}" name="E_MAIL"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</smartTable:SmartTable>
+				</VBox>
 			</ScrollContainer>
 		</content>
 	</Page>
