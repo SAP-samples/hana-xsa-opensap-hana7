@@ -1,14 +1,15 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-undef: 0, quotes: 0*/
+/*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
 sap.ui.define([
 	"opensap/odataTest/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+], function (BaseController, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("opensap.odataTest.controller.App", {
 
-		onInit: function() {
+		onInit: function () {
 
 			var oConfig = this.getOwnerComponent().getModel("config");
 			var userName = oConfig.getProperty("/UserName");
@@ -35,13 +36,15 @@ sap.ui.define([
 				}]
 			}, true);
 			var region = this.getView().byId("ddlbRegion");
-			var regionSelectTemplate = new sap.ui.core.Item({
-				id: "region",
-				key: "{code}",
-				text: "{name}"
+			sap.ui.require(["sap/ui/core/Item"], (Item) => {
+				var regionSelectTemplate = new Item({
+					id: "region",
+					key: "{code}",
+					text: "{name}"
+				});
+				region.setModel(oRegions);
+				region.bindAggregation("items", "/Regions", regionSelectTemplate);
 			});
-			region.setModel(oRegions);
-			region.bindAggregation("items", "/Regions", regionSelectTemplate);
 
 			var oCountries = new sap.ui.model.json.JSONModel();
 			oCountries.setSizeLimit(500);
@@ -778,13 +781,15 @@ sap.ui.define([
 				}]
 			}, true);
 			var country = this.getView().byId("ddlbCountry");
-			var countrySelectTemplate = new sap.ui.core.Item({
-				id: "country",
-				key: "{code}",
-				text: "{name}"
+			sap.ui.require(["sap/ui/core/Item"], (Item) => {
+				var countrySelectTemplate = new Item({
+					id: "country",
+					key: "{code}",
+					text: "{name}"
+				});
+				country.setModel(oCountries);
+				country.bindAggregation("items", "/Countries", countrySelectTemplate);
 			});
-			country.setModel(oCountries);
-			country.bindAggregation("items", "/Countries", countrySelectTemplate);
 
 			var oTable = this.getView().byId("tblBPCreate");
 
@@ -799,13 +804,13 @@ sap.ui.define([
 				}
 				oTable.setInitiallyVisibleFields(headerFields);
 			}
-			bpModel.attachMetadataLoaded(bpModel, function() {
+			bpModel.attachMetadataLoaded(bpModel, function () {
 				fnLoadMetadata();
 			});
 
 		},
 
-		callSingleService: function() {
+		callSingleService: function () {
 			var oTable = this.getView().byId("tblBPHeader");
 
 			var sPath = this.getOwnerComponent().getModel().getProperty("/sPath");
@@ -830,21 +835,16 @@ sap.ui.define([
 				oTable.setInitiallyVisibleFields(headerFields);
 			}
 
-			oModel.attachMetadataLoaded(oModel, function() {
+			oModel.attachMetadataLoaded(oModel, function () {
 				fnLoadMetadata();
 			});
 
-			oModel.attachMetadataFailed(oModel, function() {
-				sap.m.MessageBox.show("Bad Service Definition", {
-					icon: sap.m.MessageBox.Icon.ERROR,
-					title: "Service Call Error",
-					actions: [sap.m.MessageBox.Action.OK],
-					styleClass: "sapUiSizeCompact"
-				});
+			oModel.attachMetadataFailed(oModel, function () {
+				oDataFailed();
 			});
 		},
 
-		callBPCreate: function() {
+		callBPCreate: function () {
 			var oModel = this.getOwnerComponent().getModel("bpModel");
 			var result = this.getView().getModel().getData();
 			var oEntry = {};
@@ -852,6 +852,7 @@ sap.ui.define([
 			oEntry.City = result.city;
 			oEntry.Country = this.getView().byId("ddlbCountry").getSelectedKey();
 			oEntry.Region = this.getView().byId("ddlbRegion").getSelectedKey();
+			console.log(result.company);
 			oEntry.CompanyName = result.company;
 			oEntry.EmailAddress = result.email;
 
@@ -859,31 +860,15 @@ sap.ui.define([
 				"content-type": "application/json;charset=utf-8"
 			});
 			var mParams = {};
-			mParams.success = function() {
-				sap.m.MessageToast.show("Create successful");
+			mParams.success = function () {
+				sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+					MessageToast.show("Create successful");
+				});
+
 			};
-			mParams.error = this.onErrorCall;
+			mParams.error = onODataError;
 			oModel.create("/Buyer", oEntry, mParams);
-		},
-
-		onErrorCall: function(oError) {
-			if (oError.statusCode === 500 || oError.statusCode === 400 || oError.statusCode === "500" || oError.statusCode === "400") {
-				var errorRes = JSON.parse(oError.responseText);
-				if (!errorRes.error.innererror) {
-					sap.m.MessageBox.alert(errorRes.error.message.value);
-				} else {
-					if (!errorRes.error.innererror.message) {
-						sap.m.MessageBox.alert(errorRes.error.innererror.toString());
-					} else {
-						sap.m.MessageBox.alert(errorRes.error.innererror.message);
-					}
-				}
-				return;
-			} else {
-				sap.m.MessageBox.alert(oError.response.statusText);
-				return;
-			}
-
 		}
+
 	});
 });

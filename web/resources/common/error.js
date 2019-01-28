@@ -2,8 +2,6 @@
 /*eslint-env es6 */
 function onErrorCall(jqXHR, textStatus, errorThrown) {
 	sap.ui.require(["sap/ui/core/Core", "sap/m/MessageBox"], function (Core, MessageBox) {
-		var page = Core.byId("pageID");
-		page.setBusy(false);
 		if (typeof jqXHR.status === "undefined") {
 			var errorRes = JSON.parse(jqXHR.response.body);
 			MessageBox.show(
@@ -16,7 +14,7 @@ function onErrorCall(jqXHR, textStatus, errorThrown) {
 		} else {
 			if (jqXHR.status === 500 || jqXHR.status === 400) {
 				MessageBox.show(jqXHR.responseText, {
-					icon:MessageBox.Icon.ERROR,
+					icon: MessageBox.Icon.ERROR,
 					title: "Service Call Error",
 					actions: [MessageBox.Action.OK],
 					styleClass: "sapUiSizeCompact"
@@ -31,6 +29,27 @@ function onErrorCall(jqXHR, textStatus, errorThrown) {
 				});
 				return;
 			}
+		}
+	});
+}
+
+function onODataError(oError) {
+	sap.ui.require(["sap/m/MessageBox"], (MessageBox) => {
+		if (oError.statusCode === 500 || oError.statusCode === 400 || oError.statusCode === "500" || oError.statusCode === "400") {
+			var errorRes = JSON.parse(oError.responseText);
+			if (!errorRes.error.innererror) {
+				MessageBox.alert(errorRes.error.message.value);
+			} else {
+				if (!errorRes.error.innererror.message) {
+					MessageBox.alert(errorRes.error.innererror.toString());
+				} else {
+					MessageBox.alert(errorRes.error.innererror.message);
+				}
+			}
+			return;
+		} else {
+			MessageBox.alert(oError.response.statusText);
+			return;
 		}
 	});
 }

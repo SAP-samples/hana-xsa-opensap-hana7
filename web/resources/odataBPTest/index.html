@@ -13,16 +13,14 @@
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-preload="async"
 		data-sap-ui-language="en"
+		data-sap-ui-oninit="module:common/index"		
 		data-sap-ui-resourceroots='{
-				"opensap.odataTest": "./"}'		
-		data-sap-ui-libs="sap.m,sap.ui.comp,sap.ui.core,sap.ui.layout,sap.ui.unified"
+        		"common": "../common",
+				"root": "./",		
+				"opensap.odataTest": "./"}'	
 		data-sap-ui-frameOptions="trusted">
 	</script>
 	<script type="text/javascript" src="/common/error.js" ></script>  
-	<script type="text/javascript" src="../common/startup.js"></script>
-	<script>
-		localShellStartup("opensap.odataTest");
-	</script>
 </head>
 
 <!-- UI Content -->

@@ -7,15 +7,15 @@ function validateEmail(email) {
 function bpCreateBusinessPartner(param, partnerRole) {
 	var afterTable = param.afterTableName;
 	//Get Input New Record Values
-	var pStmt = param.connection.prepareStatement("select * from \"" + afterTable + "\"");
+	var pStmt = param.connection.prepareStatement("select \"EmailAddress\", \"CompanyName\", \"City\", \"Country\", \"Region\" from \"" + afterTable + "\"");
 	var rs = pStmt.executeQuery();
 	var EmailAddress, CompanyName, City, Country, Region;
 	while (rs.next()) {
-		EmailAddress = rs.getString(2);
-		CompanyName = rs.getString(3);
-		City = rs.getString(4);
-		Country = rs.getString(8);
-		Region = rs.getString(9);
+		EmailAddress = rs.getString(1);
+		CompanyName = rs.getString(2);
+		City = rs.getString(3);
+		Country = rs.getString(4);
+		Region = rs.getString(5);
 	}
 	pStmt.close();
 	//Validate Email
@@ -29,7 +29,7 @@ function bpCreateBusinessPartner(param, partnerRole) {
 		pStmt = param.connection.prepareStatement("INSERT INTO \"MD.Addresses\" " +
 			" (ADDRESSTYPE, CITY, COUNTRY, REGION, \"VALIDITY.STARTDATE\", \"VALIDITY.ENDDATE\") " +
 			" VALUES(?,?,?,?, TO_DATE('2000-01-01', 'YYYY-MM-DD'), TO_DATE('9999-12-31', 'YYYY-MM-DD') )");
-		pStmt.setString(1, "02");
+		pStmt.setInteger(1, 2);
 		pStmt.setString(2, City);
 		pStmt.setString(3, Country);
 		pStmt.setString(4, Region);
