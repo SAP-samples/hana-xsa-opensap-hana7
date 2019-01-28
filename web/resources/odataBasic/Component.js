@@ -13,11 +13,7 @@ sap.ui.define([
 		},
 
 		init: function() {
-			jQuery.sap.require("sap.m.MessageBox");
-			jQuery.sap.require("sap.m.MessageToast");
-
 			this.setModel(models.createDeviceModel(), "device");
-
 			sap.ui.core.UIComponent.prototype.init.apply(
 				this, arguments);
 		},

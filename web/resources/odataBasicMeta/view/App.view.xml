@@ -1,6 +1,6 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable"
 	controllerName="opensap.odataBasic.controller.App" height="100%">
-	<Page title="{i18n>appTitle}">
+	<Page id="mPage" title="{i18n>appTitle}" titleLevel="H1">
 		<content>
 			<smartTable:SmartTable id="bpTable" header="{i18n>UList}" editable="false" showRowCount="true" enableAutoBinding="true"
 				showFullScreenButton="true" tableType="Table">
