@@ -1,19 +1,20 @@
-<mvc:View controllerName="sap.shineNext.odataDeep.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" height="100%">
-	<Page title="{i18n>appTitle}">
+<mvc:View controllerName="sap.shineNext.odataDeep.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	height="100%">
+	<Page id="mPage" title="{i18n>appTitle}" titleLevel="H1">
 		<content>
 			<Panel headerText="New Business Partner Details" expandable="true" expanded="true">
-				<List width="600px">
-					<InputListItem label="Company Name">
+				<List id="panel" width="600px">
+					<InputListItem id="itemName" label="Company Name">
 						<Input id="cName" value="{/CompanyName}"/>
 					</InputListItem>
-					<InputListItem label="City">
+					<InputListItem id="itemCity" label="City">
 						<Input id="city" value="{/City}"/>
 					</InputListItem>
-					<InputListItem label="Email">
+					<InputListItem id ="itemEmail" label="Email">
 						<Input id="email" value="{/Email}"/>
 					</InputListItem>
 				</List>
-				<Button text="Create Record" press="callCreateService"/>
+				<Button id="btnCreate" text="Create Record" press="callCreateService"/>
 			</Panel>
 		</content>
 	</Page>

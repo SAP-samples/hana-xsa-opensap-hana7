@@ -1,17 +1,18 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-undef: 0, no-sequences: 0, no-unused-expressions: 0, quotes: 0*/
+/*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
-sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
+sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 	"use strict";
 
 	return Controller.extend("sap.shineNext.odataDeep.controller.App", {
 
-		onInit: function() {
+		onInit: function () {
 			var model = new sap.ui.model.json.JSONModel({});
 			this.getView().setModel(model);
 			this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode
 		},
 
-		callCreateService: function() {
+		callCreateService: function () {
 			var result = this.getView().getModel().getData();
 			var oBusinessPartner = {};
 			oBusinessPartner.PARTNERID = "0000000000";
@@ -89,9 +90,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 
 			body += '--batch' + '--\r\n';
 
-			xhr.onload = function() {};
+			xhr.onload = function () {};
 			xhr.send(body);
-			sap.m.MessageToast.show("Business Partner created");
+			sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+				MessageToast.show("Business Partner created");
+			});
 		}
 	});
 });

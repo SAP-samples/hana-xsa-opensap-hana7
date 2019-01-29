@@ -11,9 +11,6 @@ sap.ui.define([
 	},
 
 	init: function(){
-		jQuery.sap.require("sap.m.MessageBox");
-		jQuery.sap.require("sap.m.MessageToast");		
-  
 		sap.ui.core.UIComponent.prototype.init.apply(
 			this, arguments);	
 	},
