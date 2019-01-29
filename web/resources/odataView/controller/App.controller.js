@@ -1,4 +1,5 @@
 /*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0, no-undef: 0*/
+/*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
 sap.ui.define([
 	"opensap/odataTest/controller/BaseController",
@@ -59,12 +60,7 @@ sap.ui.define([
 			});
 			
 			oModel.attachMetadataFailed(oModel, function() {
-				sap.m.MessageBox.show("Bad Service Definition", {
-					icon: sap.m.MessageBox.Icon.ERROR,
-					title: "Service Call Error",
-					actions: [sap.m.MessageBox.Action.OK],
-					styleClass: "sapUiSizeCompact"
-				});
+				oDataFailed();
 			});
 		},
 		callExcel: function(oEvent) {
