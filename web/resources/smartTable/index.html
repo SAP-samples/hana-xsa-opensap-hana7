@@ -14,13 +14,14 @@
 			data-sap-ui-xx-bindingSyntax="complex"
 			data-sap-ui-preload="async"
 			data-sap-ui-compatVersion="edge" 
-			data-sap-ui-resourceroots='{"sap.openSAP.smarttable": "./", 	
-			                            "view": "./view" }'>
+			data-sap-ui-oninit="module:common/index"		
+			data-sap-ui-resourceroots='{
+        		"common": "../common",
+				"root": "./",
+				"sap.openSAP.smarttable": "./", 	
+		        "view": "./view" }'>
 		</script>
-		<script type="text/javascript" src="../common/startup.js"></script>
-		<script>
-			localShellStartup("sap.openSAP.smarttable");
-		</script>
+	<script type="text/javascript" src="/common/error.js" ></script> 
 	</head>
 
 	<!-- UI Content -->

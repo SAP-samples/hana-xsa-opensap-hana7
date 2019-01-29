@@ -23,17 +23,62 @@
 			}
 		}
 	},
+	"sap.ui": {
+		"_version": "1.60.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "/images/favicon.ico",
+			"favIcon": "/images/favicon.ico"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_belize",
+			"sap_belize_plus"
+		]
+	},
+	"sap.fiori": {
+		"_version": "3.0.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
 	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.60.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.60.0"
+				},
+				"sap.ui.comp": {
+					"minVersion": "1.60.0"
+				},
+				"sap.m": {
+					"minVersion": "1.60.0"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.60.0"
+				}
+			}
+		},		
 		"models": {
 			"": {
 				"dataSource": "mainService",
+				"preload": true,				
 				"type": "sap.ui.model.odata.v2.ODataModel"
 			}
 		},
 		"config": {
 			"sapFiori2Adaptation": true
 		},
-		"rootView": "sap.openSAP.smarttable.view.SmartTable",
+		"rootView": {
+			"viewName": "sap.openSAP.smarttable.view.SmartTable",
+			"type": "XML",
+			"id": "app",
+			"async": true
+		},		
 		"handleValidation": true
 	}
 }

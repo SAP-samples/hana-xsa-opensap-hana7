@@ -1,16 +1,27 @@
-jQuery.sap.declare("sap.openSAP.smarttable.Component");
-sap.ui.getCore().loadLibrary("sap.ui.generic.app");
-jQuery.sap.require("sap.ui.generic.app.AppComponent");
+/*eslint no-console: 0, no-unused-vars: 0, no-use-before-define: 0, no-redeclare: 0*/
+sap.ui.define([
+	"sap/ui/core/UIComponent",
+	"sap/ui/generic/app/AppComponent"
+], function(UIComponent, AppComponent) {
+	"use strict";
 
-sap.ui.core.UIComponent.extend("sap.openSAP.smarttable.Component", {
-//  sap.ui.generic.app.AppComponent.extend("sap.openSAP.smarttable.Component", { 
-	metadata: {
-		manifest: "json",
+	return UIComponent.extend("sap.openSAP.smarttable.Component", {
 
-		dependencies: {
-			libs: [
-				"sap.m", "sap.ui.comp"
-			]
+		metadata: {
+			manifest: "json"
+		},
+
+		init: function() {
+			
+			sap.ui.getCore().loadLibrary("sap.ui.generic.app", { async: true});
+			
+			sap.ui.core.UIComponent.prototype.init.apply(
+				this, arguments);
+		},
+
+		destroy: function() {
+			// call the base component's destroy function
+			UIComponent.prototype.destroy.apply(this, arguments);
 		}
-	}
+	});
 });
