@@ -21,3 +21,27 @@ annotate cats.POItemsView with @( // header-level annotations
 
 
 );
+
+annotate cats.Buyer with @( // header-level annotations
+// ---------------------------------------------------------------------------
+// List Report
+// ---------------------------------------------------------------------------
+	// Product List
+	UI: {
+		LineItem: [ 
+			{$Type: 'UI.DataField', Value: PARTNERID, "@UI.Importance":#High},
+			{$Type: 'UI.DataField', Value: PARTNERROLE, "@UI.Importance": #Medium},
+			{$Type: 'UI.DataField', Value: COMPANYNAME, "@UI.Importance": #High},
+			{$Type: 'UI.DataField', Value: STREET, "@UI.Importance": #High},			
+			{$Type: 'UI.DataField', Value: CITY, "@UI.Importance": #High},
+			{$Type: 'UI.DataField', Value: REGION, "@UI.Importance": #High},			
+			{$Type: 'UI.DataField', Value: COUNTRY, "@UI.Importance": #High},	
+			{$Type: 'UI.DataField', Value: EMAILADDRESS, "@UI.Importance": #High},			
+ 		],
+ 		PresentationVariant: {
+			SortOrder: [ {$Type: 'Common.SortOrderType', Property: PARTNERID, Descending: false} ]
+		}
+	}
+
+
+);
