@@ -4,7 +4,7 @@
 	"sap.app": {
 		"ach": "CA-UI5-COR",
 		"applicationVersion": {
-			"version": "1.58.3"
+			"version": "1.60.0"
 		},
 		"description": "{{sap.app.description}}",
 		"dataSources": {
@@ -22,15 +22,25 @@
 		"type": "application"
 	},
 	"sap.ui": {
+		"_version": "1.60.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "./images/favicon.ico",
+			"favIcon": "./images/favicon.ico"
+		},
 		"deviceTypes": {
 			"desktop": true,
-			"phone": true,
-			"tablet": true
+			"tablet": true,
+			"phone": true
 		},
-		"technology": "UI5"
+		"supportedThemes": [
+			"sap_belize",
+			"sap_belize_plus"
+		]
 	},
 	"sap.ui5": {
 		"config": {
+			"sapFiori2Adaptation": true,
 			"sample": {
 				"files": [
 					"Component.js",
@@ -46,7 +56,7 @@
 			"cozy": true
 		},
 		"dependencies": {
-			"minUI5Version": "1.37",
+			"minUI5Version": "1.60",
 			"libs": {
 				"sap.m": {}
 			}
