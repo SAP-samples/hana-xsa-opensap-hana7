@@ -3,8 +3,8 @@
 	"dependencies": {
 		"@sap/cds": "^3.0",
 		"express": "^4.16.4",
-		"@sap/xssec": "2.1.15",
-		"@sap/xsenv": "1.2.9",
+		"@sap/xssec": "2.1.16",
+		"@sap/xsenv": "1.3.0",
 		"hdb": "0.16.0",
 		"@sap/hdbext": "~5.0",
 		"@sap/hana-client": "~2.3",
@@ -18,7 +18,7 @@
 		"node-xlsx": "~0.12",
 		"node-zip": "~1.1.1",
 		"xmldoc": "~1.1.2",
-		"winston": "~3.1",
+		"winston": "~3.2",
 		"body-parser": "~1.18",
 		"elementtree": "latest",
 		"then-request": "latest",
@@ -26,7 +26,7 @@
 		"helmet": "~3.15"
 	},
 	"devDependencies": {
-		"gulp": "3.9.1",
+		"gulp": "4.0",
 		"supertest": "latest",
 		"gulp-replace": "1.0",
 		"jasmine-reporters": "2.3.2",

@@ -47,13 +47,14 @@ module.exports = function() {
 	}
 
 	app.get("/", (req, res) => {
-		let logger = req.loggingContext.getLogger("/Application");
-		let tracer = req.loggingContext.getTracer(__filename);
+		let logger = req.loggingContext.getLogger("/Application/comp1");
+		let tracer = req.loggingContext.getTracer("/hanaClient.js");
 		return query(req, res, "select SESSION_USER from \"DUMMY\" ", logger, tracer);
 
 	});
 
 	app.get("/err", (req, res) => {
+
 		let logger = req.loggingContext.getLogger("/Application");
 		let tracer = req.loggingContext.getTracer(__filename);
 		return query(req, res, "select SESSION_USER from \"DUMMY1\" ", logger, tracer);
