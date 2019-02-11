@@ -1,0 +1,26 @@
+{
+	"build": {
+		"target": ".",
+		"tasks": [{
+			"src": "db",
+			"for": "hana",
+			"options": {
+				"model": ["db", "srv"]
+			}
+		}, {
+			"src": "srv",
+			"for": "node-cf",
+			"options": {
+				"model": ["db", "srv"]
+			}
+		}]
+	},
+	"i18n": {
+		"folders": ["_i18n"]
+	},
+	"requires": {
+		"db": {
+			"kind": "hana"
+		}
+	}
+}

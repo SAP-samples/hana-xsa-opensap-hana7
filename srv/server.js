@@ -93,9 +93,11 @@ var options = {
 cds.connect(options);
 var odataURL = "/odata/v4/opensap.hana.CatalogService/";
 // Main app
-cds.serve("gen/csn.json", {
+cds.serve(
+	"gen/csn.json", {
 		crashOnError: false
 	})
+	.to("fiori")
 	.at(odataURL)
 	.with(require("./lib/handlers"))
 	.in(app)
@@ -103,6 +105,10 @@ cds.serve("gen/csn.json", {
 		console.log(err);
 		process.exit(1);
 	});
+
+console.log(`CDS Build Target: ${cds.env.build.target}`);
+console.log(`CDS SQL Mapping: ${cds.env.sql_mapping}`);
+//console.log(`CDS Requires: ${JSON.stringify(cds.env.requires)}`);
 
 // Redirect any to service root
 app.get("/", (req, res) => {

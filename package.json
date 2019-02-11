@@ -3,22 +3,15 @@
 	"description": "Reference application built according to the CAP model",
 	"version": "1.0.0",
 	"dependencies": {
-		"@sap/cds": "3.0"
+		"@sap/cds": "3.5"
 	},
+	"engines": {
+		"node": "10.x"
+	},	
 	"scripts": {
 		"build": "cds build/all --clean",
 		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
 	},
-	"cds": {
-		"service": {
-			"model": "srv/"
-		},
-		"data": {
-			"model": "db/"
-		},
-		"i18n": {
-			"folders": ["_i18n"]
-		}
-	},
+
 	"private": true
 }

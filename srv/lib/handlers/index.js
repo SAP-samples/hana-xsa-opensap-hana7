@@ -24,6 +24,7 @@ module.exports = function (entities) {
 			
 		});*/
 
+	
 	this.after("READ", "POItems", (entity) => {
 		if (entity.length > 0) {
 			let now = new Date();
@@ -33,7 +34,9 @@ module.exports = function (entities) {
 		}
 	});
 
-	this.after("READ", "CURRENCY", (entity) => {
+	entities.after("READ", "CURRENCY", (entity, req) => {
+	//	console.log(req.target);
+	//	console.log(req.query);
 		if (entity.length > 0) {
 			for (let item of entity) {
 				if (item.CODE === null) {
@@ -64,7 +67,7 @@ module.exports = function (entities) {
 		return re.test(email);
 	}
 
-	this.on("CREATE", "User", async(User) => {
+	this.on("CREATE", "User", async(User, req) => {
 		console.log("Before User Create");
 		const {
 			data
@@ -74,6 +77,7 @@ module.exports = function (entities) {
 		}
 
 		if (!validateEmail(data.EMAIL)) {
+		//	req.error(500, `Invalid email for ${data.FIRSTNAME}. No Way! E-Mail must be valid and ${data.EMAIL} has problems`);
 			throw new Error(`Invalid email for ${data.FIRSTNAME}. No Way! E-Mail must be valid and ${data.EMAIL} has problems`);
 		}
 
