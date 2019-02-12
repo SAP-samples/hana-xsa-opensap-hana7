@@ -2,15 +2,19 @@
 	"name": "openSAPHANA",
 	"description": "Reference application built according to the CAP model",
 	"version": "1.0.0",
+    "license": "ISC",	
 	"dependencies": {
-		"@sap/cds": "3.5"
+        "@sap/cds": "^3.5.0",
+        "express": "^4.16.4",
+        "hdb": "^0.16.0"
 	},
 	"engines": {
 		"node": "10.x"
 	},	
 	"scripts": {
-		"build": "cds build/all --clean",
-		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
+        "start": "cds run",
+        "build": "cds build/all --clean",
+        "deploy": "cds deploy"
 	},
 
 	"private": true
