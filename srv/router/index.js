@@ -33,9 +33,11 @@ module.exports = (app, server) => {
 	app.use("/node/promises", require("./routes/promises")());
 	app.use("/node/await", require("./routes/await")());
 	app.use("/node/es6", require("./routes/es6")());
+	app.use("/node/es2018", require("./routes/es2018")());
+	
 	app.use("/node/dcl", require("./routes/dcl")());
 	app.use("/node/codeCoverage", require("./routes/codeCoverage")());
 	app.use("/node/secureStore", require("./routes/secureStore")());
 	
-	app.use("/node/es2018", require("./routes/es2018")());
+
 };

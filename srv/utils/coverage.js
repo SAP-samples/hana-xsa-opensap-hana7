@@ -34,8 +34,8 @@ module.exports = {
 					tag: "hana"
 				}
 			});
-			let pool = hdb.getPool(hanaOptions.hana);
-			pool.acquire(null, (error, client) => {
+
+			hdb.createConnection(hanaOptions.hana, (error, client) => {
 				if (error) {
 					reject(console.error(error));
 				}

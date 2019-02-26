@@ -96,7 +96,7 @@ describe(__filename, () => {
 		it(`Table Test: ${test.TABLE_NAME}`, async(done) => {
 			try {
 				let db = await this.test.getDBClass(await this.test.getClient());
-				let sql = `SELECT * FROM "${test.TABLE_NAME}"`;
+				let sql = `SELECT * FROM "${test.TABLE_NAME}" LIMIT 10`;
 				let statement = await db.preparePromisified(sql);
 				let results = await db.statementExecPromisified(statement, []);
 				expect(results.length).not.toBeLessThan(1, `Table Name: ${test.TABLE_NAME}`);

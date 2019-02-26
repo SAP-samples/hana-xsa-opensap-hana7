@@ -30,6 +30,7 @@ function getValueByKey(key, value, data) {
 			}
 		}
 	}
+	return null;
 }
 
 function buildXMLHeader() {

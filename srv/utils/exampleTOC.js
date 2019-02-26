@@ -18,10 +18,16 @@ module.exports = {
 	"<a href=\"/node/xml\">/node/xml</a> - Node.js XML Parsing Examples</br>" +	
 	"<a href=\"/node/zip\">/node/zip</a> - Node.js ZIP archive Examples</br>" +	
 	"<a href=\"/node/oo\">/node/oo</a> - Object Oriented Examples</br>" +	
-	
-	"<a href=\"/node/cds\">/node/cds</a> - Node.js CDS/XSDS Examples</br>"+
+	"<a href=\"/node/os/web/\">/node/os/web/</a> - Web Based XSA CLI</br>" +	
+	"<a href=\"/node/os\">/node/os</a> - OS Level Examples</br>" +
+	"<a href=\"/node/client/toc\">/node/client/toc</a> - Low Level HANA Client Examples</br>" +
 	"<a href=\"/node/auditLog\">/node/auditLog</a> - Node.js AuditLog Examples</br>"+
 	"<a href=\"/node/promises\">/node/promises</a> - Node.js Promises Examples</br>"+	
+	"<a href=\"/node/await\">/node/await</a> - Node.js Async/Await</br>"+
+	"<a href=\"/node/es6\">/node/es6</a> - Node.js ES6 & ES2017 Examples</br>"+
+	"<a href=\"/node/es2018\">/node/es2018</a> - Node.js ES2018 Examples</br>"+
+	"<a href=\"/node/dcl\">/node/dcl</a> - HDBCDS DCL (Data Control Language)</br>"+
+	"<a href=\"/node/codeCoverage\">/node/codeCoverage</a> - SQLScript Code Coverage</br>"+
 
 	"</p>" +
    	"<H1>Node.js CD&S Services Table of Contents</H1></br>" +

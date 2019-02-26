@@ -46,6 +46,16 @@ module.exports = function() {
 
 	}
 
+	app.get("/toc", (req, res) => {
+		let output =
+			`<H1>Low Level HANA Client Examples</H1></br>
+		    <a href="${req.baseUrl}/">/</a> - Select SESSION_USER</br>	
+			<a href="${req.baseUrl}/err">/err</a> - Select and throw error (intentional)</br>
+			<a href="${req.baseUrl}/context">/context</a> - Select SESSION_CONTEXT</br>
+			<a href="${req.baseUrl}/userstore">/userstore</a> - Select via User Store</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
+		res.type("text/html").status(200).send(output);
+	});
 	app.get("/", (req, res) => {
 		let logger = req.loggingContext.getLogger("/Application/comp1");
 		let tracer = req.loggingContext.getTracer("/hanaClient.js");

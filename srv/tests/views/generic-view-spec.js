@@ -120,7 +120,7 @@ describe(__filename, () => {
 		it(`View Test: ${test.VIEW_NAME}`, async(done) => {
 			try {
 				let db = await this.test.getDBClass(await this.test.getClient());
-				let sql = `SELECT * FROM "${test.VIEW_NAME}"`;
+				let sql = `SELECT * FROM "${test.VIEW_NAME}" LIMIT 10`;
 				let statement = await db.preparePromisified(sql);
 				let results = await db.statementExecPromisified(statement, []);
 				expect(results.length).not.toBeLessThan(1, `View Name: ${test.VIEW_NAME}`);
