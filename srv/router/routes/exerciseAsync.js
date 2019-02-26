@@ -16,7 +16,8 @@ module.exports = function (server) {
 	app.use((req, res) => {
 		var output =
 			`<H1>Asynchronous Examples</H1></br> 
-			<a href="/exerciseAsync">/exerciseAsync</a> - Test Framework for Async Examples</br>`;
+			<a href="/exerciseAsync">/exerciseAsync</a> - Test Framework for Async Examples</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 	try {

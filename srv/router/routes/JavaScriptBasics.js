@@ -24,7 +24,8 @@ module.exports = () => {
 			<a href="${req.baseUrl}/unicode">/unicode</a> - Unicode Strings and Literals</br>
 			<a href="${req.baseUrl}/numFormat">/numFormat</a> - International Number Formatting</br>	
 			<a href="${req.baseUrl}/currFormat">/currFormat</a> - International Currency Formatting</br>
-			<a href="${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>`;
+			<a href="${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 
@@ -390,7 +391,7 @@ module.exports = () => {
 		}
 		output = `Outer function result: ${foo()} `;
 		if (foo() === 1) {
-			function foo() {
+			function foo() {  // eslint-disable-line
 				return 2;
 			}
 			output += `Inner function results: ${foo()}`;

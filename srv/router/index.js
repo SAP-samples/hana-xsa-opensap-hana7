@@ -2,7 +2,7 @@
 "use strict";
 
 module.exports = (app, server) => {
-	app.use("/node", require("./routes/node")());
+	app.use("/node/intro", require("./routes/node")());
 	app.use("/node/cdsConv", require("./routes/cdsConv")());
 	app.use("/node/myNode", require("./routes/myNode")());
 	app.use("/node/ex1", require("./routes/ex1")());

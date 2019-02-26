@@ -7,9 +7,14 @@ module.exports = function() {
 	var app = express.Router();
 
 	app.get("/", (req, res) => {
-		res.type("application/json").status(200).send("Authorizations Demo");
+		let output =
+			`<H1>Authorizations Demo</H1></br>
+			<a href="${req.baseUrl}/passport">/passport</a> - Security Context via Passport</br>
+			<a href="${req.baseUrl}/xssec">/xssec</a> - Build the Security Context Via XSSEC</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
+		res.type("text/html").status(200).send(output);
 	});
-	
+
 	//Security Context via Passport
 	app.get("/passport", (req, res) => {
 		res.type("application/json").status(200).send(JSON.stringify(req.authInfo));

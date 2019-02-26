@@ -11,7 +11,8 @@ module.exports = function() {
 		var output =
 			`<H1>ZIP Examples</H1></br> 
 			<a href="${req.baseUrl}/example1">/example1</a> - Download data in ZIP format - folder and files</br>
-			<a href="${req.baseUrl}/zipPO">/zipPO</a> - Download Purchase Orders in ZIP format</br>`;
+			<a href="${req.baseUrl}/zipPO">/zipPO</a> - Download Purchase Orders in ZIP format</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 

@@ -6,7 +6,23 @@ var express = require("express");
 module.exports = function() {
 	var app = express.Router();
 
+	//Hello Router
 	app.get("/", (req, res) => {
+		let output =
+			`<H1>Basic Concepts</H1></br>
+			<a href="${req.baseUrl}/hello">/hello</a> - hello</br>
+			<a href="${req.baseUrl}/example1">/example1</a> - Auth Information</br>	
+			<a href="${req.baseUrl}/products">/products</a> - Product Details</br>
+			<a href="${req.baseUrl}/sflightExt">/sflightExt</a> - Sflight Query via DCL</br>	
+			<a href="${req.baseUrl}/passport">/passport</a> - Passport Details</br>	
+			<a href="${req.baseUrl}/env">/env</a> - Environment Details</br>	
+			<a href="${req.baseUrl}/userinfo">/userinfo</a> - User Info Details</br>
+			<a href="${req.baseUrl}/info">/info</a> - Various Info Details</br>	` +				
+			require(global.__base + "utils/exampleTOC").fill();
+		res.type("text/html").status(200).send(output);
+	});
+	
+	app.get("/hello", (req, res) => {
 		return res.type("text/plain").status(200).send("Hello World Node.js");
 	});
 

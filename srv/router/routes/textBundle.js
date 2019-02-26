@@ -8,6 +8,14 @@ var TextBundle = require("@sap/textbundle").TextBundle;
 
 module.exports = function() {
 
+	app.get("/toc", (req, res) => {
+		let output =
+			`<H1>Text Bundles</H1></br>
+			<a href="${req.baseUrl}/">/</a> - Text Bundle Tests</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
+		res.type("text/html").status(200).send(output);
+	});
+	
 	app.get("/", (req, res) => {
 		var bundle = new TextBundle(global.__base + "_i18n/messages", require(global.__base + "utils/util").getLocale(req));
 		res.writeHead(200, {

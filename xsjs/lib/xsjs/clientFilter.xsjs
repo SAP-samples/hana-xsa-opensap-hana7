@@ -4,7 +4,7 @@ $.response.contentType = "text/html";
 var oConn = $.hdb.getConnection();
 //var sQuery = "SELECT JSON_VALUE((SELECT SESSION_CONTEXT('XS_CLIENT') FROM DUMMY), '$[0]') AS CLIENT FROM DUMMY";
 //var sQuery = "SELECT * FROM \"SFLIGHT\" WHERE \"MANDT\" = JSON_VALUE((SELECT SESSION_CONTEXT('XS_CLIENT') FROM DUMMY), '$[0]')";
-var sQuery = "select * from \"sap.hana.democontent.epm.models::SFLIGHT_MODEL\" ";
+var sQuery = "select * from \"core.models::SFLIGHT_MODEL\" ";
 var aRs = oConn.executeQuery(sQuery);
 
 if (aRs.length < 1) {

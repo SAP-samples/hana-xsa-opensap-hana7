@@ -4,19 +4,20 @@
 var express = require("express");
 var XmlDocument = require("xmldoc").XmlDocument;
 
-module.exports = function() {
+module.exports = function () {
 	var app = express.Router();
 	//Hello Router
 	app.get("/", (req, res) => {
 		var output = `<H1>XML Examples</H1></br>
-				<a href="${req.baseUrl}/example1">/example1</a> - Simple XML parsing</br>`;
+				<a href="${req.baseUrl}/example1">/example1</a> - Simple XML parsing</br>` +
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 
 	//Simple Database Select - In-line Callbacks
 	app.get("/example1", (req, res) => {
 		const xml =
-		`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+			`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 			<!-- this is a note -->
 			<note noteName="NoteName">
 				<to>To</to>

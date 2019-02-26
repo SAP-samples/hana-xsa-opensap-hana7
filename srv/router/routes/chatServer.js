@@ -9,7 +9,8 @@ module.exports = function (server) {
 	app.use((req, res) => {
 		var output =
 			`<H1>Node.js Web Socket Examples</H1></br>
-			<a href="/exerciseChat">/exerciseChat</a> - Chat Application for Web Socket Example</br>`;
+			<a href="/exerciseChat">/exerciseChat</a> - Chat Application for Web Socket Example</br>`+			
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 	var wss = new WebSocketServer({

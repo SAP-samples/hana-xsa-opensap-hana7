@@ -21,7 +21,8 @@ module.exports = function() {
 			<a href="${req.baseUrl}/classes3a">/classes3a</a> - Classes with Instance Methods #1</br>
 			<a href="${req.baseUrl}/classes3b">/classes3b</a> - Classes with Instance Methods #2</br>	
 			<a href="${req.baseUrl}/classes4a">/classes4a</a> - Classes with Inherited Methods #1</br>
-			<a href="${req.baseUrl}/classes4b">/classes4b</a> - Classes with Inherited Methods #2</br>`;
+			<a href="${req.baseUrl}/classes4b">/classes4b</a> - Classes with Inherited Methods #2</br>` +			
+			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
 

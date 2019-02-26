@@ -1,11 +1,6 @@
-/*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0, camelcase:0, new-cap:0*/
+/*eslint no-console: 0, no-unused-vars: 0, no-shadow: 0, new-cap: 0, dot-notation:0, no-use-before-define:0, no-inner-declarations:0 */
 /*eslint-env node, es6 */
-"use strict";
-
-/**
-@author i809764 
-**/
-$.import("xsjs.serverCookies", "session");
+$.import("xsjs.severCookies", "session");
 var SESSION = $.xsjs.serverCookies.session;
 
 var conn = $.db.getConnection();
@@ -13,118 +8,123 @@ var pstmt;
 var rs;
 var tblName;
 
-function getRS(){
+function getRS() {
 	tblName = $.request.parameters.get("tblName");
-	tblName = typeof tblName !== "undefined" ? tblName : "USERS"; 
-	
-	var query = "select * from \"" + tblName + "\"";
+	tblName = typeof tblName !== "undefined" ? tblName : "UserData.User";
+
+	var query = `select * from "${tblName}"`;
 	pstmt = conn.prepareStatement(query);
 	rs = pstmt.executeQuery();
 	return rs;
 }
 
-function getJSON(){
+function getJSON() {
 	tblName = $.request.parameters.get("tblName");
-	tblName = typeof tblName !== "undefined" ? tblName : "USERS"; 
-	
-	var query = "select * from \"" + tblName + "\"";
+	tblName = typeof tblName !== "undefined" ? tblName : "UserData.User";
+
+	var query = `select * from "${tblName}"`;
+	console.log(query);
 	pstmt = conn.prepareStatement(query);
 	rs = pstmt.executeQuery();
-	
+
 	return SESSION.recordSetToJSON(rs);
 
 }
 
-function outputExcel(body){
+function outputExcel(body) {
 	$.response.setBody(body);
 	$.response.contentType = "application/vnd.ms-excel";
 	$.response.headers.set("Content-Disposition",
-			"attachment; filename=Excel.xls");
-	$.response.status = $.net.http.OK;	
-	
+		"attachment; filename=Excel.xls");
+	$.response.status = $.net.http.OK;
+
 }
 
-function textTest(){
-	var textOut = SESSION.recordSetToText(getRS(),true,"\t");
+function textTest() {
+	var textOut = SESSION.recordSetToText(getRS(), true, "\t");
 	outputExcel(textOut);
 }
 
-function csvTest(){
-	var csvOut = SESSION.recordSetToText(getRS(),true,",");	
-	outputExcel(csvOut);	
+function csvTest() {
+	var csvOut = SESSION.recordSetToText(getRS(), true, ",");
+	outputExcel(csvOut);
 }
 
-function setSessionTest(){
-	SESSION.set_session_variable("test", "SessionTest", "Test1");
-	SESSION.set_session_variable("test2", "SessionTest", "Test2");	
-	SESSION.set_session_variable("test3", "SessionTest", "Test3");		
+function jsonTest() {
+	var jsonOut = getJSON();
+	$.response.contentType = "application/json";
+	$.response.setBody(JSON.stringify(jsonOut));
+	$.response.status = $.net.http.OK;
+}
+
+function setSessionTest() {
+	SESSION.set_session_variable("test", "sap.hana.democontent.epm.services.SessionTest", "Test1");
+	SESSION.set_session_variable("test2", "sap.hana.democontent.epm.services.SessionTest", "Test2");
+	SESSION.set_session_variable("test3", "sap.hana.democontent.epm.services.SessionTest", "Test3");
 	$.response.setBody("Several session variables set");
 	$.response.status = $.net.http.OK;
-	
+
 }
 
-function sessionTest(){
+function sessionTest() {
 	try {
-	var body = SESSION.get_session_variable("test", "SessionTest");		
-	$.response.setBody(body);
-	$.response.status = $.net.http.OK;
-	}
-	catch(e){
+		var body = SESSION.get_session_variable("test", "sap.hana.democontent.epm.services.SessionTest");
+		$.response.setBody(body);
+		$.response.status = $.net.http.OK;
+	} catch (e) {
 		$.response.setBody(e.toString());
 		$.response.status = $.net.http.INTERNAL_SERVER_ERROR;
 	}
-	
+
 }
 
-function sessionsTest(){
+function sessionsTest() {
 	$.response.contentType = "application/json";
-	var body = SESSION.get_session_variables("SessionTest");		
+	var body = SESSION.get_session_variables("sap.hana.democontent.epm.services.SessionTest");
 	$.response.setBody(JSON.stringify(body));
 	$.response.status = $.net.http.OK;
-	
+
 }
 
-function setApplicationTest(){
-	SESSION.set_application_variable("test", "SessionTest", "Application Test1");
-	SESSION.set_application_variable("test2", "SessionTest", "Application Test2");		
+function setApplicationTest() {
+	SESSION.set_application_variable("test", "sap.hana.democontent.epm.services.SessionTest", "Application Test1");
+	SESSION.set_application_variable("test2", "sap.hana.democontent.epm.services.SessionTest", "Application Test2");
 	$.response.setBody("Several application variables set");
 	$.response.status = $.net.http.OK;
-	
+
 }
 
-function applicationTest(){
-	try{
-    var body = SESSION.get_application_variable("test", "SessionTest");
+function applicationTest() {
+	try {
+		var body = SESSION.get_application_variable("test", "sap.hana.democontent.epm.services.SessionTest");
 
-	$.response.setBody(body);
-	$.response.status = $.net.http.OK;
-	}
-	catch(e){
+		$.response.setBody(body);
+		$.response.status = $.net.http.OK;
+	} catch (e) {
 		$.response.setBody(e.toString());
 		$.response.status = $.net.http.INTERNAL_SERVER_ERROR;
 	}
 }
 
-function applicationsTest(){
-	$.response.contentType = "application/json";	
-    var body = SESSION.get_application_variables("SessionTest");	
+function applicationsTest() {
+	$.response.contentType = "application/json";
+	var body = SESSION.get_application_variables("sap.hana.democontent.epm.services.SessionTest");
 	$.response.setBody(JSON.stringify(body));
 	$.response.status = $.net.http.OK;
-	
+
 }
 
-function tableTest(){
-	
+function tableTest() {
+
 	var jsonOut = getJSON();
-	SESSION.set_application_variable("tables", "SessionTest", JSON.stringify(jsonOut));
+	SESSION.set_application_variable("tables", "sap.hana.democontent.epm.services.SessionTest", JSON.stringify(jsonOut));
 
 	$.response.contentType = "application/json";
-	var body = SESSION.get_application_variable("tables", "SessionTest");
-	
-	
+	var body = SESSION.get_application_variable("tables", "sap.hana.democontent.epm.services.SessionTest");
+
 	$.response.setBody(body);
 	$.response.status = $.net.http.OK;
-	
+
 }
 
 var aCmd = $.request.parameters.get("cmd");
@@ -138,27 +138,30 @@ case "textTest":
 case "csvTest":
 	csvTest();
 	break;
+case "jsonTest":
+	jsonTest();
+	break;
 case "setSessionTest":
 	setSessionTest();
-	break;	
+	break;
 case "getSessionTest":
 	sessionTest();
 	break;
 case "getSessionsTest":
 	sessionsTest();
-	break;	
+	break;
 case "setApplicationTest":
 	setApplicationTest();
-	break;	
+	break;
 case "getApplicationTest":
 	applicationTest();
 	break;
 case "getApplicationsTest":
 	applicationsTest();
-	break;	
+	break;
 case "getTableTest":
 	tableTest();
-	break;	
+	break;
 default:
 	$.response.status = $.net.http.INTERNAL_SERVER_ERROR;
 	$.response.setBody("Invalid Request Command");
