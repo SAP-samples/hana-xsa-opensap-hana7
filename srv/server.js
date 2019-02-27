@@ -73,10 +73,10 @@ var hanaOptions = xsenv.getServices({
 hanaOptions.hana.pooling = true;
 //Add Passport for Authentication via JWT + HANA DB connection as Middleware in Expess
 app.use(
+	xsHDBConn.middleware(hanaOptions.hana),
 	passport.authenticate("JWT", {
 		session: false
-	}),
-	xsHDBConn.middleware(hanaOptions.hana)
+	}),	
 );
 
 //CDS OData V4 Handler
