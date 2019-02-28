@@ -18,6 +18,15 @@ LIBRARY "MasterData"
        end if;
    end;
 
+   public function "get_product_ids_tf"
+                returns table (productid nvarchar(20) )
+      LANGUAGE SQLSCRIPT
+      SQL SECURITY INVOKER
+     AS
+   begin
+     return select productid from "MD.Products";
+   end;
+
    public procedure "get_employee_data"( 
                 out ex_employees "MD.Employees" ) 
       LANGUAGE SQLSCRIPT
@@ -49,4 +58,3 @@ LIBRARY "MasterData"
    end;
 
 END;
-

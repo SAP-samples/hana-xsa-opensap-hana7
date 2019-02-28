@@ -1,0 +1,79 @@
+LIBRARY "MasterDataUnitTestLib" LANGUAGE SQLSCRIPT TEST AS
+ BEGIN
+ 
+	@TestSetUpLibrary()
+    public procedure SetUpLibrary() as
+    begin
+
+    end;
+ 
+    @TestTearDownLibrary()
+    public procedure TearDownLibrary() as
+    begin
+
+    end;
+ 
+    @TestSetUpConfig('TstCfg1')
+    public procedure SetUpConfig1() as
+    begin
+
+    end;
+
+    @TestTearDownConfig('TstCfg1')
+    public procedure TearDownConfig() as
+    begin
+
+    end;
+ 
+    @TestSetUpTest()
+    public procedure SetUpTest() as
+    begin
+
+    end;
+ 
+    @TestTearDownTest()
+    public procedure TearDownTest() as
+    begin
+  
+    end;
+
+    @Test()
+    public procedure "TestEmployeeExistsFunc" as
+    begin
+        declare lv_emp_exists boolean;
+        lv_emp_exists  = "MasterData":"employee_exists"('99');   
+        sqlscript_test:expect_eq(true, lv_emp_exists);
+        sqlscript_test:fail('check for data inconsistancy');
+    end;
+  
+    @Test()
+    public procedure "TestGetProductIDsTabFunc" as
+    begin
+        declare lv_prod_count int;
+        lt_products = select * from "MasterData":"get_product_ids_tf"();
+        lv_prod_count = record_count(:lt_products);
+        sqlscript_test:expect_eq(106, lv_prod_count);
+    end;
+ 
+    @Test()
+    public procedure "TestProductsTable" as
+    begin
+        declare lv_prod_entries int = record_count("MD.Products");
+        sqlscript_test:expect_gt(lv_prod_entries, 100);
+    end;
+
+    @Test()
+    public procedure "TestEmployeesTable" as
+    begin
+        declare lv_emp_entries int = record_count("MD.Employees");
+        sqlscript_test:expect_ne(0, lv_emp_entries);
+    end;
+
+    @Test()
+    public procedure "TestBusinessPartnerTable" as
+    begin
+        declare lv_bp_entries int = record_count("MD.BusinessPartner");
+        sqlscript_test:expect_le(lv_bp_entries, 45);
+    end;
+    
+ END;

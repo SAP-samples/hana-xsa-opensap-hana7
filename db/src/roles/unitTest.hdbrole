@@ -1,0 +1,18 @@
+{
+	"role": {
+		"name": "unitTest",
+		"schema_privileges": [{
+			"privileges": ["SELECT METADATA",
+				"SELECT CDS METADATA",
+				"SELECT",
+				"EXECUTE",
+				"DEBUG"
+			]
+		}],
+		"object_privileges": [{
+			"name": "MasterDataUnitTestLib",
+			"type": "PROCEDURE",
+			"privileges": ["EXECUTE"]
+		}]
+	}
+}
