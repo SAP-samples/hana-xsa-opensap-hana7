@@ -73,6 +73,7 @@ modules:
           name: srv_api
           url: '~{url}'
           forwardAuthToken: true
+
   - name: user_db
     type: hdb
     path: user_db
@@ -99,6 +100,12 @@ modules:
       - name: sap.hana.democontent.epm.services.images
       - name: cross-container-service-1
       - name: openSAP-ex-log
+
+  
+
+
+  
+
 resources:
   - name: openSAPHANA-hdi-container
     properties:
