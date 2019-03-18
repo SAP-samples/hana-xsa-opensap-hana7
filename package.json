@@ -4,9 +4,9 @@
 	"version": "1.0.0",
     "license": "ISC",	
 	"dependencies": {
-        "@sap/cds": "^3.5.0",
+        "@sap/cds": "^3.5.2",
         "express": "^4.16.4",
-        "hdb": "^0.16.0"
+        "hdb": "^0.17.0"
 	},
 	"engines": {
 		"node": "10.x"
