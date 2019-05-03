@@ -1,5 +1,5 @@
 {
-	"xsappname": "openSAPHANA-ex",
+	"xsappname": "openSAPHANA7-ex",
 	"scopes": [{
 		"name": "$XSAPPNAME.Display",
 		"description": "display"
