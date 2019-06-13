@@ -1,7 +1,7 @@
 {
   "name": "deploy",
   "dependencies": {
-    "@sap/hdi-deploy": "3.10.0"
+    "@sap/hdi-deploy": "3.11.0"
   },
   "scripts": {
     "postinstall": "node .build.js",
