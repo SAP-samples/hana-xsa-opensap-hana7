@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@sap/xsjs": "~4.0",
+    "@sap/xsjs": "~5.2",
     "@sap/xsenv": "~2.0"
   },
   "devDependencies": {
