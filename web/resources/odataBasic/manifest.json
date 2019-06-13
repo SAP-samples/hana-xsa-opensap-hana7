@@ -23,12 +23,12 @@
 		}
 	},
 	"sap.fiori": {
-		"_version": "2.0.0",
+		"_version": "3.0.0",
 		"registrationIds": [],
 		"archeType": "transactional"
 	},
 	"sap.ui": {
-		"_version": "1.60.0",
+		"_version": "1.66.0",
 		"technology": "UI5",
 		"icons": {
 			"icon": "/images/favicon.ico",
@@ -40,8 +40,7 @@
 			"phone": true
 		},
 		"supportedThemes": [
-			"sap_belize",
-			"sap_belize_plus"
+			"sap_fiori_3"
 		]
 	},
 	"sap.ui5": {
@@ -55,19 +54,19 @@
 			"async": true
 		},
 		"dependencies": {
-			"minUI5Version": "1.60.0",
+			"minUI5Version": "1.66.0",
 			"libs": {
 				"sap.ui.core": {
-					"minVersion": "1.60.0"
+					"minVersion": "1.66.0"
 				},
 				"sap.ui.comp": {
-					"minVersion": "1.60.0"
+					"minVersion": "1.66.0"
 				},
 				"sap.m": {
-					"minVersion": "1.60.0"
+					"minVersion": "1.66.0"
 				},
 				"sap.ui.layout": {
-					"minVersion": "1.60.0"
+					"minVersion": "1.66.0"
 				}
 			}
 		},

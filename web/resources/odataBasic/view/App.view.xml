@@ -1,13 +1,14 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable"
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartTable="sap.ui.comp.smarttable"
 	controllerName="opensap.odataBasic.controller.App" height="100%">
-	<Page id="mPage" title="{i18n>appTitle}" titleLevel="H1">
-		<content>
-			<smartTable:SmartTable id="bpTable" header="{i18n>UList}" editable="false" showRowCount="true" enableAutoBinding="true"
-				showFullScreenButton="true" tableType="Table">
-				<smartTable:layoutData>
-					<FlexItemData growFactor="1" baseSize="0%"/>
-				</smartTable:layoutData>
-			</smartTable:SmartTable>
-		</content>
-	</Page>
+	<f:ShellBar title="{i18n>appTitle}" homeIcon="/images/sap_18.png" showCopilot="true" showSearch="true" showNotifications="true"
+		showProductSwitcher="true">
+		<f:profile>
+			<f:Avatar initials="UI"/>
+		</f:profile>
+	</f:ShellBar>
+				<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+		<smartTable:SmartTable id="bpTable" header="{i18n>UList}" editable="false" showRowCount="true" enableAutoBinding="true"
+			showFullScreenButton="true" tableType="Table">
+		</smartTable:SmartTable>
+			</ScrollContainer>
 </mvc:View>

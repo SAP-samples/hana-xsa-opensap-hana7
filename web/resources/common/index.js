@@ -29,7 +29,7 @@ sap.ui.require(["sap/ui/core/Core", "sap/ui/core/Component"], (oCore, Component)
 				async: false
 			}).responseText);
 	}
-	
+
 	Component.create({
 		id: "comp",
 		name: "root",
