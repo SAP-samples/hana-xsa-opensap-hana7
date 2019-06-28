@@ -7,7 +7,7 @@ module.exports = () => {
 
 	//Hello Router
 	app.get("/", (req, res) => {
-		let client = require("@sap/hana-client");
+		let hanaClient = require("@sap/hana-client");
 		//Lookup HANA DB Connection from Bound HDB Container Service
 		const xsenv = require("@sap/xsenv");
 		let hanaOptions = xsenv.getServices({
@@ -16,25 +16,25 @@ module.exports = () => {
 			}
 		});
 		//Create DB connection with options from the bound service
-		let conn = client.createConnection();
 		var connParams = {
 			serverNode: hanaOptions.hana.host + ":" + hanaOptions.hana.port,
 			uid: hanaOptions.hana.user,
 			pwd: hanaOptions.hana.password,
-			CURRENTSCHEMA: hanaOptions.hana.schema
+			CURRENTSCHEMA: hanaOptions.hana.schema,
+			ca: hanaOptions.hana.certificate
 		};
-
+		let client = hanaClient.createClient(connParams);
 		//connect
-		conn.connect(connParams, (err) => {
+		client.connect((err) => {
 			if (err) {
 				return res.type("text/plain").status(500).send(`ERROR: ${JSON.stringify(err)}`);
 			} else {
-				conn.exec(`SELECT SESSION_USER, CURRENT_SCHEMA 
+				client.exec(`SELECT SESSION_USER, CURRENT_SCHEMA 
 				             FROM "DUMMY"`, (err, result) => {
 					if (err) {
 						return res.type("text/plain").status(500).send(`ERROR: ${JSON.stringify(err)}`);
 					} else {
-						conn.disconnect();
+						client.disconnect();
 						return res.type("application/json").status(200).send(result);
 					}
 				});
