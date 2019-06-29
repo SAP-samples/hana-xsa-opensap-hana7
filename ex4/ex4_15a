@@ -6,21 +6,23 @@
 		"type": "application",
 		"resources": "resources.json",
 		"id": "multiply",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"applicationVersion": {
-			"version": "${project.version}"
+			"version": "1.0.0"
 		}
 	},
 	"sap.fiori": {
-		"_version": "2.0.0",
+		"_version": "1.1.0",
 		"registrationIds": [],
 		"archeType": "transactional"
 	},
 	"sap.ui": {
-		"_version": "1.44.0",
+		"_version": "1.5.0",
 		"technology": "UI5",
 		"icons": {
-			"icon": "/images/favicon.ico",
-			"favIcon": "/images/favicon.ico"
+			"icon": "../images/favicon.ico",
+			"favIcon": "../images/favicon.ico"
 		},
 		"deviceTypes": {
 			"desktop": true,
@@ -28,10 +30,7 @@
 			"phone": true
 		},
 		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal",
-			"sap_belize",
-			"sap_belize_plus"
+			"sap_fiori_3"
 		]
 	},
 	"sap.ui5": {
@@ -39,24 +38,22 @@
 			"sapFiori2Adaptation": true
 		},
 		"rootView": {
-			"viewName": "sap.shineNext.xsjsMultiply.view.App",
+			"viewName": "sap.openSAP.Multiply.view.App",
 			"type": "XML",
-			"id": "app"
+			"id": "app",
+			"async": true
 		},
 		"dependencies": {
-			"minUI5Version": "1.44.0",
+			"minUI5Version": "1.66.0",
 			"libs": {
 				"sap.ui.core": {
-					"minVersion": "1.44.0"
-				},
-				"sap.ui.comp": {
-					"minVersion": "1.44.0"
+					"minVersion": "1.66.0"
 				},
 				"sap.m": {
-					"minVersion": "1.44.0"
+					"minVersion": "1.66.0"
 				},
 				"sap.ui.layout": {
-					"minVersion": "1.44.0"
+					"minVersion": "1.66.0"
 				}
 			}
 		},
@@ -65,6 +62,6 @@
 			"cozy": true
 		},
 		"handleValidation": true
-
 	}
+
 }
