@@ -19,7 +19,7 @@
 				"opensap.odataTest": "./"}'		
 		data-sap-ui-frameOptions="trusted">
 	</script>
-	<script type="text/javascript" src="/common/error.js" ></script>  
+	<script type="text/javascript" src="../common/error.js" ></script>  
 </head>
 
 <!-- UI Content -->
