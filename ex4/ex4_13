@@ -65,7 +65,7 @@ sap.ui.define([
 		},
 		callExcel: function(oEvent) {
 			//Excel Download
-			window.open("/node/excel/download/");
+			window.open("../node/excel/download/");
 			return;
 		}
 	});
