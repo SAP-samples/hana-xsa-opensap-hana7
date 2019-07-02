@@ -1,4 +1,4 @@
-using CatalogService as cats from './my-service';
+using CatalogService as cats from './cat-service';
 
 annotate cats.POItemsView with @( // header-level annotations
 // ---------------------------------------------------------------------------
