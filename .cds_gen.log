@@ -1,0 +1,13 @@
+db/src/gen/.hdinamespace
+db/src/gen/BASE.hdbcds
+db/src/gen/CATALOGSERVICE_BUYER.hdbcds
+db/src/gen/CATALOGSERVICE_CURRENCY.hdbcds
+db/src/gen/CATALOGSERVICE_POITEMS.hdbcds
+db/src/gen/CATALOGSERVICE_POITEMSVIEW.hdbcds
+db/src/gen/CATALOGSERVICE_POS.hdbcds
+db/src/gen/CATALOGSERVICE_USER.hdbcds
+db/src/gen/OPENSAP_PURCHASEORDER_HEADERS.hdbcds
+db/src/gen/OPENSAP_PURCHASEORDER_ITEMS.hdbcds
+db/src/gen/OPENSAP_PURCHASEORDER_ITEMVIEW.hdbcds
+srv/gen/_i18n/i18n.json
+srv/gen/csn.json

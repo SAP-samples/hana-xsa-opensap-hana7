@@ -1,0 +1,1 @@
+{"type":"com.sap.html5.application-content","builders":{"default":"sap.nodejs","configs":{}},"runners":{"configs":{}},"attributes":{},"description":"openSAPHANA_ui_deployer","mixinTypes":["mtamodule","fullmtabuild"]}

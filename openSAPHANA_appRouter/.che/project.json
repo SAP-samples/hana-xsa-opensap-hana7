@@ -1,0 +1,1 @@
+{"type":"approuter.nodejs","builders":{"default":"sap.nodejs","configs":{}},"runners":{"configs":{}},"attributes":{},"description":"openSAPHANA_appRouter","mixinTypes":["mtamodule","fullmtabuild"]}

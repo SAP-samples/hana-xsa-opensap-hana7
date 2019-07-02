@@ -1,0 +1,18 @@
+using "UserData.User" as USER;
+
+context UserEx {
+    entity "test" {
+        "SRC1"   : Integer;
+        "SUB_TP" : String(32);
+        "AJ_1"   : String(256);
+        "ASSOC"  : association[0..*] to TESTVIEW on SRC1 = ASSOC.ID;
+    }
+
+    view TESTVIEW as
+        select from USER
+        {
+            "UserId"     as ID,
+            "FirstName",
+            "LastName"
+        };
+};
