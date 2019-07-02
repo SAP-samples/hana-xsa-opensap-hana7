@@ -1,5 +1,0 @@
-STRUCTURED PRIVILEGE 
-    "PO_VIEW_PRIVILEGE"
-    FOR SELECT ON 
-    "PurchaseOrder.ItemView"
-    WHERE "CurrencyCode" = 'EUR'

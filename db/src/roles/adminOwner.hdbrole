@@ -1,8 +1,0 @@
-{
-	"role":{
-		"name": "admin#",
-		"schema_roles": [{
-		 "names": ["admin"]
-		}] 
-	}
-}

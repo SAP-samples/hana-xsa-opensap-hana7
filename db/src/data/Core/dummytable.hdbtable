@@ -1,5 +1,0 @@
-column table "dummytable"
-(
-  key nvarchar(256) primary key,
-  value nvarchar(256)
-)

@@ -1,7 +1,0 @@
-{
-  "BUYER": {
-    "target": {
-      "object": "core.models::BUYER"
-    }
-  }
-}

@@ -1,2 +1,0 @@
-TYPE "Procedures.tt_product_ids" AS TABLE ( 
-    "PRODUCTID" NVARCHAR(10) CS_STRING ) 
