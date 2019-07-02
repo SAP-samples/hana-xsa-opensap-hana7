@@ -13,7 +13,7 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"bpService": {
+			"userService": {
 				"uri": "../xsodata/user.xsodata/",
 				"type": "OData",
 				"settings": {
