@@ -21,8 +21,8 @@
 				"sap.shineNext.odataDeep": "./",
 				"view": "./view" }'>
     </script>
-	<script type="text/javascript" src="/common/csrf.js" ></script> 
-	<script type="text/javascript" src="/common/error.js" ></script>  		
+	<script type="text/javascript" src="../common/csrf.js" ></script> 
+	<script type="text/javascript" src="../common/error.js" ></script>  		
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>
