@@ -1,4 +1,4 @@
-		callUserService: function() {
+		callUserService: function () {
 			var oModel = this.getOwnerComponent().getModel("userModel");
 			var result = this.getView().getModel().getData();
 			var oEntry = {};
@@ -11,9 +11,11 @@
 				"content-type": "application/json;charset=utf-8"
 			});
 			var mParams = {};
-			mParams.success = function() {
-				sap.m.MessageToast.show("Create successful");
+			mParams.success = function () {
+				sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+					MessageToast.show("Create successful");
+				});
 			};
-			mParams.error = this.onErrorCall;
+			mParams.error = onODataError;
 			oModel.create("/Users", oEntry, mParams);
 		},
