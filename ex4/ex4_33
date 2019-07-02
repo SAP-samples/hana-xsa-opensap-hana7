@@ -54,7 +54,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 
 			var xhr = new XMLHttpRequest();
 
-			xhr.open("POST", '/sap/hana/democontent/epm/services/businessPartnersAddresses.xsodata/$batch', true);
+			xhr.open("POST", '../sap/hana/democontent/epm/services/businessPartnersAddresses.xsodata/$batch', true);
 
 			var token = getCSRFToken();
 			xhr.setRequestHeader("X-CSRF-Token", token);
