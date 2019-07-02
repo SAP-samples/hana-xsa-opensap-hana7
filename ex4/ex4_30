@@ -1,4 +1,4 @@
-		onBatchDialogPress: function() {
+		onBatchDialogPress: function () {
 			var view = this.getView();
 			view._bDialog = sap.ui.xmlfragment(
 				"opensap.odataBasic.view.batchDialog", this // associate controller with the fragment
@@ -9,17 +9,17 @@
 			view._bDialog.open();
 		},
 
-		onDialogCloseButton: function() {
+		onDialogCloseButton: function () {
 			this.getView()._bDialog.close();
 		},
 
-		getItem: function(isFirstRow) {
+		getItem: function (isFirstRow) {
 			var view = this.getView();
 			var addIcon = new sap.ui.core.Icon({
 				src: "sap-icon://add",
 				color: "#006400",
 				size: "1.5rem",
-				press: function() {
+				press: function () {
 					view._bDialog.addContent(view.getController().getItem(false));
 				}
 			});
@@ -28,7 +28,7 @@
 				src: "sap-icon://delete",
 				color: "#49311c",
 				size: "1.5rem",
-				press: function(oEvent) {
+				press: function (oEvent) {
 					view._bDialog.removeContent(oEvent.oSource.oParent.sId);
 				}
 			});
@@ -74,7 +74,7 @@
 			});
 		},
 
-		onSubmitBatch: function() {
+		onSubmitBatch: function () {
 			var view = this.getView();
 			var content = view._bDialog.getContent();
 			var newUserList = [];
@@ -84,7 +84,7 @@
 				user.FirstName = content[i].getItems()[1].getValue();
 				user.LastName = content[i].getItems()[3].getValue();
 				user.Email = content[i].getItems()[5].getValue();
-			//	user.ZMYNEW1 = "";
+				//	user.ZMYNEW1 = "";
 				newUserList.push(user);
 			}
 
@@ -94,14 +94,16 @@
 			oParams.defaultUpdateMethod = "PUT";
 			oParams.useBatch = true;
 
-			var batchModel = new sap.ui.model.odata.v2.ODataModel("/xsodata/user.xsodata/", oParams);
+			var batchModel = new sap.ui.model.odata.v2.ODataModel("/user/xsodata/userBeforeExit.xsodata/", oParams);
 			//var batchChanges = [];
 			var mParams = {};
 			mParams.groupId = "1001";
-			mParams.success = function() {
-				sap.m.MessageToast.show("Create successful");
+			mParams.success = function () {
+				sap.ui.require(["sap/m/MessageToast"], (MessageToast) => {
+					MessageToast.show("Create successful");
+				});
 			};
-			mParams.error = this.onErrorCall;
+			mParams.error = onODataError;
 
 			for (var k = 0; k < newUserList.length; k++) {
 				batchModel.create("/Users", newUserList[k], mParams);
