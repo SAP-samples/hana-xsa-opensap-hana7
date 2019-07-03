@@ -43,7 +43,11 @@ modules:
         - name: exerciseChat
           artifacts:
             - './*'
-          target-path: resources/exerciseChat         
+          target-path: resources/exerciseChat   
+        - name: multiply
+          artifacts:
+            - './*'
+          target-path: resources/multiply         
   - name: db
     type: hdb
     path: db
@@ -116,6 +120,13 @@ modules:
   - name: exerciseChat
     type: html5
     path: exerciseChat
+    build-parameters:
+       builder: grunt
+
+
+  - name: multiply
+    type: html5
+    path: multiply
     build-parameters:
        builder: grunt
 
