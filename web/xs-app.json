@@ -1,9 +1,8 @@
 {
-	"welcomeFile": "/initial/index.html",
+	"welcomeFile": "/indexButton.html",
 	"authenticationMethod": "route",
 	"logout": {
-		"logoutPage": "/logout.html",
-		"logoutEndpoint": "/my/logout"
+		"logoutEndpoint": "/do/logout"
 	},
 	"websockets": {
 		"enabled": true

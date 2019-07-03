@@ -40,6 +40,10 @@ modules:
           artifacts:
             - './*'
           target-path: resources/exerciseAsync
+        - name: exerciseChat
+          artifacts:
+            - './*'
+          target-path: resources/exerciseChat         
   - name: db
     type: hdb
     path: db
@@ -108,6 +112,13 @@ modules:
     path: exerciseAsync
     build-parameters:
       builder: grunt
+
+  - name: exerciseChat
+    type: html5
+    path: exerciseChat
+    build-parameters:
+       builder: grunt
+
 resources:
   - name: openSAPHANA_html5_repo_runtime
     parameters:

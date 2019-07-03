@@ -1,7 +1,7 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "opensap.web",
+		"id": "sap.xs.exerciseChat",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -18,13 +18,16 @@
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
-			"icon": "",
-			"favIcon": "",
+			"icon": "./images/favicon.ico",
+			"favIcon": "./images/favicon.ico",
 			"phone": "",
 			"phone@2": "",
 			"tablet": "",
 			"tablet@2": ""
 		},
+		"supportedThemes": [
+			"sap_fiori_3"
+		],
 		"deviceTypes": {
 			"desktop": true,
 			"tablet": true,
@@ -35,13 +38,13 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "opensap.web.view.View1",
+			"viewName": "sap.xs.exerciseChat.view.App",
 			"type": "XML",
 			"async": true,
-			"id": "View1"
+			"id": "App"
 		},
 		"dependencies": {
-			"minUI5Version": "1.60.1",
+			"minUI5Version": "1.66.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
@@ -53,10 +56,19 @@
 			"cozy": true
 		},
 		"models": {
+			"chatModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"config": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "opensap.web.i18n.i18n"
+					"bundleName": "sap.xs.exerciseChat.i18n.i18n"
 				}
 			}
 		},
@@ -70,23 +82,23 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "opensap.web.view",
+				"viewPath": "sap.xs.exerciseChat.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "RouteView1",
-				"pattern": "RouteView1",
-				"target": ["TargetView1"]
+				"name": "RouteApp",
+				"pattern": "RouteApp",
+				"target": ["TargetApp"]
 			}],
 			"targets": {
-				"TargetView1": {
+				"TargetApp": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "View1",
-					"viewName": "View1"
+					"viewId": "App",
+					"viewName": "App"
 				}
 			}
 		}

@@ -1,0 +1,21 @@
+<mvc:View controllerName="sap.xs.exerciseChat.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+	<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+		<Panel headerText="Node.js WebSocket Chat" expandable="true" expanded="true">
+			<l:VerticalLayout class="sapUiContentPadding" width="100%">
+				<l:content>
+					<Label id="lName" text="User Name" labelFor="uName"/>
+					<Input id="uName" value="{chatModel>/user}"/>
+				</l:content>
+				<l:content>
+					<TextArea id="chatInfo" value="{chatModel>/chat}" cols="60" rows="8" editable="false"/>
+				</l:content>
+				<l:content>
+					<Label id="lMessage" text="Message" labelFor="message"/>
+					<Input id="message" value="{chatModel>/message}" placeholder="Enter Chat Text Here..."/>
+				</l:content>
+			</l:VerticalLayout>
+			<Button text="Send" press="sendMsg"/>
+		</Panel>
+	</ScrollContainer>
+</mvc:View>

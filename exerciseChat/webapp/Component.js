@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"opensap/web/model/models"
+	"sap/xs/exerciseChat/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("opensap.web.Component", {
+	return UIComponent.extend("sap.xs.exerciseChat.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -25,6 +25,15 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+
+			// Chat Model
+			var oModel = this.getModel("chatModel");
+			var names = ["Student1", "Student2", "Student3", "Student4", "Student5", "Student6"];
+			oModel.setData({
+				user: names[Math.floor(names.length * Math.random())],
+				chat: "",
+				message: ""
+			});
 		}
 	});
 });

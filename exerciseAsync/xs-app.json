@@ -2,7 +2,7 @@
   "welcomeFile": "/index.html",
   "authenticationMethod": "route",
   "logout": {
-		"logoutEndpoint": "/my/logout"
+		"logoutEndpoint": "/do/logout"
   },
   "routes": [
     {
