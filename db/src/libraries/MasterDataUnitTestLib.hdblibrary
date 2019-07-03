@@ -1,6 +1,6 @@
-LIBRARY "MasterDataUnitTestLib" LANGUAGE SQLSCRIPT TEST AS
+LIBRARY "MasterDataUnitTestLib" LANGUAGE SQLSCRIPT TEST  AS
  BEGIN
- 
+
 	@TestSetUpLibrary()
     public procedure SetUpLibrary() as
     begin
@@ -37,23 +37,25 @@ LIBRARY "MasterDataUnitTestLib" LANGUAGE SQLSCRIPT TEST AS
   
     end;
 
-    @Test()
-    public procedure "TestEmployeeExistsFunc" as
-    begin
-        declare lv_emp_exists boolean;
-        lv_emp_exists  = "MasterData":"employee_exists"('99');   
-        sqlscript_test:expect_eq(true, lv_emp_exists);
-        sqlscript_test:fail('check for data inconsistancy');
-    end;
+--    @Test()
+--   public procedure "TestEmployeeExistsFunc" as
+--    begin
+--     USING "MasterData" AS MD;
+--        declare lv_emp_exists boolean;
+--        lv_emp_exists  = MD:"employee_exists"('99');   
+--        sqlscript_test:expect_eq(true, lv_emp_exists);
+--        sqlscript_test:fail('check for data inconsistancy');
+--    end;
   
-    @Test()
-    public procedure "TestGetProductIDsTabFunc" as
-    begin
-        declare lv_prod_count int;
-        lt_products = select * from "MasterData":"get_product_ids_tf"();
-        lv_prod_count = record_count(:lt_products);
-        sqlscript_test:expect_eq(106, lv_prod_count);
-    end;
+--    @Test()
+--    public procedure "TestGetProductIDsTabFunc" as
+--    begin
+--     USING "MasterData" AS MD;
+--        declare lv_prod_count int;
+--        lt_products = select * from MD:"get_product_ids_tf"();
+--        lv_prod_count = record_count(:lt_products);
+--        sqlscript_test:expect_eq(106, lv_prod_count);
+--    end;
  
     @Test()
     public procedure "TestProductsTable" as
