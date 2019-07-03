@@ -1,0 +1,6 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true"
+	controllerName="sap.openSAP.odataAdv.controller.App" class="sapUiSizeCompact" height="100%">
+	<Panel headerText="{i18n>H1}" expandable="true" expanded="true">
+		<core:Fragment fragmentName="sap.openSAP.odataAdv.view.MRead" type="XML"/>
+	</Panel>
+</mvc:View>

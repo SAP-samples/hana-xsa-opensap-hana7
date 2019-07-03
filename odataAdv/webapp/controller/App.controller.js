@@ -2,12 +2,12 @@
 /*eslint-env es6 */
 //To use a javascript controller its name must end with .controller.js
 sap.ui.define([
-	"opensap/odataTest/controller/BaseController",
+	"sap/openSAP/odataAdv/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
 ], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("opensap.odataTest.controller.App", {
+	return BaseController.extend("sap.openSAP.odataAdv.controller.App", {
 
 		onInit: function () {
 

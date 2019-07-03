@@ -47,7 +47,11 @@ modules:
         - name: multiply
           artifacts:
             - './*'
-          target-path: resources/multiply         
+          target-path: resources/multiply      
+        - name: odataAdv
+          artifacts:
+            - './*'
+          target-path: resources/odataAdv      
   - name: db
     type: hdb
     path: db
@@ -127,6 +131,13 @@ modules:
   - name: multiply
     type: html5
     path: multiply
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataAdv
+    type: html5
+    path: odataAdv
     build-parameters:
        builder: grunt
 

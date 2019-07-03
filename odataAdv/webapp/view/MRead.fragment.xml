@@ -14,6 +14,6 @@
 		<Button id="btnCall" press="callMultiService" text="{i18n>B1}"/>
 		<Button id="btnExcel" press="callExcel" text="{i18n>B2}"/>
 	</Panel>
-	<core:Fragment id="frg1" fragmentName="opensap.odataTest.view.MTableHead" type="XML"/>
-	<core:Fragment id="frg2" fragmentName="opensap.odataTest.view.MTableItem" type="XML"/>
+	<core:Fragment id="frg1" fragmentName="sap.openSAP.odataAdv.view.MTableHead" type="XML"/>
+	<core:Fragment id="frg2" fragmentName="sap.openSAP.odataAdv.view.MTableItem" type="XML"/>
 </core:FragmentDefinition>
