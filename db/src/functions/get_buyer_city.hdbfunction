@@ -1,0 +1,18 @@
+FUNCTION "get_buyer_city" ( terms NVARCHAR(40)) 
+	RETURNS table (CITY NVARCHAR(40)) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+RETURN 
+   select TOP 50 TO_NVARCHAR("CITY") AS CITY
+  from "MD.BusinessPartner"
+      as a   
+  inner join 
+        "MD.Addresses"
+      as b  
+   on a."ADDRESSES.ADDRESSID" = b.ADDRESSID  
+       where contains("CITY", :terms); 
+ 
+      
+      
+END;

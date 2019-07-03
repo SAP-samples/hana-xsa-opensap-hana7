@@ -1,0 +1,11 @@
+PROCEDURE "log_proc" (IN name NVARCHAR(256), 
+                     IN schema NVARCHAR(256))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+        BEGIN AUTONOMOUS TRANSACTION 
+            INSERT INTO "log.info" 
+                 VALUES (current_timestamp, :name , :schema);
+        END;
+END

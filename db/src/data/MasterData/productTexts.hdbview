@@ -1,0 +1,8 @@
+VIEW "MDViews.productTexts" ( "PRODUCTID",
+	 "CATEGORY",
+	 "TEXT" ) AS SELECT
+	 "A_$0"."PRODUCTID" ,
+	 "A_$0"."CATEGORY" ,
+	 "texts_$1"."TEXT" 
+FROM ( "MD.Products" AS "A_$0" 
+	LEFT OUTER JOIN "MDViews.texts" AS "texts_$1" ON ( "A_$0"."NAMEID" = "texts_$1"."TEXTID" ) ) WITH READ ONLY

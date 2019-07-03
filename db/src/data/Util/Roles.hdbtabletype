@@ -1,0 +1,3 @@
+TYPE "users.RolesT" AS TABLE (
+   "ROLE_NAME" NVARCHAR(255)
+)

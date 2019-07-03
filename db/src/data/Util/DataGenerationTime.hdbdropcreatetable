@@ -1,0 +1,4 @@
+GLOBAL TEMPORARY ROW TABLE "Util.DataGenerationTime" (
+     "STARTIME" BIGINT COMMENT 'Start Time',
+     "ENDTIME" BIGINT COMMENT 'End Time')
+	 COMMENT 'Data Generator Log'

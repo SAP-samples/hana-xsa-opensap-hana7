@@ -1,0 +1,10 @@
+service {
+    "PurchaseOrder.Header" 
+	  as "POHeader" navigates ("Items" as "POItem");
+	  
+	"PurchaseOrder.Item" 
+	  as "POItem";
+	  
+	association "Items" principal  "POHeader"("PURCHASEORDERID")
+	multiplicity "1" dependent "POItem"("POHeader.PURCHASEORDERID") multiplicity "*";
+}

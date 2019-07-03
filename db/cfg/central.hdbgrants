@@ -1,0 +1,10 @@
+{
+  "openSAP.CentralDB.opensap-central-container": {
+    "object_owner" : {
+      "container_roles":["consumption", "admin#"]
+    },
+    "application_user" : {
+      "container_roles":["consumption"]
+    }
+  }
+}

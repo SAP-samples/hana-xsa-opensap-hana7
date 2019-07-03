@@ -1,0 +1,16 @@
+FUNCTION "getPartnerRoles" ( IM_VAR NVARCHAR(1) )   
+     RETURNS table (PARTNERROLE NVARCHAR(3), 
+                    PARTNERDESC NVARCHAR(40)) 
+     LANGUAGE SQLSCRIPT 
+     SQL SECURITY INVOKER AS 
+BEGIN 
+     declare result_tab table(
+               PARTNERROLE NVARCHAR(3), 
+               PARTNERDESC NVARCHAR(40)
+               );
+     result_tab.PARTNERROLE[1] = '1';
+     result_tab.PARTNERROLE[2] = '2';
+     result_tab.PARTNERDESC[1] = 'Buyer';
+     result_tab.PARTNERDESC[2] = 'Supplier';
+     return :result_tab;
+END;

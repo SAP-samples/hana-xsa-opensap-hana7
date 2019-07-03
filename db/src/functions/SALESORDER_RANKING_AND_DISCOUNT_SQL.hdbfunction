@@ -1,0 +1,38 @@
+FUNCTION "SALESORDER_RANKING_AND_DISCOUNT_SQL"
+  (IP_FR_DATE DATE, IP_TO_DATE DATE, IP_REGION NVARCHAR(4))  
+   RETURNS table ( COMPANY_NAME NVARCHAR(80), 
+                   REGION NVARCHAR(4), 
+                   SALES DECIMAL(18,2), 
+                   ORDERS INTEGER,
+                   SALES_RANK INTEGER,
+                   ORDER_RANK INTEGER  )  
+	LANGUAGE SQLSCRIPT
+	AS
+BEGIN 
+/***************************** 
+	Write your function logic
+ *****************************/ 
+ 
+  return 
+  
+SELECT   company_name, region, sales, orders, sales_rank, order_rank from(  
+  select
+	 T2."COMPANYNAME" as COMPANY_NAME,
+	 T3."REGION" as REGION,
+	 sum(T1."NETAMOUNT") as SALES,
+	 count(T0."SALESORDERID") as ORDERS,
+	 dense_rank() over ( order by sum(T1."NETAMOUNT") desc ) as sales_rank,
+	 dense_rank() over ( order by count(T0."SALESORDERID") desc ) as order_rank
+	 --T1."DELIVERYDATE" 
+	 from "SO.Header" T0 
+     inner join "SO.Item" T1 on T0."SALESORDERID" = T1."HEADER.SALESORDERID" 
+     inner join "MD.BusinessPartner" T2 on T0."PARTNER.PARTNERID" = T2."PARTNERID" 
+     inner join "MD.Addresses" T3 on T2."ADDRESSES.ADDRESSID" = T3."ADDRESSID"  
+     where TO_DATE(T1."DELIVERYDATE") between :IP_FR_DATE and :IP_TO_DATE
+       and T3."REGION" = :IP_REGION
+     group by T2."COMPANYNAME", T3."REGION"
+     order by sales_rank, T2."COMPANYNAME"
+     )
+     where sales_rank < 11;
+ 
+END		

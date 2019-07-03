@@ -1,0 +1,9 @@
+description = "Library of Congress Images";
+host = "www.loc.gov";
+port = 80;
+pathPrefix = "/pictures/search/?fo=json&q=";
+proxyType = none;
+proxyHost = "proxy";
+proxyPort = 8080;
+authType = none;
+timeout = 0;

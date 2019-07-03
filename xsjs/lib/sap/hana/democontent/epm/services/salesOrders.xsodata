@@ -1,0 +1,29 @@
+service namespace "com.sap.openSAP.hana.example.services"  { 
+   "SO.Header" 
+   as "SalesOrderHeader" 
+   navigates ("SO_Partner" as "Buyer", "SO_Item" as "SalesOrderItem");
+   
+   "core.models::BUYER" 
+   as "Buyer" 
+   keys ("PARTNERID");
+ 
+   
+   "core.models::SALES_OVERVIEW_WO_CURR_CONV_OPT" 
+   as "SalesOrderItem" 
+   keys generate local "ID"
+   aggregates always;	
+   
+      association "SO_Partner" principal "SalesOrderHeader"("PARTNER.PARTNERID")
+     multiplicity "1" dependent "Buyer"("PARTNERID") multiplicity "1";
+  
+   association "SO_Item" principal "SalesOrderHeader"("SALESORDERID") 
+     multiplicity "1" dependent "SalesOrderItem"("SALESORDERID") multiplicity "*"; 
+     
+    "core.models::PROD" as "ProductDetails" 
+    keys ("PRODUCTID");
+     
+  }
+  
+settings {
+    metadata cache-control "max-age= 604800";
+}

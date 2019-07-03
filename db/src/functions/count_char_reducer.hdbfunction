@@ -1,0 +1,17 @@
+FUNCTION "count_char_reducer" (  
+	                in im_val varchar, 
+                    in im_valtab table( id int, 
+                                        freq int ) )
+            returns table ( val varchar, 
+                            stmt_freq int, 
+                            total_freq int )
+ LANGUAGE SQLSCRIPT 
+ READS SQL DATA AS 
+ begin
+ 
+  return select :im_val as val, 
+                count(distinct(id)) as stmt_freq, 
+                sum(freq) as total_freq 
+                               from :im_valtab;
+
+ end;

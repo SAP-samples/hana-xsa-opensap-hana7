@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<QuickView id="quickView" placement="PreferredBottomOrFlip" navigate=".onNavigate">
+		<QuickViewPage pageId="companyEmployeePageId" header="Employee Info" icon="sap-icon://person-placeholder" title="{config>/UserName}">
+			<QuickViewGroup heading="Details">
+				<QuickViewGroupElement label="Name" value="{config>/fullName}"></QuickViewGroupElement>
+				<QuickViewGroupElement label="Email" value="{config>/email}" type="email" emailSubject="TechEd DAT365"></QuickViewGroupElement>
+				<QuickViewGroupElement label="Locale" value="{config>/locale}"></QuickViewGroupElement>
+			</QuickViewGroup>
+		</QuickViewPage>
+	</QuickView>
+</core:FragmentDefinition>

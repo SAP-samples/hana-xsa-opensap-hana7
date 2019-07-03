@@ -1,0 +1,26 @@
+VIEW "PO.HeaderView" COMMENT 'Purchase Order Header View' 
+   ( "PurchaseOrderId",
+	 "CreatedByEmployeeId",
+	 "CreatedByFirstName",
+	 "CreatedByLastName",
+	 "CreatedByLoginName",
+	 "CreatedAt",
+	 "PartnerId",
+	 "CompanyName",
+	 "Currency",
+	 "GrossAmount",
+	 "NetAmount",
+	 "TaxAmount" ) AS SELECT
+	 "Header_$0"."PURCHASEORDERID" AS "PurchaseOrderId" ,
+	 "Header_$0"."HISTORY.CREATEDBY"."EMPLOYEEID" AS "CreatedByEmployeeId" ,
+	 "Header_$0"."HISTORY.CREATEDBY"."NAME.FIRST" AS "CreatedByFirstName" ,
+	 "Header_$0"."HISTORY.CREATEDBY"."NAME.LAST" AS "CreatedByLastName" ,
+	 "Header_$0"."HISTORY.CREATEDBY"."LOGINNAME" AS "CreatedByLoginName" ,
+	 "Header_$0"."HISTORY.CREATEDAT" AS "CreatedAt" ,
+	 "Header_$0"."PARTNER"."PARTNERID" AS "PartnerId" ,
+	 "Header_$0"."PARTNER"."COMPANYNAME" AS "CompanyName" ,
+	 "Header_$0"."CURRENCY" AS "Currency" ,
+	 "Header_$0"."GROSSAMOUNT" AS "GrossAmount" ,
+	 "Header_$0"."NETAMOUNT" AS "NetAmount" ,
+	 "Header_$0"."TAXAMOUNT" AS "TaxAmount" 
+FROM "PO.Header" AS "Header_$0" WITH READ ONLY 

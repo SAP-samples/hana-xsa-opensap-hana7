@@ -1,0 +1,12 @@
+service namespace "com.sap.openSAP.hana.example.service"  { 
+   "core.models::SALES_YEAR_COMPARISON" 
+    as "salesYear"  
+	keys generate local "ID"
+    aggregates always
+    parameters via entity "InputParams";
+}
+
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

@@ -1,0 +1,10 @@
+//calls the Procedure "soDelete" to delete the Sales Order record based on the selected SalesOrder ID and exposes response as OData
+service namespace "com.sap.openSAP.hana.example.service" {
+   "PO.Header" as "so_details"
+    delete using "soDelete";
+         
+}
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

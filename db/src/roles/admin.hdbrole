@@ -1,0 +1,21 @@
+{
+	"role":{
+		"name": "admin",
+		"schema_privileges": [{
+		   "privileges": ["SELECT METADATA", 
+		    			  "SELECT CDS METADATA", 
+		    			  "SELECT", 
+		    			  "INSERT", 
+		    			  "EXECUTE", 
+		    			  "DELETE", 
+		    			  "UPDATE", 
+		    			  "CREATE TEMPORARY TABLE"
+		   ]
+		}],
+		"schema_analytic_privileges": [
+            {
+                "privileges":[ "PO_VIEW_PRIVILEGE", "FLIGHT_VIEW_PRIVILEGE" ]
+            }
+        ]
+	}
+}

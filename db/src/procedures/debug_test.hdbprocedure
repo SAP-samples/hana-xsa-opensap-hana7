@@ -1,0 +1,26 @@
+PROCEDURE "debug_test"(IN inputtab TABLE( ITEMS Integer ),
+                         OUT outtab TABLE(i INT, num DOUBLE) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   DECLARE tempTable TABLE ( i int, num DOUBLE);
+   DECLARE i INTEGER = 0;
+
+   BEGIN
+	   DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	   BEGIN
+			RESIGNAL SET MESSAGE_TEXT = 'ERROR in '||::CURRENT_OBJECT_SCHEMA||
+			                 '.'||::CURRENT_OBJECT_NAME||':'||::SQL_ERROR_MESSAGE;
+	   END;
+	   for i in 1..record_count(:inputtab) do
+			tempTable.NUM[:i] =  "get_value"(:inputtab.items[:i]);
+			tempTable.I[:i] = :i;
+	   end for;
+   END; 
+
+   outtab = SELECT I, NUM FROM :tempTable;
+END

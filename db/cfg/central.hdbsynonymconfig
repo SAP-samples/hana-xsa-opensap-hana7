@@ -1,0 +1,50 @@
+{
+  "ISO.COUNTRIES": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.COUNTRIES"
+    }
+  },
+  "ISO.CURRENCIES": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.CURRENCIES"
+    }
+  },
+  "ISO.CURRNECY_CODES": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.CURRNECY_CODES"
+    }
+  },
+  "ISO.SUBDIVISIONS": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.SUBDIVISIONS"
+    }
+  },
+  "ISO.COUNTRIES_REGIONS": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.COUNTRIES_REGIONS"
+    }
+  },
+  "ISO.US_STATES": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.US_STATES"
+    }
+  },
+  "ISO.US_STATES_AND_TERRITORIES": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.US_STATES_AND_TERRITORIES"
+    }
+  },
+  "CURRENCY": {
+    "target": {
+      "grantor" : "openSAP.CentralDB.opensap-central-container",   
+      "object": "ISO.CURRNECY_CODES"
+    }
+  }
+}

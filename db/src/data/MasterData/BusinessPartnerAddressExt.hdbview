@@ -1,0 +1,8 @@
+VIEW "MDViews.BPAddrExt" ( 
+     "PARTNERID",
+	 "FULLADDRESS",
+	 "distFromWDF03" ) AS SELECT
+	 "BusinessPartner_$0"."PARTNERID" ,
+	 ( ( "BusinessPartner_$0"."ADDRESSES"."STREET" || ', ' ) || "BusinessPartner_$0"."ADDRESSES"."CITY" ) AS "FULLADDRESS" ,
+	 ROUND ( ( "BusinessPartner_$0"."ADDRESSES"."POINT".ST_DISTANCE ( NEW ST_POINT ( 8.644072 ,	 49.292910 ) , 'meter' ) / 1000 ) ,	 1 ) AS "distFromWDF03" 
+FROM "MD.BusinessPartner" AS "BusinessPartner_$0" WITH READ ONLY

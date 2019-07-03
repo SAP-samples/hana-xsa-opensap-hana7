@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@sap/xsenv": "^1.2.9",
+    "@sap/xsjs": "^4.0.1"
+  },
+  "description": "my description",
+  "devDependencies": {
+    "@sap/xsjs-test": "^3.0.2"
+  },
+  "files": [],
+  "main": "server.js",
+  "name": "xsjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node testrun.js"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "version": "1.0.0"
+}

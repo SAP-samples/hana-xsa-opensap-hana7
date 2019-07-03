@@ -1,0 +1,23 @@
+VIEW "PurchaseOrders"
+   ( "PURCHASEORDERID",
+	 "PARTNERID",
+	 "PRODUCTID",
+	 "CURRENCY",
+	 "GROSSAMOUNT",
+	 "NETAMOUNT",
+	 "TAXAMOUNT",
+	 "QUANTITY",
+	 "QUANTITYUNIT",
+	 "DELIVERYDATE" ) AS SELECT
+	 "Header_$0"."PURCHASEORDERID" ,
+	 "Header_$0"."PARTNER" ,
+	 "Item_$1"."PRODUCT" ,
+	 "Header_$0"."CURRENCY" ,
+	 "Item_$1"."GROSSAMOUNT" ,
+	 "Item_$1"."NETAMOUNT" ,
+	 "Item_$1"."TAXAMOUNT" ,
+	 "Item_$1"."QUANTITY" ,
+	 "Item_$1"."QUANTITYUNIT" ,
+	 "Item_$1"."DELIVERYDATE" 
+FROM ( "PurchaseOrder.Header" AS "Header_$0" 
+	INNER JOIN "PurchaseOrder.Item" AS "Item_$1" ON ( "Header_$0"."PURCHASEORDERID" = "Item_$1"."POHeader.PURCHASEORDERID" ) ) WITH READ ONLY

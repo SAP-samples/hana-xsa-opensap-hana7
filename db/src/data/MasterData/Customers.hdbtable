@@ -1,0 +1,7 @@
+COLUMN TABLE "Customers" (
+	"ID" INTEGER              COMMENT 'Customer ID',
+	"NAME" NVARCHAR(256)      COMMENT 'Customer Name',   
+	"ACTIVE" TINYINT          COMMENT 'Currently active?',
+	"COUNTRY" NVARCHAR(256)   COMMENT 'Customer Country',
+	PRIMARY KEY ("ID") )
+	COMMENT 'Table with Customer data' 

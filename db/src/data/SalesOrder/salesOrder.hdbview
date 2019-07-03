@@ -1,0 +1,22 @@
+VIEW "SO.salesOrderView" 
+   ( "id",
+	 "customerCountry",
+	 "employeeLanguage",
+	 "currencyCode",
+	 "grossAmount",
+	 "netAmount",
+	 "taxAmount",
+	 "lifecycleStatus",
+	 "billingStatus",
+	 "deliveryStatus" ) AS SELECT
+	 "Header_$0"."SALESORDERID" AS "id" ,
+	 "Header_$0"."PARTNER"."ADDRESSES"."COUNTRY" AS "customerCountry" ,
+	 "Header_$0"."HISTORY.CREATEDBY"."LANGUAGE" AS "employeeLanguage" ,
+	 "Header_$0"."CURRENCY" AS "currencyCode" ,
+	 "Header_$0"."GROSSAMOUNT" AS "grossAmount" ,
+	 "Header_$0"."NETAMOUNT" AS "netAmount" ,
+	 "Header_$0"."TAXAMOUNT" AS "taxAmount" ,
+	 "Header_$0"."LIFECYCLESTATUS" AS "lifecycleStatus" ,
+	 "Header_$0"."BILLINGSTATUS" AS "billingStatus" ,
+	 "Header_$0"."DELIVERYSTATUS" AS "deliveryStatus" 
+FROM "SO.Header" AS "Header_$0" WITH READ ONLY STRUCTURED PRIVILEGE CHECK

@@ -1,0 +1,37 @@
+FUNCTION "sales_order_ranking_and_discount" (IP_FR_DTE DATE,IP_TO_DTE DATE,IP_REGION NVARCHAR(5))
+	RETURNS table  ( COMPANY_NAME NVARCHAR(80) ,REGION NVARCHAR(4), SALES DECIMAL(18,2), ORDERS BIGINT, SALES_RANK BIGINT, ORDER_RANK BIGINT, DISCOUNT DECIMAL(15,2))
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+return
+select company_name, region, sales, orders, sales_rank, order_rank, discount from(                
+		           select  "COMPANYNAME" as company_name, "REGION" as region, sum("NETAMOUNT") as sales, 
+		           count("SALESORDERID") as orders,
+		        	  dense_rank() over ( order by sum("NETAMOUNT") desc ) as sales_rank,
+		        	  dense_rank() over ( order by count("SALESORDERID") desc ) as order_rank,
+		        	  case when region = 'EMEA' AND dense_rank() over ( order by count("SALESORDERID") desc ) <=5 AND count("SALESORDERID")>=100 AND sum("NETAMOUNT")> 15000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) <=5  
+		        	  THEN 5
+		        	   when region = 'EMEA' AND dense_rank() over ( order by count("SALESORDERID") desc ) >5 AND count("SALESORDERID")<100 AND sum("NETAMOUNT")<= 15000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) >5  
+		        	  THEN 2.5
+		        	   when region = 'AMER' AND dense_rank() over ( order by count("SALESORDERID") desc ) <=5 AND count("SALESORDERID")>=50 AND sum("NETAMOUNT")> 100000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) <=5  
+		        	  THEN 5
+		        	   when region = 'AMER' AND dense_rank() over ( order by count("SALESORDERID") desc ) >5 AND count("SALESORDERID")<50 AND sum("NETAMOUNT")<= 100000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) >5  
+		        	  THEN 2.5
+		        	   when region = 'APJ' AND dense_rank() over ( order by count("SALESORDERID") desc ) <=5 AND count("SALESORDERID")>=20 AND sum("NETAMOUNT")> 30000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) <=5  
+		        	  THEN 5
+		        	   when region = 'APJ' AND dense_rank() over ( order by count("SALESORDERID") desc ) >5 AND count("SALESORDERID")<20 AND sum("NETAMOUNT")<= 30000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) >5  
+		        	  THEN 2.5
+		        	   when region = 'AFR' AND dense_rank() over ( order by count("SALESORDERID") desc ) <=5 AND count("SALESORDERID")>=8 AND sum("NETAMOUNT")> 3000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) <=5  
+		        	  THEN 5
+		        	   when region = 'AFR' AND dense_rank() over ( order by count("SALESORDERID") desc ) >5 AND count("SALESORDERID")<8 AND sum("NETAMOUNT")<= 3000 AND dense_rank() over ( order by sum("NETAMOUNT") desc ) >5  
+		        	  THEN 2.5
+		        	  else 0
+		        	  end as discount
+		              from "core.models::SALES_ORDER_RANKING"
+		              where DATE_SQL between :IP_FR_DTE and :IP_TO_DTE
+		                and "REGION" = :IP_REGION
+		              group by "COMPANYNAME", "REGION" 
+		              order by sales_rank, "COMPANYNAME"
+		)                            
+		where sales_rank < 11;   
+END;

@@ -1,0 +1,12 @@
+VIEW "MDViews.BPOrders3View" ( 
+     "PARTNERID",
+	 "orderId",
+	 "grossAmt",
+	 "PRODUCTID",
+	 "NETAMOUNT" ) AS SELECT
+	 "BPView_$0"."PARTNERID" ,
+	 "BPView_$0"."ORDERS"[ ( "LIFECYCLESTATUS" = 'N' ) ]."SALESORDERID" AS "orderId" ,
+	 "BPView_$0"."ORDERS"[ ( "LIFECYCLESTATUS" = 'N' ) ]."GROSSAMOUNT" AS "grossAmt" ,
+	 "BPView_$0"."ORDERS"[ ( "LIFECYCLESTATUS" = 'N' ) ]."ITEMS"[ ( "NETAMOUNT" > 200 ) ]."PRODUCT"."PRODUCTID" ,
+	 "BPView_$0"."ORDERS"[ ( "LIFECYCLESTATUS" = 'N' ) ]."ITEMS"[ ( "NETAMOUNT" > 200 ) ]."NETAMOUNT" 
+FROM "MDViews.BPView" AS "BPView_$0" WITH READ ONLY

@@ -1,0 +1,41 @@
+LIBRARY "MasterData"
+  LANGUAGE SQLSCRIPT AS
+ BEGIN 
+ 
+   public variable rowcount int; 
+
+   public function "employee_exists"( 
+                in im_employee_id nvarchar(10) )
+                returns res boolean as
+   begin
+       declare lv_count int;
+       select count(*) into lv_count from "MD.Employees"
+                              where employeeid = im_employee_id;
+       if  lv_count > 0 then
+        res = true;
+       else
+        res = false;
+       end if;
+   end;
+
+   public procedure "get_employee_data"( 
+                out ex_employees "MD.Employees" ) 
+      LANGUAGE SQLSCRIPT
+      SQL SECURITY INVOKER
+      AS
+   begin
+     ex_employees = select * from "MD.Employees";
+     rowcount = record_count(:ex_employees);
+   end;
+
+   public procedure "get_business_partner_data"( 
+                out ex_businesspartners "MD.BusinessPartner" ) 
+      LANGUAGE SQLSCRIPT
+      SQL SECURITY INVOKER
+       AS
+   begin
+     ex_businesspartners = select * from "MD.BusinessPartner";
+     rowcount = record_count(:ex_businesspartners);
+   end;
+
+END;

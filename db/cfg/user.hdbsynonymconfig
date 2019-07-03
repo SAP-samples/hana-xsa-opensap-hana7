@@ -1,0 +1,14 @@
+{
+  "UserData.User": {
+    "target": {
+      "object": "UserData.User",
+      "grantor": "openSAPHANA-hdiuserdb-I809764-workwT01IC2VFP+Tq4fi"
+    }
+  },
+  "USER_DETAILS": {
+    "target": {
+      "object": "user.models::USER_DETAILS",
+      "grantor": "openSAPHANA-hdiuserdb-I809764-workwT01IC2VFP+Tq4fi"      
+    }
+  }
+}

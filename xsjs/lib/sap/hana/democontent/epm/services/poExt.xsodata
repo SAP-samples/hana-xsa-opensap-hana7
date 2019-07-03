@@ -1,0 +1,45 @@
+service namespace "sap.hana.democontent.epm.services" {
+    "POViews.POHeaderConsumption" 
+	  as "POHeader" keys("PURCHASEORDERID") navigates ("Items" as "POItem", "PO_Supplier" as "Supplier", "PO_Notes" as "Notes", 
+	           "PO_Attachments" as "Attachments") ;
+	  
+	"POViews.POItemConsumption"
+	  as "POItem" keys("PURCHASEORDERID","PRODUCT_PRODUCTID") navigates ("ToProducts" as "ToProducts") ;
+	  
+	"MDViews.BuyerView"
+	as "BusinessPartners"
+	keys("PARTNERID");
+	
+	"Util.NotesView"
+	as "Notes"
+	keys ("NOTEID");
+	
+	"Util.AttachementsView"
+	as "Attachments"
+	keys ("NOTEID");
+	
+   "MDViews.ProductsConsumption" as "Products" keys("Product_Id");
+   "MDViews.counties" as "Countries" keys("CODE");
+   "MDViews.ProductsValueHelp" as "ProductsVH" keys("Product_Id");
+   "MDViews.productCategoryVH" as "ProductCatVh" keys ("Product_Category");
+   "MDViews.SupplierViewVH" as "SupplierVH" keys ("Supplier_Id");
+   
+	association "Items" principal  "POHeader"("PURCHASEORDERID")
+	multiplicity "1" dependent "POItem"("PURCHASEORDERID") multiplicity "*";
+
+	association "ToProducts" principal  "POItem"("PRODUCT_PRODUCTID")
+	multiplicity "1" dependent "Products"("Product_Id") multiplicity "1";
+	
+	association "PO_Supplier" principal "POHeader"("PARTNER_PARTNERID") 
+    multiplicity "1" dependent "BusinessPartners"("PARTNERID") multiplicity "1";
+
+	association "PO_Notes" principal "POHeader"("NOTEID") 
+    multiplicity "1" dependent "Notes"("LINKID") multiplicity "*"; 
+     
+	association "PO_Attachments" principal "POHeader"("NOTEID") 
+    multiplicity "1" dependent "Attachments"("LINKID") multiplicity "*";      
+}
+
+annotations {
+   enable OData4SAP;
+}

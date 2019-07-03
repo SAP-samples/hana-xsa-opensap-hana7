@@ -1,0 +1,17 @@
+FUNCTION "wait" ( IN interval INT )
+	RETURNS status INT
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+
+/*****************************  
+	Write your function logic 
+ *****************************/ 
+    DECLARE start_time TIMESTAMP = CURRENT_TIMESTAMP;
+    DECLARE dummy_var int;
+    WHILE SECONDS_BETWEEN(start_time, CURRENT_TIMESTAMP) < :interval
+    DO
+              status = status+1;
+    END WHILE;  
+ 
+END;

@@ -1,0 +1,35 @@
+PROCEDURE "usersCreateMethod" ( 
+IN im_row "UserData.User",
+OUT ex_error "Procedures.tt_errors")
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+	--DEFAULT SCHEMA <default_schema_name>
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+declare lv_pers_no string;
+declare lv_firstname string;
+declare lv_lastname string;
+declare lv_e_mail string;
+
+select "UserId", "FirstName", "LastName", "Email" 
+     into lv_pers_no, lv_firstname, 
+          lv_lastname, lv_e_mail
+                      from :im_row;
+                     
+                     
+ if :lv_e_mail = '' then
+  ex_error = select 500 as http_status_code, 
+               'Invalid email ' || lv_firstname as error_message, 
+                     'No Way! E-Mail field can not be empty' as detail from dummy;
+else
+                      
+   insert into "UserData.User" 
+             ("FirstName", "LastName", "Email")
+             values (lv_firstname, 
+                     lv_lastname, lv_e_mail);
+                     
+ end if; 
+  
+END;

@@ -1,0 +1,311 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "Conversions.T006",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T006.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "MSEHI": 2,
+                "KZEX3": 3,
+                "KZEX6": 4,
+                "ANDEC": 5,
+                "KZKEH": 6,
+                "KZWOB": 7,
+                "KZ1EH": 8,
+                "KZ2EH": 9,
+                "DIMID": 10,
+                "ZAEHL": 11,
+                "NENNR": 12,
+                "EXP10": 13,
+                "ADDKO": 14,
+                "EXPON": 15,
+                "DECAN": 16,
+                "ISOCODE": 17,
+                "PRIMARY": 18,
+                "TEMP_VALUE": 19,
+                "TEMP_UNIT": 20,
+                "FAMUNIT": 21,
+                "PRESS_VAL": 22,
+                "PRESS_UNIT": 23
+            },
+            "import_settings": {
+            	"include_filter" : [ ],
+                "import_columns": [
+                    "MANDT",
+                    "MSEHI",
+                    "KZEX3",
+                    "KZEX6",
+                    "ANDEC",
+                    "KZKEH",
+                    "KZWOB",
+                    "KZ1EH",
+                    "KZ2EH",
+                    "DIMID",
+                    "ZAEHL",
+                    "NENNR",
+                    "EXP10",
+                    "ADDKO",
+                    "EXPON",
+                    "DECAN",
+                    "ISOCODE",
+                    "PRIMARY",
+                    "TEMP_VALUE",
+                    "TEMP_UNIT",
+                    "FAMUNIT",
+                    "PRESS_VAL",
+                    "PRESS_UNIT"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.T006A",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "T006A.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "SPRAS": 2,
+                "MSEHI": 3,
+                "KZEX3": 4,
+                "KZEX6": 5,
+                "MSEHT": 6,
+                "MSEHL": 7
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "SPRAS",
+                    "MSEHI",
+                    "KZEX3",
+                    "KZEX6",
+                    "MSEHT",
+                    "MSEHL"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURC",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURC.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "WAERS": 2,
+                "ISOCD": 3,
+                "ALTWR": 4,
+                "GDATU": 5,
+                "XPRIMARY": 6
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "WAERS",
+                    "ISOCD",
+                    "ALTWR",
+                    "GDATU",
+                    "XPRIMARY"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURF",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURF.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "KURST": 2,
+                "FCURR": 3,
+                "TCURR": 4,
+                "GDATU": 5,
+                "FFACT": 6,
+                "TFACT": 7,
+                "ABWCT": 8,
+                "ABWGA": 9
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "KURST",
+                    "FCURR",
+                    "TCURR",
+                    "GDATU",
+                    "FFACT",
+                    "TFACT",
+                    "ABWCT",
+                    "ABWGA"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURN",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURN.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "FCURR": 2,
+                "TCURR": 3,
+                "GDATU": 4,
+                "NOTATION": 5
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "FCURR",
+                    "TCURR",
+                    "GDATU",
+                    "NOTATION"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURR",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURR.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "KURST": 2,
+                "FCURR": 3,
+                "TCURR": 4,
+                "GDATU": 5,
+                "UKURS": 6,
+                "FFACT": 7,
+                "TFACT": 8
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "KURST",
+                    "FCURR",
+                    "TCURR",
+                    "GDATU",
+                    "UKURS",
+                    "FFACT",
+                    "TFACT"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURT",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURT.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "SPRAS": 2,
+                "WAERS": 3,
+                "LTEXT": 4,
+                "KTEXT": 5
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "SPRAS",
+                    "WAERS",
+                    "LTEXT",
+                    "KTEXT"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURV",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURV.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "KURST": 2,
+                "XINVR": 3,
+                "BWAER": 4,
+                "XBWRL": 5,
+                "GKUZU": 6,
+                "BKUZU": 7,
+                "XFIXD": 8,
+                "XEURO": 9
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "KURST",
+                    "XINVR",
+                    "BWAER",
+                    "XBWRL",
+                    "GKUZU",
+                    "BKUZU",
+                    "XFIXD",
+                    "XEURO"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURW",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURW.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "MANDT": 1,
+                "SPRAS": 2,
+                "KURST": 3,
+                "CURVW": 4
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "MANDT",
+                    "SPRAS",
+                    "KURST",
+                    "CURVW"
+                ]
+            }
+        },
+        {
+            "target_table": "Conversions.TCURX",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "TCURX.csv",
+                "has_header": false
+            },
+            "column_mappings": {
+                "CURRKEY": 1,
+                "CURRDEC": 2
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "CURRKEY",
+                    "CURRDEC"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+STRUCTURED PRIVILEGE 
+    "FLIGHT_VIEW_PRIVILEGE"
+    FOR SELECT ON 
+    "SflightExt"
+    WHERE "Client" = '001'

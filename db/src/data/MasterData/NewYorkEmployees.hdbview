@@ -1,0 +1,10 @@
+VIEW "MDViews.NewYorkEmployees" ( "FIRST",
+	 "LAST",
+	 "ADDID",
+	 "CITY" ) AS SELECT
+	 "emp_$0"."NAME.FIRST" AS "FIRST" ,
+	 "emp_$0"."NAME.LAST" AS "LAST" ,
+	 "emp_$0"."ADDRESSES"."ADDRESSID" AS "ADDID" ,
+	 "emp_$0"."ADDRESSES"."CITY" AS "CITY" 
+FROM "MD.Employees" AS "emp_$0" 
+WHERE ( 'New York' = "emp_$0"."ADDRESSES"."CITY" ) WITH READ ONLY

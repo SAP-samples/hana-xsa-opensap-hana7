@@ -1,0 +1,3 @@
+TYPE "users.LogT" AS TABLE (
+   "MESSAGE" NVARCHAR(255)
+)

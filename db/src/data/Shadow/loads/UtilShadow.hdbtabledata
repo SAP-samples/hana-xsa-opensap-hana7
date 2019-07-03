@@ -1,0 +1,78 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "shadow::UtilShadow.Attachments",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "attachments.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "NOTEID",
+					"LINKID",
+					"TYPE",
+					"TITLE",
+					"CREATEDAT",
+					"DESCRIPTION",
+					"SIZE"
+                ]
+            }
+        },
+		{
+            "target_table": "shadow::UtilShadow.Constants",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "constants.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "DOMAIN",
+					"FIXEDVALUE",
+					"LANGUAGE",
+					"DESCRIPTION"
+                ]
+            }
+        },
+		{
+            "target_table": "shadow::UtilShadow.Notes",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "notes.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "NOTEID",
+					"AUTHOR",
+					"TEXT",
+					"THUMBNAIL",
+					"LINKID",
+					"CREATEDAT"
+                ]
+            }
+        },
+		{
+            "target_table": "shadow::UtilShadow.Texts",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "texts.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "TEXTID",
+					"LANGUAGE",
+					"ISOLANGUAGE",
+					"TEXT"
+                ]
+            }
+        }
+    ]
+}

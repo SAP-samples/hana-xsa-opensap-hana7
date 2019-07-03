@@ -1,0 +1,876 @@
+000,D,ADP,Andorianische Peseta (alt--> EUR),Peseta
+000,D,AED,Vereinigte Arabische Emirate Dirham,Dirham
+000,D,AFA,Afghani (alt),Afghani
+000,D,AFN,Afghani,Afghani
+000,D,ALL,Albanische Lek,Lek
+000,D,AMD,Armenische Dram,Dram
+000,D,ANG,Antilianische Gulden,Ant. Gulden
+000,D,AOA,Angolanische Kwanza,Kwansa
+000,D,AON,Angolanische neue Kwanza (alt),Neue Kwanza
+000,D,AOR,Angolanische Kwanza Reajustado (alt),Kwanza Reajust.
+000,D,ARS,Argentinische Peso,Arg. Peso
+000,D,ATS,Österreichische Schilling  (alt --> EUR),Schilling
+000,D,AUD,Australien Dollar,Austr.Dollar
+000,D,AWG,Arubanische Gulden,Arub.Gulden
+000,D,AZM,Aserbaidschanische Manat (alt),Manat
+000,D,AZN,Aserbaidschanische Manat,Manat
+000,D,BAM,Bosnia and Herzegovina Convertible Mark,Convert. Mark
+000,D,BBD,Barbados-Dollar,Dollar
+000,D,BDT,Bangladesch Taka,Taka
+000,D,BEF,Belgische Franken  (alt --> EUR),Belg.Frank
+000,D,BGN,Bulgarische Lew,Lew
+000,D,BHD,Bahrein-Dinar,Dinar
+000,D,BIF,Burundi Frank,Burundi Frank
+000,D,BMD,Bermuda Dollar,Berm. Dollar
+000,D,BND,Brunei Dollar,Dollar
+000,D,BOB,Boliviano,Boliviano
+000,D,BRL,Brasilianische Real,Real
+000,D,BSD,Bahama Dollar,Dollar
+000,D,BTN,Bhutan Ngultrum,Ngultrum
+000,D,BWP,Botswanische Pula,Pula
+000,D,BYB,Weissrussische Rubel (alt),Weissruss.Rubel
+000,D,BYR,Belarussische Rubel,Rubel
+000,D,BZD,Belize-Dollar,Dollar
+000,D,CAD,Kanadische Dollar,Kan.Dollar
+000,D,CDF,Kongo-Frank,Frank
+000,D,CFP,Französischer Franc (Pazifik Inseln),F. Pac. Franc
+000,D,CHF,Schweizer Franken,Schweiz.Franken
+000,D,CLP,Chilenische Pesos,Pesos
+000,D,CNY,Chinesischer Renminbi,Renminbi
+000,D,COP,Kolumbianische Peso,Peso
+000,D,CRC,Costa-Rica-Colon,C-R Colon
+000,D,CSD,Serbischer Dinar (alt),Serb. Dinar
+000,D,CUC,Peso Convertible,Peso Convertib.
+000,D,CUP,Kubanische Peso,Kuban. Peso
+000,D,CVE,Kap-Verde-Escudo,Escudo
+000,D,CYP,Zypern Pfund  (alt --> EUR),Zypern Pfund
+000,D,CZK,Tschechische Krone,Krone
+000,D,DEM,Deutsche Mark  (alt --> EUR),Deutsche Mark
+000,D,DEM3,(Intern) Deutsche Mark (3 Nachk.),(Intern) DEM 3N
+000,D,DJF,Dschibuti Frank,Dschibuti Frank
+000,D,DKK,Dänische Kronen,Dän.Kronen
+000,D,DOP,Dominikanische Peso,Dominik.Peso
+000,D,DZD,Algerische Dinar,Dinar
+000,D,ECS,Ecuadorianische Sucre (alt --> USD),Sucre
+000,D,EEK,Estnische Krone (alt --> EUR),Krone
+000,D,EGP,Ägyptisches Pfund,Pfund
+000,D,ERN,Eritreische Nakfa,Nakfa
+000,D,ESP,Spanische Peseten  (alt --> EUR),Peseten
+000,D,ETB,Äthiopische Birr,Birr
+000,D,EUR,Europäischer Euro,Euro
+000,D,FIM,Finnische Mark  (alt --> EUR),Finnische Mark
+000,D,FJD,Fidschi-Dollar,Dollar
+000,D,FKP,Falkland Pfund,Falkland Pfund
+000,D,FRF,Französische Franken  (alt --> EUR),Franz.Frank
+000,D,GBP,Britische Pfund,Pfund
+000,D,GEL,Georgisches Lari,Lari
+000,D,GHC,Ghanesische Cedi (alt),Cedi
+000,D,GHS,Ghanesische Cedi,Cedi
+000,D,GIP,Gibralter Pfund,Gibr. Pfund
+000,D,GMD,Gambanesische Dalasi,Dalasi
+000,D,GNF,Guinea Franc,Franc
+000,D,GRD,Griechische Drachme  (alt --> EUR),Drachme
+000,D,GTQ,Guatemalische Quetzal,Quetzal
+000,D,GWP,Guinea-Peso (alt --> SHP),Guinea-Peso
+000,D,GYD,Guyana-Dollar,Guyana-Dollar
+000,D,HKD,Hong Kong Dollar,H.K.Dollar
+000,D,HNL,Honduranische Lempira,Lempira
+000,D,HRK,Kroatische Kuna,Kuna
+000,D,HTG,Haitianische Gourde,Gourde
+000,D,HUF,Ungarischer Forint,Forint
+000,D,IDR,Indonesische Rupiah,Rupiah
+000,D,IEP,Irisches Pfund  (alt --> EUR),Irisches Pfund
+000,D,ILS,Israelische Schekel,Schekel
+000,D,INR,Indian Rupee,Rupee
+000,D,IQD,Irakische-Dinar,Dinar
+000,D,IRR,Iranische Rial,Rial
+000,D,ISK,Isländische Krone,Krone
+000,D,ITL,Italienische Lire  (alt --> EUR),Lire
+000,D,JMD,Jamaika-Dollar,Jamaika-Dollar
+000,D,JOD,Jordan-Dinar,Jordan-Dinar
+000,D,JPY,Japanische Yen,Yen
+000,D,KES,Kenianische Schilling,Schilling
+000,D,KGS,Kirgisische Som,Som
+000,D,KHR,Kambodschanische Riel,Riel
+000,D,KMF,Komoren-Frank,Komoren-Frank
+000,D,KPW,Nordkoreanische Won,N.K. Won
+000,D,KRW,Südkoreanische Won,S.K. Won
+000,D,KWD,Kuwaitische Dinar,Dinar
+000,D,KYD,Kaiman-Dollar,Kaiman-Dollar
+000,D,KZT,Kazachische Tenge,Tenge
+000,D,LAK,Laotische Kip,Kip
+000,D,LBP,Libanesisches Pfund,Liban. Pfund
+000,D,LKR,Sri-Lanka-Rupie,Sri-Lanka-Rupie
+000,D,LRD,Liberianischer Dollar,Liber. Dollar
+000,D,LSL,Lesotische Loti,Loti
+000,D,LTL,Litauische Lita,Lita
+000,D,LUF,Luxembourgische Franken  (alt --> EUR),Lux. Franken
+000,D,LVL,Lettländische Lat,Lat
+000,D,LYD,Libyscher Dinar,Libyscher Dinar
+000,D,MAD,Marokkanische Dirham,Dirham
+000,D,MDL,Moldavische Lei,Lei
+000,D,MGA,Madagasker Ariary,Madagas. Ariary
+000,D,MGF,Madagasker Frank (alt),Madagask. Frank
+000,D,MKD,Mazedonische Denar,Mazed.Denar
+000,D,MMK,Myanmar Kyat,Kyat
+000,D,MNT,Mongolianische Tugrik,Tugrik
+000,D,MOP,Macauanische Pataca,Pataca
+000,D,MRO,Mauretanische Ouguiya,Ouguiya
+000,D,MTL,Maltesische Lira  (alt --> EUR),Lira
+000,D,MUR,Mauritius Rupie,Rupie
+000,D,MVR,Maledivische Rufiyaa,Rufiyaa
+000,D,MWK,Malawi-Kwacha,Malawi-Kwacha
+000,D,MXN,Mexikanische Pesos,Pesos
+000,D,MYR,Malaysischer Ringgit,Ringgit
+000,D,MZM,Mosambikanische Metical (alt),Metical
+000,D,MZN,Mosambikanische Metical,Metical
+000,D,NAD,Namibia Dollar,Namibia Dollar
+000,D,NGN,Nigerianische Naira,Naira
+000,D,NIO,Nicaraguanische Cordoba Oro,Cordoba Oro
+000,D,NLG,Niederländische Gulden  (alt --> EUR),Gulden
+000,D,NOK,Norwegische Kronen,Norw.Kronen
+000,D,NPR,Nepalesische Rupie,Rupie
+000,D,NZD,Neuseeland-Dollar,N.S.-Dollar
+000,D,OMR,Rial Omani,Rial Omani
+000,D,PAB,Panamaische Balboa,Balboa
+000,D,PEN,Peruanischer neuer Sol,Neuer Sol
+000,D,PGK,Papua-Neuguineische Kina,Kina
+000,D,PHP,Philippinische Peso,Peso
+000,D,PKR,Pakistanische Rupie,Rupie
+000,D,PLN,Polnische Zloty (neu),Zloty
+000,D,PTE,Portugiesische Escudos  (alt --> EUR),Escudos
+000,D,PYG,Paraguayische Guarani,Guarani
+000,D,QAR,Katar-Riyal,Riyal
+000,D,RMB,Chinesische RenMinBi Yuan,RMB Yuan
+000,D,ROL,Rumänische Lei (alt),Lei (alt)
+000,D,RON,Rumänische Lei,Lei
+000,D,RSD,Serbischer Dinar,Serb. Dinar
+000,D,RUB,Russische Rubel,Rubel
+000,D,RWF,Ruanda Franc,Franc
+000,D,SAR,Saudi Riyal,Riyal
+000,D,SBD,Salomonen Dollar,Salom.Dollar
+000,D,SCR,Seychellen Rupie,Rupie
+000,D,SDD,Sudanesischer Dinar (alt),Dinar
+000,D,SDG,Sudanesisches Pfund,Pfund
+000,D,SDP,Sudanesisches Pfund (bis 1992),Pfund
+000,D,SEK,Schwedische Kronen,Schwed.Kronen
+000,D,SGD,Singapur Dollar,Sing.Dollar
+000,D,SHP,St. Helena Pfund,St.Helena Pfund
+000,D,SIT,Slowenische Tolar  (alt --> EUR),Tolar
+000,D,SKK,Slowakische Krone  (alt --> EUR),Krone
+000,D,SLL,Sierra Leone Leone,Leone
+000,D,SOS,Somalia Schilling,Schilling
+000,D,SRD,Surinamische Dollar,Sur. Dollar
+000,D,SRG,Surinamische Gulden (alt),Sur. Gulden
+000,D,STD,Santomeische Dobra,Dobra
+000,D,SVC,El Salvador-Colon,Colon
+000,D,SYP,Syrisches Pfund,Syrisches Pfund
+000,D,SZL,Swasiländische Lilangeni,Lilangeni
+000,D,THB,Thailand Bhat,Bhat
+000,D,TJR,Tadschikische Rubel (alt),Rubel
+000,D,TJS,Tadschikische Somoni,Somoni
+000,D,TMM,Turkmenische Manat (alt),Manat (alt)
+000,D,TMT,Turkmenische Manat,Manat
+000,D,TND,Tunesischer Dinar,Dinar
+000,D,TOP,Tongaische Pa'anga,Pa'anga
+000,D,TPE,Timor Escudo --> USD,Timor Escudo
+000,D,TRL,Türkische Lira (alt),Lira (alt)
+000,D,TRY,Türkische Lira,Lira
+000,D,TTD,Trinidad-u. Tobago-Dollar,T-u.T. Dollar
+000,D,TWD,Neuer Taiwan-Dollar,Dollar
+000,D,TZS,Tansania-Shilling,Shilling
+000,D,UAH,Ukrainische Hryvnia,Hryvnia
+000,D,UGX,Uganda Schilling,Schilling
+000,D,USD,US Amerikanische Dollar,US Dollar
+000,D,USDN,(Intern) Amerikanische Dollar (5 Nachk.),US Dollar
+000,D,UYU,Uruguy Peso,Peso
+000,D,UZS,Uzbekistan Sum,Sum
+000,D,VEB,Venezolanische Bolivar (alt),Bolivar (alt)
+000,D,VEF,Venezolanische Bolivar Fuerte,Bolivar Fuerte
+000,D,VND,Vietnamesische Dong,Dong
+000,D,VUV,Vanuatische Vatu,Vatu
+000,D,WST,Samoanische Tala,Tala
+000,D,XAF,CFA Franc  BEAC,CFA Franc BEAC
+000,D,XCD,Ostkaribischer Dollar,Dollar
+000,D,XDS,St. Christopher Dollar --> XCD,Dollar
+000,D,XEU,Europäische Währungs Einheit (E.C.U.),E.C.U.
+000,D,XOF,CFA Franc  BCEAO,CFA Franc BCEAO
+000,D,XPF,CFP Franc,Franc
+000,D,YER,Jemen-Rial,Jemen-Rial
+000,D,YUM,Jugoslawische neue Dinar (alt),Neue Dinar
+000,D,ZAR,Südafrikanische Rand,Rand
+000,D,ZMK,Zambianische Kwacha,Kwacha
+000,D,ZRN,Zaire (alt),Zaire
+000,D,ZWD,Simbabwe Dollar (alt),Simbabwe Dollar
+000,D,ZWL,Simbabwe Dollar (neu),Simbabwe Dollar
+000,D,ZWN,Simbabwe Dollar (alt),Simbabwe Dollar
+000,D,ZWR,Simbabwe Dollar (alt),Simbabwe Dollar
+000,E,ADP,Andorran Peseta --> (Old --> EUR),Peseta
+000,E,AED,United Arab Emirates Dirham,Dirham
+000,E,AFA,Afghani (Old),Afghani
+000,E,AFN,Afghani,Afghani
+000,E,ALL,Albanian Lek,Lek
+000,E,AMD,Armenian Dram,Dram
+000,E,ANG,West Indian Guilder,W.Ind.Guilder
+000,E,AOA,Angolanische Kwanza,Kwansa
+000,E,AON,Angolan New Kwanza (Old),New Kwanza
+000,E,AOR,Angolan Kwanza Reajustado (Old),Kwanza Reajust.
+000,E,ARS,Argentine Peso,Arg. Peso
+000,E,ATS,Austrian Schilling (Old --> EUR),Shilling
+000,E,AUD,Australian Dollar,Austr. Dollar
+000,E,AWG,Aruban Guilder,Aruban Guilder
+000,E,AZM,Azerbaijan Manat (Old),Manat
+000,E,AZN,Azerbaijan Manat,Manat
+000,E,BAM,Bosnia and Herzegovina Convertible Mark,Convert. Mark
+000,E,BBD,Barbados Dollar,Dollar
+000,E,BDT,Bangladesh Taka,Taka
+000,E,BEF,Belgian Franc (Old --> EUR),Belgian Franc
+000,E,BGN,Bulgarian Lev,Lev
+000,E,BHD,Bahrain Dinar,Dinar
+000,E,BIF,Burundi Franc,Burundi Franc
+000,E,BMD,Bermudan Dollar,Bermudan Dollar
+000,E,BND,Brunei Dollar,Dollar
+000,E,BOB,Boliviano,Boliviano
+000,E,BRL,Brazilian Real,Real
+000,E,BSD,Bahaman Dollar,Dollar
+000,E,BTN,Bhutan Ngultrum,Ngultrum
+000,E,BWP,Botswana Pula,Pula
+000,E,BYB,Belorussian Ruble (Old),Beloruss.Ruble
+000,E,BYR,Belorussian Ruble,Ruble
+000,E,BZD,Belize Dollar,Dollar
+000,E,CAD,Canadian Dollar,Canadian Dollar
+000,E,CDF,Congolese Franc,test data
+000,E,CFP,French Franc (Pacific Islands),Fr. Frank (Pac)
+000,E,CHF,Swiss Franc,Swiss Franc
+000,E,CLP,Chilean Peso,Peso
+000,E,CNY,Chinese Renminbi,Renminbi
+000,E,COP,Colombian Peso,Peso
+000,E,CRC,Costa Rica Colon,Cost.Rica Colon
+000,E,CSD,Serbian Dinar (Old),Serbian Dinar
+000,E,CUC,Peso Convertible,Peso Convertib.
+000,E,CUP,Cuban Peso,Cuban Peso
+000,E,CVE,Cape Verde Escudo,Escudo
+000,E,CYP,Cyprus Pound  (Old --> EUR),Cyprus Pound
+000,E,CZK,Czech Krona,Krona
+000,E,DEM,German Mark    (Old --> EUR),German Mark
+000,E,DEM3,(Internal) German Mark (3 dec.places),(Int.) DEM 3 DP
+000,E,DJF,Djibouti Franc,Djibouti Franc
+000,E,DKK,Danish Krone,Danish Krone
+000,E,DOP,Dominican Peso,Dominican Peso
+000,E,DZD,Algerian Dinar,Dinar
+000,E,ECS,Ecuadorian Sucre (Old --> USD),Sucre
+000,E,EEK,Estonian Krone (Old --> EUR),Krona
+000,E,EGP,Egyptian Pound,Pound
+000,E,ERN,Eritrean Nafka,Nakfa
+000,E,ESP,Spanish Peseta (Old --> EUR),Peseta
+000,E,ETB,Ethiopian Birr,Birr
+000,E,EUR,European Euro,Euro
+000,E,FIM,Finnish Markka (Old --> EUR),Finnish markka
+000,E,FJD,Fiji Dollar,Dollar
+000,E,FKP,Falkland Pound,Falkland Pound
+000,E,FRF,French Franc (Old --> EUR),French Franc
+000,E,GBP,British Pound,Pound sterling
+000,E,GEL,Georgian Lari,Lari
+000,E,GHC,Ghanaian Cedi (Old),Cedi
+000,E,GHS,Ghanian Cedi,Cedi
+000,E,GIP,Gibraltar Pound,Gibraltar Pound
+000,E,GMD,Gambian Dalasi,Dalasi
+000,E,GNF,Guinean Franc,Franc
+000,E,GRD,Greek Drachma (Old --> EUR),Drachma
+000,E,GTQ,Guatemalan Quetzal,Quetzal
+000,E,GWP,Guinea Peso (Old --> SHP),Guinea Peso
+000,E,GYD,Guyana Dollar,Guyana Dollar
+000,E,HKD,Hong Kong Dollar,H.K.Dollar
+000,E,HNL,Honduran Lempira,Lempira
+000,E,HRK,Croatian Kuna,Kuna
+000,E,HTG,Haitian Gourde,Gourde
+000,E,HUF,Hungarian Forint,Forint
+000,E,IDR,Indonesian Rupiah,Rupiah
+000,E,IEP,Irish Punt (Old --> EUR),Irish Punt
+000,E,ILS,Israeli Scheckel,Scheckel
+000,E,INR,Indian Rupee,Rupee
+000,E,IQD,Iraqui Dinar,Dinar
+000,E,IRR,Iranian Rial,Rial
+000,E,ISK,Iceland Krona,Krona
+000,E,ITL,Italian Lira (Old --> EUR),Lire
+000,E,JMD,Jamaican Dollar,Jamaican Dollar
+000,E,JOD,Jordanian Dinar,Jordanian Dinar
+000,E,JPY,Japanese Yen,Yen
+000,E,KES,Kenyan Shilling,Shilling
+000,E,KGS,Kyrgyzstan Som,Som
+000,E,KHR,Cambodian Riel,Riel
+000,E,KMF,Comoros Franc,Comoros Franc
+000,E,KPW,North Korean Won,N. Korean Won
+000,E,KRW,South Korean Won,S.Korean Won
+000,E,KWD,Kuwaiti Dinar,Dinar
+000,E,KYD,Cayman Dollar,Cayman Dollar
+000,E,KZT,Kazakstanian Tenge,Tenge
+000,E,LAK,Laotian Kip,Kip
+000,E,LBP,Lebanese Pound,Lebanese Pound
+000,E,LKR,Sri Lankan Rupee,Sri Lanka Rupee
+000,E,LRD,Liberian Dollar,Liberian Dollar
+000,E,LSL,Lesotho Loti,Loti
+000,E,LTL,Lithuanian Lita,Lita
+000,E,LUF,Luxembourg Franc (Old --> EUR),Lux. Franc
+000,E,LVL,Latvian Lat,Lat
+000,E,LYD,Libyan Dinar,Libyan Dinar
+000,E,MAD,Moroccan Dirham,Dirham
+000,E,MDL,Moldavian Leu,Leu
+000,E,MGA,Madagascan Ariary,Madagasc.Ariary
+000,E,MGF,Madagascan Franc (Old,Madagascan Fr.
+000,E,MKD,Macedonian Denar,Maced. Denar
+000,E,MMK,Myanmar Kyat,Kyat
+000,E,MNT,Mongolian Tugrik,Tugrik
+000,E,MOP,Macao Pataca,Pataca
+000,E,MRO,Mauritanian Ouguiya,Ouguiya
+000,E,MTL,Maltese Lira (Old --> EUR),Lira
+000,E,MUR,Mauritian Rupee,Rupee
+000,E,MVR,Maldive Rufiyaa,Rufiyaa
+000,E,MWK,Malawi Kwacha,Malawi Kwacha
+000,E,MXN,Mexican Pesos,Peso
+000,E,MYR,Malaysian Ringgit,Ringgit
+000,E,MZM,Mozambique Metical (Old),Metical
+000,E,MZN,Mozambique Metical,Metical
+000,E,NAD,Namibian Dollar,Namibian Dollar
+000,E,NGN,Nigerian Naira,Naira
+000,E,NIO,Nicaraguan Cordoba Oro,Cordoba Oro
+000,E,NLG,Dutch Guilder (Old --> EUR),Guilder
+000,E,NOK,Norwegian Krone,Norwegian Krone
+000,E,NPR,Nepalese Rupee,Rupee
+000,E,NZD,New Zealand Dollars,N.Zeal.Dollars
+000,E,OMR,Omani Rial,Omani Rial
+000,E,PAB,Panamanian Balboa,Balboa
+000,E,PEN,Peruvian New Sol,New Sol
+000,E,PGK,Papua New Guinea Kina,Kina
+000,E,PHP,Philippine Peso,Peso
+000,E,PKR,Pakistani Rupee,Rupee
+000,E,PLN,Polish Zloty (new),Zloty
+000,E,PTE,Portuguese Escudo (Old --> EUR),Escudo
+000,E,PYG,Paraguayan Guarani,Guarani
+000,E,QAR,Qatar Rial,Rial
+000,E,RMB,Chinese Yuan Renminbi,Yuan Renminbi
+000,E,ROL,Romanian Leu (Old),Leu (Old)
+000,E,RON,Romanian Leu,Leu
+000,E,RSD,Serbian Dinar,Serbian Dinar
+000,E,RUB,Russian Ruble,Ruble
+000,E,RWF,Rwandan Franc,Franc
+000,E,SAR,Saudi Riyal,Rial
+000,E,SBD,Solomon Islands Dollar,Sol.Isl.Dollar
+000,E,SCR,Seychelles Rupee,Rupee
+000,E,SDD,Sudanese Dinar (Old),Dinar
+000,E,SDG,Sudanese Pound,Pound
+000,E,SDP,Sudanese Pound (until 1992),Pound
+000,E,SEK,Swedish Krona,Swedish Krona
+000,E,SGD,Singapore Dollar,Sing.Dollar
+000,E,SHP,St.Helena Pound,St.Helena Pound
+000,E,SIT,Slovenian Tolar (Old --> EUR),Tolar
+000,E,SKK,Slovakian Krona (Old --> EUR),Krona
+000,E,SLL,Sierra Leone Leone,Leone
+000,E,SOS,Somalian Shilling,Shilling
+000,E,SRD,Surinam Dollar,Surinam Doillar
+000,E,SRG,Surinam Guilder (Old),Surinam Guilder
+000,E,STD,Sao Tome / Principe Dobra,Dobra
+000,E,SVC,El Salvador Colon,Colon
+000,E,SYP,Syrian Pound,Syrian Pound
+000,E,SZL,Swaziland Lilangeni,Lilangeni
+000,E,THB,Thailand Baht,Baht
+000,E,TJR,Tajikistani Ruble (Old),Ruble
+000,E,TJS,Tajikistani Somoni,Somoni
+000,E,TMM,Turkmenistani Manat (Old),Manat (Old)
+000,E,TMT,Turkmenistani Manat,Manat
+000,E,TND,Tunisian Dinar,Dinar
+000,E,TOP,Tongan Pa'anga,Pa'anga
+000,E,TPE,Timor Escudo --> USD,Timor Escudo
+000,E,TRL,Turkish Lira (Old),Lira (Old)
+000,E,TRY,Turkish Lira,Lira
+000,E,TTD,Trinidad and Tobago Dollar,T.+ T. Dollar
+000,E,TWD,New Taiwan Dollar,Dollar
+000,E,TZS,Tanzanian Shilling,Shilling
+000,E,UAH,Ukraine Hryvnia,Hryvnia
+000,E,UGX,Ugandan Shilling,Shilling
+000,E,USD,United States Dollar,US Dollar
+000,E,USDN,(Internal) United States Dollar (5 Dec.),US Dollar
+000,E,UYU,Uruguayan Peso,Peso
+000,E,UZS,Uzbekistan Som,Total
+000,E,VEB,Venezuelan Bolivar (Old),Bolivar (Old)
+000,E,VEF,Venezuelan Bolivar Fuerte,Bolivar Fuerte
+000,E,VND,Vietnamese Dong,Dong
+000,E,VUV,Vanuatu Vatu,Vatu
+000,E,WST,Samoan Tala,Tala
+000,E,XAF,Gabon CFA Franc BEAC,CFA Franc BEAC
+000,E,XCD,East Carribean Dollar,Dollar
+000,E,XDS,St. Christopher Dollar --> XCD,Dollar
+000,E,XEU,European Currency Unit (E.C.U.),E.C.U.
+000,E,XOF,Benin CFA Franc BCEAO,CFA Franc BCEAO
+000,E,XPF,CFP Franc,Franc
+000,E,YER,Yemeni Ryal,Yemeni Ryal
+000,E,YUM,New Yugoslavian Dinar (Old),New Dinar
+000,E,ZAR,South African Rand,Rand
+000,E,ZMK,Zambian Kwacha,Kwacha
+000,E,ZRN,Zaire (Old),Zaire
+000,E,ZWD,Zimbabwean Dollar (Old),Zimbabwe Dollar
+000,E,ZWL,Zimbabwean Dollar (New),Zimbabwe Dollar
+000,E,ZWN,Zimbabwean Dollar (Old),Zimbabwe Dollar
+000,E,ZWR,Zimbabwean Dollar (Old),Zimbabwe Dollar
+000,F,BHD,BHD's,
+000,F,SAR,Rand sud-africain,
+000,N,ATS,Oostenrijkse schilling,
+000,N,AUD,Australische dollar,
+000,N,BEF,Belgische frank,
+000,N,BHD,BHD,
+000,N,CAD,Canadeese dollar,
+000,N,CHF,Zwitserse frank,
+000,N,DEM,Duitse mark,
+000,N,DKK,Deense kroon,
+000,N,ESP,Spaanse peseta,
+000,N,FIM,Finse mark,
+000,N,FRF,Franse frank,
+000,N,GBP,Engels pond,
+000,N,ITL,Italiaanse lire,
+000,N,JPY,japanse yen,
+000,N,KWD,Kuweitse dinar,
+000,N,NLG,Nederlandse gulden,Nederl.gulden
+000,N,NOK,Noorse kroon,
+000,N,PTE,Portugeese escudo,
+000,N,SAR,Zuidafrikaanse rand,
+000,N,SEK,Zweedse kroon,
+000,N,SGD,Singapore dollar,
+000,N,USD,US dollar,
+001,D,ADP,Andorianische Peseta (alt--> EUR),Peseta
+001,D,AED,Vereinigte Arabische Emirate Dirham,Dirham
+001,D,AFA,Afghani (alt),Afghani
+001,D,AFN,Afghani,Afghani
+001,D,ALL,Albanische Lek,Lek
+001,D,AMD,Armenische Dram,Dram
+001,D,ANG,Antilianische Gulden,Ant. Gulden
+001,D,AOA,Angolanische Kwanza,Kwansa
+001,D,AON,Angolanische neue Kwanza (alt),Neue Kwanza
+001,D,AOR,Angolanische Kwanza Reajustado (alt),Kwanza Reajust.
+001,D,ARS,Argentinische Peso,Arg. Peso
+001,D,ATS,Österreichische Schilling  (alt --> EUR),Schilling
+001,D,AUD,Australien Dollar,Austr.Dollar
+001,D,AWG,Arubanische Gulden,Arub.Gulden
+001,D,AZM,Aserbaidschanische Manat (alt),Manat
+001,D,AZN,Aserbaidschanische Manat,Manat
+001,D,BAM,Bosnia and Herzegovina Convertible Mark,Convert. Mark
+001,D,BBD,Barbados-Dollar,Dollar
+001,D,BDT,Bangladesch Taka,Taka
+001,D,BEF,Belgische Franken  (alt --> EUR),Belg.Frank
+001,D,BGN,Bulgarische Lew,Lew
+001,D,BHD,Bahrein-Dinar,Dinar
+001,D,BIF,Burundi Frank,Burundi Frank
+001,D,BMD,Bermuda Dollar,Berm. Dollar
+001,D,BND,Brunei Dollar,Dollar
+001,D,BOB,Boliviano,Boliviano
+001,D,BRL,Brasilianische Real,Real
+001,D,BSD,Bahama Dollar,Dollar
+001,D,BTN,Bhutan Ngultrum,Ngultrum
+001,D,BWP,Botswanische Pula,Pula
+001,D,BYB,Weissrussische Rubel (alt),Weissruss.Rubel
+001,D,BYR,Belarussische Rubel,Rubel
+001,D,BZD,Belize-Dollar,Dollar
+001,D,CAD,Kanadische Dollar,Kan.Dollar
+001,D,CDF,Kongo-Frank,Frank
+001,D,CFP,Französischer Franc (Pazifik Inseln),F. Pac. Franc
+001,D,CHF,Schweizer Franken,Schweiz.Franken
+001,D,CLP,Chilenische Pesos,Pesos
+001,D,CNY,Chinesischer Renminbi,Renminbi
+001,D,COP,Kolumbianische Peso,Peso
+001,D,CRC,Costa-Rica-Colon,C-R Colon
+001,D,CSD,Serbischer Dinar (alt),Serb. Dinar
+001,D,CUC,Peso Convertible,Peso Convertib.
+001,D,CUP,Kubanische Peso,Kuban. Peso
+001,D,CVE,Kap-Verde-Escudo,Escudo
+001,D,CYP,Zypern Pfund  (alt --> EUR),Zypern Pfund
+001,D,CZK,Tschechische Krone,Krone
+001,D,DEM,Deutsche Mark  (alt --> EUR),Deutsche Mark
+001,D,DEM3,(Intern) Deutsche Mark (3 Nachk.),(Intern) DEM 3N
+001,D,DJF,Dschibuti Frank,Dschibuti Frank
+001,D,DKK,Dänische Kronen,Dän.Kronen
+001,D,DOP,Dominikanische Peso,Dominik.Peso
+001,D,DZD,Algerische Dinar,Dinar
+001,D,ECS,Ecuadorianische Sucre (alt --> USD),Sucre
+001,D,EEK,Estnische Krone (alt --> EUR),Krone
+001,D,EGP,Ägyptisches Pfund,Pfund
+001,D,ERN,Eritreische Nakfa,Nakfa
+001,D,ESP,Spanische Peseten  (alt --> EUR),Peseten
+001,D,ETB,Äthiopische Birr,Birr
+001,D,EUR,Europäischer Euro,Euro
+001,D,FIM,Finnische Mark  (alt --> EUR),Finnische Mark
+001,D,FJD,Fidschi-Dollar,Dollar
+001,D,FKP,Falkland Pfund,Falkland Pfund
+001,D,FRF,Französische Franken  (alt --> EUR),Franz.Frank
+001,D,GBP,Britische Pfund,Pfund
+001,D,GEL,Georgisches Lari,Lari
+001,D,GHC,Ghanesische Cedi (alt),Cedi
+001,D,GHS,Ghanesische Cedi,Cedi
+001,D,GIP,Gibralter Pfund,Gibr. Pfund
+001,D,GMD,Gambanesische Dalasi,Dalasi
+001,D,GNF,Guinea Franc,Franc
+001,D,GRD,Griechische Drachme  (alt --> EUR),Drachme
+001,D,GTQ,Guatemalische Quetzal,Quetzal
+001,D,GWP,Guinea-Peso (alt --> SHP),Guinea-Peso
+001,D,GYD,Guyana-Dollar,Guyana-Dollar
+001,D,HKD,Hong Kong Dollar,H.K.Dollar
+001,D,HNL,Honduranische Lempira,Lempira
+001,D,HRK,Kroatische Kuna,Kuna
+001,D,HTG,Haitianische Gourde,Gourde
+001,D,HUF,Ungarischer Forint,Forint
+001,D,IDR,Indonesische Rupiah,Rupiah
+001,D,IEP,Irisches Pfund  (alt --> EUR),Irisches Pfund
+001,D,ILS,Israelische Schekel,Schekel
+001,D,INR,Indian Rupee,Rupee
+001,D,IQD,Irakische-Dinar,Dinar
+001,D,IRR,Iranische Rial,Rial
+001,D,ISK,Isländische Krone,Krone
+001,D,ITL,Italienische Lire  (alt --> EUR),Lire
+001,D,JMD,Jamaika-Dollar,Jamaika-Dollar
+001,D,JOD,Jordan-Dinar,Jordan-Dinar
+001,D,JPY,Japanische Yen,Yen
+001,D,KES,Kenianische Schilling,Schilling
+001,D,KGS,Kirgisische Som,Som
+001,D,KHR,Kambodschanische Riel,Riel
+001,D,KMF,Komoren-Frank,Komoren-Frank
+001,D,KPW,Nordkoreanische Won,N.K. Won
+001,D,KRW,Südkoreanische Won,S.K. Won
+001,D,KWD,Kuwaitische Dinar,Dinar
+001,D,KYD,Kaiman-Dollar,Kaiman-Dollar
+001,D,KZT,Kazachische Tenge,Tenge
+001,D,LAK,Laotische Kip,Kip
+001,D,LBP,Libanesisches Pfund,Liban. Pfund
+001,D,LKR,Sri-Lanka-Rupie,Sri-Lanka-Rupie
+001,D,LRD,Liberianischer Dollar,Liber. Dollar
+001,D,LSL,Lesotische Loti,Loti
+001,D,LTL,Litauische Lita,Lita
+001,D,LUF,Luxembourgische Franken  (alt --> EUR),Lux. Franken
+001,D,LVL,Lettländische Lat,Lat
+001,D,LYD,Libyscher Dinar,Libyscher Dinar
+001,D,MAD,Marokkanische Dirham,Dirham
+001,D,MDL,Moldavische Lei,Lei
+001,D,MGA,Madagasker Ariary,Madagas. Ariary
+001,D,MGF,Madagasker Frank (alt),Madagask. Frank
+001,D,MKD,Mazedonische Denar,Mazed.Denar
+001,D,MMK,Myanmar Kyat,Kyat
+001,D,MNT,Mongolianische Tugrik,Tugrik
+001,D,MOP,Macauanische Pataca,Pataca
+001,D,MRO,Mauretanische Ouguiya,Ouguiya
+001,D,MTL,Maltesische Lira  (alt --> EUR),Lira
+001,D,MUR,Mauritius Rupie,Rupie
+001,D,MVR,Maledivische Rufiyaa,Rufiyaa
+001,D,MWK,Malawi-Kwacha,Malawi-Kwacha
+001,D,MXN,Mexikanische Pesos,Pesos
+001,D,MYR,Malaysischer Ringgit,Ringgit
+001,D,MZM,Mosambikanische Metical (alt),Metical
+001,D,MZN,Mosambikanische Metical,Metical
+001,D,NAD,Namibia Dollar,Namibia Dollar
+001,D,NGN,Nigerianische Naira,Naira
+001,D,NIO,Nicaraguanische Cordoba Oro,Cordoba Oro
+001,D,NLG,Niederländische Gulden  (alt --> EUR),Gulden
+001,D,NOK,Norwegische Kronen,Norw.Kronen
+001,D,NPR,Nepalesische Rupie,Rupie
+001,D,NZD,Neuseeland-Dollar,N.S.-Dollar
+001,D,OMR,Rial Omani,Rial Omani
+001,D,PAB,Panamaische Balboa,Balboa
+001,D,PEN,Peruanischer neuer Sol,Neuer Sol
+001,D,PGK,Papua-Neuguineische Kina,Kina
+001,D,PHP,Philippinische Peso,Peso
+001,D,PKR,Pakistanische Rupie,Rupie
+001,D,PLN,Polnische Zloty (neu),Zloty
+001,D,PTE,Portugiesische Escudos  (alt --> EUR),Escudos
+001,D,PYG,Paraguayische Guarani,Guarani
+001,D,QAR,Katar-Riyal,Riyal
+001,D,RMB,Chinesische RenMinBi Yuan,RMB Yuan
+001,D,ROL,Rumänische Lei (alt),Lei (alt)
+001,D,RON,Rumänische Lei,Lei
+001,D,RSD,Serbischer Dinar,Serb. Dinar
+001,D,RUB,Russische Rubel,Rubel
+001,D,RWF,Ruanda Franc,Franc
+001,D,SAR,Saudi Riyal,Riyal
+001,D,SBD,Salomonen Dollar,Salom.Dollar
+001,D,SCR,Seychellen Rupie,Rupie
+001,D,SDD,Sudanesischer Dinar (alt),Dinar
+001,D,SDG,Sudanesisches Pfund,Pfund
+001,D,SDP,Sudanesisches Pfund (bis 1992),Pfund
+001,D,SEK,Schwedische Kronen,Schwed.Kronen
+001,D,SGD,Singapur Dollar,Sing.Dollar
+001,D,SHP,St. Helena Pfund,St.Helena Pfund
+001,D,SIT,Slowenische Tolar  (alt --> EUR),Tolar
+001,D,SKK,Slowakische Krone  (alt --> EUR),Krone
+001,D,SLL,Sierra Leone Leone,Leone
+001,D,SOS,Somalia Schilling,Schilling
+001,D,SRD,Surinamische Dollar,Sur. Dollar
+001,D,SRG,Surinamische Gulden (alt),Sur. Gulden
+001,D,STD,Santomeische Dobra,Dobra
+001,D,SVC,El Salvador-Colon,Colon
+001,D,SYP,Syrisches Pfund,Syrisches Pfund
+001,D,SZL,Swasiländische Lilangeni,Lilangeni
+001,D,THB,Thailand Bhat,Bhat
+001,D,TJR,Tadschikische Rubel (alt),Rubel
+001,D,TJS,Tadschikische Somoni,Somoni
+001,D,TMM,Turkmenische Manat (alt),Manat (alt)
+001,D,TMT,Turkmenische Manat,Manat
+001,D,TND,Tunesischer Dinar,Dinar
+001,D,TOP,Tongaische Pa'anga,Pa'anga
+001,D,TPE,Timor Escudo --> USD,Timor Escudo
+001,D,TRL,Türkische Lira (alt),Lira (alt)
+001,D,TRY,Türkische Lira,Lira
+001,D,TTD,Trinidad-u. Tobago-Dollar,T-u.T. Dollar
+001,D,TWD,Neuer Taiwan-Dollar,Dollar
+001,D,TZS,Tansania-Shilling,Shilling
+001,D,UAH,Ukrainische Hryvnia,Hryvnia
+001,D,UGX,Uganda Schilling,Schilling
+001,D,USD,US Amerikanische Dollar,US Dollar
+001,D,USDN,(Intern) Amerikanische Dollar (5 Nachk.),US Dollar
+001,D,UYU,Uruguy Peso,Peso
+001,D,UZS,Uzbekistan Sum,Sum
+001,D,VEB,Venezolanische Bolivar (alt),Bolivar (alt)
+001,D,VEF,Venezolanische Bolivar Fuerte,Bolivar Fuerte
+001,D,VND,Vietnamesische Dong,Dong
+001,D,VUV,Vanuatische Vatu,Vatu
+001,D,WST,Samoanische Tala,Tala
+001,D,XAF,CFA Franc  BEAC,CFA Franc BEAC
+001,D,XCD,Ostkaribischer Dollar,Dollar
+001,D,XDS,St. Christopher Dollar --> XCD,Dollar
+001,D,XEU,Europäische Währungs Einheit (E.C.U.),E.C.U.
+001,D,XOF,CFA Franc  BCEAO,CFA Franc BCEAO
+001,D,XPF,CFP Franc,Franc
+001,D,YER,Jemen-Rial,Jemen-Rial
+001,D,YUM,Jugoslawische neue Dinar (alt),Neue Dinar
+001,D,ZAR,Südafrikanische Rand,Rand
+001,D,ZMK,Zambianische Kwacha,Kwacha
+001,D,ZRN,Zaire (alt),Zaire
+001,D,ZWD,Simbabwe Dollar (alt),Simbabwe Dollar
+001,D,ZWL,Simbabwe Dollar (neu),Simbabwe Dollar
+001,D,ZWN,Simbabwe Dollar (alt),Simbabwe Dollar
+001,D,ZWR,Simbabwe Dollar (alt),Simbabwe Dollar
+001,E,ADP,Andorran Peseta --> (Old --> EUR),Peseta
+001,E,AED,United Arab Emirates Dirham,Dirham
+001,E,AFA,Afghani (Old),Afghani
+001,E,AFN,Afghani,Afghani
+001,E,ALL,Albanian Lek,Lek
+001,E,AMD,Armenian Dram,Dram
+001,E,ANG,West Indian Guilder,W.Ind.Guilder
+001,E,AOA,Angolanische Kwanza,Kwansa
+001,E,AON,Angolan New Kwanza (Old),New Kwanza
+001,E,AOR,Angolan Kwanza Reajustado (Old),Kwanza Reajust.
+001,E,ARS,Argentine Peso,Arg. Peso
+001,E,ATS,Austrian Schilling (Old --> EUR),Shilling
+001,E,AUD,Australian Dollar,Austr. Dollar
+001,E,AWG,Aruban Guilder,Aruban Guilder
+001,E,AZM,Azerbaijan Manat (Old),Manat
+001,E,AZN,Azerbaijan Manat,Manat
+001,E,BAM,Bosnia and Herzegovina Convertible Mark,Convert. Mark
+001,E,BBD,Barbados Dollar,Dollar
+001,E,BDT,Bangladesh Taka,Taka
+001,E,BEF,Belgian Franc (Old --> EUR),Belgian Franc
+001,E,BGN,Bulgarian Lev,Lev
+001,E,BHD,Bahrain Dinar,Dinar
+001,E,BIF,Burundi Franc,Burundi Franc
+001,E,BMD,Bermudan Dollar,Bermudan Dollar
+001,E,BND,Brunei Dollar,Dollar
+001,E,BOB,Boliviano,Boliviano
+001,E,BRL,Brazilian Real,Real
+001,E,BSD,Bahaman Dollar,Dollar
+001,E,BTN,Bhutan Ngultrum,Ngultrum
+001,E,BWP,Botswana Pula,Pula
+001,E,BYB,Belorussian Ruble (Old),Beloruss.Ruble
+001,E,BYR,Belorussian Ruble,Ruble
+001,E,BZD,Belize Dollar,Dollar
+001,E,CAD,Canadian Dollar,Canadian Dollar
+001,E,CDF,Congolese Franc,test data
+001,E,CFP,French Franc (Pacific Islands),Fr. Frank (Pac)
+001,E,CHF,Swiss Franc,Swiss Franc
+001,E,CLP,Chilean Peso,Peso
+001,E,CNY,Chinese Renminbi,Renminbi
+001,E,COP,Colombian Peso,Peso
+001,E,CRC,Costa Rica Colon,Cost.Rica Colon
+001,E,CSD,Serbian Dinar (Old),Serbian Dinar
+001,E,CUC,Peso Convertible,Peso Convertib.
+001,E,CUP,Cuban Peso,Cuban Peso
+001,E,CVE,Cape Verde Escudo,Escudo
+001,E,CYP,Cyprus Pound  (Old --> EUR),Cyprus Pound
+001,E,CZK,Czech Krona,Krona
+001,E,DEM,German Mark    (Old --> EUR),German Mark
+001,E,DEM3,(Internal) German Mark (3 dec.places),(Int.) DEM 3 DP
+001,E,DJF,Djibouti Franc,Djibouti Franc
+001,E,DKK,Danish Krone,Danish Krone
+001,E,DOP,Dominican Peso,Dominican Peso
+001,E,DZD,Algerian Dinar,Dinar
+001,E,ECS,Ecuadorian Sucre (Old --> USD),Sucre
+001,E,EEK,Estonian Krone (Old --> EUR),Krona
+001,E,EGP,Egyptian Pound,Pound
+001,E,ERN,Eritrean Nafka,Nakfa
+001,E,ESP,Spanish Peseta (Old --> EUR),Peseta
+001,E,ETB,Ethiopian Birr,Birr
+001,E,EUR,European Euro,Euro
+001,E,FIM,Finnish Markka (Old --> EUR),Finnish markka
+001,E,FJD,Fiji Dollar,Dollar
+001,E,FKP,Falkland Pound,Falkland Pound
+001,E,FRF,French Franc (Old --> EUR),French Franc
+001,E,GBP,British Pound,Pound sterling
+001,E,GEL,Georgian Lari,Lari
+001,E,GHC,Ghanaian Cedi (Old),Cedi
+001,E,GHS,Ghanian Cedi,Cedi
+001,E,GIP,Gibraltar Pound,Gibraltar Pound
+001,E,GMD,Gambian Dalasi,Dalasi
+001,E,GNF,Guinean Franc,Franc
+001,E,GRD,Greek Drachma (Old --> EUR),Drachma
+001,E,GTQ,Guatemalan Quetzal,Quetzal
+001,E,GWP,Guinea Peso (Old --> SHP),Guinea Peso
+001,E,GYD,Guyana Dollar,Guyana Dollar
+001,E,HKD,Hong Kong Dollar,H.K.Dollar
+001,E,HNL,Honduran Lempira,Lempira
+001,E,HRK,Croatian Kuna,Kuna
+001,E,HTG,Haitian Gourde,Gourde
+001,E,HUF,Hungarian Forint,Forint
+001,E,IDR,Indonesian Rupiah,Rupiah
+001,E,IEP,Irish Punt (Old --> EUR),Irish Punt
+001,E,ILS,Israeli Scheckel,Scheckel
+001,E,INR,Indian Rupee,Rupee
+001,E,IQD,Iraqui Dinar,Dinar
+001,E,IRR,Iranian Rial,Rial
+001,E,ISK,Iceland Krona,Krona
+001,E,ITL,Italian Lira (Old --> EUR),Lire
+001,E,JMD,Jamaican Dollar,Jamaican Dollar
+001,E,JOD,Jordanian Dinar,Jordanian Dinar
+001,E,JPY,Japanese Yen,Yen
+001,E,KES,Kenyan Shilling,Shilling
+001,E,KGS,Kyrgyzstan Som,Som
+001,E,KHR,Cambodian Riel,Riel
+001,E,KMF,Comoros Franc,Comoros Franc
+001,E,KPW,North Korean Won,N. Korean Won
+001,E,KRW,South Korean Won,S.Korean Won
+001,E,KWD,Kuwaiti Dinar,Dinar
+001,E,KYD,Cayman Dollar,Cayman Dollar
+001,E,KZT,Kazakstanian Tenge,Tenge
+001,E,LAK,Laotian Kip,Kip
+001,E,LBP,Lebanese Pound,Lebanese Pound
+001,E,LKR,Sri Lankan Rupee,Sri Lanka Rupee
+001,E,LRD,Liberian Dollar,Liberian Dollar
+001,E,LSL,Lesotho Loti,Loti
+001,E,LTL,Lithuanian Lita,Lita
+001,E,LUF,Luxembourg Franc (Old --> EUR),Lux. Franc
+001,E,LVL,Latvian Lat,Lat
+001,E,LYD,Libyan Dinar,Libyan Dinar
+001,E,MAD,Moroccan Dirham,Dirham
+001,E,MDL,Moldavian Leu,Leu
+001,E,MGA,Madagascan Ariary,Madagasc.Ariary
+001,E,MGF,Madagascan Franc (Old,Madagascan Fr.
+001,E,MKD,Macedonian Denar,Maced. Denar
+001,E,MMK,Myanmar Kyat,Kyat
+001,E,MNT,Mongolian Tugrik,Tugrik
+001,E,MOP,Macao Pataca,Pataca
+001,E,MRO,Mauritanian Ouguiya,Ouguiya
+001,E,MTL,Maltese Lira (Old --> EUR),Lira
+001,E,MUR,Mauritian Rupee,Rupee
+001,E,MVR,Maldive Rufiyaa,Rufiyaa
+001,E,MWK,Malawi Kwacha,Malawi Kwacha
+001,E,MXN,Mexican Pesos,Peso
+001,E,MYR,Malaysian Ringgit,Ringgit
+001,E,MZM,Mozambique Metical (Old),Metical
+001,E,MZN,Mozambique Metical,Metical
+001,E,NAD,Namibian Dollar,Namibian Dollar
+001,E,NGN,Nigerian Naira,Naira
+001,E,NIO,Nicaraguan Cordoba Oro,Cordoba Oro
+001,E,NLG,Dutch Guilder (Old --> EUR),Guilder
+001,E,NOK,Norwegian Krone,Norwegian Krone
+001,E,NPR,Nepalese Rupee,Rupee
+001,E,NZD,New Zealand Dollars,N.Zeal.Dollars
+001,E,OMR,Omani Rial,Omani Rial
+001,E,PAB,Panamanian Balboa,Balboa
+001,E,PEN,Peruvian New Sol,New Sol
+001,E,PGK,Papua New Guinea Kina,Kina
+001,E,PHP,Philippine Peso,Peso
+001,E,PKR,Pakistani Rupee,Rupee
+001,E,PLN,Polish Zloty (new),Zloty
+001,E,PTE,Portuguese Escudo (Old --> EUR),Escudo
+001,E,PYG,Paraguayan Guarani,Guarani
+001,E,QAR,Qatar Rial,Rial
+001,E,RMB,Chinese Yuan Renminbi,Yuan Renminbi
+001,E,ROL,Romanian Leu (Old),Leu (Old)
+001,E,RON,Romanian Leu,Leu
+001,E,RSD,Serbian Dinar,Serbian Dinar
+001,E,RUB,Russian Ruble,Ruble
+001,E,RWF,Rwandan Franc,Franc
+001,E,SAR,Saudi Riyal,Rial
+001,E,SBD,Solomon Islands Dollar,Sol.Isl.Dollar
+001,E,SCR,Seychelles Rupee,Rupee
+001,E,SDD,Sudanese Dinar (Old),Dinar
+001,E,SDG,Sudanese Pound,Pound
+001,E,SDP,Sudanese Pound (until 1992),Pound
+001,E,SEK,Swedish Krona,Swedish Krona
+001,E,SGD,Singapore Dollar,Sing.Dollar
+001,E,SHP,St.Helena Pound,St.Helena Pound
+001,E,SIT,Slovenian Tolar (Old --> EUR),Tolar
+001,E,SKK,Slovakian Krona (Old --> EUR),Krona
+001,E,SLL,Sierra Leone Leone,Leone
+001,E,SOS,Somalian Shilling,Shilling
+001,E,SRD,Surinam Dollar,Surinam Doillar
+001,E,SRG,Surinam Guilder (Old),Surinam Guilder
+001,E,STD,Sao Tome / Principe Dobra,Dobra
+001,E,SVC,El Salvador Colon,Colon
+001,E,SYP,Syrian Pound,Syrian Pound
+001,E,SZL,Swaziland Lilangeni,Lilangeni
+001,E,THB,Thailand Baht,Baht
+001,E,TJR,Tajikistani Ruble (Old),Ruble
+001,E,TJS,Tajikistani Somoni,Somoni
+001,E,TMM,Turkmenistani Manat (Old),Manat (Old)
+001,E,TMT,Turkmenistani Manat,Manat
+001,E,TND,Tunisian Dinar,Dinar
+001,E,TOP,Tongan Pa'anga,Pa'anga
+001,E,TPE,Timor Escudo --> USD,Timor Escudo
+001,E,TRL,Turkish Lira (Old),Lira (Old)
+001,E,TRY,Turkish Lira,Lira
+001,E,TTD,Trinidad and Tobago Dollar,T.+ T. Dollar
+001,E,TWD,New Taiwan Dollar,Dollar
+001,E,TZS,Tanzanian Shilling,Shilling
+001,E,UAH,Ukraine Hryvnia,Hryvnia
+001,E,UGX,Ugandan Shilling,Shilling
+001,E,USD,United States Dollar,US Dollar
+001,E,USDN,(Internal) United States Dollar (5 Dec.),US Dollar
+001,E,UYU,Uruguayan Peso,Peso
+001,E,UZS,Uzbekistan Som,Total
+001,E,VEB,Venezuelan Bolivar (Old),Bolivar (Old)
+001,E,VEF,Venezuelan Bolivar Fuerte,Bolivar Fuerte
+001,E,VND,Vietnamese Dong,Dong
+001,E,VUV,Vanuatu Vatu,Vatu
+001,E,WST,Samoan Tala,Tala
+001,E,XAF,Gabon CFA Franc BEAC,CFA Franc BEAC
+001,E,XCD,East Carribean Dollar,Dollar
+001,E,XDS,St. Christopher Dollar --> XCD,Dollar
+001,E,XEU,European Currency Unit (E.C.U.),E.C.U.
+001,E,XOF,Benin CFA Franc BCEAO,CFA Franc BCEAO
+001,E,XPF,CFP Franc,Franc
+001,E,YER,Yemeni Ryal,Yemeni Ryal
+001,E,YUM,New Yugoslavian Dinar (Old),New Dinar
+001,E,ZAR,South African Rand,Rand
+001,E,ZMK,Zambian Kwacha,Kwacha
+001,E,ZRN,Zaire (Old),Zaire
+001,E,ZWD,Zimbabwean Dollar (Old),Zimbabwe Dollar
+001,E,ZWL,Zimbabwean Dollar (New),Zimbabwe Dollar
+001,E,ZWN,Zimbabwean Dollar (Old),Zimbabwe Dollar
+001,E,ZWR,Zimbabwean Dollar (Old),Zimbabwe Dollar
+001,F,BHD,BHD's, 
+001,F,SAR,Rand sud-africain, 
+001,N,ATS,Oostenrijkse schilling, 
+001,N,AUD,Australische dollar, 
+001,N,BEF,Belgische frank, 
+001,N,BHD,BHD, 
+001,N,CAD,Canadeese dollar, 
+001,N,CHF,Zwitserse frank, 
+001,N,DEM,Duitse mark, 
+001,N,DKK,Deense kroon, 
+001,N,ESP,Spaanse peseta, 
+001,N,FIM,Finse mark, 
+001,N,FRF,Franse frank, 
+001,N,GBP,Engels pond, 
+001,N,ITL,Italiaanse lire, 
+001,N,JPY,japanse yen, 
+001,N,KWD,Kuweitse dinar, 
+001,N,NLG,Nederlandse gulden,Nederl.gulden
+001,N,NOK,Noorse kroon, 
+001,N,PTE,Portugeese escudo, 
+001,N,SAR,Zuidafrikaanse rand, 
+001,N,SEK,Zweedse kroon, 
+001,N,SGD,Singapore dollar, 
+001,N,USD,US dollar, 

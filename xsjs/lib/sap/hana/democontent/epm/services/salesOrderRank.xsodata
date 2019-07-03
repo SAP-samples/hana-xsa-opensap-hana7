@@ -1,0 +1,12 @@
+service namespace "com.sap.openSAP.hana.example.services"  { 
+   "core.models::SALESORDER_RANKING" 
+    as "orderRank" with ("COMPANY_NAME","ORDERS","SALES","SALES_RANK","ORDER_RANK")   
+	keys generate local "ID"
+    aggregates always;	
+      
+}
+
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

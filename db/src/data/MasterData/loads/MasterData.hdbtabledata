@@ -1,0 +1,124 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "MD.Addresses",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "addresses.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "ADDRESSID",
+					"CITY",
+					"POSTALCODE",
+					"STREET",
+					"BUILDING",
+					"COUNTRY",
+					"REGION",
+					"ADDRESSTYPE",
+					"VALIDITY.STARTDATE",
+					"VALIDITY.ENDDATE",
+					"LATITUDE",
+					"LONGITUDE",
+					"POINT"
+                ]
+            }
+        },
+        {
+            "target_table": "MD.BusinessPartner",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "businessPartner.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "PARTNERID",
+					"PARTNERROLE",
+					"EMAILADDRESS",
+					"PHONENUMBER",
+					"FAXNUMBER",
+					"WEBADDRESS",
+					"ADDRESSES.ADDRESSID",
+					"COMPANYNAME",
+					"LEGALFORM",
+					"HISTORY.CREATEDBY.EMPLOYEEID",
+					"HISTORY.CREATEDAT",
+					"HISTORY.CHANGEDBY.EMPLOYEEID",
+					"HISTORY.CHANGEDAT",
+					"CURRENCY"
+                ]
+            }
+        },
+        {
+            "target_table": "MD.Employees",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "employees.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+					"EMPLOYEEID",
+					"NAME.FIRST",
+					"NAME.MIDDLE",
+					"NAME.LAST",
+					"NAME.INITIALS",
+					"SEX",
+					"LANGUAGE",
+					"PHONENUMBER",
+					"EMAILADDRESS",
+					"LOGINNAME",
+					"ADDRESSES.ADDRESSID",
+					"VALIDITY.STARTDATE",
+					"VALIDITY.ENDDATE",
+					"CURRENCY",
+					"SALARYAMOUNT",
+					"ACCOUNTNUMBER",
+					"BANKID",
+					"BANKNAME",
+					"EMPLOYEEPICURL"
+                ]
+            }
+        },
+        {
+            "target_table": "MD.Products",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "products.csv",
+                "has_header": true
+            },
+            "import_settings": {
+            	"include_filter" : [ ],            
+                "import_columns": [
+                    "PRODUCTID",
+					"TYPECODE",
+					"CATEGORY",
+					"HISTORY.CREATEDBY.EMPLOYEEID",
+					"HISTORY.CREATEDAT",
+					"HISTORY.CHANGEDBY.EMPLOYEEID",
+					"HISTORY.CHANGEDAT",
+					"NAMEID",
+					"DESCID",
+					"SUPPLIER.PARTNERID",
+					"TAXTARIFFCODE",
+					"QUANTITYUNIT",
+					"WEIGHTMEASURE",
+					"WEIGHTUNIT",
+					"CURRENCY",
+					"PRICE",
+					"PRODUCTPICURL",
+					"WIDTH",
+					"DEPTH",
+					"HEIGHT",
+					"DIMENSIONUNIT"
+                ]
+            }
+        }
+    ]
+}

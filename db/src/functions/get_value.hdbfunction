@@ -1,0 +1,10 @@
+FUNCTION "get_value" ( IN val INTEGER )
+	RETURNS res DOUBLE
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+	Write your function logic 
+ *****************************/ 
+   res = 1/ (rand()*(:val-1));
+END;

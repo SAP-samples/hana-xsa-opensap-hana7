@@ -1,0 +1,10 @@
+VIEW "MDViews.ProductValuesView" ( 
+     "Product_Id",
+	 "CurrencyCode",
+	 "POGrossAmount" ) AS SELECT
+	 "ProductView_$0"."Product_Id" ,
+	 "ProductView_$0"."PO_ORDERS"."CurrencyCode" AS "CurrencyCode" ,
+	 SUM ( "ProductView_$0"."PO_ORDERS"."Amount" ) AS "POGrossAmount" 
+FROM "MDViews.ProductView" AS "ProductView_$0" 
+GROUP BY "ProductView_$0"."Product_Id" ,
+	 "ProductView_$0"."PO_ORDERS"."CurrencyCode" WITH READ ONLY

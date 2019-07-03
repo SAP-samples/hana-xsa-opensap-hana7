@@ -1,0 +1,11 @@
+VIEW "Util.textsView" COMMENT 'Long Texts View' ( 
+     "TEXTID",
+	 "LANGUAGE",
+	 "ISOLANGUAGE",
+	 "TEXT" ) AS SELECT
+	 "B_$0"."TEXTID" ,
+	 "B_$0"."LANGUAGE" ,
+	 "B_$0"."ISOLANGUAGE" ,
+	 "B_$0"."TEXT" 
+FROM "Util.Texts" AS "B_$0" 
+ORDER BY "B_$0"."TEXTID" 

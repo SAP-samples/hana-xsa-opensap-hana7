@@ -1,0 +1,13 @@
+FUNCTION "getTableSize" ( )
+       RETURNS table( RECORD_COUNT BIGINT, TABLE_SIZE VARCHAR(20), TABLE_SYNONYM VARCHAR(20))
+       LANGUAGE SQLSCRIPT 
+       SQL SECURITY INVOKER AS 
+BEGIN 
+/*****************************  
+       Write your function logic 
+ *****************************/ 
+ 
+ RETURN
+     SELECT  "RECORD_COUNT" as record_count, "TABLE_SIZE" as TABLE_SIZE, "TABLE_NAME" as TABLE_SYNONYM FROM "M_TABLES" where ("TABLE_NAME"='MD.Addresses'or "TABLE_NAME"='MD.BusinessPartner' or "TABLE_NAME"='Util.Constants' or "TABLE_NAME"='MD.Employees' or "TABLE_NAME"='Util.Messages' or "TABLE_NAME"='MD.Products' or "TABLE_NAME"='PO.Header' or "TABLE_NAME"='PO.Item' or "TABLE_NAME"='SO.Header' or "TABLE_NAME"='SO.Item' or "TABLE_NAME"='Util.Texts') ORDER BY "TABLE_NAME";
+
+END;

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>openSAP HANA Native Development</title>
+
+  <style>
+  body, button{
+    font-family: 'Segoe UI Light', arial, sans-serif;
+  }
+  .logoutContent{
+      width:577px;
+      height:300px;
+      margin:auto;
+      margin-top:100px;
+      text-align:center;
+  }
+  
+ h1,h3{
+ 	text-align:center;
+ 	width:577px;
+ 	margin: 0px;
+ 	color:#333;
+ }
+ h1{
+ 	font-size:36px;
+ 	margin-top:30px;
+ }
+  .logoutContent .link{
+ 	margin-top:30px;
+ }
+ .logoutContent a{
+ 	color:#0f6daa;
+ 	font-size:18px;
+ 	font-weight:bold;
+ }
+ 
+  </style>
+</head>
+  <body>
+      <div class="logoutContent">
+          <svg
+                  id="Layer_1"
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 300 272.03"
+                  width="500" height="300">
+              <defs>
+                  <style>
+                      .cls-1{fill:#939598;}
+                      .cls-1,.cls-2,.cls-3{stroke:#fff;}
+                      .cls-1,.cls-7{stroke-miterlimit:10;stroke-width:3px;}
+                      .cls-2,.cls-3{fill:#d1d3d4;stroke-linecap:round;stroke-linejoin:round;}
+                      .cls-2{stroke-width:6.9px;}
+                      .cls-3{stroke-width:2px;}
+                      .cls-4{opacity:0.91;}
+                      .cls-5{fill:#076da4;}
+                      .cls-6{fill:#0b7dc1;}
+                      .cls-7{fill:none;stroke:#bcbec0;}</style>
+              </defs>
+              <path class="cls-1" d="M94.51,277.56a70.46,70.46,0,1,1,99.65-.54A70.54,70.54,0,0,1,94.51,277.56Zm90.09-91.08A57.65,57.65,0,1,0,185,268,57.71,57.71,0,0,0,184.6,186.47Z" transform="translate(-15.18 -27.36)"/><path class="cls-2" d="M21.86,232a9.5,9.5,0,0,1-3.23-6.73c-.07-6.65,5.34-15.08,48.24-21.43l1.7,11.51c-25.58,3.79-34.45,8-37.31,9.86,8.72,5.92,51.38,13.21,115.12,12.46s106.23-9.05,114.8-15.17c-2.94-1.85-12.09-5.89-38.51-9.09l1.4-11.54c43.93,5.31,49.66,13.69,49.73,20.42.29,24.29-106,26.77-127.28,27C127.4,249.51,39.83,249.55,21.86,232Z" transform="translate(-15.18 -27.36)"/><path class="cls-3" d="M21.86,232a9.5,9.5,0,0,1-3.23-6.73c-.07-6.65,5.34-15.08,48.24-21.43l1.7,11.51c-25.58,3.79-34.45,8-37.31,9.86,8.72,5.92,51.38,13.21,115.12,12.46s106.23-9.05,114.8-15.17c-2.94-1.85-12.09-5.89-38.51-9.09l1.4-11.54c43.93,5.31,49.66,13.69,49.73,20.42.29,24.29-106,26.77-127.28,27C127.4,249.51,39.83,249.55,21.86,232Z" transform="translate(-15.18 -27.36)"/><g class="cls-4"><polygon class="cls-5" points="322.4 50.18 308.82 35.67 340.73 5.79 343.44 8.69 314.44 35.86 322.59 44.56 351.6 17.39 354.31 20.29 322.4 50.18"/><polygon class="cls-6" points="339.07 56.35 330.92 47.65 333.82 44.93 339.25 50.73 344.59 45.74 349.36 28.16 353.19 29.2 348.13 47.87 339.07 56.35"/><polygon class="cls-6" points="311.9 27.34 303.75 18.64 312.81 10.15 331.77 6.32 332.56 10.22 314.7 13.83 309.37 18.82 314.8 24.62 311.9 27.34"/><rect class="cls-6" x="332.84" y="53.36" width="27.82" height="3.97" transform="translate(40.64 224.61) rotate(-43.12)"/><polygon class="cls-6" points="355.34 14.48 356.8 4.35 346.59 5.15 346.28 1.18 361.44 0 359.27 15.05 355.34 14.48"/></g><line class="cls-7" x1="311.54" y1="63.16" x2="293.69" y2="81.02"/><line class="cls-7" x1="295.05" y1="61.8" x2="277.2" y2="79.65"/><line class="cls-7" x1="294.17" y1="46.81" x2="275.09" y2="64.66"/>
+          </svg>
+    	<h1>Goodbye</h1>
+    	<h3>You have logged out</h3>
+    	<div class="link">
+    	 	<a  href=# onclick="logBack();return false;">Click here to log back on</a>
+    	 </div>
+      </div>
+      <script>
+         function logBack(){
+             var targetUrl = window.location.host;
+             window.location.href = "https://" + targetUrl;
+         }
+      </script>
+  </body>
+</html>

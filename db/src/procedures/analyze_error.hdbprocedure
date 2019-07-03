@@ -1,0 +1,12 @@
+PROCEDURE "analyze_error" (OUT outtab TABLE(i INT, num DOUBLE)  )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   tab = select quantity as items from "PO.Item";
+   call "debug_test"(:tab, outtab);
+END

@@ -1,0 +1,22 @@
+COLUMN TABLE "lrep.variants" (
+     "id" INTEGER CS_INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1) NOT NULL ,
+	 "fileName" NVARCHAR(255),
+	 "fileType" NVARCHAR(10),
+	 "changeType" NVARCHAR(40),
+	 "reference" NVARCHAR(100),
+	 "packageName" NVARCHAR(100),
+	 "content" NCLOB MEMORY THRESHOLD 1000,
+	 "namespace" NVARCHAR(100),
+	 "creation" SECONDDATE CS_SECONDDATE DEFAULT CURRENT_TIMESTAMP,
+	 "originalLanguage" NVARCHAR(2),
+	 "conditions" NVARCHAR(254),
+	 "context" NVARCHAR(254),
+	 "supportGenerator" NVARCHAR(100),
+	 "supportService" NVARCHAR(30),
+	 "supportUser" NVARCHAR(100),
+	 "layer" NVARCHAR(20),
+	 "selector" NVARCHAR(255),
+	 "texts" NCLOB MEMORY THRESHOLD 1000,
+	 "variantName" NVARCHAR(255),
+	 PRIMARY KEY ("id")) 
+	 UNLOAD PRIORITY 5 AUTO MERGE 

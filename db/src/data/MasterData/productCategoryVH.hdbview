@@ -1,0 +1,3 @@
+VIEW "MDViews.productCategoryVH" ( "Product_Category" ) AS SELECT
+	 DISTINCT "Products_$0"."CATEGORY" AS "Product_Category" 
+FROM "MD.Products" AS "Products_$0" WITH READ ONLY

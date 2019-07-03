@@ -1,0 +1,42 @@
+{
+  "ISO.COUNTRIES": {
+    "target": {
+      "object": "ISO.COUNTRIES"
+    }
+  },
+  "ISO.CURRENCIES": {
+    "target": {
+      "object": "ISO.CURRENCIES"
+    }
+  },
+  "ISO.CURRNECY_CODES": {
+    "target": {
+      "object": "ISO.CURRNECY_CODES"
+    }
+  },
+  "ISO.SUBDIVISIONS": {
+    "target": {
+      "object": "ISO.SUBDIVISIONS"
+    }
+  },
+  "ISO.COUNTRIES_REGIONS": {
+    "target": {
+      "object": "ISO.COUNTRIES_REGIONS"
+    }
+  },
+  "ISO.US_STATES": {
+    "target": {
+      "object": "ISO.US_STATES"
+    }
+  },
+  "ISO.US_STATES_AND_TERRITORIES": {
+    "target": {
+      "object": "ISO.US_STATES_AND_TERRITORIES"
+    }
+  },
+  "CURRENCY": {
+    "target": {
+      "object": "ISO.CURRNECY_CODES"
+    }
+  }
+}

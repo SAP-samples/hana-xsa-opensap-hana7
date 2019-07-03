@@ -1,0 +1,55 @@
+{
+	"name": "openSAPHANA-srv",
+	"description": "Generated from ../package.json, do not change!",
+	"version": "1.0.0",
+	"dependencies": {
+		"@sap/cds": "^3.13.0",
+		"express": "^4.17.1",
+		"hdb": "^0.17.0",
+		"@sap/xssec": "^2.2.2",
+		"@sap/xsenv": "^2.0.0",
+		"@sap/hdbext": "~6.0",
+		"@sap/hana-client": "~2.4",
+		"@sap/textbundle": "latest",
+		"@sap/logging": "~5.0",
+		"@sap/audit-logging": "^3.0.1",
+		"nodemailer": "~6.2",
+		"passport": "~0.4.0",
+		"async": "latest",
+		"ws": "~7.0",
+		"accept-language-parser": "latest",
+		"node-xlsx": "~0.15",
+		"node-zip": "~1.1.1",
+		"xmldoc": "~1.1.2",
+		"winston": "~3.1",
+		"body-parser": "~1.19",
+		"elementtree": "latest",
+		"then-request": "latest",
+		"compression": "~1.7",
+		"helmet": "~3.18"
+	},
+	"engines": {
+		"node": "^10",
+		"npm": "^6"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"postinstall": "npm dedupe && node .build.js",
+		"start": "node server.js",
+		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
+	},
+	"private": true,
+	"i18n": {
+		"folders": [
+			"_i18n"
+		]
+	},
+	"cds": {
+		"requires": {
+			"db": {
+				"kind": "hana",
+				"model": "gen/csn.json"
+			}
+		}
+	}
+}
