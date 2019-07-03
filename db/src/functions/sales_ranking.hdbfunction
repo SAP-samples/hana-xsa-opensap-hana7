@@ -1,0 +1,19 @@
+FUNCTION "sales_ranking" (IP_FR_DTE DATE,IP_TO_DTE DATE)
+	RETURNS table( company_name VARCHAR(20), sales VARCHAR(20), orders VARCHAR(20),sales_rank VARCHAR(20),order_rank VARCHAR(20))
+	LANGUAGE SQLSCRIPT 
+	SQL SECURITY INVOKER AS 
+BEGIN 
+RETURN
+ 	 select "COMPANY_NAME" as company_name, "SALES" as sales, "ORDERS" as orders, "SALES_RANK" as sales_rank, "ORDER_RANK" as order_rank from(                
+		           select  "COMPANYNAME" as company_name, sum("NETAMOUNT") as sales, count("SALESORDERID") as orders,
+		        	  dense_rank() over ( order by sum("NETAMOUNT") desc ) as sales_rank,
+		        	  dense_rank() over ( order by count("SALESORDERID") desc ) as order_rank
+		              from "core.models::SALES_ORDER_RANKING"
+		              where date_sql between :IP_FR_DTE and :IP_TO_DTE
+		              group by "COMPANYNAME" 
+		              order by sales_rank, "COMPANYNAME"
+		)                            
+		where sales_rank < 11;   
+		
+ 	 
+END;
