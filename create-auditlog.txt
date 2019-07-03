@@ -1,1 +1,1 @@
-xs create-service auditlog free openSAP-ex-log
+cf create-service auditlog-management default openSAP-ex-log
