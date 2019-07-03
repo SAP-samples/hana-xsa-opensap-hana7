@@ -1,10 +1,5 @@
 {
-"parserOptions": {
-     "sourceType": "module",
-     "ecmaVersion": 2018
-   },
-   
-"rules": {
+	"rules": {
 		"accessor-pairs": 0,
 		"array-bracket-spacing": [0, "never"],
 		"array-callback-return": 0,

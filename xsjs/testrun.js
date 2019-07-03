@@ -1,3 +1,4 @@
+/*eslint no-console: 0, no-unused-vars: 0, no-undef:0, no-process-exit:0, quotes:0 */
 /*eslint no-console: 0*/
 'use strict';
 
