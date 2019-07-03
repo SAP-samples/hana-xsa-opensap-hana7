@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable">
+	<smartTable:SmartTable id="tblPOItem" tableType="Table" header="{i18n>POItem}" showRowCount="true" enableAutoBinding="true"
+		showFullScreenButton="true"/>
+</core:FragmentDefinition>
