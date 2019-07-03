@@ -36,7 +36,9 @@
 	"scripts": {
 		"postinstall": "npm dedupe && node .build.js",
 		"start": "node server.js",
-		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
+		"watch": "nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build",
+		"test": "node ./node_modules/gulp/bin/gulp test",
+		"test-coverage": "node ./node_modules/gulp/bin/gulp test-coverage"
 	},
 	"private": true,
 	"i18n": {

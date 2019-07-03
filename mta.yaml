@@ -36,6 +36,10 @@ modules:
           artifacts:
             - './*'
           target-path: resources/web
+        - name: exerciseAsync
+          artifacts:
+            - './*'
+          target-path: resources/exerciseAsync
   - name: db
     type: hdb
     path: db
@@ -99,6 +103,11 @@ modules:
       - name: db
       - name: sap.hana.democontent.epm.services.images
       - name: CROSS_SCHEMA_SFLIGHT
+  - name: exerciseAsync
+    type: html5
+    path: exerciseAsync
+    build-parameters:
+      builder: grunt
 resources:
   - name: openSAPHANA_html5_repo_runtime
     parameters:
