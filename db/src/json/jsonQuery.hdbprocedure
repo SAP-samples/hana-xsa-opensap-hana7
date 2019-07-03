@@ -1,0 +1,33 @@
+PROCEDURE "jsonQuery" (
+out JSONOUT1 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT2 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT3 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT4 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT5 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT6 table ( JSONQUERY NVARCHAR(5000) ),
+out JSONOUT7 table ( JSONQUERY NVARCHAR(5000) )
+
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   JSONOUT1 = SELECT JSON_QUERY('{"item1":1, "item2":2, "item3":3}', '$') AS JSONQUERY  FROM DUMMY;
+   
+   JSONOUT2 = SELECT JSON_QUERY('{"item1":1, "item2":2, "item3":3}', '$.item1' WITH WRAPPER ) AS JSONQUERY  FROM DUMMY;
+   
+   JSONOUT3 = SELECT JSON_QUERY('{"item1":[1,2], "item2":2, "item3":3}', '$.item1' WITH WRAPPER ) AS JSONQUERY  FROM DUMMY;
+   
+   JSONOUT4 = SELECT JSON_QUERY('{"item1":[1,2], "item2":2, "item3":3}', '$.item1' WITH CONDITIONAL WRAPPER ) AS JSONQUERY  FROM DUMMY;
+   
+   JSONOUT5 = SELECT JSON_QUERY('{"item1":[1,2]}', '$' WITH WRAPPER) AS JSONQUERY FROM DUMMY;
+   
+   JSONOUT6 = SELECT JSON_QUERY('{"item1":1, "item2":2, "item3":3}', '$.item4' EMPTY ARRAY ON EMPTY ) AS JSONQUERY  FROM DUMMY;
+   
+   JSONOUT7 = SELECT JSON_QUERY('{"item1":1, "item2":2, "item3":3}', '$.item4' EMPTY OBJECT ON EMPTY ) AS JSONQUERY  FROM DUMMY;
+END

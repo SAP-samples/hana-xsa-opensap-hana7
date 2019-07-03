@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Privilege:analyticPrivilege xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="USER_EXT_PRIV" privilegeType="SQL_ANALYTIC_PRIVILEGE" schemaVersion="1.1">
+<descriptions defaultDescription="USER_EXT_PRIV"/>
+<securedModels>
+  <modelUri>core.models::USER_DETAILS_EXT</modelUri>
+</securedModels>
+</Privilege:analyticPrivilege>

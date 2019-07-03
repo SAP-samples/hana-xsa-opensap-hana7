@@ -1,0 +1,35 @@
+{
+	"role":{
+		"name": "poAccess",
+		"schema_privileges": [{
+		   "privileges": ["SELECT METADATA", 
+		    			  "SELECT" ] }],
+		"schema_analytic_privileges": [
+            {
+                "privileges":[ "PO_VIEW_PRIVILEGE" ]
+            }
+        ],		    			  
+		"object_privileges":[
+			{
+				"name": "PurchaseOrder.Header",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "PurchaseOrder.Item",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "getPOItems",
+				"type": "PROCEDURE",
+				"privileges": [ "EXECUTE" ]
+			},
+			{
+				"name": "PurchaseOrders",
+				"type": "VIEW",
+				"privileges": [ "SELECT" ]
+			}			
+		]
+	}
+}

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALES_ORDER_LITE" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="crossClient" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALES_ORDER_LITE"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SO.Header_1">
+    <resourceUri>SO.Header</resourceUri>
+  </DataSource>
+  <DataSource id="SO.Item_1">
+    <resourceUri>SO.Item</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="BILLINGSTATUS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="BILLINGSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERYSTATUS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DELIVERYSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="LIFECYCLESTATUS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="NOTEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NOTEID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_PARTNERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESORDERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="TAXAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TAXAMOUNT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SO.Header_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILLINGSTATUS" source="BILLINGSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYSTATUS" source="DELIVERYSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDAT" source="HISTORY.CHANGEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDBY_EMPLOYEEID" source="HISTORY.CHANGEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDBY_EMPLOYEEID" source="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LIFECYCLESTATUS" source="LIFECYCLESTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTEID" source="NOTEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_PARTNERID" source="PARTNER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERYDATE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DELIVERYDATE"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="ITEMATPSTATUS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="ITEMATPSTATUS"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="NOTEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NOTEID"/>
+      </viewAttribute>
+      <viewAttribute id="OPITEMPOS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="OPITEMPOS"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITY"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="TAXAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TAXAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="SALESORDERID">
+        <descriptions defaultDescription="HEADER_SALESORDERID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SO.Item_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERYDATE" source="DELIVERYDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ITEMATPSTATUS" source="ITEMATPSTATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTEID" source="NOTEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPITEMPOS" source="OPITEMPOS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRODUCTID" source="PRODUCT.PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="HEADER.SALESORDERID"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY_CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNER_PARTNERID"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCT_PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+    </input>
+    <joinAttribute name="SALESORDERID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="SALESORDERID" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Join_1" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="HISTORY_CREATEDAT$local">
+      <descriptions/>
+      <keyMapping columnObjectName="Join_1" columnName="HISTORY_CREATEDAT"/>
+    </attribute>
+    <attribute id="PARTNERID$local">
+      <descriptions/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="PRODUCTID$local">
+      <descriptions/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCTID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="NETAMOUNT" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="NETAMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="core.models::TIME_DIM">
+      <attributes>
+        <attributeRef>HISTORY_CREATEDAT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>DATE_SQL</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="core.models::BUYER">
+      <attributes>
+        <attributeRef>PARTNERID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>PARTNERID</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="core.models::PROD">
+      <attributes>
+        <attributeRef>PRODUCTID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>PRODUCTID</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="COMPANYNAME_1" attributeName="COMPANYNAME"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="246" y="112"/>
+    
+      <rectangleSize width="151"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="352"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="281" y="352"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="false" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="251" y="232"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="35" y="31"/>
+      <rectangleSize width="287.931640625"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="457" y="99"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="330" y="240"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::TIME_DIM" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="644" y="32"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::BUYER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="16" y="16"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="core.models::PROD" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="316" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,12 @@
+PROCEDURE "current_line_number" ( out test table ( line_number int ) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   test = select ::CURRENT_LINE_NUMBER as line_number from dummy;
+END

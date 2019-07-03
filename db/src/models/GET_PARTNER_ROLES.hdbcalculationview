@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::GET_PARTNER_ROLES" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="GET_PARTNER_ROLES"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="get_partner_roles" type="TABLE_FUNCTION" partitionedExecution="false">
+    <resourceUri>get_partner_roles</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="get_partner_roles">
+  <attributes>
+    <attribute id="PARTNERROLE" order="1" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="PARTNERDESC">
+      <descriptions defaultDescription="Partner Role"/>
+      <keyMapping  columnObjectName="get_partner_roles" columnName="PARTNERROLE"/>
+    </attribute>
+    <attribute id="PARTNERDESC" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Partner Description"/>
+      <keyMapping  columnObjectName="get_partner_roles" columnName="PARTNERDESC"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

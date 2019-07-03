@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::TIME_DIM" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="crossClient" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="TIME_DIM"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Core.SHINE_TIME_DIM">
+    <resourceUri>Core.SHINE_TIME_DIM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="Core.SHINE_TIME_DIM">
+  <attributes>
+    <attribute id="CALMONTH" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALMONTH"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="CALMONTH"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="CALWEEK" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALWEEK"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="CALWEEK"/>
+    </attribute>
+    <attribute id="DATETIMESTAMP" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIMESTAMP"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DATETIMESTAMP"/>
+    </attribute>
+    <attribute id="DATETIME_SAP" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIME_SAP"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DATETIME_SAP"/>
+    </attribute>
+    <attribute id="DATE_SAP" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SAP"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DATE_SAP"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SQL"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="DAY" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DAY"/>
+    </attribute>
+    <attribute id="DAY_INT" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DAY_INT"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DAY_OF_WEEK"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK_INT" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="DAY_OF_WEEK_INT"/>
+    </attribute>
+    <attribute id="HOUR" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOUR"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="HOUR"/>
+    </attribute>
+    <attribute id="HOUR_INT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOUR_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="HOUR_INT"/>
+    </attribute>
+    <attribute id="MINUTE" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MINUTE"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="MINUTE"/>
+    </attribute>
+    <attribute id="MINUTE_INT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MINUTE_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="MINUTE_INT"/>
+    </attribute>
+    <attribute id="MONTH" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="MONTH"/>
+    </attribute>
+    <attribute id="MONTH_INT" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="MONTH_INT"/>
+    </attribute>
+    <attribute id="MONTH_LAST_DAY" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH_LAST_DAY"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="MONTH_LAST_DAY"/>
+    </attribute>
+    <attribute id="QUARTER" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="QUARTER_INT" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="QUARTER_INT"/>
+    </attribute>
+    <attribute id="SECOND" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SECOND"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="SECOND"/>
+    </attribute>
+    <attribute id="SECOND_INT" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SECOND_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="SECOND_INT"/>
+    </attribute>
+    <attribute id="TZNTSTMPL" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPL"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="TZNTSTMPL"/>
+    </attribute>
+    <attribute id="TZNTSTMPS" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPS"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="TZNTSTMPS"/>
+    </attribute>
+    <attribute id="WEEK" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="WEEK"/>
+    </attribute>
+    <attribute id="WEEK_INT" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="WEEK_INT"/>
+    </attribute>
+    <attribute id="WEEK_YEAR" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="WEEK_YEAR"/>
+    </attribute>
+    <attribute id="WEEK_YEAR_INT" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="WEEK_YEAR_INT"/>
+    </attribute>
+    <attribute id="YEAR" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="YEAR"/>
+    </attribute>
+    <attribute id="YEAR_INT" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR_INT"/>
+      <keyMapping columnObjectName="Core.SHINE_TIME_DIM" columnName="YEAR_INT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

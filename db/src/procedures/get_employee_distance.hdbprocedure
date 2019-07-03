@@ -1,0 +1,27 @@
+PROCEDURE "get_employee_distance" ( 
+	   in im_latitude double default 8.64407,
+       in im_longitude double default 49.292910,
+       out ex_employees table (EMPLOYEEID nvarchar(10),
+                               "NAME.FIRST" nvarchar(40),
+                               "NAME.LAST" nvarchar(40),
+                               LATITUDE double,
+                               LONGITUDE double,
+                               POINT ST_POINT,
+                               DISTANCE_FROM_LOCATION double ) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS 
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+ ex_employees =  select a.EMPLOYEEID, a."NAME.FIRST", a."NAME.LAST", b.LATITUDE, b.LONGITUDE, b.POINT,
+                        b.POINT.ST_DISTANCE( NEW ST_POINT(:im_latitude, :im_longitude), 'meter') as DISTANCE_FROM_LOCATION 
+                          from "MD.Employees" as a
+                            inner join "MD.Addresses" as b
+                               on a."ADDRESSES.ADDRESSID" = b."ADDRESSID";
+   
+
+END

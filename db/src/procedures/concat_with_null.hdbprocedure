@@ -1,0 +1,12 @@
+PROCEDURE "concat_with_null" ( out test_out table ( test nvarchar(40), test2 nvarchar(40) ) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   test_out = select concat_naz('First', null) as test, concat('Second', null) as test2 from dummy;
+END

@@ -1,0 +1,16 @@
+PROCEDURE "parallel_select" (  )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   begin parallel execution
+      
+       select * from "MD.Products" where CATEGORY = 'Notebooks';
+       select * from "MD.Products" where CATEGORY = 'Handhelds';
+   end;
+END

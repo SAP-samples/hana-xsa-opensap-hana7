@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALESORDER_RANKING" applyPrivilegeType="NONE" dataCategory="DEFAULT" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALESORDER_RANKING"/>
+<localVariables>
+  <variable id="IP_FR_DTE" parameter="true">
+    <descriptions defaultDescription="IP_FR_DTE"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="NaN" mandatory="false">
+      <valueDomain type="empty"/>
+      <selection multiLine="false"/>
+      <derivationRule inputEnabled="true">
+        <resourceUri>SO.Filter</resourceUri>
+        <resultElementName>COLVALUE</resultElementName>
+        <columnFilter columnName="MODEL">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" value="AN_SALESORDER_RANKING"/>
+        </columnFilter>
+        <columnFilter columnName="COLNAME">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" value="FROM"/>
+        </columnFilter>
+      </derivationRule>
+      <defaultRange/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_TO_DTE" parameter="true">
+    <descriptions defaultDescription="IP_TO_DTE"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="NaN" mandatory="false">
+      <valueDomain type="empty"/>
+      <selection multiLine="false"/>
+      <derivationRule inputEnabled="true">
+        <resourceUri>SO.Filter</resourceUri>
+        <resultElementName>COLVALUE</resultElementName>
+        <columnFilter columnName="MODEL">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" value="AN_SALESORDER_RANKING"/>
+        </columnFilter>
+        <columnFilter columnName="COLNAME">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" value="TO"/>
+        </columnFilter>
+      </derivationRule>
+      <defaultRange/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="core.models::SALESORDER_RANKING_SQL">
+    <resourceUri>core.models::SALESORDER_RANKING_SQL</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="COMPANY_NAME"><descriptions/>
+        <descriptions defaultDescription="COMPANY_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="ORDERS"><descriptions/>
+        <descriptions defaultDescription="ORDERS"/>
+      </viewAttribute>
+      <viewAttribute id="ORDER_RANK"><descriptions/>
+        <descriptions defaultDescription="ORDER_RANK"/>
+      </viewAttribute>
+      <viewAttribute id="SALES"><descriptions/>
+        <descriptions defaultDescription="SALES"/>
+      </viewAttribute>
+      <viewAttribute id="SALES_RANK"><descriptions/>
+        <descriptions defaultDescription="SALES_RANK"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="core.models::SALESORDER_RANKING_SQL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANY_NAME" source="COMPANY_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDERS" source="ORDERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDER_RANK" source="ORDER_RANK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES" source="SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_RANK" source="SALES_RANK"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="COMPANY_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANY_NAME"/>
+      <keyMapping columnObjectName="Projection_1" columnName="COMPANY_NAME"/>
+    </attribute>
+    <attribute id="ORDERS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDERS"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ORDERS"/>
+    </attribute>
+    <attribute id="ORDER_RANK" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDER_RANK"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ORDER_RANK"/>
+    </attribute>
+    <attribute id="SALES" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALES"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SALES"/>
+    </attribute>
+    <attribute id="SALES_RANK" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALES_RANK"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SALES_RANK"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="56" y="211"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

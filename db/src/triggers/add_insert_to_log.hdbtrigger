@@ -1,0 +1,14 @@
+TRIGGER "add_insert_to_log"
+    AFTER INSERT ON 
+    "Product.Products" 
+    REFERENCING NEW ROW newrow FOR EACH ROW
+ BEGIN
+
+  INSERT INTO "Product.ProductLog" 
+           VALUES(:newrow."PRODUCTID",
+              (select IFNULL(MAX(logid), 0) + 1 from
+				  "Product.ProductLog" where productid = :newrow.PRODUCTID), 
+                  now(), 
+                  CURRENT_USER,
+                  :newrow."PRODUCTID" || ' has been created');
+ END;

@@ -9,13 +9,43 @@
 		    			  "EXECUTE", 
 		    			  "DELETE", 
 		    			  "UPDATE", 
+		    			  "DEBUG",
 		    			  "CREATE TEMPORARY TABLE"
 		   ]
 		}],
 		"schema_analytic_privileges": [
             {
-                "privileges":[ "PO_VIEW_PRIVILEGE", "FLIGHT_VIEW_PRIVILEGE" ]
+                "privileges":[ "PO_VIEW_PRIVILEGE", "FLIGHT_VIEW_PRIVILEGE", "USER_EXT_PRIV" ]
             }
-        ]
+        ],
+        "object_privileges":[
+			{
+				"name": "PO.Header",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+            	"name":"SO.salesOrderView",
+            	"type":"VIEW",
+            	"privileges":[
+            		"SELECT"
+            	]
+    		},			
+			{
+				"name": "PO.Item",
+				"type": "TABLE",
+				"privileges": [ "SELECT" ]
+			},
+			{
+				"name": "get_product_sale_price",
+				"type": "PROCEDURE",
+				"privileges": [ "EXECUTE" ]
+			},
+			{
+				"name": "PO.ItemView",
+				"type": "VIEW",
+				"privileges": [ "SELECT" ]
+			}			
+		]
 	}
 }

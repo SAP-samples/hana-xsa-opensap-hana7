@@ -1,0 +1,18 @@
+PROCEDURE "wake_up_connections" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN USING SQLSCRIPT_SYNC as SyncLib; 
+
+ declare i integer;
+ declare lv_id int;
+ declare lt_connections table like m_service_threads;
+ 
+ lt_connections = select * from m_service_threads
+                      where lock_wait_name like 'SQLSCRIPT_WAIT%';
+ for i in 1..record_count(:lt_connections) DO
+  lv_id = :lt_connections.connection_id[:i];
+  CALL SyncLib:WAKEUP_CONNECTION(lv_id);
+ end for;
+
+END

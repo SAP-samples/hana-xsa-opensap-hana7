@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="core.models::PURCHASE_DETAILS" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" applyPrivilegeType="NONE">
+<origin/>
+  <descriptions defaultDescription="PURCHASE_DETAILS"/>
+  <localVariables>
+    <variable id="IP_O_TARGET_CURRENCY" parameter="true">
+      <descriptions defaultDescription="IP_O_TARGET_CURRENCY"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="EUR" length="3" mandatory="true">
+        <valueDomain type="Currency"/>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="PO.Header">
+      <resourceUri>PO.Header</resourceUri>
+    </DataSource>
+    <DataSource id="PO.Item">
+      <resourceUri>PO.Item</resourceUri>
+    </DataSource>
+    <DataSource id="MD.Products">
+      <resourceUri>MD.Products</resourceUri>
+    </DataSource>
+    <DataSource id="BUYER">
+      <resourceUri>core.models::BUYER</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:JoinView" id="PO" joinType="inner">
+      <viewAttributes>
+        <viewAttribute id="PURCHASEORDERID"/>
+        <viewAttribute id="PARTNERID"/>
+        <viewAttribute id="HISTORY_CREATEDAT"/>
+        <viewAttribute id="PRODUCTID"/>
+        <viewAttribute id="GROSSAMOUNT"/>
+        <viewAttribute id="CURRENCY"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="PO.Header">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="PURCHASEORDERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNER.PARTNERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      </input>
+      <input node="PO.Item">
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCT.PRODUCTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="HEADER.PURCHASEORDERID"/>
+      </input>
+      <joinAttribute name="PURCHASEORDERID"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Products" joinType="inner">
+      <viewAttributes>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="GROSSAMOUNT"/>
+        <viewAttribute id="PRODUCTID"/>
+        <viewAttribute id="HISTORY_CREATEDAT"/>
+        <viewAttribute id="PARTNERID"/>
+        <viewAttribute id="PURCHASEORDERID"/>
+        <viewAttribute id="CATEGORY"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="PO">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY_CREATEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="PURCHASEORDERID"/>
+      </input>
+      <input node="MD.Products">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CATEGORY" source="CATEGORY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      </input>
+      <joinAttribute name="PRODUCTID"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Partners" joinType="inner">
+      <viewAttributes>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="GROSSAMOUNT"/>
+        <viewAttribute id="PRODUCTID"/>
+        <viewAttribute id="HISTORY_CREATEDAT"/>
+        <viewAttribute id="PARTNERID"/>
+        <viewAttribute id="PURCHASEORDERID"/>
+        <viewAttribute id="CATEGORY"/>
+        <viewAttribute id="COMPANYNAME"/>
+        <viewAttribute id="CITY"/>
+        <viewAttribute id="POSTALCODE"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="Products">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY_CREATEDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PURCHASEORDERID" source="PURCHASEORDERID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CATEGORY" source="CATEGORY"/>
+      </input>
+      <input node="BUYER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSTALCODE" source="POSTALCODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      </input>
+      <joinAttribute name="PARTNERID"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Partners">
+    <attributes>
+      <attribute id="PURCHASEORDERID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PURCHASEORDERID"/>
+        <keyMapping columnObjectName="Partners" columnName="PURCHASEORDERID"/>
+      </attribute>
+      <attribute id="POSTALCODE" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Postal Code"/>
+        <keyMapping columnObjectName="Partners" columnName="POSTALCODE"/>
+      </attribute>
+      <attribute id="CITY" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="City"/>
+        <keyMapping columnObjectName="Partners" columnName="CITY"/>
+      </attribute>
+      <attribute id="COMPANYNAME" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Name"/>
+        <keyMapping columnObjectName="Partners" columnName="COMPANYNAME"/>
+      </attribute>
+      <attribute id="CATEGORY" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CATEGORY"/>
+        <keyMapping columnObjectName="Partners" columnName="CATEGORY"/>
+      </attribute>
+      <attribute id="PARTNERID" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+        <keyMapping columnObjectName="Partners" columnName="PARTNERID"/>
+      </attribute>
+      <attribute id="HISTORY_CREATEDAT" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+        <keyMapping columnObjectName="Partners" columnName="HISTORY_CREATEDAT"/>
+      </attribute>
+      <attribute id="PRODUCTID" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PRODUCT_PRODUCTID"/>
+        <keyMapping columnObjectName="Partners" columnName="PRODUCTID"/>
+      </attribute>
+      <attribute id="CURRENCY" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CURRENCY"/>
+        <keyMapping columnObjectName="Partners" columnName="CURRENCY"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="GROSSAMOUNT" order="9" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+        <measureMapping columnObjectName="Partners" columnName="GROSSAMOUNT"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+    <sharedDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="PO" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="20" y="470"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape modelObjectName="PO.Header" modelObjectNameSpace="PO" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="20" y="30"/>
+        <rectangleSize width="278"/>
+      </shape>
+      <shape modelObjectName="PO.Item" modelObjectNameSpace="PO" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="320" y="30"/>
+        <rectangleSize width="250"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Products" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="10" y="330"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape modelObjectName="PO" modelObjectNameSpace="Products" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="20" y="30"/>
+        <rectangleSize width="250"/>
+      </shape>
+      <shape modelObjectName="MD.Products" modelObjectNameSpace="Products" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="320" y="30"/>
+        <rectangleSize width="250"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Partners" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="20" y="190"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape modelObjectName="Products" modelObjectNameSpace="Partners" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="20" y="30"/>
+        <rectangleSize width="250"/>
+      </shape>
+      <shape modelObjectName="core.models::BUYER" modelObjectNameSpace="Partners" modelObjectType="JoinNodeInput">
+        <upperLeftCorner x="320" y="30"/>
+        <rectangleSize width="250"/>
+      </shape>
+      <shape modelObjectName="Partners" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+        <upperLeftCorner x="250" y="250"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

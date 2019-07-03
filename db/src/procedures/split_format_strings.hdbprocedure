@@ -1,0 +1,29 @@
+PROCEDURE "split_format_strings" ( 
+	   out ex_strout table(RESULT nvarchar(5000)),
+       out ex_tabout table(PRODUCTID nvarchar(10), PRICE decimal(15,2)) ) 
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+ BEGIN USING SQLSCRIPT_STRING AS LIB; 
+
+   declare lv_index int;
+   declare lv_productid string;
+   declare lv_price string;
+   DECLARE lt_products TABLE (PRODUCTID NVARCHAR(10), PRICE decimal(15,2) );
+   
+   lt_products.PRODUCTID[1] = 'HT-1000';
+   lt_products.PRICE[1] = '19.99';
+   lt_products.PRODUCTID[2] = 'HT-1001';
+   lt_products.PRICE[2] = '29.99';
+   lt_products.PRODUCTID[3] = 'HT-1002';
+   lt_products.PRICE[3] = '39.99';  
+      
+   ex_strout = LIB:FORMAT_TO_TABLE('{PRODUCTID},{PRICE}', :lt_products);
+
+   FOR lv_index IN 1..RECORD_COUNT(:ex_strout) DO
+     (lv_productid, lv_price) = LIB:SPLIT(:ex_strout.result[lv_index], ','); 
+     ex_tabout.PRODUCTID[lv_index] = lv_productid;
+     ex_tabout.PRICE[lv_index] = lv_price;
+   END FOR; 
+
+END

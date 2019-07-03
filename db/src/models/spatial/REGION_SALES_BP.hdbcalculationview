@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="spatial.models::REGION_SALES_BP" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="REGION_SALES_BP"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SO.Header">
+    <resourceUri>SO.Header</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="SALESORDERID">
+        <descriptions defaultDescription="SALESORDERID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY">
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT">
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNER_PARTNERID">
+        <descriptions defaultDescription="PARTNER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="GROSSAMOUNT">
+        <descriptions defaultDescription="GROSSAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="NETAMOUNT">
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="TAXAMOUNT">
+        <descriptions defaultDescription="TAXAMOUNT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="SO.Header">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORDERID" source="SALESORDERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER_PARTNERID" source="PARTNER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GROSSAMOUNT" source="GROSSAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETAMOUNT" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXAMOUNT" source="TAXAMOUNT"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="SALESORDERID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORDERID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SALESORDERID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="HISTORY_CREATEDAT" order="3" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="HISTORY_CREATEDAT"/>
+    </attribute>
+    <attribute id="PARTNER_PARTNERID$local">
+      <keyMapping columnObjectName="Projection_1" columnName="PARTNER_PARTNERID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="YEAR_OF_SALE" order="7" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR_OF_SALE"/>
+      <keyCalculation datatype="NVARCHAR" length="10" expressionLanguage="COLUMN_ENGINE">
+        <formula>midstr(string(&quot;HISTORY_CREATEDAT&quot;),0,4)</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="GROSSAMOUNT" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="GROSSAMOUNT"/>
+    </measure>
+    <measure id="NETAMOUNT" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="NETAMOUNT"/>
+    </measure>
+    <measure id="TAXAMOUNT" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAXAMOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="TAXAMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="spatial.models::BP_ADDRESS_DETAILS">
+      <attributes>
+        <attributeRef>PARTNER_PARTNERID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>PARTNERID</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="265"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="spatial.models::BP_ADDRESS_DETAILS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

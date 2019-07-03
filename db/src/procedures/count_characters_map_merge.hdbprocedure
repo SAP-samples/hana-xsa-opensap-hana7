@@ -1,0 +1,23 @@
+PROCEDURE "count_characters_map_merge" (
+	      out ex_result table( id int, val varchar, freq int) )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+    declare lt_input table( id int, strdata varchar(5000));
+    declare lt_result table(id int, val varchar, freq int);
+    
+    lt_input.id[1] = '1';   lt_input.strdata[1] = 'A,B';
+    lt_input.id[2] = '2';   lt_input.strdata[2] = 'B,E,F';
+    lt_input.id[3] = '3';   lt_input.strdata[3] = 'F,C';
+    lt_input.id[4] = '4';   lt_input.strdata[4] = 'A,A';
+    lt_input.id[5] = '5';   lt_input.strdata[5] = 'A,B,B';
+    lt_input.id[6] = '6';   lt_input.strdata[6] = 'E,F';
+
+    lt_result = MAP_MERGE( :lt_input, 
+                            "count_char_mapper"(:lt_input.id, :lt_input.strdata) );
+                            
+     ex_result = select * from :lt_result order by id, val;
+
+END

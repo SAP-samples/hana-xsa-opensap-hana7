@@ -1,0 +1,12 @@
+PROCEDURE "change_session_var" (
+	       in im_var nvarchar(50),
+	       in im_value nvarchar(50))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN 
+ 
+ set :im_var = :im_value;
+ call "get_session_var_value"( :im_var );
+   
+END

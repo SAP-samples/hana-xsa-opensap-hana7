@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::PROD" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="" schemaVersion="3.0" defaultClient="crossClient" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="PROD"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MD.BusinessPartner">
+    <resourceUri>MD.BusinessPartner</resourceUri>
+  </DataSource>
+  <DataSource id="MD.Products">
+    <resourceUri>MD.Products</resourceUri>
+  </DataSource>
+  <DataSource id="MD.Addresses">
+    <resourceUri>MD.Addresses</resourceUri>
+  </DataSource>
+  <DataSource id="Util.Texts">
+    <resourceUri>Util.Texts</resourceUri>
+  </DataSource>
+  <DataSource id="Product_Desc$$$$Util.Texts$$">
+    <resourceUri>Util.Texts</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ADDRESSES_ADDRESSID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="ADDRESSES_ADDRESSID"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="EMAILADDRESS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="EMAILADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="FAXNUMBER"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="FAXNUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="LEGALFORM"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="LEGALFORM"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="PARTNERROLE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNERROLE"/>
+      </viewAttribute>
+      <viewAttribute id="PHONENUMBER"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PHONENUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="WEBADDRESS"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WEBADDRESS"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MD.BusinessPartner">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESSES_ADDRESSID" source="ADDRESSES.ADDRESSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAILADDRESS" source="EMAILADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FAXNUMBER" source="FAXNUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDAT" source="HISTORY.CHANGEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDBY_EMPLOYEEID" source="HISTORY.CHANGEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDBY_EMPLOYEEID" source="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LEGALFORM" source="LEGALFORM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNERROLE" source="PARTNERROLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PHONENUMBER" source="PHONENUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEBADDRESS" source="WEBADDRESS"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Product_BP" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_TYPECODE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CATEGORY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="NAMEID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NAMEID"/>
+      </viewAttribute>
+      <viewAttribute id="DESCID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DESCID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTMEASURE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WEIGHTMEASURE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTUNIT"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WEIGHTUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRICE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTPICURL"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTPICURL"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_ID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="ADDRESSES_ADDRESSID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="ADDRESSES_ADDRESSID"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESSES_ADDRESSID" source="ADDRESSES_ADDRESSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_ID" source="PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CURRENCY" source="CURRENCY"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CATEGORY" source="CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCID" source="DESCID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAMEID" source="NAMEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRICE" source="PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTPICURL" source="PRODUCTPICURL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_TYPECODE" source="TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTMEASURE" source="WEIGHTMEASURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTUNIT" source="WEIGHTUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_ID" source="SUPPLIER_PARTNERID"/>
+    </input>
+    <joinAttribute name="SUPPLIER_ID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="CATEGORY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="DESCID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DESCID"/>
+      </viewAttribute>
+      <viewAttribute id="NAMEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="NAMEID"/>
+      </viewAttribute>
+      <viewAttribute id="PRICE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTPICURL"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTPICURL"/>
+      </viewAttribute>
+      <viewAttribute id="TYPECODE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="WEIGHTMEASURE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WEIGHTMEASURE"/>
+      </viewAttribute>
+      <viewAttribute id="WEIGHTUNIT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WEIGHTUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_PARTNERID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_PARTNERID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="DEPTH"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DEPTH"/>
+      </viewAttribute>
+      <viewAttribute id="DIMENSIONUNIT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DIMENSIONUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="HEIGHT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HEIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CHANGEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CHANGEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDAT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="HISTORY_CREATEDBY_EMPLOYEEID"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="HISTORY_CREATEDBY_EMPLOYEEID"/>
+      </viewAttribute>
+      <viewAttribute id="QUANTITYUNIT"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="QUANTITYUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="TAXTARIFFCODE"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TAXTARIFFCODE"/>
+      </viewAttribute>
+      <viewAttribute id="WIDTH"><descriptions/><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="WIDTH"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MD.Products">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CATEGORY" source="CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPTH" source="DEPTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCID" source="DESCID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIMENSIONUNIT" source="DIMENSIONUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HEIGHT" source="HEIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDAT" source="HISTORY.CHANGEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CHANGEDBY_EMPLOYEEID" source="HISTORY.CHANGEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDAT" source="HISTORY.CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HISTORY_CREATEDBY_EMPLOYEEID" source="HISTORY.CREATEDBY.EMPLOYEEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAMEID" source="NAMEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTPICURL" source="PRODUCTPICURL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITYUNIT" source="QUANTITYUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_PARTNERID" source="SUPPLIER.PARTNERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAXTARIFFCODE" source="TAXTARIFFCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPECODE" source="TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEIGHTMEASURE" source="WEIGHTMEASURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEIGHTUNIT" source="WEIGHTUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WIDTH" source="WIDTH"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Address" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_TYPECODE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CATEGORY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="DESCID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DESCID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTUNIT"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTMEASURE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTMEASURE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRICE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTPICURL"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTPICURL"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_ID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_ID"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_CITY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="CITY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_POSTALCODE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="POSTALCODE"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_STREET"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="STREET"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_BUILDING"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="BUILDING"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_COUNTRY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_REGION"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="NAMEID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="NAMEID"/>
+      </viewAttribute>
+      <viewAttribute id="JOIN$ADDRESSES_ADDRESSID$ADDRESSID" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Product_BP">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_TYPECODE" source="PRODUCT_TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CATEGORY" source="PRODUCT_CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCID" source="DESCID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CURRENCY" source="PRODUCT_CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTUNIT" source="PRODUCT_WEIGHTUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTMEASURE" source="PRODUCT_WEIGHTMEASURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRICE" source="PRODUCT_PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_ID" source="SUPPLIER_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTPICURL" source="PRODUCTPICURL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAMEID" source="NAMEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESSES_ADDRESSID$ADDRESSID" source="ADDRESSES_ADDRESSID"/>
+    </input>
+    <input node="MD.Addresses">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_POSTALCODE" source="POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_STREET" source="STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_BUILDING" source="BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESSES_ADDRESSID$ADDRESSID" source="ADDRESSID"/>
+    </input>
+    <joinAttribute name="JOIN$ADDRESSES_ADDRESSID$ADDRESSID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Product_Name" joinType="textTable" cardinality="C1_1" languageColumn="LANGUAGE">
+    <viewAttributes>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_TYPECODE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CATEGORY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="DESCID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="DESCID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CURRENCY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTUNIT"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTMEASURE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTMEASURE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRICE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTPICURL"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTPICURL"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_ID"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_ID"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_CITY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_CITY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_POSTALCODE"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_POSTALCODE"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_STREET"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_STREET"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_BUILDING"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_BUILDING"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_COUNTRY"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_REGION"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_REGION"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_NAME"><descriptions/><descriptions/><descriptions/><descriptions/>
+        <descriptions defaultDescription="TEXT"/>
+      </viewAttribute>
+      <viewAttribute id="JOIN$NAMEID$TEXTID" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Address">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_TYPECODE" source="PRODUCT_TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CATEGORY" source="PRODUCT_CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CURRENCY" source="PRODUCT_CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTUNIT" source="PRODUCT_WEIGHTUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTMEASURE" source="PRODUCT_WEIGHTMEASURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRICE" source="PRODUCT_PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTPICURL" source="PRODUCTPICURL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_ID" source="SUPPLIER_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_CITY" source="SUPPLIER_CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_POSTALCODE" source="SUPPLIER_POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_STREET" source="SUPPLIER_STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_BUILDING" source="SUPPLIER_BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_COUNTRY" source="SUPPLIER_COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_REGION" source="SUPPLIER_REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCID" source="DESCID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NAMEID$TEXTID" source="NAMEID"/>
+    </input>
+    <input node="Util.Texts">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_NAME" source="TEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NAMEID$TEXTID" source="TEXTID"/>
+    </input>
+    <joinAttribute name="JOIN$NAMEID$TEXTID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Product_Desc" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="PRODUCTID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_TYPECODE"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_TYPECODE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CATEGORY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CATEGORY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_CURRENCY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTUNIT"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTUNIT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_WEIGHTMEASURE"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_WEIGHTMEASURE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_PRICE"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTPICURL"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCTPICURL"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_ID"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_ID"/>
+      </viewAttribute>
+      <viewAttribute id="COMPANYNAME"><descriptions/><descriptions/>
+        <descriptions defaultDescription="COMPANYNAME"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_CITY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_CITY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_POSTALCODE"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_POSTALCODE"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_STREET"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_STREET"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_BUILDING"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_BUILDING"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_COUNTRY"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="SUPPLIER_REGION"><descriptions/><descriptions/>
+        <descriptions defaultDescription="SUPPLIER_REGION"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_NAME"><descriptions/><descriptions/>
+        <descriptions defaultDescription="PRODUCT_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_DESCRIPTION"><descriptions/><descriptions/>
+        <descriptions defaultDescription="TEXT"/>
+      </viewAttribute>
+      <viewAttribute id="JOIN$DESCID$TEXTID" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Product_Name">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_TYPECODE" source="PRODUCT_TYPECODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CATEGORY" source="PRODUCT_CATEGORY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_CURRENCY" source="PRODUCT_CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTUNIT" source="PRODUCT_WEIGHTUNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_WEIGHTMEASURE" source="PRODUCT_WEIGHTMEASURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_PRICE" source="PRODUCT_PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTPICURL" source="PRODUCTPICURL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_ID" source="SUPPLIER_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANYNAME" source="COMPANYNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_CITY" source="SUPPLIER_CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_POSTALCODE" source="SUPPLIER_POSTALCODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_STREET" source="SUPPLIER_STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_BUILDING" source="SUPPLIER_BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_COUNTRY" source="SUPPLIER_COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPPLIER_REGION" source="SUPPLIER_REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_NAME" source="PRODUCT_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$DESCID$TEXTID" source="DESCID"/>
+    </input>
+    <input node="Product_Desc$$$$Util.Texts$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_DESCRIPTION" source="TEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$DESCID$TEXTID" source="TEXTID"/>
+    </input>
+    <joinAttribute name="JOIN$DESCID$TEXTID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Product_Desc">
+  <attributes>
+    <attribute id="PRODUCTID" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="PRODUCT_TYPECODE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_TYPECODE"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_TYPECODE"/>
+    </attribute>
+    <attribute id="PRODUCT_CATEGORY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_CATEGORY"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_CATEGORY"/>
+    </attribute>
+    <attribute id="PRODUCT_CURRENCY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_CURRENCY"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_CURRENCY"/>
+    </attribute>
+    <attribute id="PRODUCT_WEIGHTUNIT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_WEIGHTUNIT"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_WEIGHTUNIT"/>
+    </attribute>
+    <attribute id="PRODUCT_WEIGHTMEASURE" order="6" displayAttribute="false" attributeHierarchyActive="false" semanticType="empty">
+      <descriptions defaultDescription="PRODUCT_WEIGHTMEASURE"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_WEIGHTMEASURE"/>
+    </attribute>
+    <attribute id="PRODUCT_PRICE" order="7" displayAttribute="false" attributeHierarchyActive="false" semanticType="empty">
+      <descriptions defaultDescription="PRODUCT_PRICE"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_PRICE"/>
+    </attribute>
+    <attribute id="PRODUCTPICURL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTPICURL"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCTPICURL"/>
+    </attribute>
+    <attribute id="SUPPLIER_ID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_ID"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_ID"/>
+    </attribute>
+    <attribute id="COMPANYNAME" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANYNAME"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="COMPANYNAME"/>
+    </attribute>
+    <attribute id="SUPPLIER_CITY" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_CITY"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_CITY"/>
+    </attribute>
+    <attribute id="SUPPLIER_POSTALCODE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_POSTALCODE"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_POSTALCODE"/>
+    </attribute>
+    <attribute id="SUPPLIER_STREET" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_STREET"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_STREET"/>
+    </attribute>
+    <attribute id="SUPPLIER_BUILDING" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_BUILDING"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_BUILDING"/>
+    </attribute>
+    <attribute id="SUPPLIER_COUNTRY" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_COUNTRY"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_COUNTRY"/>
+    </attribute>
+    <attribute id="SUPPLIER_REGION" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUPPLIER_REGION"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="SUPPLIER_REGION"/>
+    </attribute>
+    <attribute id="PRODUCT_NAME" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_NAME"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_NAME"/>
+    </attribute>
+    <attribute id="PRODUCT_DESCRIPTION" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_DESCRIPTION"/>
+      <keyMapping columnObjectName="Product_Desc" columnName="PRODUCT_DESCRIPTION"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="231" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="697"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Product_BP" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="210" y="577"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Product_BP" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="21" y="1"/>
+      <rectangleSize width="275"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Product_BP" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="42"/>
+      <rectangleSize width="275"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="282" y="697"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Address" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="210" y="457"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Product_BP" modelObjectNameSpace="Address" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="MD.Addresses" modelObjectNameSpace="Address" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Product_Name" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="202" y="337"/>
+      <rectangleSize height="30" width="188"/>
+    </shape>
+    <shape modelObjectName="Address" modelObjectNameSpace="Product_Name" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="9" y="14"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Util.Texts" modelObjectNameSpace="Product_Name" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Product_Desc" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="226" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Product_Name" modelObjectNameSpace="Product_Desc" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Util.Texts" modelObjectNameSpace="Product_Desc" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

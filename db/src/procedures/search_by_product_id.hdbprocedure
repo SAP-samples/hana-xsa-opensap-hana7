@@ -1,0 +1,17 @@
+PROCEDURE "search_by_product_id" (
+	                 in im_productid nvarchar(10),
+	                 out ex_found boolean )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+ 
+ lt_products = select * from "MD.Products";
+
+ if ( :lt_products.SEARCH("PRODUCTID", :im_productid, 1) ) > 0 then
+  ex_found = true;
+ else
+  ex_found = false;
+ end if;
+
+END

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="core.models::SALESORDER_DYNAMIC_JOIN" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="" schemaVersion="3.0" defaultClient="$$client$$" visibility="reportingEnabled" outputViewType="Aggregation" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="SALESORDER_DYNAMIC_JOIN"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="core.models::SALES_ORDER_LITE">
+    <resourceUri>core.models::SALES_ORDER_LITE</resourceUri>
+  </DataSource>
+  <DataSource id="Aggregation_2$$$$core.models::SALES_ORDER_LITE$$">
+    <resourceUri>core.models::SALES_ORDER_LITE</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="SALES" aggregationType="sum"><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_NAME"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY"><descriptions/>
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="REGION"><descriptions/>
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="core.models::SALES_ORDER_LITE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_NAME" source="PRODUCT_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <viewAttributes>
+      <viewAttribute id="TOTAL_SALES" aggregationType="sum"><descriptions/>
+        <descriptions defaultDescription="NETAMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY"><descriptions/>
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="REGION"><descriptions/>
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_2$$$$core.models::SALES_ORDER_LITE$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOTAL_SALES" source="NETAMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SALES"><descriptions/>
+        <descriptions defaultDescription="SALES"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCTID"><descriptions/>
+        <descriptions defaultDescription="PRODUCTID"/>
+      </viewAttribute>
+      <viewAttribute id="PRODUCT_NAME"><descriptions/>
+        <descriptions defaultDescription="PRODUCT_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="COUNTRY"><descriptions/>
+        <descriptions defaultDescription="COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="REGION"><descriptions/>
+        <descriptions defaultDescription="REGION"/>
+      </viewAttribute>
+      <viewAttribute id="TOTAL_SALES"><descriptions/>
+        <descriptions defaultDescription="TOTAL_SALES"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES" source="SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCTID" source="PRODUCTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_NAME" source="PRODUCT_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+    <input node="Aggregation_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOTAL_SALES" source="TOTAL_SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+    </input>
+    <joinAttribute name="COUNTRY"/>
+    <joinAttribute name="REGION"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="PRODUCTID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCTID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCTID"/>
+    </attribute>
+    <attribute id="PRODUCT_NAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCT_NAME"/>
+    </attribute>
+    <attribute id="COUNTRY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="REGION" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="REGION"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SALES" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SALES"/>
+      <measureMapping columnObjectName="Join_1" columnName="SALES"/>
+    </measure>
+    <measure id="TOTAL_SALES" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TOTAL_SALES"/>
+      <measureMapping columnObjectName="Join_1" columnName="TOTAL_SALES"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="SHARE_SALES" hidden="false" order="7" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="12" scale="5">
+      <descriptions defaultDescription="SHARE_SALES"/>
+      <formula>double(&quot;SALES&quot;)/double(&quot;TOTAL_SALES&quot;)
+</formula>
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="13" y="326"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="180" y="318"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="83" y="189"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

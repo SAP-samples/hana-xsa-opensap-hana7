@@ -1,0 +1,41 @@
+PROCEDURE "jsonInitializeTest1" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+ INSERT INTO "jsonExamples.jsonTbl1" ("data") VALUES ('
+{
+        "PONumber": 1,
+        "Reference": "MSULLIVA-20141102",
+        "Requestor": "Martha Sullivan",
+        "User": "MSULLIVA",
+        "CostCenter": "A50",
+        "ShippingInstructions":
+               {
+                       "name": "Martha Sullivan",
+                       "Address":
+                               {
+                                      "street": "200 Sporting Green",
+                                      "city": "South San Francisco",
+                                      "state": "CA",
+                                      "zipCode": 99236,
+                                      "country": "United States of America"
+                               },
+                       "Phone": [{"type": "Office", "number": "979-555-6598"}]
+               },
+        "SpecialInstructions": "Surface Mail",
+        "LineItems": [
+               {"ItemNumber": 1, "Part": {"Description": "Run Lola Run", "UnitPrice": 19.95, "UPCCode": 43396040144}, "Quantity": 7},
+               {"ItemNumber": 2, "Part": {"Description": "Felicias Journey", "UnitPrice": 19.95, "UPCCode": 12236101345}, "Quantity": 1},
+               {"ItemNumber": 3, "Part": {"Description": "Lost and Found", "UnitPrice": 19.95, "UPCCode": 85391756323}, "Quantity": 8},
+               {"ItemNumber": 4, "Part": {"Description": "Karaoke: Rock & Roll Hits of 80s & 90s 8", "UnitPrice": 19.95, "UPCCode": 13023009592}, "Quantity": 8},
+               {"ItemNumber": 5, "Part": {"Description": "Theremin: An Electronic Odyssey", "UnitPrice": 19.95, "UPCCode": 27616864451}, "Quantity": 8}
+        ]
+}
+');  
+END

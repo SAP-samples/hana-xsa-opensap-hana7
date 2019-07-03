@@ -1,0 +1,33 @@
+PROCEDURE "get_product_sale_price" ( 
+ 	IN im_productid NVARCHAR(10), 
+    OUT ex_product_sale_price "Procedures.tt_product_sale_price" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+
+declare lv_discount decimal(15,2) := 0; 
+declare ls_product row like "MD.Products";
+ 
+select * into ls_product 
+               from "MD.Products"
+                   	   where PRODUCTID = :im_productid;  
+
+if :ls_product.category = 'Notebooks' then
+  	 lv_discount := .20;
+elseif :ls_product.category = 'Handhelds' then
+   	 lv_discount := .25;
+elseif :ls_product.category = 'Flat screens' then
+   	 lv_discount := .30;
+elseif :ls_product.category like '%printers%' then
+     lv_discount := .30;
+else
+     lv_discount := 0.00;  -- No discount
+end if;
+
+ex_product_sale_price.productid[1] =  :ls_product.productid;
+ex_product_sale_price.category[1] = :ls_product.category;
+ex_product_sale_price.price[1] = :ls_product.price;
+ex_product_sale_price.saleprice[1] = :ls_product.price - (:ls_product.price * :lv_discount);
+
+END

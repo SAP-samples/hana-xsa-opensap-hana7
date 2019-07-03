@@ -1,0 +1,35 @@
+PROCEDURE "soDelete" ( 
+	IN im_so_details "SO.Header", 
+    OUT ex_error  "Procedures.tt_errors" ) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+
+/*This Procedure takes the Sales Order ID as the input and deletes the corresponding records from the Sales Order Header and Item tables*/
+
+declare lv_soid string;
+declare lv_salesorderid string;
+
+
+select SALESORDERID
+     into lv_soid from :im_so_details;
+
+select SALESORDERID
+     into lv_salesorderid  
+                      from "SO.Header" where SALESORDERID = :lv_soid;
+
+
+if :lv_salesorderid = '' then
+
+  ex_error = select 500 as http_status_code, 
+               'Invalid SalesOrderId ' || lv_soid as error_message, 
+                     'Sales Order does not exists' as detail from dummy;
+else
+            
+delete from "SO.Item"  where "HEADER.SALESORDERID" = :lv_soid;     
+
+delete from  "SO.Header" where SALESORDERID = :lv_soid;
+            
+ end if;
+ 
+END;

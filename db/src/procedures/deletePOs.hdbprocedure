@@ -1,0 +1,13 @@
+PROCEDURE "deletePOs" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY DEFINER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   TRUNCATE TABLE "PurchaseOrder.Header";
+   TRUNCATE TABLE "PurchaseOrder.Item";
+END

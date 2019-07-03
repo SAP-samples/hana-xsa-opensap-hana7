@@ -1,0 +1,32 @@
+PROCEDURE "xpathExample" (
+	out XMLOUT1 table ( VALUE NVARCHAR(5000) ),
+	out XMLOUT2 table ( VALUE NVARCHAR(5000) )
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+XMLOUT1 = select
+XMLEXTRACT(
+'<doc>
+  <item><id>1</id><name>Box</name></item>
+  <item><id>2</id><name>Jar</name></item>
+</doc>',
+'/doc/item[2]/name'
+) as VALUE from dummy;
+
+XMLOUT2 = select
+XMLEXTRACTVALUE(
+'<doc>
+  <item><id>1</id><name>Box</name></item>
+  <item><id>2</id><name>Jar</name></item>
+</doc>',
+'/doc/item[2]/name'
+) as VALUE from dummy;
+
+END

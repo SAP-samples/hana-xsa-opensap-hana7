@@ -1,0 +1,35 @@
+PROCEDURE "build_product_list" (
+   out ex_products "Procedures.tt_product_sale_price" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+  declare productid nvarchar(10) ARRAY;
+  declare category nvarchar(40) ARRAY;
+  declare price decimal(15,2) ARRAY;
+  declare saleprice decimal(15,2) ARRAY;
+ 
+  productid[1] := 'ProductA';
+  productid[2] := 'ProductB';
+  productid[3] := 'ProductC';
+    
+  category[1] := 'CategoryA';
+  category[2] := 'CategoryB';
+  category[3] := 'CategoryC';
+   
+  price[1] := 19.99;
+  price[2] := 29.99;
+  price[3] := 39.99;
+    
+  saleprice[1] := 15.99;
+  saleprice[2] := 25.99;
+  saleprice[3] := 35.99;
+ 
+  ex_products = unnest(:productId, :category, :price, :saleprice) 
+                    as ("PRODUCTID", "CATEGORY", "PRICE", "SALEPRICE");
+
+END

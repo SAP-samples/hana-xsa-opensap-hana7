@@ -1,0 +1,33 @@
+PROCEDURE "update_product_prices" (
+	in im_rate decimal(15,2),
+        in im_direction nvarchar(10) DEFAULT 'INCREASE',
+        out ex_products "Product.Products" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA AS
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/ 
+ declare v_new_price decimal(15,2);
+ declare CURSOR c_products FOR
+    	SELECT PRODUCTID, CATEGORY, PRICE from 
+    	"Product.Products";     -- FOR UPDATE
+
+ FOR cur_row as c_products  DO
+  if :im_direction = 'INCREASE' then
+    v_new_price := cur_row.PRICE + (cur_row.PRICE * :im_rate);
+  elseif :im_direction = 'DECREASE' then
+    v_new_price := cur_row.PRICE - (cur_row.PRICE * :im_rate);
+  end if;
+  UPDATE "Product.Products" 
+        SET PRICE = v_new_price where PRODUCTID = cur_row.PRODUCTID;  -- WHERE CURRENT OF c_products
+  
+ END FOR;
+
+ ex_products = select PRODUCTID, CATEGORY, PRICE 
+                 from "Product.Products" ;
+   
+END

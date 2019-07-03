@@ -1,0 +1,12 @@
+PROCEDURE "get_addresses_map_merge" (
+	        out ex_addresses "MD.Addresses" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+
+lt_employees = select * from "MD.Employees";
+ex_addresses = MAP_MERGE(:lt_employees, 
+	                     "get_address_func"(:lt_employees."ADDRESSES.ADDRESSID"));
+
+END

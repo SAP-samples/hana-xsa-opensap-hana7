@@ -1,0 +1,19 @@
+PROCEDURE "get_distance" (
+		  IN im_point_1 ST_GEOMETRY, 
+          IN im_point_2 ST_GEOMETRY,
+          OUT ex_distance double )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN
+
+ ex_distance =  :im_point_1.st_distance(:im_point_2, 'kilometer');
+
+END
+
+
+--CALL "get_distance"(
+--	IM_POINT_1 => new st_POINT(8.64407, 49.292910),
+--	IM_POINT_2 => new st_POINT(8.64407, 50.292910),
+--	EX_DISTANCE => ?
+--);

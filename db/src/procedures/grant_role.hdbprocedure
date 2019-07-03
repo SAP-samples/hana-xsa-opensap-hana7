@@ -1,0 +1,21 @@
+PROCEDURE "grant_role" (
+	in in_user nvarchar(80),
+    in in_role nvarchar(80),
+    out ex_message NVARCHAR(255))
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY DEFINER
+   AS
+   
+   lv_schema nvarchar(80);
+   
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   SELECT CURRENT_SCHEMA into lv_schema FROM DUMMY;
+   exec 'GRANT "' || 
+     lv_schema  ||
+     '"."' || :in_role || '" to ' || :in_user ;
+   ex_message = 'Granted role' || lv_schema || '.' || :in_role ||  ' to ' || :in_user ;
+  -- exec :in_user;
+END
