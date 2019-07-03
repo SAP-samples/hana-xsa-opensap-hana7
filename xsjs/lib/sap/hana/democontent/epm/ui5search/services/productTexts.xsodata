@@ -1,0 +1,9 @@
+service namespace "com.sap.openSAP.hana.example.services"  { 
+
+"MDViews.productTexts" as "PRODUCTS_TEXT" 
+	key ("PRODUCTID");
+}
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

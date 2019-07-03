@@ -1,0 +1,15 @@
+service namespace "com.sap.openSAP.hana.example.service"  { 
+  "core.models::PO_HEADER_EN" as "PO_WORKLIST" 
+   keys ("PURCHASEORDERID","PRODUCT_PRODUCTID");
+   
+   "core.models::PO_ITEM" as "PurchaseOrderItem" keys ("PURCHASEORDERID","PRODUCT_PRODUCTID");
+   
+   "PO.HeaderView" as "PurchaseOrderHeader" keys("PurchaseOrderId")
+   navigates (     
+        "PurchaseOrderHeader_PurchaseOrderItem" as "PurchaseOrderItems" from principal);
+
+   association "PurchaseOrderHeader_PurchaseOrderItem"
+      principal "PurchaseOrderHeader"("PurchaseOrderId") multiplicity "1"
+      dependent "PurchaseOrderItem"("PurchaseOrderId") multiplicity "*";
+
+}

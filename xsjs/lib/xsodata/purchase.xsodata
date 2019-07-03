@@ -1,0 +1,10 @@
+service namespace "com.sap.openSAP.hana.example.services"{
+ "PO.Header" as "POHeaders" navigates (
+ "poh_to_poi" as "to_poi" from principal);
+ "PO.Item" as "POItems" 
+ create events(before "poiExit");
+ 
+   association "poh_to_poi"
+        principal "POHeaders"("PURCHASEORDERID") multiplicity "1"
+        dependent "POItems"("PURCHASEORDERID") multiplicity "*";
+} 

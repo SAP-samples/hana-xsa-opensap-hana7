@@ -1,0 +1,8 @@
+service namespace "com.sap.openSAP.hana.example.services" { 
+   "MDViews.ProductsConsumption" as "Products" keys("Product_Id");
+//   "MDViews.countries" as "Countries" keys("CODE");
+//   "MDViews.ProductsValueHelp" as "ProductsVH" keys("Product_Id");
+   "MDViews.productCategoryVH" as "ProductCatVh" keys ("Product_Category");
+   "MDViews.SupplierViewVH" as "SupplierVH" keys ("Supplier_Id");
+   
+}
