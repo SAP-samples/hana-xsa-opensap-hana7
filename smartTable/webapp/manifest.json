@@ -1,0 +1,123 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "sap.openSAP.smartTable",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainServiceAnnotation": {
+				"uri": "annotations/metadata.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/metadata.xml"
+				}
+			},
+			"mainService": {
+				"uri": "/sap/hana/democontent/epm/services/businessPartnersExt.xsodata/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"mainServiceAnnotation"
+					],
+					"localUri": "localService/metadata.xml",
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "./images/favicon.ico",
+			"favIcon": "./images/favicon.ico",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "sap.openSAP.smartTable.view.SmartTable",
+			"type": "XML",
+			"async": true,
+			"id": "SmartTable"
+		},
+		"dependencies": {
+			"minUI5Version": "1.66.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ui.comp": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"": {
+				"dataSource": "mainService",
+				"preload": true,				
+				"type": "sap.ui.model.odata.v2.ODataModel"
+			},			
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.openSAP.smartTable.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "./error.js"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "sap.openSAP.smartTable.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteSmartTable",
+				"pattern": "RouteSmartTable",
+				"target": ["TargetSmartTable"]
+			}],
+			"targets": {
+				"TargetSmartTable": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "SmartTable",
+					"viewName": "SmartTable"
+				}
+			}
+		}
+	}
+}

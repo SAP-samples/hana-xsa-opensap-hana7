@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable">
+	<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+		<Panel id="pnlHead" headerText="New Business Partner Details" expandable="true" expanded="true">
+			<List id="list1" width="800px">
+				<InputListItem id="itemCompany" label="Company">
+					<Input id="company" value="{/company}"/>
+				</InputListItem>
+				<InputListItem id="itemCity" label="City">
+					<Input id="city" value="{/city}"/>
+				</InputListItem>
+				<InputListItem id="itemCountry" label="Country">
+					<Select id = "ddlbCountry">
+						<core:ListItem id="country" key="{code}" text="{name}"/>
+					</Select>
+					</InputListItem>
+				<InputListItem id="itemRegion" label="Region">
+					<Select id = "ddlbRegion">
+						<core:ListItem id="region" key="{code}" text="{name}"/>
+					</Select>
+				</InputListItem>
+				<InputListItem id="idEmail" label="Email">
+					<Input id="email" value="{/email}"/>
+				</InputListItem>				
+			</List>
+			<Button id="btnCreate" text="{i18n>B3}" press="callBPCreate"/>
+		</Panel>
+	</ScrollContainer>
+</core:FragmentDefinition>

@@ -1,0 +1,139 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "sap.openSAP.smartTableProducts",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainServiceAnnotation": {
+				"uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductsType/MDViews.ProductsConsumption/",
+				"type": "ODataAnnotation"
+			},
+			"countriesAnnotation": {
+				"uri": "/node/annotations/com.sap.openSAP.hana.example.services.CountriesType/MDViews.counties/",
+				"type": "ODataAnnotation"
+			},
+			"productsVHAnnotation": {
+				"uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductsVHType/MDViews.ProductsValueHelp/",
+				"type": "ODataAnnotation"
+			},
+			"productCatVHAnnotation": {
+				"uri": "/node/annotations/com.sap.openSAP.hana.example.services.ProductCatVhType/MDViews.productCategoryVH/",
+				"type": "ODataAnnotation"
+			},
+			"supplierVHAnnotation": {
+				"uri": "/node/annotations/com.sap.openSAP.hana.example.services.SupplierVhType/MDViews.SupplierViewVH/",
+				"type": "ODataAnnotation"
+			},
+			"mainService": {
+				"uri": "/xsodata/products.xsodata/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"countriesAnnotation",
+						"productsVHAnnotation",
+						"productCatVHAnnotation",
+						"supplierVHAnnotation",
+						"mainServiceAnnotation"
+					],
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "./images/favicon.ico",
+			"favIcon": "./images/favicon.ico",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "sap.openSAP.smartTableProducts.view.SmartTable",
+			"type": "XML",
+			"async": true,
+			"id": "SmartTable"
+		},
+		"dependencies": {
+			"minUI5Version": "1.66.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ui.comp": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"type": "sap.ui.model.odata.v2.ODataModel"
+			},
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.openSAP.smartTableProducts.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "./error.js"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "sap.openSAP.smartTableProducts.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteSmartTable",
+				"pattern": "RouteSmartTable",
+				"target": ["TargetSmartTable"]
+			}],
+			"targets": {
+				"TargetSmartTable": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "SmartTable",
+					"viewName": "SmartTable"
+				}
+			}
+		}
+	}
+}

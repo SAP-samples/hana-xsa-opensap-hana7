@@ -52,6 +52,54 @@ modules:
           artifacts:
             - './*'
           target-path: resources/odataAdv      
+        - name: odataBasic
+          artifacts:
+            - './*'
+          target-path: resources/odataBasic   
+        - name: odataBasicMeta
+          artifacts:
+            - './*'
+          target-path: resources/odataBasicMeta     
+        - name: odataBPTest
+          artifacts:
+            - './*'
+          target-path: resources/odataBPTest
+        - name: odataCreate
+          artifacts:
+            - './*'
+          target-path: resources/odataCreate     
+        - name: odataCRUD
+          artifacts:
+            - './*'
+          target-path: resources/odataCRUD      
+        - name: odataCRUDBatch
+          artifacts:
+            - './*'
+          target-path: resources/odataCRUDBatch       
+        - name: odataCRUDV4
+          artifacts:
+            - './*'
+          target-path: resources/odataCRUDV4      
+        - name: odataDeep
+          artifacts:
+            - './*'
+          target-path: resources/odataDeep       
+        - name: odataTest
+          artifacts:
+            - './*'
+          target-path: resources/odataTest         
+        - name: poListV4
+          artifacts:
+            - './*'
+          target-path: resources/poListV4      
+        - name: smartTable
+          artifacts:
+            - './*'
+          target-path: resources/smartTable   
+        - name: smartTableProducts
+          artifacts:
+            - './*'
+          target-path: resources/smartTableProducts             
   - name: db
     type: hdb
     path: db
@@ -138,6 +186,90 @@ modules:
   - name: odataAdv
     type: html5
     path: odataAdv
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataBasic
+    type: html5
+    path: odataBasic
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataBasicMeta
+    type: html5
+    path: odataBasicMeta
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataBPTest
+    type: html5
+    path: odataBPTest
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataCreate
+    type: html5
+    path: odataCreate
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataCRUD
+    type: html5
+    path: odataCRUD
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataCRUDBatch
+    type: html5
+    path: odataCRUDBatch
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataCRUDV4
+    type: html5
+    path: odataCRUDV4
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataDeep
+    type: html5
+    path: odataDeep
+    build-parameters:
+       builder: grunt
+
+
+  - name: odataTest
+    type: html5
+    path: odataTest
+    build-parameters:
+       builder: grunt
+
+
+  - name: poListV4
+    type: html5
+    path: poListV4
+    build-parameters:
+       builder: grunt
+
+
+  - name: smartTable
+    type: html5
+    path: smartTable
+    build-parameters:
+       builder: grunt
+
+
+  - name: smartTableProducts
+    type: html5
+    path: smartTableProducts
     build-parameters:
        builder: grunt
 

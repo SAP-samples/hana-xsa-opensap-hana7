@@ -1,0 +1,7 @@
+<mvc:View controllerName="sap.openSAP.odataBasic.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable"
+	displayBlock="true" xmlns="sap.m">
+	<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true">
+		<smartTable:SmartTable id="bpTable" header="{i18n>UList}" editable="false" showRowCount="true" enableAutoBinding="true"
+			showFullScreenButton="true" tableType="Table"></smartTable:SmartTable>
+	</ScrollContainer>
+</mvc:View>
