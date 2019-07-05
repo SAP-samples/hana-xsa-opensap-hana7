@@ -12,7 +12,7 @@ module.exports = function () {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>SQLScript Code Coverage </H1></br>
-			<a href="..${req.baseUrl}/build_products">/build_products</a> - Code Coverage of build_products</br> ` +
+			<a href="${req.baseUrl}/build_products">/build_products</a> - Code Coverage of build_products</br> ` +
 			require(global.__base + "utils/exampleTOC").fill();
 		return res.type("text/html").status(200).send(output);
 	});

@@ -90,10 +90,10 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>ES6 Promises</H1></br>
-			<a href="..${req.baseUrl}/promises">/promises</a> - Manual Promisefy readFile</br>
-			<a href="..${req.baseUrl}/promisesError">/promisesError</a> - Manual Promisefy readFile and catch error</br> 
-			<a href="..${req.baseUrl}/promisesDB1">/promisesDB1</a> - Simple HANA DB Select via Promises</br>
-			<a href="..${req.baseUrl}/promisesDB2">/promisesDB2</a> - Simple Database Call Stored Procedure via Promises</br>` +
+			<a href="${req.baseUrl}/promises">/promises</a> - Manual Promisefy readFile</br>
+			<a href="${req.baseUrl}/promisesError">/promisesError</a> - Manual Promisefy readFile and catch error</br> 
+			<a href="${req.baseUrl}/promisesDB1">/promisesDB1</a> - Simple HANA DB Select via Promises</br>
+			<a href="${req.baseUrl}/promisesDB2">/promisesDB2</a> - Simple Database Call Stored Procedure via Promises</br>` +
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

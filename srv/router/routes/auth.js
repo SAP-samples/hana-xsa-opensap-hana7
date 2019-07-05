@@ -9,8 +9,8 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>Authorizations Demo</H1></br>
-			<a href="..${req.baseUrl}/passport">/passport</a> - Security Context via Passport</br>
-			<a href="..${req.baseUrl}/xssec">/xssec</a> - Build the Security Context Via XSSEC</br>` +			
+			<a href="${req.baseUrl}/passport">/passport</a> - Security Context via Passport</br>
+			<a href="${req.baseUrl}/xssec">/xssec</a> - Build the Security Context Via XSSEC</br>` +			
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

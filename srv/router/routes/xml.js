@@ -9,7 +9,7 @@ module.exports = function() {
 	//Hello Router
 	app.get("/", (req, res) => {
 		var output = `<H1>XML Examples</H1></br>
-				<a href="..${req.baseUrl}/example1">/example1</a> - Simple XML parsing</br>`;
+				<a href="${req.baseUrl}/example1">/example1</a> - Simple XML parsing</br>`;
 		res.type("text/html").status(200).send(output);
 	});
 

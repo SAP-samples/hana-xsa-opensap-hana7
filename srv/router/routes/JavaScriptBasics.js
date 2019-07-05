@@ -10,21 +10,21 @@ module.exports = () => {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>JavaScript Basics</H1></br>
-			<a href="..${req.baseUrl}/dates">/dates</a> - Date processing</br>
-			<a href="..${req.baseUrl}/array">/array</a> - Array processing</br>
-			<a href="..${req.baseUrl}/json">/json</a> - JSON JavaScript Object Notation processing</br>
-			<a href="..${req.baseUrl}/objects">/objects</a> - JavaScript Objects</br>
-			<a href="..${req.baseUrl}/strings">/strings</a> - String processing</br>
-			<a href="..${req.baseUrl}/classes">/classes</a> - JavaScript Classes</br>			
-			<a href="..${req.baseUrl}/promises">/promises</a> - Promises</br>
-			<a href="..${req.baseUrl}/constants">/constants</a> - Constants</br>
-			<a href="..${req.baseUrl}/blockScoped">/blockScoped</a> - Block-Scoped Variables and Functions</br>	
-			<a href="..${req.baseUrl}/parameterDefaults">/parameterDefaults</a> - Parameter Defaults</br>	
-			<a href="..${req.baseUrl}/parameterMultiple">/parameterMultiple</a> - Handling unknown number of input parameters easily</br>		
-			<a href="..${req.baseUrl}/unicode">/unicode</a> - Unicode Strings and Literals</br>
-			<a href="..${req.baseUrl}/numFormat">/numFormat</a> - International Number Formatting</br>	
-			<a href="..${req.baseUrl}/currFormat">/currFormat</a> - International Currency Formatting</br>
-			<a href="..${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>` +			
+			<a href="${req.baseUrl}/dates">/dates</a> - Date processing</br>
+			<a href="${req.baseUrl}/array">/array</a> - Array processing</br>
+			<a href="${req.baseUrl}/json">/json</a> - JSON JavaScript Object Notation processing</br>
+			<a href="${req.baseUrl}/objects">/objects</a> - JavaScript Objects</br>
+			<a href="${req.baseUrl}/strings">/strings</a> - String processing</br>
+			<a href="${req.baseUrl}/classes">/classes</a> - JavaScript Classes</br>			
+			<a href="${req.baseUrl}/promises">/promises</a> - Promises</br>
+			<a href="${req.baseUrl}/constants">/constants</a> - Constants</br>
+			<a href="${req.baseUrl}/blockScoped">/blockScoped</a> - Block-Scoped Variables and Functions</br>	
+			<a href="${req.baseUrl}/parameterDefaults">/parameterDefaults</a> - Parameter Defaults</br>	
+			<a href="${req.baseUrl}/parameterMultiple">/parameterMultiple</a> - Handling unknown number of input parameters easily</br>		
+			<a href="${req.baseUrl}/unicode">/unicode</a> - Unicode Strings and Literals</br>
+			<a href="${req.baseUrl}/numFormat">/numFormat</a> - International Number Formatting</br>	
+			<a href="${req.baseUrl}/currFormat">/currFormat</a> - International Currency Formatting</br>
+			<a href="${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>` +			
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

@@ -13,10 +13,10 @@ module.exports = function () {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>ES6 Features</H1></br>
-			<a href="..${req.baseUrl}/promisesFinally">/promisesFinally</a> - promisesFinally</br>
-			<a href="..${req.baseUrl}/for-await-of-loops">/for-await-of-loops</a> - for-await-of-loops</br>	
-			<a href="..${req.baseUrl}/async-generator">/async-generator</a> - async-generator</br>	
-			<a href="..${req.baseUrl}/regex2018">/regex2018</a> - regex2018</br>` +
+			<a href="${req.baseUrl}/promisesFinally">/promisesFinally</a> - promisesFinally</br>
+			<a href="${req.baseUrl}/for-await-of-loops">/for-await-of-loops</a> - for-await-of-loops</br>	
+			<a href="${req.baseUrl}/async-generator">/async-generator</a> - async-generator</br>	
+			<a href="${req.baseUrl}/regex2018">/regex2018</a> - regex2018</br>` +
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

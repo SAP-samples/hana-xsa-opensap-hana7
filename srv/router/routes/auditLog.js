@@ -9,7 +9,7 @@ module.exports = function () {
 	//TOC
 	app.get("/", (req, res) => {
 		var output = `<H1>Audit Log Examples</H1></br>
-			<a href="..${req.baseUrl}/example1">/example1</a> - Simple Audit Log Example</br>` +
+			<a href="${req.baseUrl}/example1">/example1</a> - Simple Audit Log Example</br>` +
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

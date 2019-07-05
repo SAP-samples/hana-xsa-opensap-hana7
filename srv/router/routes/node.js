@@ -10,8 +10,8 @@ module.exports = function () {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>Intro Features</H1></br>
-			<a href="..${req.baseUrl}/Hello">/Hello</a> - Hello</br>
-			<a href="..${req.baseUrl}/getSessionInfo">/getSessionInfo</a> - Session Information</br>` +			
+			<a href="${req.baseUrl}/Hello">/Hello</a> - Hello</br>
+			<a href="${req.baseUrl}/getSessionInfo">/getSessionInfo</a> - Session Information</br>` +			
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

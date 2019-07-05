@@ -167,8 +167,8 @@ module.exports = function () {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>CD&S Converter</H1></br>
-			<a href="..${req.baseUrl}/view/core.models::BUYER">/view</a> - View Conversion</br>
-			<a href="..${req.baseUrl}/table/PO.Header">/table</a> - Table Conversion</br>` +			
+			<a href="${req.baseUrl}/view/core.models::BUYER">/view</a> - View Conversion</br>
+			<a href="${req.baseUrl}/table/PO.Header">/table</a> - Table Conversion</br>` +			
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

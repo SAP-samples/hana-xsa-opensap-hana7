@@ -12,8 +12,8 @@ module.exports = function () {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>CDS DCL Examples</H1></br>
-			<a href="..${req.baseUrl}/salesorder">/salesorder</a> -Access Sales Order View via DCL</br>
-			<a href="..${req.baseUrl}/userinfo">/userinfo</a> - DCL User Info</br> ` +
+			<a href="${req.baseUrl}/salesorder">/salesorder</a> -Access Sales Order View via DCL</br>
+			<a href="${req.baseUrl}/userinfo">/userinfo</a> - DCL User Info</br> ` +
 			require(global.__base + "utils/exampleTOC").fill();
 		return res.type("text/html").status(200).send(output);
 	});

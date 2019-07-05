@@ -14,26 +14,26 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		let output =
 			`<H1>ES6 Features</H1></br>
-			<a href="..${req.baseUrl}/../promises">/promises</a> - Manual Promisefy readFile</br>
-			<a href="..${req.baseUrl}/../promises/promisesError">/promisesError</a> - Manual Promisefy readFile and catch error</br> 
-			<a href="..${req.baseUrl}/../promises/promisesDB1">/promisesDB1</a> - Simple HANA DB Select via Promises</br>
-			<a href="..${req.baseUrl}/../promises/promisesDB2">/promisesDB2</a> - Simple Database Call Stored Procedure via Promises</br> 
-			<a href="..${req.baseUrl}/constants">/constants</a> - Constants</br>
-			<a href="..${req.baseUrl}/blockScoped">/blockScoped</a> - Block-Scoped Variables and Functions</br>	
-			<a href="..${req.baseUrl}/parameterDefaults">/parameterDefaults</a> - Parameter Defaults</br>	
-			<a href="..${req.baseUrl}/parameterMultiple">/parameterMultiple</a> - Handling unknown number of input parameters easily</br>		
-			<a href="..${req.baseUrl}/unicode">/unicode</a> - Unicode Strings and Literals</br>
-			<a href="..${req.baseUrl}/classes1">/classses1</a> - Classes</br>
-			<a href="..${req.baseUrl}/classes1Error">/classses1Error</a> - Classes, catch errors</br>
-			<a href="..${req.baseUrl}/classes2a">/classes2a</a> - Classes with Static Methods #1</br>
-			<a href="..${req.baseUrl}/classes2b">/classes2b</a> - Classes with Static Methods #2</br>
-			<a href="..${req.baseUrl}/classes3a">/classes3a</a> - Classes with Instance Methods #1</br>
-			<a href="..${req.baseUrl}/classes3b">/classes3b</a> - Classes with Instance Methods #2</br>	
-			<a href="..${req.baseUrl}/classes4a">/classes4a</a> - Classes with Inherited Methods #1</br>
-			<a href="..${req.baseUrl}/classes4b">/classes4b</a> - Classes with Inherited Methods #2</br>
-			<a href="..${req.baseUrl}/numFormat">/numFormat</a> - International Number Formatting</br>	
-			<a href="..${req.baseUrl}/currFormat">/currFormat</a> - International Currency Formatting</br>
-			<a href="..${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>` +			
+			<a href="${req.baseUrl}/../promises">/promises</a> - Manual Promisefy readFile</br>
+			<a href="${req.baseUrl}/../promises/promisesError">/promisesError</a> - Manual Promisefy readFile and catch error</br> 
+			<a href="${req.baseUrl}/../promises/promisesDB1">/promisesDB1</a> - Simple HANA DB Select via Promises</br>
+			<a href="${req.baseUrl}/../promises/promisesDB2">/promisesDB2</a> - Simple Database Call Stored Procedure via Promises</br> 
+			<a href="${req.baseUrl}/constants">/constants</a> - Constants</br>
+			<a href="${req.baseUrl}/blockScoped">/blockScoped</a> - Block-Scoped Variables and Functions</br>	
+			<a href="${req.baseUrl}/parameterDefaults">/parameterDefaults</a> - Parameter Defaults</br>	
+			<a href="${req.baseUrl}/parameterMultiple">/parameterMultiple</a> - Handling unknown number of input parameters easily</br>		
+			<a href="${req.baseUrl}/unicode">/unicode</a> - Unicode Strings and Literals</br>
+			<a href="${req.baseUrl}/classes1">/classses1</a> - Classes</br>
+			<a href="${req.baseUrl}/classes1Error">/classses1Error</a> - Classes, catch errors</br>
+			<a href="${req.baseUrl}/classes2a">/classes2a</a> - Classes with Static Methods #1</br>
+			<a href="${req.baseUrl}/classes2b">/classes2b</a> - Classes with Static Methods #2</br>
+			<a href="${req.baseUrl}/classes3a">/classes3a</a> - Classes with Instance Methods #1</br>
+			<a href="${req.baseUrl}/classes3b">/classes3b</a> - Classes with Instance Methods #2</br>	
+			<a href="${req.baseUrl}/classes4a">/classes4a</a> - Classes with Inherited Methods #1</br>
+			<a href="${req.baseUrl}/classes4b">/classes4b</a> - Classes with Inherited Methods #2</br>
+			<a href="${req.baseUrl}/numFormat">/numFormat</a> - International Number Formatting</br>	
+			<a href="${req.baseUrl}/currFormat">/currFormat</a> - International Currency Formatting</br>
+			<a href="${req.baseUrl}/dateFormat">/dateFormat</a> - International Date/Time Formatting</br>` +			
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});

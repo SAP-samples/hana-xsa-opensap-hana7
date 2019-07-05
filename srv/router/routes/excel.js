@@ -13,7 +13,7 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>Excel Examples</H1></br>
-			<a href="..${req.baseUrl}/download">/download</a> - Download data in Excel XLSX format</br>`;
+			<a href="${req.baseUrl}/download">/download</a> - Download data in Excel XLSX format</br>`;
 		res.type("text/html").status(200).send(output);
 	});
 

@@ -50,10 +50,10 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>Async/Await - Better Promises</H1></br>
-			<a href="..${req.baseUrl}/await">/await</a> - Await readFile</br>
-			<a href="..${req.baseUrl}/awaitError">/awaitError</a> - await readFile and catch error</br> 
-			<a href="..${req.baseUrl}/awaitDB1">/awaitDB1</a> - Simple HANA DB Select via Await</br>
-			<a href="..${req.baseUrl}/awaitDB2">/awaitDB2</a> - Simple Database Call Stored Procedure via Await</br>` +
+			<a href="${req.baseUrl}/await">/await</a> - Await readFile</br>
+			<a href="${req.baseUrl}/awaitError">/awaitError</a> - await readFile and catch error</br> 
+			<a href="${req.baseUrl}/awaitDB1">/awaitDB1</a> - Simple HANA DB Select via Await</br>
+			<a href="${req.baseUrl}/awaitDB2">/awaitDB2</a> - Simple Database Call Stored Procedure via Await</br>` +
 			require(global.__base + "utils/exampleTOC").fill();
 		return res.type("text/html").status(200).send(output);
 	});

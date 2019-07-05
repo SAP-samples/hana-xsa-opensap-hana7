@@ -10,8 +10,8 @@ module.exports = function() {
 	app.get("/", (req, res) => {
 		var output =
 			`<H1>OS level Examples</H1></br> 
-			<a href="..${req.baseUrl}/osInfo">/osInfo</a></br>		
-			<a href="..${req.baseUrl}/whoami">/whoami</a></br>` +
+			<a href="${req.baseUrl}/osInfo">/osInfo</a></br>		
+			<a href="${req.baseUrl}/whoami">/whoami</a></br>` +
 			require(global.__base + "utils/exampleTOC").fill();
 		res.type("text/html").status(200).send(output);
 	});
