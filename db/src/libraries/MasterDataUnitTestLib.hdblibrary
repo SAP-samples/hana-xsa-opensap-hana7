@@ -37,15 +37,15 @@ LIBRARY "MasterDataUnitTestLib" LANGUAGE SQLSCRIPT TEST  AS
   
     end;
 
---    @Test()
---   public procedure "TestEmployeeExistsFunc" as
---    begin
---     USING "MasterData" AS MD;
---        declare lv_emp_exists boolean;
---        lv_emp_exists  = MD:"employee_exists"('99');   
---        sqlscript_test:expect_eq(true, lv_emp_exists);
---        sqlscript_test:fail('check for data inconsistancy');
---    end;
+ --   @Test()
+ --  public procedure "TestEmployeeExistsFunc" as
+ --   begin
+ --    USING "MasterData" AS MD;
+ --       declare lv_emp_exists boolean;
+ --       lv_emp_exists  = "MasterData":"employee_exists"('99');   
+ --       sqlscript_test:expect_eq(true, lv_emp_exists);
+ --      sqlscript_test:fail('check for data inconsistancy');
+ --   end;
   
 --    @Test()
 --    public procedure "TestGetProductIDsTabFunc" as
