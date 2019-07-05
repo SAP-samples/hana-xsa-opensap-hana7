@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"bpService": {
-				"uri": "/sap/hana/democontent/epm/services/businessPartners2.xsodata",
+				"uri": "../sap/hana/democontent/epm/services/businessPartners2.xsodata",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"

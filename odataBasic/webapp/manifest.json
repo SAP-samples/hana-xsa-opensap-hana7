@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"bpService": {
-				"uri": "/xsodata/businessPartners.xsodata/",
+				"uri": "../xsodata/businessPartners.xsodata/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
