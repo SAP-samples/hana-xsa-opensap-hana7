@@ -52,7 +52,7 @@ sap.ui.define([
 				this._oQuickView.destroy();
 			}
 
-			this._oQuickView = sap.ui.xmlfragment("opensap.poListV4.view.QuickView", this);
+			this._oQuickView = sap.ui.xmlfragment("sap.openSAP.poListV4.view.QuickView", this);
 			this.getView().addDependent(this._oQuickView);
 		},
 

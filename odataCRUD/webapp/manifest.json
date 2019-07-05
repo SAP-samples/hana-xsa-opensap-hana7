@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"userService": {
-				"uri": "/xsodata/user.xsodata/",
+				"uri": "../xsodata/user.xsodata/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"

@@ -151,7 +151,7 @@ sap.ui.define([
 			oParams.defaultUpdateMethod = "PUT";
 			oParams.useBatch = true;
 
-			var batchModel = new sap.ui.model.odata.v2.ODataModel("/user/xsodata/userBeforeExit.xsodata/", oParams);
+			var batchModel = new sap.ui.model.odata.v2.ODataModel("/xsodata/user.xsodata/", oParams);
 			//var batchChanges = [];
 			var mParams = {};
 			mParams.groupId = "1001";

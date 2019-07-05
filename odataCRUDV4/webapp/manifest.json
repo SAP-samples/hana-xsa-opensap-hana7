@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"userService": {
-				"uri": "/odata/v4/opensap.hana.CatalogService/",
+				"uri": "../odata/v4/opensap.hana.CatalogService/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "4.0"

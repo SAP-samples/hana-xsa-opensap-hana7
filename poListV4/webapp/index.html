@@ -9,18 +9,18 @@
 		<script id="sap-ui-bootstrap"
 			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
 			data-sap-ui-theme="sap_fiori_3"
-			data-sap-ui-resourceroots='{"sap.openSAP.poListV4: "./", 
+			data-sap-ui-resourceroots='{"sap.openSAP.poListV4": "./", 
 										"root": "./",
 			                            "view": "./view"}'
 			data-sap-ui-xx-bindingSyntax="complex"			                            
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-oninit="module:common/index"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
 			data-sap-ui-async="true"
 			data-sap-ui-language="en"			
 			data-sap-ui-frameOptions="trusted">
 		</script>
 	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="sap.openSAP.poListV4" data-id="container" data-settings='{"id" : "poListV4"}'></div>
 	</body>
 </html>

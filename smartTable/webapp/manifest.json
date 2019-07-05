@@ -22,7 +22,7 @@
 				}
 			},
 			"mainService": {
-				"uri": "/sap/hana/democontent/epm/services/businessPartnersExt.xsodata/",
+				"uri": "../sap/hana/democontent/epm/services/businessPartnersExt.xsodata/",
 				"type": "OData",
 				"settings": {
 					"annotations": [

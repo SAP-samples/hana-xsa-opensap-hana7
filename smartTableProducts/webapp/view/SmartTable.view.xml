@@ -1,6 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartVariantManagement="sap.ui.comp.smartvariants" xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sap.openSAP.smartTableProducts.view.SmartTable"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sap.openSAP.smartTableProducts.controller.SmartTable"
 	height="100%">
 	<semantic:FullscreenPage title="Products Smart Table Example" showNavButton="true" navButtonPress="onNavButtonPress" id="page"
 		floatingFooter="true">

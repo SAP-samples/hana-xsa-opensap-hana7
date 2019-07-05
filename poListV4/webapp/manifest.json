@@ -7,15 +7,15 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "{{sap.app.title}}",
-		"description": "{{sap.app.description}}",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"sourceTemplate": {
 			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
 			"version": "1.40.12"
 		},
 		"dataSources": {
 			"default": {
-				"uri": "/odata/v4/opensap.hana.CatalogService/",
+				"uri": "../odata/v4/opensap.hana.CatalogService/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "4.0"
@@ -71,7 +71,7 @@
 			},
 			"config": {
 				"type": "sap.ui.model.json.JSONModel"
-			},			
+			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
