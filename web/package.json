@@ -4,10 +4,8 @@
 		"node": "10.x"
 	},
 	"dependencies": {
-		"@sap/approuter": "6.0.1"
-	},
-	"devDependencies": {
-		"@sap/grunt-sapui5module-bestpractice-build": "^0.0.14"
+		"@sap/approuter": "6.0.1",
+		"dotenv": "^8.0.0"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"

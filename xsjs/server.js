@@ -4,6 +4,7 @@
 var xsjs  = require("@sap/xsjs");
 var xsenv = require("@sap/xsenv");
 var port  = process.env.PORT || 3000;
+xsenv.loadEnv();
 
 var options = {
 //	anonymous : true, // remove to authenticate calls

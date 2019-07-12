@@ -3,7 +3,7 @@
 
 "use strict";
 const https = require("https");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3100;
 const server = require("http").createServer();
 
 const cds = require("@sap/cds");
@@ -13,6 +13,7 @@ const passport = require("passport");
 const xssec = require("@sap/xssec");
 const xsHDBConn = require("@sap/hdbext");
 const express = require("express");
+xsenv.loadEnv();
 
 https.globalAgent.options.ca = xsenv.loadCertificates();
 global.__base = __dirname + "/";

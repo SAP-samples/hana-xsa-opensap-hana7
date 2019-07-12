@@ -1,11 +1,10 @@
 {
 	"name": "serve",
 	"dependencies": {
-		"@sap/cds": "^3.10",
+		"@sap/cds": "^3.13",
 		"express": "^4.17",
-		"@sap/xssec": "2.1.17",
+		"@sap/xssec": "^2.2",
 		"@sap/xsenv": "2.0",
-		"hdb": "0.17.0",
 		"@sap/hdbext": "~6.0",
 		"@sap/hana-client": "~2.4",
 		"@sap/textbundle": "latest",
@@ -52,5 +51,4 @@
 			"driver": "hana"
 		}
 	}
-
 }
