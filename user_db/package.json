@@ -3,7 +3,10 @@
     "dependencies": {
         "@sap/hdi-deploy": "3.11.0"
     },
+    "engines": {
+        "node": "^10"
+    },
     "scripts": {
-        "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+        "start": "node node_modules/@sap/hdi-deploy/deploy.js --auto-undeploy"
     }
 }

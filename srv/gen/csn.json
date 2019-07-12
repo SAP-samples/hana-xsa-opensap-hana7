@@ -1,32 +1,1441 @@
 {
-  "sources": {
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/PurchaseOrder.cds": "namespace opensap.PurchaseOrder;\nusing BUYER from '../db/import';\n    type BusinessKey : String(10);\n    type SDate : DateTime;\n    type CurrencyT : String(5) @title: '{i18n>currency}';\n    type AmountT : Decimal(15, 2);\n    type QuantityT : Decimal(13, 3) @(title: '{i18n>quantity}', Measures.Unit: Units.Quantity );\n    type UnitT : String(3) @title: '{i18n>quantityUnit}';\n    type StatusT : String(1);\n\n\ttype HistoryT {\n        CREATEDBY : BusinessKey @(title: '{i18n>CreatedBy}', Common.FieldControl: #ReadOnly);\n        CREATEDAT : SDate  @(title: '{i18n>CreatedAt}',  Common.FieldControl: #ReadOnly);\n        CHANGEDBY : BusinessKey  @(title: '{i18n>ChangedBy}',  Common.FieldControl: #ReadOnly);\n        CHANGEDAT : SDate  @(title: '{i18n>ChangedAt}',  Common.FieldControl: #ReadOnly);\n    };\n\n    entity Headers {\n        key PURCHASEORDERID : Integer @(title: '{i18n>po_id}', Common.FieldControl: #Mandatory, Search.defaultSearchElement, Common.Label: '{i18n>po_id}');\n            ITEMS           : association to many Items on ITEMS.POHeader = $self @(title: '{i18n>po_items}', Common: { Text: {$value: ITEMS.PRODUCT, \"@UI.TextArrangement\": #TextOnly }});\n            HISTORY         : HistoryT;\n            NOTEID          : BusinessKey null @title: '{i18n>notes}';\n            PARTNER         : BusinessKey @title: '{i18n>partner_id}';\n            CURRENCY        : CurrencyT @(\n            \tCommon: {\n\t\t\t\t\tText: {$value: CURRENCY.CURRENCY, \"@UI.TextArrangement\": #TextOnly},\n\t\t\t\t\tValueList: {entity: 'CURRENCY', type: #fixed},\n\t\t\t\t\tValueListWithFixedValues\n\t\t\t\t}\n\t\t\t);\n            GROSSAMOUNT     : AmountT @( title: '{i18n>grossAmount}', Measures.ISOCurrency: currency);\n            NETAMOUNT       : AmountT @( title: '{i18n>netAmount}', Measures.ISOCurrency: currency);\n            TAXAMOUNT       : AmountT @( title: '{i18n>taxAmount}', Measures.ISOCurrency: currency);\n            LIFECYCLESTATUS : StatusT @(title: '{i18n>lifecycle}', Common.FieldControl: #ReadOnly);\n            APPROVALSTATUS  : StatusT @(title: '{i18n>approval}', Common.FieldControl: #ReadOnly);\n            CONFIRMSTATUS   : StatusT @(title: '{i18n>confirmation}', Common.FieldControl: #ReadOnly);\n            ORDERINGSTATUS  : StatusT @(title: '{i18n>ordering}', Common.FieldControl: #ReadOnly);\n            INVOICINGSTATUS : StatusT @(title: '{i18n>invoicing}', Common.FieldControl: #ReadOnly);\n    }\n\n\n    entity Items {\n        key POHeader     : association to Headers @title: '{i18n>poService}';\n        key PRODUCT      : BusinessKey @(title: '{i18n>product}', Common.FieldControl: #Mandatory, Search.defaultSearchElement);\n            NOTEID       : BusinessKey null ;\n            CURRENCY     : CurrencyT @(\n            \tCommon: {\n\t\t\t\t\tText: {$value: CURRENCY.CURRENCY, \"@UI.TextArrangement\": #TextOnly},\n\t\t\t\t\tValueList: {entity: 'CURRENCY', type: #fixed},\n\t\t\t\t\tValueListWithFixedValues\n\t\t\t\t}\n\t\t\t);\n            GROSSAMOUNT  : AmountT @( title: '{i18n>grossAmount}', Measures.ISOCurrency: currency);\n            NETAMOUNT    : AmountT  @( title: '{i18n>netAmount}', Measures.ISOCurrency: currency);\n            TAXAMOUNT    : AmountT @( title: '{i18n>taxAmount}', Measures.ISOCurrency: currency);\n            QUANTITY     : QuantityT;\n            QUANTITYUNIT : UnitT;\n            DELIVERYDATE : SDate @title: '{i18n>deliveryDate}';\n    }\n\n\tdefine view ItemView as\n        select from Items\n        {\n            POHeader.PURCHASEORDERID,\n            POHeader.PARTNER,\n            PRODUCT,\n            CURRENCY,\n            GROSSAMOUNT,\n            NETAMOUNT,\n            TAXAMOUNT,\n            QUANTITY,\n            QUANTITYUNIT,\n            DELIVERYDATE\n        };\n\n\n",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/data-model.cds": "using from '../db/PurchaseOrder';\nusing from '../db/import';\n\nentity Base {\n  key ID : Integer;\n}",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/import.cds": "    type BusinessKey : String(10);\ntype SDate : DateTime;\ntype CurrencyT : String(5)  @title: '{i18n>currency}';\ntype AmountT : Decimal(15, 2);\ntype QuantityT : Decimal(13, 3) @(title: '{i18n>quantity}', Measures.Unit: Units.Quantity );\ntype UnitT : String(3) @title: '{i18n>quantityUnit}';\ntype StatusT : String(1);\n    \n\n@cds.persistence.exists\nentity PURCHASE_ORDER_ITEM_VIEW {\n  key PO_ITEM_ID: Integer @(title: '{i18n>po_items}', Common: { Text: {$value: PRODUCT_ID, \"@UI.TextArrangement\": #TextOnly }});\n  PARTNER_ID: BusinessKey @title: '{i18n>partner_id}';\n  key PRODUCT_ID: BusinessKey @(title: '{i18n>product}', Common.FieldControl: #Mandatory, Search.defaultSearchElement);\n  CURRENCY_CODE: CurrencyT @(\n            \tCommon: {\n\t\t\t\t\tText: {$value: CURRENCY.CURRENCY, \"@UI.TextArrangement\": #TextOnly},\n\t\t\t\t\tValueList: {entity: 'CURRENCY', type: #fixed},\n\t\t\t\t\tValueListWithFixedValues\n\t\t\t\t}\n\t\t\t);\n  AMOUNT: AmountT @( title: '{i18n>grossAmount}', Measures.ISOCurrency: currency);\n  NET_AMOUNT: AmountT @( title: '{i18n>netAmount}', Measures.ISOCurrency: currency);\n  TAX_AMOUNT: AmountT @( title: '{i18n>taxAmount}', Measures.ISOCurrency: currency);\n  QUANTITY: QuantityT;\n  QUANTITY_UNIT: UnitT;\n  DELIVERY_DATE: SDate @title: '{i18n>deliveryDate}';\n}\n\n@cds.persistence.exists \nEntity BUYER {\n \tBUILDING: String(10) @title: '{i18n>building}'; \n\tCITY: String(40) @title: '{i18n>city}'; \n\tCOMPANYNAME: String(80) @title: '{i18n>company}'; \n\tCOUNTRY: String(3) @title: '{i18n>country}'; \n\tEMAILADDRESS: String(255) @title: '{i18n>email}'; \n\tLEGALFORM: String(10) @title: '{i18n>legal}';  \n\tkey PARTNERID: Integer @title: '{i18n>partnerId}'; \n\tPARTNERROLE: String(3) @title: '{i18n>partnerRole}';  \n\tPOSTALCODE: String(10) @title: '{i18n>postalCode}';  \n\tREGION: String(4) @title: '{i18n>region}';  \n\tSTREET: String(60)  @title: '{i18n>street}';  \n}\n\n@cds.persistence.exists \nEntity USER_DETAILS {\n\t EMAIL: String(255)  @title: '{i18n>email}';  \n\t FIRSTNAME: String(40) @title: '{i18n>fname}';\n\t LASTNAME: String(40) @title: '{i18n>lname}';\n     key USERID: Integer @title: '{i18n>userId}';\t \n}\n\n@cds.persistence.exists \nEntity CURRENCY {\n\t key CODE: String(3) @title: '{i18n>currCode}';\n\t CURRENCY: String(80) @title: '{i18n>currDesc}';\n}",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/fiori-annotations-my-service.cds": "using CatalogService as cats from './my-service';\n\nannotate cats.POItemsView with @( // header-level annotations\n// ---------------------------------------------------------------------------\n// List Report\n// ---------------------------------------------------------------------------\n\t// Product List\n\tUI: {\n\t\tLineItem: [ \n\t\t\t{$Type: 'UI.DataField', Value: PO_ITEM_ID, \"@UI.Importance\":#High},\n\t\t\t{$Type: 'UI.DataField', Value: PRODUCT_ID, \"@UI.Importance\": #High},\n\t\t\t{$Type: 'UI.DataField', Value: PARTNER_ID, \"@UI.Importance\": #High},\n\t\t\t{$Type: 'UI.DataField', Value: PARTNERS.COMPANYNAME, \"@UI.Importance\": #Medium},\t\t\t\n\t\t\t{$Type: 'UI.DataField', Value: AMOUNT, \"@UI.Importance\": #High},\n\t\t\t{$Type: 'UI.DataField', Value: CURRENCY_CODE, \"@UI.Importance\": #Medium},\t\t\t\n \t\t],\n \t\tPresentationVariant: {\n\t\t\tSortOrder: [ {$Type: 'Common.SortOrderType', Property: PO_ITEM_ID, Descending: false}, {$Type: 'Common.SortOrderType', Property: PRODUCT_ID, Descending: false} ]\n\t\t}\n\t}\n\n\n);\n\nannotate cats.Buyer with @( // header-level annotations\n// ---------------------------------------------------------------------------\n// List Report\n// ---------------------------------------------------------------------------\n\t// Product List\n\tUI: {\n\t\tLineItem: [ \n\t\t\t{$Type: 'UI.DataField', Value: PARTNERID, \"@UI.Importance\":#High},\n\t\t\t{$Type: 'UI.DataField', Value: PARTNERROLE, \"@UI.Importance\": #Medium},\n\t\t\t{$Type: 'UI.DataField', Value: COMPANYNAME, \"@UI.Importance\": #High},\n\t\t\t{$Type: 'UI.DataField', Value: STREET, \"@UI.Importance\": #High},\t\t\t\n\t\t\t{$Type: 'UI.DataField', Value: CITY, \"@UI.Importance\": #High},\n\t\t\t{$Type: 'UI.DataField', Value: REGION, \"@UI.Importance\": #High},\t\t\t\n\t\t\t{$Type: 'UI.DataField', Value: COUNTRY, \"@UI.Importance\": #High},\t\n\t\t\t{$Type: 'UI.DataField', Value: EMAILADDRESS, \"@UI.Importance\": #High},\t\t\t\n \t\t],\n \t\tPresentationVariant: {\n\t\t\tSortOrder: [ {$Type: 'Common.SortOrderType', Property: PARTNERID, Descending: false} ]\n\t\t}\n\t}\n\n\n);\n",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/my-service.cds": "using opensap.PurchaseOrder.Headers as Headers from '../db/data-model';\nusing opensap.PurchaseOrder.Items as Items from '../db/data-model';\nusing PURCHASE_ORDER_ITEM_VIEW as ItemsView from '../db/data-model';\nusing BUYER as BuyerView from '../db/data-model';\nusing USER_DETAILS as UserDetails from '../db/data-model';\nusing CURRENCY as Curr from '../db/data-model';\n//using Headers as Headers from '../db/PurchaseOrder';\n\n// [ADDING EXTERNAL SERVICE] To add entities from external services:\n// [ADDING EXTERNAL SERVICE] - STEP 1 - Add a data model from an external service to the project (by selecting the relevant menu option in SAP Web IDE).\n// [ADDING EXTERNAL SERVICE] - STEP 2 - Add a reference to the external service model file:\n// using <external_service_name> as <alias_name> from '../srv/external/csn/<external_service_name>';\n\nservice CatalogService {\n\n\tentity MyEntity {\n\t    key ID : Integer;\n\t}\n\t\n\nentity POs @(\n\t\ttitle: '{i18n>poService}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: true},\n\t\t\tUpdateRestrictions: {Updatable: true},\n\t\t\tDeleteRestrictions: {Deletable: true}\n\t\t}\n\t) as projection on Headers;\n\nentity POItems @(\n\t\ttitle: '{i18n>poService}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: true},\n\t\t\tUpdateRestrictions: {Updatable: true},\n\t\t\tDeleteRestrictions: {Deletable: true}\n\t\t}\n\t) as projection on Items;\n\nextend ItemsView with {\n\tPARTNERS: association to BuyerView on PARTNERS.PARTNERID = PARTNER_ID;\n}\nentity POItemsView @(\n\t\ttitle: '{i18n>poService}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: false},\n\t\t\tUpdateRestrictions: {Updatable: false},\n\t\t\tDeleteRestrictions: {Deletable: false}\n\t\t}\n\t) as projection on ItemsView;\n\nentity Buyer @(\n\t\ttitle: '{i18n>buyerService}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: false},\n\t\t\tUpdateRestrictions: {Updatable: false},\n\t\t\tDeleteRestrictions: {Deletable: false}\n\t\t}\n\t) as projection on BuyerView;\n\nentity User @(\n\t\ttitle: '{i18n>userService}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: true},\n\t\t\tUpdateRestrictions: {Updatable: true},\n\t\t\tDeleteRestrictions: {Deletable: true}\n\t\t}\n\t) as projection on UserDetails;\n\nentity CURRENCY @(\n\t\ttitle: '{i18n>currencySrvice}',\n\t\tCapabilities: {\n\t\t\tInsertRestrictions: {Insertable: false},\n\t\t\tUpdateRestrictions: {Updatable: false},\n\t\t\tDeleteRestrictions: {Deletable: false}\n\t\t}\n\t) as projection on Curr;\n\t\n//entity POsFromHANA as projection on PO.PURCHASE_ORDER_ITEM_VIEW;\n\n\t// [ADDING EXTERNAL SERVICE] - STEP 3 - Add a new entity to the exposed service model:\n\t// @cds.persistence.skip\n\t// entity <entity_name> as projection on <alias_name>.<external_entity_name>;\n\n}\n"
-  },
-  "dependencies": {
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/PurchaseOrder.cds": {
-      "../db/import": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/import.cds"
+  "definitions": {
+    "AmountT": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "precision": 15,
+      "scale": 2
     },
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/data-model.cds": {
-      "../db/PurchaseOrder": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/PurchaseOrder.cds",
-      "../db/import": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/import.cds"
+    "BUYER": {
+      "kind": "entity",
+      "@cds.persistence.exists": true,
+      "elements": {
+        "BUILDING": {
+          "@title": "{i18n>building}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "CITY": {
+          "@title": "{i18n>city}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "COMPANYNAME": {
+          "@title": "{i18n>company}",
+          "type": "cds.String",
+          "length": 80
+        },
+        "COUNTRY": {
+          "@title": "{i18n>country}",
+          "type": "cds.String",
+          "length": 3
+        },
+        "EMAILADDRESS": {
+          "@title": "{i18n>email}",
+          "type": "cds.String",
+          "length": 255
+        },
+        "LEGALFORM": {
+          "@title": "{i18n>legal}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "PARTNERID": {
+          "@title": "{i18n>partnerId}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNERROLE": {
+          "@title": "{i18n>partnerRole}",
+          "type": "cds.String",
+          "length": 3
+        },
+        "POSTALCODE": {
+          "@title": "{i18n>postalCode}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "REGION": {
+          "@title": "{i18n>region}",
+          "type": "cds.String",
+          "length": 4
+        },
+        "STREET": {
+          "@title": "{i18n>street}",
+          "type": "cds.String",
+          "length": 60
+        }
+      }
     },
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/fiori-annotations-my-service.cds": {
-      "./my-service": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/my-service.cds"
+    "Base": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        }
+      }
     },
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/my-service.cds": {
-      "../db/data-model": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/data-model.cds"
+    "BusinessKey": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 10
+    },
+    "CURRENCY": {
+      "kind": "entity",
+      "@cds.persistence.exists": true,
+      "elements": {
+        "CODE": {
+          "@title": "{i18n>currCode}",
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "CURRENCY": {
+          "@title": "{i18n>currDesc}",
+          "type": "cds.String",
+          "length": 80
+        }
+      }
+    },
+    "CatalogService": {
+      "kind": "service"
+    },
+    "CatalogService.Buyer": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PARTNERID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PARTNERROLE"
+          },
+          "@UI.Importance": {
+            "#": "Medium"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "COMPANYNAME"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "STREET"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "CITY"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "REGION"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "COUNTRY"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "EMAILADDRESS"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "PARTNERID"
+          },
+          "Descending": false
+        }
+      ],
+      "@title": "{i18n>buyerService}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "BUYER"
+            ],
+            "as": "BuyerView"
+          }
+        }
+      },
+      "elements": {
+        "BUILDING": {
+          "@title": "{i18n>building}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "CITY": {
+          "@title": "{i18n>city}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "COMPANYNAME": {
+          "@title": "{i18n>company}",
+          "type": "cds.String",
+          "length": 80
+        },
+        "COUNTRY": {
+          "@title": "{i18n>country}",
+          "type": "cds.String",
+          "length": 3
+        },
+        "EMAILADDRESS": {
+          "@title": "{i18n>email}",
+          "type": "cds.String",
+          "length": 255
+        },
+        "LEGALFORM": {
+          "@title": "{i18n>legal}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "PARTNERID": {
+          "@title": "{i18n>partnerId}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNERROLE": {
+          "@title": "{i18n>partnerRole}",
+          "type": "cds.String",
+          "length": 3
+        },
+        "POSTALCODE": {
+          "@title": "{i18n>postalCode}",
+          "type": "cds.String",
+          "length": 10
+        },
+        "REGION": {
+          "@title": "{i18n>region}",
+          "type": "cds.String",
+          "length": 4
+        },
+        "STREET": {
+          "@title": "{i18n>street}",
+          "type": "cds.String",
+          "length": 60
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.CURRENCY": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@title": "{i18n>currencySrvice}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "CURRENCY"
+            ],
+            "as": "Curr"
+          }
+        }
+      },
+      "elements": {
+        "CODE": {
+          "@title": "{i18n>currCode}",
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "CURRENCY": {
+          "@title": "{i18n>currDesc}",
+          "type": "cds.String",
+          "length": 80
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.MyEntity": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "CatalogService.POItems": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@title": "{i18n>poService}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "opensap.PurchaseOrder.Items"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "POHeader": {
+          "@title": "{i18n>poService}",
+          "key": true,
+          "type": "cds.Association",
+          "target": "CatalogService.POs",
+          "keys": [
+            {
+              "ref": [
+                "PURCHASEORDERID"
+              ]
+            }
+          ]
+        },
+        "PRODUCT": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>product}",
+          "key": true,
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "NOTEID": {
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10,
+          "notNull": false
+        },
+        "CURRENCY": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "opensap.PurchaseOrder.CurrencyT",
+          "length": 5
+        },
+        "GROSSAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NETAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAXAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "QUANTITY": {
+          "@Measures.Unit": {
+            "=": "Units.Quantity"
+          },
+          "@title": "{i18n>quantity}",
+          "type": "opensap.PurchaseOrder.QuantityT",
+          "precision": 13,
+          "scale": 3
+        },
+        "QUANTITYUNIT": {
+          "@title": "{i18n>quantityUnit}",
+          "type": "opensap.PurchaseOrder.UnitT",
+          "length": 3
+        },
+        "DELIVERYDATE": {
+          "@title": "{i18n>deliveryDate}",
+          "type": "opensap.PurchaseOrder.SDate"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.POItemsView": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PO_ITEM_ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PRODUCT_ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PARTNER_ID"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "PARTNERS.COMPANYNAME"
+          },
+          "@UI.Importance": {
+            "#": "Medium"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "AMOUNT"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "CURRENCY_CODE"
+          },
+          "@UI.Importance": {
+            "#": "Medium"
+          }
+        }
+      ],
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "PO_ITEM_ID"
+          },
+          "Descending": false
+        },
+        {
+          "$Type": "Common.SortOrderType",
+          "Property": {
+            "=": "PRODUCT_ID"
+          },
+          "Descending": false
+        }
+      ],
+      "@title": "{i18n>poService}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "PURCHASE_ORDER_ITEM_VIEW"
+            ],
+            "as": "ItemsView"
+          }
+        }
+      },
+      "elements": {
+        "PO_ITEM_ID": {
+          "@Common.Text.$value": {
+            "=": "PRODUCT_ID"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@title": "{i18n>po_items}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNER_ID": {
+          "@title": "{i18n>partner_id}",
+          "type": "BusinessKey",
+          "length": 10
+        },
+        "PRODUCT_ID": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>product}",
+          "key": true,
+          "type": "BusinessKey",
+          "length": 10
+        },
+        "CURRENCY_CODE": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "CurrencyT",
+          "length": 5
+        },
+        "AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NET_AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAX_AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "QUANTITY": {
+          "@Measures.Unit": {
+            "=": "Units.Quantity"
+          },
+          "@title": "{i18n>quantity}",
+          "type": "QuantityT",
+          "precision": 13,
+          "scale": 3
+        },
+        "QUANTITY_UNIT": {
+          "@title": "{i18n>quantityUnit}",
+          "type": "UnitT",
+          "length": 3
+        },
+        "DELIVERY_DATE": {
+          "@title": "{i18n>deliveryDate}",
+          "type": "SDate"
+        },
+        "PARTNERS": {
+          "type": "cds.Association",
+          "target": "CatalogService.Buyer",
+          "on": [
+            {
+              "ref": [
+                "PARTNERS",
+                "PARTNERID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PARTNER_ID"
+              ]
+            }
+          ]
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.POs": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@title": "{i18n>poService}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "opensap.PurchaseOrder.Headers"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "PURCHASEORDERID": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>po_id}",
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>po_id}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ITEMS": {
+          "@Common.Text.$value": {
+            "=": "ITEMS.PRODUCT"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@title": "{i18n>po_items}",
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "CatalogService.POItems",
+          "on": [
+            {
+              "ref": [
+                "ITEMS",
+                "POHeader"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        },
+        "HISTORY": {
+          "type": "opensap.PurchaseOrder.HistoryT"
+        },
+        "NOTEID": {
+          "@title": "{i18n>notes}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10,
+          "notNull": false
+        },
+        "PARTNER": {
+          "@title": "{i18n>partner_id}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "CURRENCY": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "opensap.PurchaseOrder.CurrencyT",
+          "length": 5
+        },
+        "GROSSAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NETAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAXAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "LIFECYCLESTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>lifecycle}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "APPROVALSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>approval}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "CONFIRMSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>confirmation}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "ORDERINGSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>ordering}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "INVOICINGSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>invoicing}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.User": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": true,
+      "@Capabilities.InsertRestrictions.Insertable": true,
+      "@Capabilities.UpdateRestrictions.Updatable": true,
+      "@title": "{i18n>userService}",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "USER_DETAILS"
+            ],
+            "as": "UserDetails"
+          }
+        }
+      },
+      "elements": {
+        "EMAIL": {
+          "@title": "{i18n>email}",
+          "type": "cds.String",
+          "length": 255
+        },
+        "FIRSTNAME": {
+          "@title": "{i18n>fname}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "LASTNAME": {
+          "@title": "{i18n>lname}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "USERID": {
+          "@title": "{i18n>userId}",
+          "key": true,
+          "type": "cds.Integer"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CurrencyT": {
+      "kind": "type",
+      "@title": "{i18n>currency}",
+      "type": "cds.String",
+      "length": 5
+    },
+    "PURCHASE_ORDER_ITEM_VIEW": {
+      "kind": "entity",
+      "@cds.persistence.exists": true,
+      "elements": {
+        "PO_ITEM_ID": {
+          "@Common.Text.$value": {
+            "=": "PRODUCT_ID"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@title": "{i18n>po_items}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNER_ID": {
+          "@title": "{i18n>partner_id}",
+          "type": "BusinessKey",
+          "length": 10
+        },
+        "PRODUCT_ID": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>product}",
+          "key": true,
+          "type": "BusinessKey",
+          "length": 10
+        },
+        "CURRENCY_CODE": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "CurrencyT",
+          "length": 5
+        },
+        "AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NET_AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAX_AMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "QUANTITY": {
+          "@Measures.Unit": {
+            "=": "Units.Quantity"
+          },
+          "@title": "{i18n>quantity}",
+          "type": "QuantityT",
+          "precision": 13,
+          "scale": 3
+        },
+        "QUANTITY_UNIT": {
+          "@title": "{i18n>quantityUnit}",
+          "type": "UnitT",
+          "length": 3
+        },
+        "DELIVERY_DATE": {
+          "@title": "{i18n>deliveryDate}",
+          "type": "SDate"
+        },
+        "PARTNERS": {
+          "type": "cds.Association",
+          "target": "BUYER",
+          "on": [
+            {
+              "ref": [
+                "PARTNERS",
+                "PARTNERID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "PARTNER_ID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "QuantityT": {
+      "kind": "type",
+      "@Measures.Unit": {
+        "=": "Units.Quantity"
+      },
+      "@title": "{i18n>quantity}",
+      "type": "cds.Decimal",
+      "precision": 13,
+      "scale": 3
+    },
+    "SDate": {
+      "kind": "type",
+      "type": "cds.DateTime"
+    },
+    "StatusT": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 1
+    },
+    "USER_DETAILS": {
+      "kind": "entity",
+      "@cds.persistence.exists": true,
+      "elements": {
+        "EMAIL": {
+          "@title": "{i18n>email}",
+          "type": "cds.String",
+          "length": 255
+        },
+        "FIRSTNAME": {
+          "@title": "{i18n>fname}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "LASTNAME": {
+          "@title": "{i18n>lname}",
+          "type": "cds.String",
+          "length": 40
+        },
+        "USERID": {
+          "@title": "{i18n>userId}",
+          "key": true,
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "UnitT": {
+      "kind": "type",
+      "@title": "{i18n>quantityUnit}",
+      "type": "cds.String",
+      "length": 3
+    },
+    "opensap.PurchaseOrder.AmountT": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "precision": 15,
+      "scale": 2
+    },
+    "opensap.PurchaseOrder.BusinessKey": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 10
+    },
+    "opensap.PurchaseOrder.CurrencyT": {
+      "kind": "type",
+      "@title": "{i18n>currency}",
+      "type": "cds.String",
+      "length": 5
+    },
+    "opensap.PurchaseOrder.Headers": {
+      "kind": "entity",
+      "elements": {
+        "PURCHASEORDERID": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>po_id}",
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>po_id}",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ITEMS": {
+          "@Common.Text.$value": {
+            "=": "ITEMS.PRODUCT"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@title": "{i18n>po_items}",
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "opensap.PurchaseOrder.Items",
+          "on": [
+            {
+              "ref": [
+                "ITEMS",
+                "POHeader"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        },
+        "HISTORY": {
+          "type": "opensap.PurchaseOrder.HistoryT"
+        },
+        "NOTEID": {
+          "@title": "{i18n>notes}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10,
+          "notNull": false
+        },
+        "PARTNER": {
+          "@title": "{i18n>partner_id}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "CURRENCY": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "opensap.PurchaseOrder.CurrencyT",
+          "length": 5
+        },
+        "GROSSAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NETAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAXAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "LIFECYCLESTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>lifecycle}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "APPROVALSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>approval}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "CONFIRMSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>confirmation}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "ORDERINGSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>ordering}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        },
+        "INVOICINGSTATUS": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>invoicing}",
+          "type": "opensap.PurchaseOrder.StatusT",
+          "length": 1
+        }
+      }
+    },
+    "opensap.PurchaseOrder.HistoryT": {
+      "kind": "type",
+      "elements": {
+        "CREATEDBY": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>CreatedBy}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "CREATEDAT": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>CreatedAt}",
+          "type": "opensap.PurchaseOrder.SDate"
+        },
+        "CHANGEDBY": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>ChangedBy}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "CHANGEDAT": {
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@title": "{i18n>ChangedAt}",
+          "type": "opensap.PurchaseOrder.SDate"
+        }
+      }
+    },
+    "opensap.PurchaseOrder.ItemView": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "opensap.PurchaseOrder.Items"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "POHeader",
+                "PURCHASEORDERID"
+              ]
+            },
+            {
+              "ref": [
+                "POHeader",
+                "PARTNER"
+              ]
+            },
+            {
+              "ref": [
+                "PRODUCT"
+              ]
+            },
+            {
+              "ref": [
+                "CURRENCY"
+              ]
+            },
+            {
+              "ref": [
+                "GROSSAMOUNT"
+              ]
+            },
+            {
+              "ref": [
+                "NETAMOUNT"
+              ]
+            },
+            {
+              "ref": [
+                "TAXAMOUNT"
+              ]
+            },
+            {
+              "ref": [
+                "QUANTITY"
+              ]
+            },
+            {
+              "ref": [
+                "QUANTITYUNIT"
+              ]
+            },
+            {
+              "ref": [
+                "DELIVERYDATE"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "PURCHASEORDERID": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>po_id}",
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>po_id}",
+          "type": "cds.Integer"
+        },
+        "PARTNER": {
+          "@title": "{i18n>partner_id}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "PRODUCT": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>product}",
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "CURRENCY": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "opensap.PurchaseOrder.CurrencyT",
+          "length": 5
+        },
+        "GROSSAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NETAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAXAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "QUANTITY": {
+          "@Measures.Unit": {
+            "=": "Units.Quantity"
+          },
+          "@title": "{i18n>quantity}",
+          "type": "opensap.PurchaseOrder.QuantityT",
+          "precision": 13,
+          "scale": 3
+        },
+        "QUANTITYUNIT": {
+          "@title": "{i18n>quantityUnit}",
+          "type": "opensap.PurchaseOrder.UnitT",
+          "length": 3
+        },
+        "DELIVERYDATE": {
+          "@title": "{i18n>deliveryDate}",
+          "type": "opensap.PurchaseOrder.SDate"
+        }
+      },
+      "$syntax": "view"
+    },
+    "opensap.PurchaseOrder.Items": {
+      "kind": "entity",
+      "elements": {
+        "POHeader": {
+          "@title": "{i18n>poService}",
+          "key": true,
+          "type": "cds.Association",
+          "target": "opensap.PurchaseOrder.Headers",
+          "keys": [
+            {
+              "ref": [
+                "PURCHASEORDERID"
+              ]
+            }
+          ]
+        },
+        "PRODUCT": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Search.defaultSearchElement": true,
+          "@title": "{i18n>product}",
+          "key": true,
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10
+        },
+        "NOTEID": {
+          "type": "opensap.PurchaseOrder.BusinessKey",
+          "length": 10,
+          "notNull": false
+        },
+        "CURRENCY": {
+          "@Common.Text.$value": {
+            "=": "CURRENCY.CURRENCY"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CURRENCY",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@title": "{i18n>currency}",
+          "type": "opensap.PurchaseOrder.CurrencyT",
+          "length": 5
+        },
+        "GROSSAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>grossAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "NETAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>netAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "TAXAMOUNT": {
+          "@Measures.ISOCurrency": {
+            "=": "currency"
+          },
+          "@title": "{i18n>taxAmount}",
+          "type": "opensap.PurchaseOrder.AmountT",
+          "precision": 15,
+          "scale": 2
+        },
+        "QUANTITY": {
+          "@Measures.Unit": {
+            "=": "Units.Quantity"
+          },
+          "@title": "{i18n>quantity}",
+          "type": "opensap.PurchaseOrder.QuantityT",
+          "precision": 13,
+          "scale": 3
+        },
+        "QUANTITYUNIT": {
+          "@title": "{i18n>quantityUnit}",
+          "type": "opensap.PurchaseOrder.UnitT",
+          "length": 3
+        },
+        "DELIVERYDATE": {
+          "@title": "{i18n>deliveryDate}",
+          "type": "opensap.PurchaseOrder.SDate"
+        }
+      }
+    },
+    "opensap.PurchaseOrder.QuantityT": {
+      "kind": "type",
+      "@Measures.Unit": {
+        "=": "Units.Quantity"
+      },
+      "@title": "{i18n>quantity}",
+      "type": "cds.Decimal",
+      "precision": 13,
+      "scale": 3
+    },
+    "opensap.PurchaseOrder.SDate": {
+      "kind": "type",
+      "type": "cds.DateTime"
+    },
+    "opensap.PurchaseOrder.StatusT": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 1
+    },
+    "opensap.PurchaseOrder.UnitT": {
+      "kind": "type",
+      "@title": "{i18n>quantityUnit}",
+      "type": "cds.String",
+      "length": 3
     }
   },
-  "files": [
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/PurchaseOrder.cds",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/data-model.cds",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/db/import.cds",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/fiori-annotations-my-service.cds",
-    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv/my-service.cds"
-  ],
-  "srv": "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/9635cc7d-b409-40e3-8dbe-0ead29e9543c/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-110069263947025564/hana-xsa-opensap-hana7/srv"
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.15.0"
+  },
+  "$version": "1.0"
 }
