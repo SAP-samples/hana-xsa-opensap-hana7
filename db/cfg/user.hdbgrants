@@ -1,5 +1,5 @@
 {
-   "hana-xsa-opensap-hana7-hdiuserdb-IZEgOezGjuAux9erI": {
+   "hdi-user-service": {
      "object_owner": {
        "container_roles":["user#"]
      },

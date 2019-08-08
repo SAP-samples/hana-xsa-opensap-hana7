@@ -2,13 +2,13 @@
   "UserData.User": {
     "target": {
       "object": "UserData.User",
-      "grantor": "hana-xsa-opensap-hana7-hdiuserdb-IZEgOezGjuAux9erI"
+      "grantor": "hdi-user-service"
     }
   },
   "USER_DETAILS": {
     "target": {
       "object": "user.models::USER_DETAILS",
-      "grantor": "hana-xsa-opensap-hana7-hdiuserdb-IZEgOezGjuAux9erI"      
+      "grantor": "hdi-user-service"      
     }
   }
 }
