@@ -56,10 +56,10 @@ var hanaOptions = xsenv.getServices({
 });
 hanaOptions.hana.pooling = true;
 app.use(
+	xsHDBConn.middleware(hanaOptions.hana),
 	passport.authenticate("JWT", {
 		session: false
-	}),
-	xsHDBConn.middleware(hanaOptions.hana)
+	})
 );
 
 //CDS OData V4 Handler
