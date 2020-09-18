@@ -1,4 +1,7 @@
 # hana-xsa-opensap-hana7
+
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/hana-xsa-opensap-hana7)](https://api.reuse.software/info/github.com/SAP-samples/hana-xsa-opensap-hana7)
+
 Software Development on SAP HANA (Update Q1/2019)
 openSAP HANA7 Course Exercise Materials
 
