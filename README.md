@@ -56,4 +56,4 @@ This project is provided "as-is": there is no guarantee that raised issues will 
 
 ## License
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
-This project is licensed under the SAP SAMPLE CODE LICENSE AGREEMENT except as noted otherwise in the [LICENSE](LICENSE) file.
+This project is licensed under the SAP SAMPLE CODE LICENSE AGREEMENT except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
