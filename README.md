@@ -10,7 +10,7 @@ With the delivery of SAP HANA 2.0, we see many new features in both the underlyi
 
 Although we have two previous courses that focused on these new technologies – SAP Web IDE for SAP HANA to develop both HDI (SAP HANA Deployment Infrastructure) and XSA (SAP HANA extended application services, advanced model) – they could only cover the basics due to so much new functionality. In this course, we’ll start from the assumption that students are familiar with the basics of the previous courses. This will allow us to dive deeper on key topics from real world applications. We’ll also cover new functionality added in SAP HANA 2.0 SPS 03, especially the evolution of the core programming model in XSA.
 
-Developers taking this course should be able to get up to speed quickly and begin leveraging these new features to enhance their own productivity, as well as tap into powerful new features of SAP HANA itself. Students will learn how to use SAP Web IDE for SAP HANA or SAP Web IDE full-stack to develop both HDI and XSA-based applications for SAP HANA on-premise or on SAP Cloud Platform.
+Developers taking this course should be able to get up to speed quickly and begin leveraging these new features to enhance their own productivity, as well as tap into powerful new features of SAP HANA itself. Students will learn how to use SAP Web IDE for SAP HANA or SAP Web IDE full-stack to develop both HDI and XSA-based applications for SAP HANA on-premise or on SAP Business Technology Platform.
 
 We’ll also focus on real-world problems and opportunities such as:
 - Cross-container and external reporting tool access to containers
@@ -43,7 +43,7 @@ Week 4: Final Exam
 ## Target Audience
 Application developers
 SAP HANA developers
-SAP Cloud Platform developers
+SAP BTP developers
 
 ## Course Requirements
 Basic programming knowledge including HTML, JavaScript, and SQL
