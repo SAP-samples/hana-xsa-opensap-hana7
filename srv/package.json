@@ -3,7 +3,7 @@
 	"dependencies": {
 		"@sap/cds": "^2.10",
 		"express": "^4.16.4",
-		"@sap/xssec": "2.1.15",
+		"@sap/xssec": "3.6.0",
 		"@sap/xsenv": "1.2.9",
 		"hdb": "0.16.0",
 		"@sap/hdbext": "~5.0",
