@@ -1,13 +1,7 @@
 {
 	"name": "web-approuter",
-	"engines": {
-		"node": ">=4.0.0 <9.0.0"
-	},
 	"dependencies": {
-		"@sap/approuter": "5.8.0"
-	},
-	"devDependencies": {
-		"@sap/grunt-sapui5module-bestpractice-build": "^0.0.14"
+		"@sap/approuter": "^16"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"

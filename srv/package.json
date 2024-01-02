@@ -1,29 +1,29 @@
 {
 	"name": "serve",
 	"dependencies": {
-		"@sap/cds": "^2.10",
+		"@sap/cds": "^7",
 		"express": "^4.16.4",
-		"@sap/xssec": "2.1.15",
-		"@sap/xsenv": "1.2.9",
-		"hdb": "0.16.0",
-		"@sap/hdbext": "~5.0",
-		"@sap/hana-client": "~2.3",
+		"@sap/xssec": "^3.6",
+		"@sap/xsenv": "^4.2",
+		"hdb": "^0.19",
+		"@sap/hdbext": "^8.0",
+		"@sap/hana-client": "^2.19",
 		"@sap/textbundle": "latest",
-		"@sap/logging": "~4.0",
-		"@sap/audit-logging": "2.2.4",
-		"passport": "~0.4.0",
+		"@sap/logging": "~7.1",
+		"@sap/audit-logging": "5.8.2",
+		"passport": "~0.7.0",
 		"async": "latest",
-		"ws": "~6.1",
+		"ws": "~8.16",
 		"accept-language-parser": "latest",
-		"node-xlsx": "~0.12",
+		"node-xlsx": "~0.23",
 		"node-zip": "~1.1.1",
-		"xmldoc": "~1.1.2",
-		"winston": "~3.1",
-		"body-parser": "~1.18",
+		"xmldoc": "~1.3.0",
+		"winston": "~3.11",
+		"body-parser": "~1.20",
 		"elementtree": "latest",
 		"then-request": "latest",
 		"compression": "~1.7",
-		"helmet": "~3.15"
+		"helmet": "~7.1"
 	},
 	"devDependencies": {
 		"gulp": "3.9.1",
@@ -40,8 +40,7 @@
 		"test-coverage": "node ./node_modules/gulp/bin/gulp test-coverage"
 	},
 	"engines": {
-		"node": "8.x",
-		"npm": "6.x"
+		"node": "20.x"
 	},
 	"i18n": {
 		"folders": [
